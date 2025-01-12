@@ -1,0 +1,92 @@
+import createBundleAnalyzer from "@next/bundle-analyzer";
+import localesPlugin from "@react-aria/optimize-locales-plugin";
+import type { NextConfig } from "next";
+import createI18nPlugin from "next-intl/plugin";
+
+import { env } from "@/config/env.config";
+
+const config: NextConfig = {
+	/** Compression should be handled by nginx reverse proxy. */
+	compress: false,
+	eslint: {
+		dirs: [process.cwd()],
+		ignoreDuringBuilds: true,
+	},
+	// experimental: {
+	// 	dynamicIO: true,
+	// 	ppr: true,
+	// },
+	headers() {
+		const headers: Awaited<ReturnType<NonNullable<NextConfig["headers"]>>> = [
+			/** @see https://nextjs.org/docs/app/building-your-application/deploying#streaming-and-suspense */
+			{
+				source: "/:path*{/}?",
+				headers: [
+					{
+						key: "X-Accel-Buffering",
+						value: "no",
+					},
+				],
+			},
+		];
+
+		return Promise.resolve(headers);
+	},
+	logging: {
+		fetches: {
+			fullUrl: true,
+		},
+	},
+	output: env.BUILD_MODE,
+	outputFileTracingExcludes: {
+		/**
+		 * Next.js standalone output incorrectly includes the content folder,
+		 * which will lead to deployment error:
+		 * "Max serverless function size of 50 MB compressed or 250 MB uncompressed reached".
+		 *
+		 * FIXME: check if this is still the case
+		 */
+		"**/*": ["./content/**/*", "node_modules/**/@swc/core*"],
+	},
+	redirects() {
+		const redirects: Awaited<ReturnType<NonNullable<NextConfig["redirects"]>>> = [
+			{
+				source: "/admin",
+				destination: "/keystatic",
+				permanent: false,
+			},
+		];
+
+		return Promise.resolve(redirects);
+	},
+	typescript: {
+		ignoreBuildErrors: true,
+	},
+	webpack(config, { isServer }) {
+		/**
+		 * @see https://react-spectrum.adobe.com/react-aria/ssr.html#nextjs-app-router
+		 */
+		if (!isServer) {
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+			config.plugins.push(localesPlugin.webpack({ locales: [] }));
+		}
+
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-return
+		return config;
+	},
+};
+
+const plugins: Array<(config: NextConfig) => NextConfig> = [
+	createBundleAnalyzer({ enabled: env.BUNDLE_ANALYZER === "enabled" }),
+	createI18nPlugin({
+		experimental: {
+			/** @see https://v4.next-intl.dev/docs/workflows/typescript#messages-arguments */
+			createMessagesDeclaration: "./messages/en.json",
+		},
+		requestConfig: "./lib/i18n/get-request-config.ts",
+	}),
+];
+
+export default plugins.reduce((config, plugin) => {
+	return plugin(config);
+}, config);

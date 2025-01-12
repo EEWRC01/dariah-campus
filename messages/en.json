@@ -1,0 +1,71 @@
+{
+	"mdx": {
+		"footnote-back-label": "Back to reference {reference}",
+		"footnotes": "Footnotes",
+		"table-of-contents": "Table of contents"
+	},
+	"AppFooter": {
+		"links": {
+			"contact": "Contact",
+			"imprint": "Imprint"
+		},
+		"navigation-secondary": "Secondary",
+		"navigation-social-media": "Social media",
+		"social-media": {
+			"bluesky": "Bluesky",
+			"mastodon": "Mastodon",
+			"twitter": "Twitter",
+			"youtube": "YouTube"
+		}
+	},
+	"AppHeader": {
+		"links": {
+			"about": "About the project",
+			"home": "Home"
+		},
+		"navigation-menu": "Navigation menu",
+		"navigation-menu-close": "Close navigation menu",
+		"navigation-menu-open": "Open navigation menu",
+		"navigation-primary": "Primary"
+	},
+	"CourseRegistryPage": {
+		"meta": {
+			"title": "Course registry"
+		},
+		"title": "Course registry"
+	},
+	"Error": {
+		"something-went-wrong": "Something went wrong!",
+		"try-again": "Try again"
+	},
+	"ImprintPage": {
+		"meta": {
+			"title": "Imprint"
+		},
+		"title": "Imprint"
+	},
+	"IndexPage": {
+		"badge": "ACDH-CH frontend team",
+		"lead-in": "This is a starter template built with Next.js 14. It includes internationalisation, dark mode, and end-to-end testing.",
+		"title": "Application template"
+	},
+	"Loading": {
+		"loading": "Loading"
+	},
+	"LocaleLayout": {
+		"rss-feed": "RSS Feed",
+		"skip-to-main-content": "Skip to main content"
+	},
+	"NotFoundPage": {
+		"meta": {
+			"title": "Page not found"
+		},
+		"title": "Page not found"
+	},
+	"SearchPage": {
+		"meta": {
+			"title": "Search"
+		},
+		"title": "Search"
+	}
+}

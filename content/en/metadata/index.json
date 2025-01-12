@@ -1,0 +1,13 @@
+{
+	"description": "Discovery layer and hosting platform for DARIAH learning resources.",
+	"title": "DARIAH-Campus",
+	"twitter": {
+		"creator": "@acdh_oeaw",
+		"site": "@acdh_oeaw"
+	},
+	"manifest": {
+		"description": "Discovery layer and hosting platform for DARIAH learning resources.",
+		"name": "DARIAH-Campus",
+		"short-name": "DARIAH-Campus"
+	}
+}

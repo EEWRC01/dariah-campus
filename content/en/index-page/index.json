@@ -1,0 +1,89 @@
+{
+	"title": "Looking for learning resources?",
+	"lead": "DARIAH-Campus is a discovery framework and hosting platform for learning resources.",
+	"image": "/assets/content/assets/en/index-page/image.svg",
+	"browseSection": {
+		"title": "Browse content",
+		"lead": "Choose a category to browse or search above",
+		"links": [
+			{
+				"title": "Resources",
+				"description": "Learn about different topics with online resources provided by DARIAH",
+				"href": "/resources",
+				"image": "/assets/content/assets/en/index-page/browseSection/links/0/image.svg"
+			},
+			{
+				"title": "Events",
+				"description": "Missed a face-to-face DARIAH event? Check out what happened",
+				"href": "/events",
+				"image": "/assets/content/assets/en/index-page/browseSection/links/1/image.svg"
+			},
+			{
+				"title": "Pathfinders",
+				"description": "Collections of external resources curated by the DARIAH team",
+				"href": "/sources/dariah-pathfinders",
+				"image": "/assets/content/assets/en/index-page/browseSection/links/2/image.svg"
+			}
+		]
+	},
+	"aboutSection": {
+		"title": "How can DARIAH-Campus support you?",
+		"lead": "Check out what DARIAH-Campus has in store for both learners and training providers",
+		"videos": [
+			{
+				"id": "7tVuL0XX0GY",
+				"title": "For learners",
+				"description": "Providing trustworthy, reusable, open learning resources",
+				"image": "/assets/content/assets/en/index-page/featuredSection/videos/0/image.webp"
+			},
+			{
+				"id": "vWh6Wmn635w",
+				"title": "For trainers",
+				"description": "Ensuring the impact and sustainability of training resources",
+				"image": "/assets/content/assets/en/index-page/featuredSection/videos/1/image.webp"
+			}
+		]
+	},
+	"faqSection": {
+		"title": "Frequently asked questions",
+		"lead": "Time is precious, we know",
+		"faq": [
+			{
+				"title": "What is DARIAH?",
+				"content": "DARIAH is a pan-European infrastructure for arts and humanities scholars working with computational methods. It supports digital research as well as the teaching of digital research methods.\n\nTo learn more, check out [dariah.eu](https://www.dariah.eu/)."
+			},
+			{
+				"title": "What is DARIAH-Campus?",
+				"content": "DARIAH-Campus is a discovery framework and hosting platform for learning resources. It was developed as a pilot in the context of the H2020-funded project [DESIR](https://www.dariah.eu/activities/projects-and-affiliations/desir/). Today, it is one of the core services of [DARIAH](https://www.dariah.eu/)."
+			},
+			{
+				"title": "Is DARIAH-Campus exhaustive?",
+				"content": "Definitely not. But we're constantly adding new content. If you can think of ways to contribute or if you know of resources that should be represented on DARIAH-Campus, feel free to get in touch."
+			},
+			{
+				"title": "How to get in touch?",
+				"content": "The easiest way for you to get in touch with us is by using the [DARIAH Help Desk](https://www.dariah.eu/helpdesk/). Make sure you select \"Education and training\" as the subject of your message."
+			},
+			{
+				"title": "What is DARIAH-Campus powered by?",
+				"content": "In addition to being powered by an enthusiasm for research infrastructures and an awareness of the importance of training and education for building sustainable RIs, DARIAH-Campus is a [Next.js](https://www.nextjs.org)-powered website hosted on [Vercel](https://www.vercel.com/)."
+			}
+		]
+	},
+	"testimonialSection": {
+		"title": "Why training and education?",
+		"lead": "Some thoughts on why training and education matter so much for a research infrastructure such as DARIAH",
+		"videos": [
+			{
+				"id": "OqYJNUmhJzw",
+				"title": "Laurent Romary",
+				"description": "Former DARIAH Director",
+				"image": "/assets/content/assets/en/index-page/promoSection/videos/0/image.webp"
+			}
+		]
+	},
+	"teamSection": {
+		"title": "We are here to help",
+		"lead": "Our DARIAH-CAMPUS team is just an email away and ready to answer your questions"
+	}
+}
