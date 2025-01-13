@@ -2,8 +2,8 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 
-import { MainContent } from "@/components/main-content";
 import { CourseRegistry } from "@/app/(app)/course-registry/_components/course-registry";
+import { MainContent } from "@/components/main-content";
 
 interface CourseRegistryPageProps extends EmptyObject {}
 
@@ -26,10 +26,8 @@ export default async function CourseRegistryPage(
 	const t = await getTranslations("CourseRegistryPage");
 
 	return (
-		<MainContent className="layout-grid content-start">
-			<section className="layout-subgrid relative bg-fill-weaker py-16 xs:py-24">
-				<h1>{t("title")}</h1>
-			</section>
+		<MainContent>
+			<h1 className="sr-only">{t("title")}</h1>
 
 			<section>
 				<CourseRegistry />

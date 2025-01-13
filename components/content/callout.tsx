@@ -1,7 +1,7 @@
 import { styles } from "@acdh-oeaw/style-variants";
 import type { ReactNode } from "react";
 
-import type { CalloutKind } from "@/lib/keystatic/component-options";
+import type { CalloutKind } from "@/lib/keystatic/options";
 
 const calloutStyles = styles({
 	base: "my-4 grid rounded-2 border p-4 [&_*::marker]:text-inherit [&_*]:text-inherit",

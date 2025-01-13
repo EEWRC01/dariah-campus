@@ -2,7 +2,7 @@ import { cn } from "@acdh-oeaw/style-variants";
 import type { ReactNode } from "react";
 
 import { ServerImage as Image } from "@/components/server-image";
-import type { FigureAlignment } from "@/lib/keystatic/component-options";
+import type { FigureAlignment } from "@/lib/keystatic/options";
 
 interface FigureProps {
 	/** @default "stretch" */

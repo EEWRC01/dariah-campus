@@ -1,126 +1,152 @@
-import { useLocale, useTranslations } from "next-intl";
+// eslint-disable-next-line no-restricted-imports
+import type { StaticImageData } from "next/image";
+import { getLocale, getTranslations } from "next-intl/server";
 import type { FC, ReactNode } from "react";
 
 import {
-	// BlueskyLogo,
-	MastodonLogo,
-	TwitterLogo,
-	YouTubeLogo,
-} from "@/app/(app)/_components/social-media-logos";
-import { Logo } from "@/components/logo";
-import { NavLink, type NavLinkProps } from "@/components/nav-link";
-import type { Locale } from "@/config/i18n.config";
+	BlueskyIcon,
+	EmailIcon,
+	FlickrIcon,
+	GitHubIcon,
+	MastodonIcon,
+	RssIcon,
+	TwitterIcon,
+	WebsiteIcon,
+	YouTubeIcon,
+} from "@/app/(app)/_components/social-media-icons";
+import { Image } from "@/components/image";
+import { Link } from "@/components/link";
 import { createHref } from "@/lib/create-href";
+import type { SocialMediaKind } from "@/lib/keystatic/options";
+import { createSingletonResource } from "@/lib/keystatic/resources";
+import by from "@/public/assets/images/by.svg";
+import cc from "@/public/assets/images/cc.svg";
+import eu from "@/public/assets/images/logo-eu.svg";
 
-export function AppFooter(): ReactNode {
-	const locale = useLocale();
-	const t = useTranslations("AppFooter");
+const socialMediaIcons: Record<SocialMediaKind, FC<{ className?: string }>> = {
+	bluesky: BlueskyIcon,
+	email: EmailIcon,
+	flickr: FlickrIcon,
+	github: GitHubIcon,
+	mastodon: MastodonIcon,
+	rss: RssIcon,
+	twitter: TwitterIcon,
+	website: WebsiteIcon,
+	youtube: YouTubeIcon,
+};
 
-	const links = {
+export async function AppFooter(): Promise<ReactNode> {
+	const locale = await getLocale();
+	const t = await getTranslations("AppFooter");
+
+	const navigation = {
+		home: {
+			href: createHref({ pathname: "/" }),
+			label: t("links.home"),
+		},
+		resources: {
+			href: createHref({ pathname: "/resources" }),
+			label: t("links.resources"),
+		},
+		curricula: {
+			href: createHref({ pathname: "/curricula" }),
+			label: t("links.curricula"),
+		},
+		search: {
+			href: createHref({ pathname: "/search" }),
+			label: t("links.search"),
+		},
+		sources: {
+			href: createHref({ pathname: "/sources" }),
+			label: t("links.sources"),
+		},
+		"course-registry": {
+			href: createHref({ pathname: "/course-registry" }),
+			label: t("links.course-registry"),
+		},
+		documentation: {
+			href: createHref({ pathname: "/documentation" }),
+			label: t("links.documentation"),
+		},
 		contact: {
-			href: createHref({ pathname: "/contact" }),
+			href: "https://www.dariah.eu/helpdesk/",
 			label: t("links.contact"),
 		},
-		imprint: {
-			href: createHref({ pathname: "/imprint" }),
-			label: t("links.imprint"),
-		},
-	} satisfies Record<string, { href: NavLinkProps["href"]; label: string }>;
+	};
 
-	const socialMedia = {
-		// bluesky: {
-		// 	href: "https://bsky.app/acdh_oeaw",
-		// 	label: t("social-media.bluesky"),
-		// 	// icon: "/assets/images/logo-bluesky.svg",
-		// 	icon: BlueskyLogo,
-		// },
-		mastodon: {
-			href: "https://fedihum.org/@acdhch_oeaw",
-			label: t("social-media.mastodon"),
-			// icon: "/assets/images/logo-mastodon.svg",
-			icon: MastodonLogo,
-		},
-		twitter: {
-			href: "https://www.twitter.com/acdh_oeaw",
-			label: t("social-media.twitter"),
-			// icon: "/assets/images/logo-twitter.svg",
-			icon: TwitterLogo,
-		},
-		youtube: {
-			href: "https://www.youtube.com/channel/UCgaEMaMbPkULYRI5u6gvG-w",
-			label: t("social-media.youtube"),
-			// icon: "/assets/images/logo-youtube.svg",
-			icon: YouTubeLogo,
-		},
-	} satisfies Record<string, { href: string; label: string; icon: FC }>;
-
-	const acdhLinks = {
-		en: {
-			href: "https://www.oeaw.ac.at/de/acdh/",
-			label: "Austrian Centre for Digital Humanities and Cultural Heritage",
-		},
-	} satisfies Record<Locale, { href: string; label: string }>;
+	const metadata = await createSingletonResource("metadata", locale).read();
+	const { social } = metadata.data;
 
 	return (
-		<footer className="layout-grid grid gap-y-6 border-t border-stroke-weak py-12">
-			<div className="grid gap-y-8 xs:flex xs:items-center xs:justify-between">
-				<Logo className="h-8 w-auto shrink-0" />
+		<footer className="flex flex-col space-y-6 bg-secondary-800 px-4 py-16 text-sm font-medium text-neutral-400 xs:px-8">
+			<nav aria-label={t("navigation-secondary")}>
+				<ul
+					className="flex flex-col items-center justify-center space-y-3 md:flex-row md:space-x-6 md:space-y-0"
+					role="list"
+				>
+					{Object.entries(navigation).map(([key, link]) => {
+						return (
+							<li key={key} className="inline-flex">
+								<Link
+									className="rounded p-2 text-center transition hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-neutral-400"
+									href={link.href}
+								>
+									{link.label}
+								</Link>
+							</li>
+						);
+					})}
+				</ul>
+			</nav>
+			<nav aria-label={t("navigation-social-media")} className="flex flex-col items-center">
+				<ul className="flex items-center justify-center space-x-2 md:space-x-6" role="list">
+					{social.map((link, index) => {
+						const Icon = socialMediaIcons[link.kind];
 
-				<nav aria-label="navigation-social-media">
-					<ul className="flex flex-wrap items-center gap-x-6" role="list">
-						{Object.entries(socialMedia).map(([id, link]) => {
-							const Icon = link.icon;
-
-							return (
-								<li key={id} className="shrink-0">
-									<NavLink
-										className="focus-visible:focus-outline inline-block rounded-0.5"
-										href={link.href}
-									>
-										{/* <img
-											alt=""
-											className="size-6 text-icon-neutral transition hover:text-icon-brand"
-											loading="lazy"
-											src={link.icon}
-										/> */}
-										<Icon className="size-6 text-icon-neutral transition hover:text-icon-brand" />
-										<span className="sr-only">{link.label}</span>
-									</NavLink>
-								</li>
-							);
+						return (
+							<li key={index}>
+								<a
+									aria-label={link.kind}
+									className="inline-block rounded p-2 transition hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-neutral-400"
+									href={link.href!}
+								>
+									<Icon className="size-4" />
+								</a>
+							</li>
+						);
+					})}
+				</ul>
+			</nav>
+			<div className="mx-auto flex max-w-screen-lg flex-col items-center justify-between space-y-8 text-xs font-normal xs:flex-row xs:space-x-8 xs:space-y-0">
+				<div className="flex items-center space-x-4">
+					<Image alt="" className="h-6 w-9 shrink-0" src={eu as StaticImageData} />
+					<span>{t("funding")}</span>
+				</div>
+				<div className="flex items-center justify-end space-x-4">
+					<span className="text-right">
+						{t.rich("license", {
+							// eslint-disable-next-line react/no-unstable-nested-components
+							link(chunks) {
+								return <a href="https://creativecommons.org/licenses/by/4.0/">{chunks}</a>;
+							},
 						})}
-					</ul>
-				</nav>
+					</span>
+					<span className="flex shrink-0 items-center">
+						<Image alt="" className="size-6 shrink-0" src={cc as StaticImageData} />
+						<Image alt="" className="size-6 shrink-0" src={by as StaticImageData} />
+					</span>
+				</div>
 			</div>
-
-			<div className="grid gap-y-8">
-				<nav aria-label={t("navigation-secondary")}>
-					<ul className="flex items-center gap-x-6 text-small text-text-weak" role="list">
-						{Object.entries(links).map(([id, link]) => {
-							return (
-								<li key={id}>
-									<NavLink
-										className="focus-visible:focus-outline rounded-0.5 hover:underline"
-										href={link.href}
-									>
-										{link.label}
-									</NavLink>
-								</li>
-							);
-						})}
-					</ul>
-				</nav>
-
-				<small className="text-tiny text-text-weak">
-					{"&copy;"} {new Date().getUTCFullYear()}{" "}
-					<a
-						className="focus-visible:focus-outline rounded-0.5 hover:underline"
-						href={acdhLinks[locale].href}
-					>
-						{acdhLinks[locale].label}
-					</a>
-				</small>
-			</div>
+			<small className="text-center">
+				{/* eslint-disable-next-line react/jsx-no-literals */}
+				{new Date().getUTCFullYear()} DARIAH &bull;{" "}
+				<Link
+					className="rounded transition hover:text-white focus:outline-none focus-visible:ring focus-visible:ring-neutral-400"
+					href={createHref({ pathname: "/imprint" })}
+				>
+					{t("links.imprint")}
+				</Link>
+			</small>
 		</footer>
 	);
 }

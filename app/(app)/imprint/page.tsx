@@ -1,5 +1,3 @@
-"use cache";
-
 import { HttpError, request } from "@acdh-oeaw/lib";
 import type { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
@@ -32,19 +30,14 @@ export default async function ImprintPage(_props: Readonly<ImprintPageProps>): P
 	const html = await getImprintHtml(locale);
 
 	return (
-		<MainContent className="layout-grid content-start">
-			<section className="layout-subgrid relative grid gap-y-6 bg-fill-weaker py-16 xs:py-20">
-				<div className="max-w-text grid gap-y-4">
-					<h1 className="text-balance font-heading text-heading-1 font-strong text-text-strong">
-						{t("title")}
-					</h1>
+		<MainContent>
+			<section>
+				<div>
+					<h1>{t("title")}</h1>
 				</div>
 			</section>
 
-			<section
-				dangerouslySetInnerHTML={{ __html: html }}
-				className="layout-subgrid content-max-w-text typography relative border-t border-stroke-weak py-16 xs:py-20"
-			/>
+			<section dangerouslySetInnerHTML={{ __html: html }} />
 		</MainContent>
 	);
 }

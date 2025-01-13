@@ -1,7 +1,8 @@
-import { createSingleton, withI18nPrefix, createAssetOptions } from "@acdh-oeaw/keystatic-lib";
+import { createAssetOptions, createSingleton, withI18nPrefix } from "@acdh-oeaw/keystatic-lib";
 import { fields, singleton } from "@keystatic/core";
 
 import { createLinkSchema } from "@/lib/keystatic/create-link-schema";
+import { socialMediaKinds } from "@/lib/keystatic/options";
 import * as validation from "@/lib/keystatic/validation";
 
 export const createIndexPage = createSingleton("/index-page/", (paths, locale) => {
@@ -25,7 +26,7 @@ export const createIndexPage = createSingleton("/index-page/", (paths, locale) =
 				validation: { isRequired: true },
 				...createAssetOptions(paths.assetPath),
 			}),
-			browseSection: fields.object(
+			"browse-section": fields.object(
 				{
 					title: fields.text({
 						label: "Title",
@@ -75,7 +76,7 @@ export const createIndexPage = createSingleton("/index-page/", (paths, locale) =
 					label: "Browse section",
 				},
 			),
-			aboutSection: fields.object(
+			"about-section": fields.object(
 				{
 					title: fields.text({
 						label: "Title",
@@ -125,7 +126,7 @@ export const createIndexPage = createSingleton("/index-page/", (paths, locale) =
 					label: "About section",
 				},
 			),
-			faqSection: fields.object(
+			"faq-section": fields.object(
 				{
 					title: fields.text({
 						label: "Title",
@@ -172,7 +173,7 @@ export const createIndexPage = createSingleton("/index-page/", (paths, locale) =
 					label: "FAQ section",
 				},
 			),
-			testimonialSection: fields.object(
+			"testimonial-section": fields.object(
 				{
 					title: fields.text({
 						label: "Title",
@@ -222,7 +223,7 @@ export const createIndexPage = createSingleton("/index-page/", (paths, locale) =
 					label: "Testimonial section",
 				},
 			),
-			teamSection: fields.object(
+			"team-section": fields.object(
 				{
 					title: fields.text({
 						label: "Title",
@@ -240,10 +241,9 @@ export const createIndexPage = createSingleton("/index-page/", (paths, locale) =
 								validation: { isRequired: true },
 								collection: withI18nPrefix("people", locale),
 							}),
-							description: fields.text({
+							role: fields.text({
 								label: "Description",
 								validation: { isRequired: true },
-								multiline: true,
 							}),
 						}),
 						{
@@ -263,7 +263,7 @@ export const createIndexPage = createSingleton("/index-page/", (paths, locale) =
 	});
 });
 
-export const createMetadata = createSingleton("/metadata/", (paths, locale) => {
+export const createMetadata = createSingleton("/metadata/", (paths, _locale) => {
 	return singleton({
 		label: "Metadata",
 		path: paths.contentPath,
@@ -282,6 +282,10 @@ export const createMetadata = createSingleton("/metadata/", (paths, locale) => {
 				{
 					creator: fields.text({
 						label: "Creator",
+						validation: { isRequired: true, pattern: validation.twitter },
+					}),
+					site: fields.text({
+						label: "Site",
 						validation: { isRequired: true, pattern: validation.twitter },
 					}),
 				},
@@ -311,17 +315,9 @@ export const createMetadata = createSingleton("/metadata/", (paths, locale) => {
 			social: fields.array(
 				fields.object(
 					{
-						type: fields.select({
-							label: "Type",
-							options: [
-								{ label: "Email", value: "email" },
-								{ label: "Flickr", value: "flickr" },
-								{ label: "GitHub", value: "github" },
-								{ label: "RSS Feed", value: "rss" },
-								{ label: "Twitter", value: "twitter" },
-								{ label: "Website", value: "website" },
-								{ label: "YouTube", value: "youtube" },
-							],
+						kind: fields.select({
+							label: "Kind",
+							options: socialMediaKinds,
 							defaultValue: "website",
 						}),
 						href: fields.url({
@@ -334,6 +330,10 @@ export const createMetadata = createSingleton("/metadata/", (paths, locale) => {
 				),
 				{
 					label: "Social media",
+					validation: { length: { min: 1 } },
+					itemLabel(props) {
+						return props.fields.kind.value;
+					},
 				},
 			),
 		},

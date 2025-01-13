@@ -61,17 +61,15 @@ export default async function DocumentationPage(
 	const { default: Content } = await entry.compile(content);
 
 	return (
-		<MainContent className="layout-grid content-start">
-			<section className="layout-subgrid relative bg-fill-weaker py-16 xs:py-20">
-				<div className="max-w-text grid gap-y-4">
-					<h1 className="text-balance font-heading text-heading-1 font-strong text-text-strong">
-						{title}
-					</h1>
-					<p className="font-heading text-small text-text-weak xs:text-heading-4">{lead}</p>
+		<MainContent>
+			<section>
+				<div>
+					<h1>{title}</h1>
+					<p>{lead}</p>
 				</div>
 			</section>
 
-			<section className="layout-subgrid typography content-max-w-text relative border-t border-stroke-weak py-16 xs:py-20">
+			<section>
 				<Content />
 			</section>
 		</MainContent>

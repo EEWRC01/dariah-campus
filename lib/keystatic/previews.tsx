@@ -10,7 +10,7 @@ import type {
 	GridAlignment,
 	GridLayout,
 	VideoProvider,
-} from "@/lib/keystatic/component-options";
+} from "@/lib/keystatic/options";
 import type { createLinkSchema } from "@/lib/keystatic/create-link-schema";
 import { createVideoUrl } from "@/lib/keystatic/create-video-url";
 

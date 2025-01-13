@@ -12,7 +12,7 @@ import { AppFooter } from "@/app/(app)/_components/app-footer";
 import { AppHeader } from "@/app/(app)/_components/app-header";
 import { AppLayout } from "@/app/(app)/_components/app-layout";
 import { Providers } from "@/app/(app)/_components/providers";
-import { TailwindIndicator } from "@/app/(app)/_components/tailwind-indicator";
+// import { TailwindIndicator } from "@/app/(app)/_components/tailwind-indicator";
 import { id } from "@/components/main-content";
 import { SkipLink } from "@/components/skip-link";
 import { env } from "@/config/env.config";
@@ -43,7 +43,7 @@ export async function generateMetadata(
 		alternates: {
 			canonical: "./",
 			types: {
-				"application/rss+xml": [{ title: t("rss-feed", { locale }), url: `/${locale}/rss.xml` }],
+				"application/rss+xml": [{ title: t("rss-feed"), url: "/rss.xml" }],
 			},
 		},
 		title: {
@@ -86,12 +86,7 @@ export default async function LocaleLayout(props: Readonly<LocaleLayoutProps>): 
 
 	return (
 		<html
-			className={cn(
-				fonts.body.variable,
-				fonts.heading.variable,
-				fonts.mono.variable,
-				"bg-background-base text-text-strong antialiased",
-			)}
+			className={cn(fonts.body.variable, "bg-neutral-50 font-body text-neutral-900 antialiased")}
 			lang={locale}
 		>
 			<body>
@@ -126,7 +121,7 @@ export default async function LocaleLayout(props: Readonly<LocaleLayoutProps>): 
 					</AppLayout>
 				</Providers>
 
-				<TailwindIndicator />
+				{/* <TailwindIndicator /> */}
 			</body>
 		</html>
 	);

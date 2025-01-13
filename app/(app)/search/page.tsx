@@ -2,6 +2,7 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 
+import { Providers } from "@/app/(app)/search/_components/providers";
 import { MainContent } from "@/components/main-content";
 
 interface SearchPageProps extends EmptyObject {}
@@ -23,10 +24,12 @@ export default async function SearchPage(_props: Readonly<SearchPageProps>): Pro
 	const t = await getTranslations("SearchPage");
 
 	return (
-		<MainContent className="layout-grid content-start">
-			<section className="layout-subgrid relative bg-fill-weaker py-16 xs:py-24">
-				<h1>{t("title")}</h1>
-			</section>
-		</MainContent>
+		<Providers>
+			<MainContent>
+				<section>
+					<h1>{t("title")}</h1>
+				</section>
+			</MainContent>
+		</Providers>
 	);
 }

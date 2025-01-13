@@ -8,9 +8,10 @@ import {
 	createCurricula,
 	createDocumentation,
 	createEvents,
-	createResources,
-	createSources,
 	createPeople,
+	createResourcesExternal,
+	createResourcesHosted,
+	createSources,
 	createTags,
 } from "@/lib/keystatic/collections";
 import { createIndexPage, createMetadata, createNavigation } from "@/lib/keystatic/singletons";
@@ -21,14 +22,15 @@ export default config({
 		[withI18nPrefix("documentation", defaultLocale)]: createDocumentation(defaultLocale),
 		[withI18nPrefix("events", defaultLocale)]: createEvents(defaultLocale),
 		[withI18nPrefix("people", defaultLocale)]: createPeople(defaultLocale),
-		[withI18nPrefix("resources", defaultLocale)]: createResources(defaultLocale),
+		[withI18nPrefix("resources-external", defaultLocale)]: createResourcesExternal(defaultLocale),
+		[withI18nPrefix("resources-hosted", defaultLocale)]: createResourcesHosted(defaultLocale),
 		[withI18nPrefix("sources", defaultLocale)]: createSources(defaultLocale),
 		[withI18nPrefix("tags", defaultLocale)]: createTags(defaultLocale),
 	},
 	singletons: {
 		[withI18nPrefix("index-page", defaultLocale)]: createIndexPage(defaultLocale),
 		[withI18nPrefix("metadata", defaultLocale)]: createMetadata(defaultLocale),
-		// [withI18nPrefix("navigation", defaultLocale)]: createNavigation(defaultLocale),
+		[withI18nPrefix("navigation", defaultLocale)]: createNavigation(defaultLocale),
 	},
 	storage:
 		env.NEXT_PUBLIC_KEYSTATIC_MODE === "github" &&
@@ -54,18 +56,22 @@ export default config({
 		},
 		navigation: {
 			Content: [
-				withI18nPrefix("resources", defaultLocale),
+				withI18nPrefix("resources-external", defaultLocale),
+				withI18nPrefix("resources-hosted", defaultLocale),
 				withI18nPrefix("events", defaultLocale),
 				withI18nPrefix("curricula", defaultLocale),
-				withI18nPrefix("sources", defaultLocale),
 			],
-			Data: [withI18nPrefix("people", defaultLocale), withI18nPrefix("tags", defaultLocale)],
+			Data: [
+				withI18nPrefix("people", defaultLocale),
+				withI18nPrefix("sources", defaultLocale),
+				withI18nPrefix("tags", defaultLocale),
+			],
 			Pages: [
 				withI18nPrefix("index-page", defaultLocale),
 				withI18nPrefix("documentation", defaultLocale),
 			],
 			Metadata: [
-				// withI18nPrefix("navigation", defaultLocale),
+				withI18nPrefix("navigation", defaultLocale),
 				withI18nPrefix("metadata", defaultLocale),
 			],
 		},

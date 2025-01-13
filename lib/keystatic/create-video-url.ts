@@ -1,6 +1,6 @@
 import { createUrl, createUrlSearchParams } from "@acdh-oeaw/lib";
 
-import type { VideoProvider } from "@/lib/keystatic/component-options";
+import type { VideoProvider } from "@/lib/keystatic/options";
 
 export function createVideoUrl(
 	provider: VideoProvider,
@@ -8,7 +8,29 @@ export function createVideoUrl(
 	startTime?: number | null,
 ): URL {
 	switch (provider) {
-		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+		case "nakala": {
+			return createUrl({
+				baseUrl: "https://api.nakala.fr",
+				pathname: `/embed/${id}`,
+			});
+		}
+
+		case "uni-helsinki": {
+			return createUrl({
+				baseUrl: "https://unitube.it.helsinki.fi",
+				pathname: "/unitube/",
+				searchParams: createUrlSearchParams({ id }),
+			});
+		}
+
+		case "vimeo": {
+			return createUrl({
+				baseUrl: "https://player.vimeo.com",
+				pathname: `/video/${id}`,
+				hash: startTime ? `t=${String(startTime)}s` : undefined,
+			});
+		}
+
 		case "youtube": {
 			return createUrl({
 				baseUrl: "https://www.youtube-nocookie.com",

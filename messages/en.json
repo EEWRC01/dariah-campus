@@ -5,23 +5,31 @@
 		"table-of-contents": "Table of contents"
 	},
 	"AppFooter": {
+		"funding": "Co-funded by the Horizon 2020 innovation and research programme of the European Union under grants no. 731081 and 823782.",
+		"license": "Except where otherwise noted, content on this site is licensed under a <link>Creative Commons Attribution 4.0 International</link> license.",
 		"links": {
 			"contact": "Contact",
-			"imprint": "Imprint"
+			"course-registry": "Course registry",
+			"curricula": "Curricula",
+			"documentation": "Documentation",
+			"home": "Home",
+			"imprint": "Legal notice",
+			"resources": "Resources",
+			"search": "Search",
+			"sources": "Sources"
 		},
 		"navigation-secondary": "Secondary",
-		"navigation-social-media": "Social media",
-		"social-media": {
-			"bluesky": "Bluesky",
-			"mastodon": "Mastodon",
-			"twitter": "Twitter",
-			"youtube": "YouTube"
-		}
+		"navigation-social-media": "Social media"
 	},
 	"AppHeader": {
 		"links": {
-			"about": "About the project",
-			"home": "Home"
+			"course-registry": "Course registry",
+			"curricula": "Curricula",
+			"documentation": "Documentation",
+			"home": "Home",
+			"resources": "Resources",
+			"search": "Search",
+			"sources": "Sources"
 		},
 		"navigation-menu": "Navigation menu",
 		"navigation-menu-close": "Close navigation menu",
@@ -34,9 +42,21 @@
 		},
 		"title": "Course registry"
 	},
+	"CurriculaPage": {
+		"meta": {
+			"title": "Curricula"
+		},
+		"title": "Curricula"
+	},
 	"Error": {
 		"something-went-wrong": "Something went wrong!",
 		"try-again": "Try again"
+	},
+	"EventsPage": {
+		"meta": {
+			"title": "Events"
+		},
+		"title": "Events"
 	},
 	"ImprintPage": {
 		"meta": {
@@ -45,9 +65,7 @@
 		"title": "Imprint"
 	},
 	"IndexPage": {
-		"badge": "ACDH-CH frontend team",
-		"lead-in": "This is a starter template built with Next.js 14. It includes internationalisation, dark mode, and end-to-end testing.",
-		"title": "Application template"
+		"search": "Search"
 	},
 	"Loading": {
 		"loading": "Loading"
@@ -62,10 +80,22 @@
 		},
 		"title": "Page not found"
 	},
+	"ResourcesPage": {
+		"meta": {
+			"title": "Resources"
+		},
+		"title": "Resources"
+	},
 	"SearchPage": {
 		"meta": {
 			"title": "Search"
 		},
 		"title": "Search"
+	},
+	"SourcesPage": {
+		"meta": {
+			"title": "Sources"
+		},
+		"title": "Sources"
 	}
 }
