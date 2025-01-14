@@ -376,56 +376,56 @@ export const createNavigation = createSingleton("/navigation/", (paths, locale) 
 						},
 						schema: fields.empty(),
 					},
-					menu: {
-						label: "Menu",
-						itemLabel(props) {
-							return `${props.fields.label.value} (Menu)`;
-						},
-						schema: fields.object(
-							{
-								label: fields.text({
-									label: "Label",
-									validation: { isRequired: true },
-								}),
-								items: fields.blocks(
-									{
-										link: {
-											label: "Link",
-											itemLabel(props) {
-												return `${props.fields.label.value} (Link, ${props.fields.link.discriminant})`;
-											},
-											schema: fields.object(
-												{
-													label: fields.text({
-														label: "Label",
-														validation: { isRequired: true },
-													}),
-													link,
-												},
-												{
-													label: "Link",
-												},
-											),
-										},
-										separator: {
-											label: "Separator",
-											itemLabel() {
-												return "Separator";
-											},
-											schema: fields.empty(),
-										},
-									},
-									{
-										label: "Items",
-										validation: { length: { min: 1 } },
-									},
-								),
-							},
-							{
-								label: "Menu",
-							},
-						),
-					},
+					// menu: {
+					// 	label: "Menu",
+					// 	itemLabel(props) {
+					// 		return `${props.fields.label.value} (Menu)`;
+					// 	},
+					// 	schema: fields.object(
+					// 		{
+					// 			label: fields.text({
+					// 				label: "Label",
+					// 				validation: { isRequired: true },
+					// 			}),
+					// 			items: fields.blocks(
+					// 				{
+					// 					link: {
+					// 						label: "Link",
+					// 						itemLabel(props) {
+					// 							return `${props.fields.label.value} (Link, ${props.fields.link.discriminant})`;
+					// 						},
+					// 						schema: fields.object(
+					// 							{
+					// 								label: fields.text({
+					// 									label: "Label",
+					// 									validation: { isRequired: true },
+					// 								}),
+					// 								link,
+					// 							},
+					// 							{
+					// 								label: "Link",
+					// 							},
+					// 						),
+					// 					},
+					// 					separator: {
+					// 						label: "Separator",
+					// 						itemLabel() {
+					// 							return "Separator";
+					// 						},
+					// 						schema: fields.empty(),
+					// 					},
+					// 				},
+					// 				{
+					// 					label: "Items",
+					// 					validation: { length: { min: 1 } },
+					// 				},
+					// 			),
+					// 		},
+					// 		{
+					// 			label: "Menu",
+					// 		},
+					// 	),
+					// },
 				},
 				{
 					label: "Links",

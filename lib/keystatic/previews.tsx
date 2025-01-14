@@ -4,6 +4,8 @@ import { cn, styles } from "@acdh-oeaw/style-variants";
 import { NotEditable, type ParsedValueForComponentSchema } from "@keystatic/core";
 import type { ReactNode } from "react";
 
+import type { createLinkSchema } from "@/lib/keystatic/create-link-schema";
+import { createVideoUrl } from "@/lib/keystatic/create-video-url";
 import type {
 	CalloutKind,
 	FigureAlignment,
@@ -11,21 +13,19 @@ import type {
 	GridLayout,
 	VideoProvider,
 } from "@/lib/keystatic/options";
-import type { createLinkSchema } from "@/lib/keystatic/create-link-schema";
-import { createVideoUrl } from "@/lib/keystatic/create-video-url";
 
 type LinkSchema = ParsedValueForComponentSchema<ReturnType<typeof createLinkSchema>>;
 
 const calloutKindStyles = styles({
-	base: "inline-flex min-h-6 rounded-full px-2 text-tiny",
+	base: "text-tiny inline-flex min-h-6 rounded-full px-2",
 	variants: {
 		kind: {
-			caution: "border border-stroke-error-weak bg-fill-error-weak text-text-error",
+			caution: "border-stroke-error-weak bg-fill-error-weak text-text-error border",
 			important:
-				"border border-stroke-information-weak bg-fill-information-weak text-text-information",
-			note: "border border-stroke-weak bg-fill-weak text-text-weak",
-			tip: "border border-stroke-success-weak bg-fill-success-weak text-text-success",
-			warning: "border border-stroke-warning-weak bg-fill-warning-weak text-text-warning",
+				"border-stroke-information-weak bg-fill-information-weak text-text-information border",
+			note: "border-stroke-weak bg-fill-weak text-text-weak border",
+			tip: "border-stroke-success-weak bg-fill-success-weak text-text-success border",
+			warning: "border-stroke-warning-weak bg-fill-warning-weak text-text-warning border",
 		},
 	},
 	defaults: {
@@ -44,7 +44,7 @@ export function CalloutPreview(props: Readonly<CalloutPreviewProps>): ReactNode 
 	const { children, kind = "note", title } = props;
 
 	return (
-		<aside className="rounded-2 p-4 text-tiny leading-relaxed">
+		<aside className="rounded-2 text-tiny p-4 leading-relaxed">
 			<NotEditable className="mb-4 flex items-center justify-between gap-x-8">
 				<strong className="font-strong">{isNonEmptyString(title) ? title : "(No title)"}</strong>
 				<span className={calloutKindStyles({ kind })}>{kind}</span>
@@ -63,7 +63,7 @@ export function DisclosurePreview(props: Readonly<DisclosurePreviewProps>): Reac
 	const { children, title } = props;
 
 	return (
-		<aside className="rounded-2 p-4 text-tiny leading-relaxed">
+		<aside className="rounded-2 text-tiny p-4 leading-relaxed">
 			<NotEditable className="mb-4 flex items-center justify-between gap-x-8">
 				<strong className="font-strong">{isNonEmptyString(title) ? title : "(No title)"}</strong>
 			</NotEditable>
@@ -87,7 +87,7 @@ export function EmbedPreview(props: Readonly<EmbedPreviewProps>): ReactNode {
 					// eslint-disable-next-line jsx-a11y/iframe-has-title
 					<iframe
 						allowFullScreen={true}
-						className="aspect-video w-full overflow-hidden rounded-2 border border-stroke-weak"
+						className="rounded-2 border-stroke-weak aspect-video w-full overflow-hidden border"
 						src={src}
 					/>
 				) : null}
@@ -117,7 +117,7 @@ export function FigurePreview(props: Readonly<FigurePreviewProps>): ReactNode {
 					// eslint-disable-next-line @next/next/no-img-element
 					<img
 						alt={alt}
-						className="w-full overflow-hidden rounded-2 border border-stroke-weak"
+						className="rounded-2 border-stroke-weak w-full overflow-hidden border"
 						src={url}
 					/>
 				) : null}
@@ -184,7 +184,7 @@ export function HeadingIdPreview(props: Readonly<HeadingIdPreviewProps>): ReactN
 
 	return (
 		<NotEditable className="inline">
-			<span className="border-stroke-weak bg-fill-weak px-2 text-text-weak opacity-50">
+			<span className="border-stroke-weak bg-fill-weak text-text-weak px-2 opacity-50">
 				{"#"}
 				{children}
 			</span>
@@ -201,7 +201,7 @@ export function LinkButtonPreview(props: Readonly<LinkButtonPreviewProps>): Reac
 	const { children, link: _link } = props;
 
 	return (
-		<div className="inline-flex min-h-12 items-center rounded-2 border border-stroke-brand-strong bg-fill-brand-strong px-6 py-2.5 text-small font-strong text-text-inverse-strong shadow-raised">
+		<div className="rounded-2 border-stroke-brand-strong bg-fill-brand-strong text-small font-strong text-text-inverse-strong shadow-raised inline-flex min-h-12 items-center border px-6 py-2.5">
 			{children}
 		</div>
 	);
@@ -241,7 +241,7 @@ export function TabPreview(props: Readonly<TabPreviewProps>): ReactNode {
 	const { children, title } = props;
 
 	return (
-		<div className="grid gap-y-2 text-tiny">
+		<div className="text-tiny grid gap-y-2">
 			<strong className="font-strong">{isNonEmptyString(title) ? title : "(No title)"}</strong>
 			<div>{children}</div>
 		</div>
@@ -268,7 +268,7 @@ export function VideoPreview(props: Readonly<VideoPreviewProps>): ReactNode {
 					<iframe
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						allowFullScreen={true}
-						className="aspect-video w-full overflow-hidden rounded-2 border border-stroke-weak"
+						className="rounded-2 border-stroke-weak aspect-video w-full overflow-hidden border"
 						referrerPolicy="strict-origin-when-cross-origin"
 						src={href}
 					/>

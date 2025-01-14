@@ -656,7 +656,7 @@ export const createPeople = createCollection("/people/", (paths, _locale) => {
 		schema: {
 			name: fields.slug({
 				name: {
-					label: "Title",
+					label: "Name",
 					validation: { isRequired: true },
 				},
 			}),
@@ -978,7 +978,7 @@ export const createSources = createCollection("/sources/", (paths, _locale) => {
 		schema: {
 			name: fields.slug({
 				name: {
-					label: "Title",
+					label: "Name",
 					validation: { isRequired: true },
 				},
 			}),
@@ -1014,7 +1014,7 @@ export const createTags = createCollection("/tags/", (paths, _locale) => {
 		schema: {
 			name: fields.slug({
 				name: {
-					label: "Title",
+					label: "Name",
 					validation: { isRequired: true },
 				},
 			}),

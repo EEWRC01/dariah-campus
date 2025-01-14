@@ -16,6 +16,7 @@ import {
 	VideoIcon,
 } from "lucide-react";
 
+import { createLinkSchema } from "@/lib/keystatic/create-link-schema";
 import {
 	calloutKinds,
 	figureAlignments,
@@ -23,7 +24,6 @@ import {
 	gridLayouts,
 	videoProviders,
 } from "@/lib/keystatic/options";
-import { createLinkSchema } from "@/lib/keystatic/create-link-schema";
 import {
 	CalloutPreview,
 	DisclosurePreview,
