@@ -654,7 +654,12 @@ async function migrateResources(
 					});
 				};
 			})
-			.use(toMarkdown);
+			.use(toMarkdown, {
+				bullet: "*",
+				emphasis: "*",
+				rule: "-",
+				strong: "*",
+			});
 		const out = await processor.process(vfile);
 		const content = String(out);
 
