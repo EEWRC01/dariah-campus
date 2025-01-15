@@ -56,8 +56,8 @@ export default config({
 		},
 		navigation: {
 			Content: [
-				withI18nPrefix("resources-external", defaultLocale),
 				withI18nPrefix("resources-hosted", defaultLocale),
+				withI18nPrefix("resources-external", defaultLocale),
 				withI18nPrefix("events", defaultLocale),
 				withI18nPrefix("curricula", defaultLocale),
 			],

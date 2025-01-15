@@ -49,7 +49,7 @@ export const createCurricula = createCollection("/curricula/", (paths, locale) =
 				options: contentLanguages,
 				defaultValue: "en",
 			}),
-			publicationDate: fields.date({
+			"publication-date": fields.date({
 				label: "Publication date",
 				validation: { isRequired: true },
 				defaultValue: { kind: "today" },
@@ -68,7 +68,7 @@ export const createCurricula = createCollection("/curricula/", (paths, locale) =
 				validation: { length: { min: 1 } },
 				collection: withI18nPrefix("tags", locale),
 			}),
-			featuredImage: fields.image({
+			"featured-image": fields.image({
 				label: "Featured image",
 				validation: { isRequired: false },
 				...createAssetOptions(paths.assetPath),
@@ -100,11 +100,10 @@ export const createCurricula = createCollection("/curricula/", (paths, locale) =
 						label: "Collection",
 						options: [
 							{ label: "Events", value: "events" },
-							{ label: "External resources", value: "externalResources" },
-							{ label: "Hosted resources", value: "hostedResources" },
-							{ label: "Pathfinders", value: "pathfinders" },
+							{ label: "External resources", value: "external-resources" },
+							{ label: "Hosted resources", value: "hosted-resources" },
 						],
-						defaultValue: "hostedResources",
+						defaultValue: "hosted-resources",
 					}),
 					{
 						events: fields.relationship({
@@ -112,20 +111,15 @@ export const createCurricula = createCollection("/curricula/", (paths, locale) =
 							validation: { isRequired: true },
 							collection: withI18nPrefix("events", locale),
 						}),
-						externalResources: fields.relationship({
+						"external-resources": fields.relationship({
 							label: "External resource",
 							validation: { isRequired: true },
 							collection: withI18nPrefix("resources-external", locale),
 						}),
-						hostedResources: fields.relationship({
+						"hosted-resources": fields.relationship({
 							label: "Hosted resource",
 							validation: { isRequired: true },
 							collection: withI18nPrefix("resources-hosted", locale),
-						}),
-						pathfinders: fields.relationship({
-							label: "Pathfinder",
-							validation: { isRequired: true },
-							collection: withI18nPrefix("resources-pathfinders", locale),
 						}),
 					},
 				),
@@ -248,16 +242,16 @@ export const createEvents = createCollection("/events/", (paths, locale) => {
 				options: contentLanguages,
 				defaultValue: "en",
 			}),
-			publicationDate: fields.date({
+			"publication-date": fields.date({
 				label: "Publication date",
 				validation: { isRequired: true },
 				defaultValue: { kind: "today" },
 			}),
-			startDate: fields.date({
+			"start-date": fields.date({
 				label: "Start date",
 				validation: { isRequired: true },
 			}),
-			endDate: fields.date({
+			"end-date": fields.date({
 				label: "End date",
 				validation: { isRequired: false },
 			}),
@@ -313,7 +307,7 @@ export const createEvents = createCollection("/events/", (paths, locale) => {
 				validation: { length: { min: 1 } },
 				collection: withI18nPrefix("sources", locale),
 			}),
-			featuredImage: fields.image({
+			"featured-image": fields.image({
 				label: "Featured image",
 				validation: { isRequired: false },
 				...createAssetOptions(paths.assetPath),
@@ -323,7 +317,7 @@ export const createEvents = createCollection("/events/", (paths, locale) => {
 				options: contentLicenses,
 				defaultValue: "cc-by-4.0",
 			}),
-			tableOfContents: fields.checkbox({
+			"table-of-contents": fields.checkbox({
 				label: "Table of contents",
 				defaultValue: true,
 			}),
@@ -726,7 +720,7 @@ export const createResourcesExternal = createCollection("/resources/external/", 
 				options: contentLanguages,
 				defaultValue: "en",
 			}),
-			publicationDate: fields.date({
+			"publication-date": fields.date({
 				label: "Publication date",
 				validation: { isRequired: true },
 				defaultValue: { kind: "today" },
@@ -760,7 +754,7 @@ export const createResourcesExternal = createCollection("/resources/external/", 
 				validation: { length: { min: 1 } },
 				collection: withI18nPrefix("sources", locale),
 			}),
-			featuredImage: fields.image({
+			"featured-image": fields.image({
 				label: "Featured image",
 				validation: { isRequired: false },
 				...createAssetOptions(paths.assetPath),
@@ -770,7 +764,7 @@ export const createResourcesExternal = createCollection("/resources/external/", 
 				options: contentLicenses,
 				defaultValue: "cc-by-4.0",
 			}),
-			tableOfContents: fields.checkbox({
+			"table-of-contents": fields.checkbox({
 				label: "Table of contents",
 				defaultValue: false,
 			}),
@@ -792,7 +786,7 @@ export const createResourcesExternal = createCollection("/resources/external/", 
 			),
 			remote: fields.object(
 				{
-					publicationDate: fields.date({
+					"publication-date": fields.date({
 						label: "Publication date",
 						validation: { isRequired: true },
 					}),
@@ -809,7 +803,7 @@ export const createResourcesExternal = createCollection("/resources/external/", 
 					label: "Remote host",
 				},
 			),
-			contentType: fields.select({
+			"content-type": fields.select({
 				label: "Content type",
 				options: contentTypes,
 				defaultValue: "training-module",
@@ -866,7 +860,7 @@ export const createResourcesHosted = createCollection("/resources/hosted/", (pat
 				options: contentLanguages,
 				defaultValue: "en",
 			}),
-			publicationDate: fields.date({
+			"publication-date": fields.date({
 				label: "Publication date",
 				validation: { isRequired: true },
 				defaultValue: { kind: "today" },
@@ -900,7 +894,7 @@ export const createResourcesHosted = createCollection("/resources/hosted/", (pat
 				validation: { length: { min: 1 } },
 				collection: withI18nPrefix("sources", locale),
 			}),
-			featuredImage: fields.image({
+			"featured-image": fields.image({
 				label: "Featured image",
 				validation: { isRequired: false },
 				...createAssetOptions(paths.assetPath),
@@ -910,7 +904,7 @@ export const createResourcesHosted = createCollection("/resources/hosted/", (pat
 				options: contentLicenses,
 				defaultValue: "cc-by-4.0",
 			}),
-			tableOfContents: fields.checkbox({
+			"table-of-contents": fields.checkbox({
 				label: "Table of contents",
 				defaultValue: true,
 			}),
@@ -930,7 +924,7 @@ export const createResourcesHosted = createCollection("/resources/hosted/", (pat
 					label: "Summary",
 				},
 			),
-			contentType: fields.select({
+			"content-type": fields.select({
 				label: "Content type",
 				options: contentTypes,
 				defaultValue: "training-module",
