@@ -22,6 +22,7 @@ export type ContentLicense = (typeof contentTypes)[number]["value"];
 
 export const contentTypes = [
 	{ label: "Audio", value: "audio" },
+	{ label: "Pathfinder", value: "pathfinder" },
 	{ label: "Slides", value: "slides" },
 	{ label: "Training module", value: "training-module" },
 	{ label: "Video", value: "video" },

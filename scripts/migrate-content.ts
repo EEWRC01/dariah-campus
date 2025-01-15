@@ -1,18 +1,22 @@
-/* eslint-disable import-x/no-unresolved */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
+
+import "mdast-util-mdx-jsx";
 
 import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { extname, join, relative } from "node:path";
 
 import { assert, log } from "@acdh-oeaw/lib";
+import { typographyConfig } from "@acdh-oeaw/mdx-lib";
 import slugify from "@sindresorhus/slugify";
 import withGfm from "remark-gfm";
 import withMdx from "remark-mdx";
 import fromMarkdown from "remark-parse";
+import withTypographicQuotes from "remark-smartypants";
 import toMarkdown from "remark-stringify";
 import { read } from "to-vfile";
 import { unified } from "unified";
+import { visit } from "unist-util-visit";
 import { matter } from "vfile-matter";
 import * as YAML from "yaml";
 
@@ -50,9 +54,10 @@ interface ResourceSource {
 	/** publication date */
 	date: string;
 	version: string;
-	authors: Array<string>;
-	editors: Array<string>;
-	contributors: Array<string>;
+	// FIXME: WHY ARE THERE STILL RESOURCES WITHOUT AUTHORS
+	authors?: Array<string>;
+	editors?: Array<string>;
+	contributors?: Array<string>;
 	tags: Array<string>;
 	/** sources */
 	categories: Array<string>;
@@ -170,7 +175,7 @@ async function migratePeople() {
 		const outputFilePath = join(outputFolderPath, "index.mdx");
 		await mkdir(outputFolderPath, { recursive: true });
 
-		map.set(entry.name, sanitizedFileName);
+		map.set(entry.name.slice(0, -extname(entry.name).length), sanitizedFileName);
 
 		const frontmatter: Person = {
 			name: [metadata.firstName, metadata.lastName].join(" "),
@@ -255,7 +260,7 @@ async function migrateTags() {
 		const outputFilePath = join(outputFolderPath, "index.mdx");
 		await mkdir(outputFolderPath, { recursive: true });
 
-		map.set(entry.name, sanitizedFileName);
+		map.set(entry.name.slice(0, -extname(entry.name).length), sanitizedFileName);
 
 		const frontmatter: Tag = {
 			name: metadata.name,
@@ -302,7 +307,7 @@ async function migrateSources() {
 		const outputFilePath = join(outputFolderPath, "index.mdx");
 		await mkdir(outputFolderPath, { recursive: true });
 
-		map.set(entry.name, sanitizedFileName);
+		map.set(entry.name.slice(0, -extname(entry.name).length), sanitizedFileName);
 
 		const frontmatter: Source = {
 			name: metadata.name,
@@ -369,7 +374,6 @@ async function migrateResources(
 		const slug = entry.name;
 		const folder = join(dataFolderPath, entry.name);
 		const filePath = join(folder, "index.mdx");
-		const imageFilePath = join(folder, "images");
 
 		const vfile = await read(filePath);
 		matter(vfile, { strip: true });
@@ -381,6 +385,8 @@ async function migrateResources(
 		const outputFolder = isRemote
 			? join(externalResourcesFolder, outputSlug)
 			: join(hostedResourcesFolder, outputSlug);
+		await mkdir(outputFolder, { recursive: true });
+		const outputFilePath = join(outputFolder, "index.mdx");
 
 		//
 
@@ -390,29 +396,36 @@ async function migrateResources(
 			contentTypes.find((t) => {
 				return t.value === metadata.type;
 			}),
-			"Invalid content type",
+			`Invalid content type: ${metadata.type}`,
 		);
 
+		if (metadata.authors == null || metadata.authors.length === 0) {
+			log.warn(`No authors for ${entry.name}`);
+		}
+
 		const frontmatter: HostedResource = {
-			title: metadata.title,
+			title: metadata.title.trim(),
 			locale: metadata.lang,
 			"publication-date": metadata.date,
 			version: metadata.version,
-			authors: metadata.authors.map((id) => {
-				const _id = people.get(id);
-				assert(_id, `Missing person id for ${id}`);
-				return _id;
-			}),
-			editors: metadata.editors.map((id) => {
-				const _id = people.get(id);
-				assert(_id, `Missing person id for ${id}`);
-				return _id;
-			}),
-			contributors: metadata.contributors.map((id) => {
-				const _id = people.get(id);
-				assert(_id, `Missing person id for ${id}`);
-				return _id;
-			}),
+			authors:
+				metadata.authors?.map((id) => {
+					const _id = people.get(id);
+					assert(_id, `Missing person id for ${id}`);
+					return _id;
+				}) ?? [],
+			editors:
+				metadata.editors?.map((id) => {
+					const _id = people.get(id);
+					assert(_id, `Missing person id for ${id}`);
+					return _id;
+				}) ?? [],
+			contributors:
+				metadata.contributors?.map((id) => {
+					const _id = people.get(id);
+					assert(_id, `Missing person id for ${id}`);
+					return _id;
+				}) ?? [],
 			tags: metadata.tags.map((id) => {
 				const _id = tags.get(id);
 				assert(_id, `Missing tag id for ${id}`);
@@ -428,7 +441,7 @@ async function migrateResources(
 			"table-of-contents": Boolean(metadata.toc),
 			summary: {
 				title: metadata.shortTitle,
-				content: metadata.abstract,
+				content: metadata.abstract.trim(),
 			},
 			"content-type": metadata.type,
 		};
@@ -446,9 +459,202 @@ async function migrateResources(
 			};
 		}
 
+		if (metadata.featuredImage) {
+			const imageFilePath = join(folder, metadata.featuredImage);
+			const outputImageFolder = join(
+				publicFolder,
+				"assets",
+				"content",
+				"assets",
+				"en",
+				"resources",
+				isRemote ? "external" : "hosted",
+				outputSlug,
+			);
+			await mkdir(outputImageFolder, { recursive: true });
+			const outputImageFilePath = join(
+				outputImageFolder,
+				`featured-image${extname(imageFilePath)}`,
+			);
+			await copyFile(imageFilePath, outputImageFilePath);
+			frontmatter["featured-image"] = `/${relative(publicFolder, outputImageFilePath)}`;
+		}
+
 		//
 
-		const processor = unified().use(fromMarkdown).use(withGfm).use(withMdx).use(toMarkdown);
+		const processor = unified()
+			.use(fromMarkdown)
+			.use(withGfm)
+			.use(withMdx)
+			.use(withTypographicQuotes, typographyConfig[metadata.lang === "de" ? "de" : "en"])
+			.use(() => {
+				return function transform(tree) {
+					visit(tree, "mdxJsxTextElement", (node) => {
+						switch (node.name) {
+							case "a": {
+								break;
+							}
+
+							case "code": {
+								break;
+							}
+
+							case "Download": {
+								break;
+							}
+
+							case "li": {
+								break;
+							}
+
+							case "Quiz.Question": {
+								break;
+							}
+
+							case "span": {
+								break;
+							}
+
+							case "ul": {
+								break;
+							}
+						}
+					});
+
+					visit(tree, "mdxJsxFlowElement", (node) => {
+						switch (node.name) {
+							case "a": {
+								break;
+							}
+
+							case "code": {
+								break;
+							}
+
+							case "Download": {
+								break;
+							}
+
+							case "Embed": {
+								break;
+							}
+
+							case "ExternalResource": {
+								break;
+							}
+
+							case "Figure": {
+								break;
+							}
+
+							case "figure": {
+								break;
+							}
+
+							case "figcaption": {
+								break;
+							}
+
+							case "Flex": {
+								break;
+							}
+
+							case "Grid": {
+								break;
+							}
+
+							case "img": {
+								break;
+							}
+
+							case "Panel": {
+								break;
+							}
+
+							case "p": {
+								break;
+							}
+
+							case "Quiz": {
+								break;
+							}
+
+							case "Quiz.Card": {
+								break;
+							}
+
+							case "Quiz.Message": {
+								break;
+							}
+
+							case "Quiz.MultipleChoice": {
+								break;
+							}
+
+							case "Quiz.MultipleChoice.Option": {
+								break;
+							}
+
+							case "Quiz.Question": {
+								break;
+							}
+
+							case "Quiz.TextInput": {
+								break;
+							}
+
+							case "SideNote": {
+								break;
+							}
+
+							case "table": {
+								break;
+							}
+
+							case "tbody": {
+								break;
+							}
+
+							case "td": {
+								break;
+							}
+
+							case "thead": {
+								break;
+							}
+
+							case "th": {
+								break;
+							}
+
+							case "tr": {
+								break;
+							}
+
+							case "Tab": {
+								break;
+							}
+
+							case "Tabs": {
+								break;
+							}
+
+							case "Video": {
+								break;
+							}
+
+							case "VideoCard": {
+								break;
+							}
+
+							case "YouTube": {
+								break;
+							}
+						}
+					});
+				};
+			})
+			.use(toMarkdown);
 		const out = await processor.process(vfile);
 		const content = String(out);
 
