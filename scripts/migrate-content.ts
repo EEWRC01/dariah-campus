@@ -1,13 +1,13 @@
 import { copyFileSync, mkdirSync } from "node:fs";
 import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
-import { extname, join, relative } from "node:path";
+import { basename, extname, join, relative } from "node:path";
 
-import { assert, log } from "@acdh-oeaw/lib";
+import { assert, isUrl, log } from "@acdh-oeaw/lib";
 import { typographyConfig } from "@acdh-oeaw/mdx-lib";
 import slugify from "@sindresorhus/slugify";
 import { valueToEstree } from "estree-util-value-to-estree";
 import type { Root } from "mdast";
-import type { MdxJsxAttribute, MdxJsxTextElement } from "mdast-util-mdx-jsx";
+import type { MdxJsxAttribute, MdxJsxFlowElement, MdxJsxTextElement } from "mdast-util-mdx-jsx";
 import withGfm from "remark-gfm";
 import withMdx from "remark-mdx";
 import fromMarkdown from "remark-parse";
@@ -470,7 +470,7 @@ async function migrateResources(
 		const frontmatter: HostedResource = {
 			title: metadata.title.trim(),
 			locale: metadata.lang,
-			"publication-date": metadata.date,
+			"publication-date": new Intl.DateTimeFormat("en-ca").format(new Date(metadata.date)),
 			version: metadata.version,
 			authors:
 				metadata.authors?.map((id) => {
@@ -522,7 +522,7 @@ async function migrateResources(
 			assert(metadata.remote.publisher);
 
 			(frontmatter as ExternalResource).remote = {
-				"publication-date": metadata.remote.date,
+				"publication-date": new Intl.DateTimeFormat("en-ca").format(new Date(metadata.remote.date)),
 				url: metadata.remote.url,
 				publisher: metadata.remote.publisher,
 			};
@@ -561,10 +561,9 @@ async function migrateResources(
 					visit(tree, "mdxJsxTextElement", (node, index, parent) => {
 						assert(index != null);
 						assert(parent != null);
-						// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
 						assert(node.name != null);
 
-						// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 						switch (node.name) {
 							case "a": {
 								throw new Error("Unexpected <a> element .");
@@ -575,15 +574,12 @@ async function migrateResources(
 							}
 
 							case "Download": {
-								// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 								const url = node.attributes.find((attribute) => {
 									return (attribute as MdxJsxAttribute).name === "url";
-									// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 								})?.value as string | undefined;
-								// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+
 								const title = node.attributes.find((attribute) => {
 									return (attribute as MdxJsxAttribute).name === "title";
-									// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 								})?.value as string | undefined;
 
 								assert(url, `Missing url attribute on <Download> (${entry.name}).`);
@@ -636,14 +632,13 @@ async function migrateResources(
 									children: [{ type: "text", value: title }],
 								};
 
-								// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
 								parent.children.splice(index, 1, newNode);
 
 								break;
 							}
 
 							case "li": {
-								throw new Error("Unexpected <li> element .");
+								break;
 							}
 
 							case "Quiz.Question": {
@@ -655,7 +650,8 @@ async function migrateResources(
 							}
 
 							case "ul": {
-								throw new Error("Unexpected <ul> element .");
+								log.warn(`Unexpected <ul> in content: ${entry.name}`);
+								break;
 							}
 						}
 					});
@@ -663,10 +659,9 @@ async function migrateResources(
 					visit(tree, "mdxJsxFlowElement", (node, index, parent) => {
 						assert(index != null);
 						assert(parent != null);
-						// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+
 						assert(node.name != null);
 
-						// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 						switch (node.name) {
 							case "a": {
 								throw new Error("Unexpected <a> element .");
@@ -677,10 +672,98 @@ async function migrateResources(
 							}
 
 							case "Download": {
+								const url = node.attributes.find((attribute) => {
+									return (attribute as MdxJsxAttribute).name === "url";
+								})?.value as string | undefined;
+
+								const title = node.attributes.find((attribute) => {
+									return (attribute as MdxJsxAttribute).name === "title";
+								})?.value as string | undefined;
+
+								assert(url, `Missing url attribute on <Download> (${entry.name}).`);
+								assert(title, `Missing title attribute on <Download> (${entry.name}).`);
+
+								const sourceFilePath = join(folder, url);
+								const targetFolderPath = join(
+									publicFolder,
+									"assets",
+									"content",
+									"downloads",
+									"en",
+									"resources",
+									resourceType,
+									outputSlug,
+								);
+								mkdirSync(targetFolderPath, { recursive: true });
+								const targetFilePath = join(targetFolderPath, slugify(url));
+								copyFileSync(sourceFilePath, targetFilePath);
+
+								const newNode: MdxJsxTextElement = {
+									type: "mdxJsxTextElement",
+									name: "Link",
+									attributes: [
+										{
+											type: "mdxJsxAttribute",
+											name: "link",
+											value: {
+												type: "mdxJsxAttributeValueExpression",
+												value: "",
+												data: {
+													estree: {
+														type: "Program",
+														body: [
+															{
+																type: "ExpressionStatement",
+																expression: valueToEstree({
+																	discriminant: "download",
+																	value: `/${relative(publicFolder, targetFilePath)}`,
+																}),
+															},
+														],
+														sourceType: "module",
+														comments: [],
+													},
+												},
+											},
+										},
+									],
+									children: [{ type: "text", value: title }],
+								};
+
+								parent.children.splice(index, 1, newNode);
+
 								break;
 							}
 
 							case "Embed": {
+								const url = node.attributes.find((attribute) => {
+									return (attribute as MdxJsxAttribute).name === "src";
+								})?.value as string | undefined;
+
+								const title = node.attributes.find((attribute) => {
+									return (attribute as MdxJsxAttribute).name === "title";
+								})?.value as string | undefined;
+
+								assert(url, "Missing src attribute on <Embed>");
+
+								const attributes: Array<MdxJsxAttribute> = [
+									{ type: "mdxJsxAttribute", name: "src", value: url },
+								];
+								if (title) {
+									attributes.push({ type: "mdxJsxAttribute", name: "title", value: title });
+								}
+
+								const newNode: MdxJsxFlowElement = {
+									type: "mdxJsxFlowElement",
+									name: "Embed",
+									attributes,
+
+									// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+									children: node.children ?? [],
+								};
+
+								parent.children.splice(index, 1, newNode);
+
 								break;
 							}
 
@@ -689,6 +772,57 @@ async function migrateResources(
 							}
 
 							case "Figure": {
+								let src = node.attributes.find((attribute) => {
+									return (attribute as MdxJsxAttribute).name === "src";
+								})?.value as string | undefined;
+
+								const alt = node.attributes.find((attribute) => {
+									return (attribute as MdxJsxAttribute).name === "alt";
+								})?.value as string | undefined;
+
+								assert(src, "Missing src attribute on <Figure>");
+
+								const targetFolder = join(
+									publicFolder,
+									"assets",
+									"content",
+									"assets",
+									"en",
+									"resources",
+									resourceType,
+									outputSlug,
+								);
+								mkdirSync(targetFolder, { recursive: true });
+
+								if (isUrl(src)) {
+									throw new Error(`Unsupported image url: ${src}`);
+									// await pipeline(fetch(src), createWriteStream(targetFilePath));
+								} else {
+									const sourceFilePath = join(folder, src);
+
+									const targetFilePath = join(targetFolder, basename(sourceFilePath));
+									copyFileSync(sourceFilePath, targetFilePath);
+									src = `/${relative(publicFolder, targetFilePath)}`;
+								}
+
+								const attributes: Array<MdxJsxAttribute> = [
+									{ type: "mdxJsxAttribute", name: "src", value: src },
+								];
+								if (alt) {
+									attributes.push({ type: "mdxJsxAttribute", name: "alt", value: alt });
+								}
+
+								const newNode: MdxJsxFlowElement = {
+									type: "mdxJsxFlowElement",
+									name: "Embed",
+									attributes,
+
+									// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+									children: node.children ?? [],
+								};
+
+								parent.children.splice(index, 1, newNode);
+
 								break;
 							}
 

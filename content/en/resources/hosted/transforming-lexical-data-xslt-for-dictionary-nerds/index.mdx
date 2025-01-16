@@ -1,7 +1,7 @@
 ---
 title: "Transforming Lexical Data: XSLT for Dictionary Nerds"
 locale: en
-publication-date: 2022-01-02T14:31:12.746Z
+publication-date: 2022-01-02
 version: 1.0.0
 authors:
   - tasovac-toma
@@ -63,13 +63,9 @@ This really bears repeating: you can’t do XSLT without XPath. This is because 
 
 XSLT was created specifically for trasnforming XML. It’s data-centric, purpose-built and quite clever: unlike general programming languages, which can be used to create all sorts of different pieces of software, XSLT does one thing, and it does it well. (Calm down, XSLT afficionados! XSLT *is* very powerful and can do many things, but we’re trying to make a point here.)
 
-<figure style={{ width: "40%", float: "right", "margin": "0 0 0 0.5em" }}>
-  <img src="https://i.imgur.com/kYSdoof.jpg" alt="Trulli" />
-
-  <figcaption>
-    Like a lazy cat, XSLT will always go for the absolute minimum! <span style={{ fontSize: "70%" }}>(Photo by <a href="https://unsplash.com/photos/9UUoGaaHtNE">@ludemeula</a>)</span>
-  </figcaption>
-</figure>
+<Embed src="/assets/content/assets/en/resources/hosted/transforming-lexical-data-xslt-for-dictionary-nerds/k-y-sdoof-jpg">
+  Like a lazy cat, XSLT will always go for the absolute minimum! (Photo by [@ludemeula](https://unsplash.com/photos/9UUoGaaHtNE))
+</Embed>
 
 When you start writing and using XSLT stylesheets, you will notice a particular kind of slacker logic: XSLT never wants you to go for anything but the bare minimum! Instead of writing specific rules for each and every element in your XML tree, XSLT teaches you to do more by doing less. You will write one generic, default rule, which will cover all your elements and attributes unless you add specific templates to override them.
 
@@ -120,7 +116,7 @@ We will create an XSLT stylesheet to fix all these errors.
      exclude-result-prefixes="xs"
      version="2.0"
    >
-       
+
    </xsl:stylesheet>
    ```
 
@@ -194,9 +190,9 @@ So, your current stylesheet should look like this:
   xpath-default-namespace="http://www.tei-c.org/ns/1.0"
   version="3.0"
 >
-    
+
     <xsl:mode on-no-match="shallow-copy" />
-    
+
 </xsl:stylesheet>
 ```
 
@@ -261,13 +257,13 @@ Take a look at the following stylesheet:
   xpath-default-namespace="http://www.tei-c.org/ns/1.0"
   version="3.0"
 >
-    
+
     <xsl:mode on-no-match="shallow-copy" />
-    
+
     <xsl:template match="entry">
         This is a fancy dictionary entry.
     </xsl:template>
-    
+
 </xsl:stylesheet>
 ```
 
@@ -319,14 +315,14 @@ If you add `<xsl:apply-templates/>` to your entry-template like this:
   xpath-default-namespace="http://www.tei-c.org/ns/1.0"
   version="3.0"
 >
-    
+
     <xsl:mode on-no-match="shallow-copy" />
-    
+
     <xsl:template match="entry">
         This is a fancy dicitonary entry.
         <xsl:apply-templates />
     </xsl:template>
-    
+
 </xsl:stylesheet>
 ```
 
@@ -395,16 +391,16 @@ So let’s try the following stylesheet:
   xpath-default-namespace="http://www.tei-c.org/ns/1.0"
   version="3.0"
 >
-    
+
     <xsl:mode on-no-match="shallow-copy" />
-    
+
     <xsl:template match="entry">
         <xsl:copy>
             <xsl:comment>This is a fancy dicitonary entry.</xsl:comment>
             <xsl:apply-templates />
         </xsl:copy>
     </xsl:template>
-    
+
 </xsl:stylesheet>
 ```
 
@@ -515,7 +511,7 @@ So let’s write templates for each of these problems:
    ```xml
    <xsl:template match="quote">
        <cit type="example">
-           
+
        </cit>
    </xsl:template>
    ```
@@ -663,16 +659,16 @@ By now, you should have a working stylesheet that turn bad TEI into good TEI. As
   xpath-default-namespace="http://www.tei-c.org/ns/1.0"
   version="3.0"
 >
-    
+
     <xsl:mode on-no-match="shallow-copy" />
-    
+
     <xsl:template match="entry">
         <xsl:copy>
             <xsl:comment>This is a fancy dicitonary entry.</xsl:comment>
             <xsl:apply-templates />
         </xsl:copy>
     </xsl:template>
-    
+
     <xsl:template match="lemma">
         <form type="lemma">
             <orth>
@@ -680,7 +676,7 @@ By now, you should have a working stylesheet that turn bad TEI into good TEI. As
             </orth>
         </form>
     </xsl:template>
-    
+
     <xsl:template match="pos">
         <gramGrp>
             <gram type="pos">
@@ -688,9 +684,9 @@ By now, you should have a working stylesheet that turn bad TEI into good TEI. As
             </gram>
         </gramGrp>
     </xsl:template>
-    
+
     <xsl:template match="etymology" />
-    
+
     <xsl:template match="quote">
         <cit type="example">
             <xsl:copy-of select="." />
@@ -699,7 +695,7 @@ By now, you should have a working stylesheet that turn bad TEI into good TEI. As
             </bibl>
         </cit>
     </xsl:template>
-    
+
     <xsl:template match="title">
         <xsl:copy>
             Good TEI example, transformed by XSLT, of Johnson's entry 'Lexicographer'
@@ -830,69 +826,12 @@ Your template will not extract any real value because your `<form>` element is s
 
 Ok, XSLT gods were not very creative here when naming the two copying instructions. They sound very similar, but you really need to distinguish one from the other. Let’s see.
 
-<table>
-  <thead>
-    <tr>
-      <th style={{width: "50%"}}>
-        <code>
-          \<xsl:copy>
-        </code>
-      </th>
-
-      <th>
-        <code>
-          \<xsl:copy-of>
-        </code>
-      </th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr>
-      <td>
-        shallow copy
-      </td>
-
-      <td>
-        deep copy
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        copies the context node only, no attributes or descendants
-      </td>
-
-      <td>
-        copies the selected node with all it’s attributes and descendants
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        can’t have a
-        <code>@select</code>
-        attribute
-      </td>
-
-      <td>
-        must have a
-        <code>@select</code>
-        attribute
-      </td>
-    </tr>
-
-    <tr>
-      <td>
-        can have children itself, because it copies an empty element from the input document that can be then filled with content
-      </td>
-
-      <td>
-        can’t possibly have children, because it copies an element with all of its content
-      </td>
-    </tr>
-  </tbody>
-</table>
+| `<xsl:copy>`                                                                                                              | `<xsl:copy-of>`                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| shallow copy                                                                                                              | deep copy                                                                          |
+| copies the context node only, no attributes or descendants                                                                | copies the selected node with all its attributes and descendants                   |
+| can’t have a `@select` attribute                                                                                          | must have a `@select` attribute                                                    |
+| can have children itself, because it copies an empty element from the input document that can then be filled with content | can’t possibly have children, because it copies an element with all of its content |
 
 So, in a nutshell:
 

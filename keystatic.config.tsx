@@ -21,7 +21,7 @@ export default config({
 	collections: {
 		[withI18nPrefix("curricula", defaultLocale)]: createCurricula(defaultLocale),
 		[withI18nPrefix("documentation", defaultLocale)]: createDocumentation(defaultLocale),
-		[withI18nPrefix("events", defaultLocale)]: createEvents(defaultLocale),
+		[withI18nPrefix("resources-events", defaultLocale)]: createEvents(defaultLocale),
 		[withI18nPrefix("people", defaultLocale)]: createPeople(defaultLocale),
 		[withI18nPrefix("resources-external", defaultLocale)]: createResourcesExternal(defaultLocale),
 		[withI18nPrefix("resources-hosted", defaultLocale)]: createResourcesHosted(defaultLocale),
@@ -62,7 +62,7 @@ export default config({
 				withI18nPrefix("resources-hosted", defaultLocale),
 				withI18nPrefix("resources-external", defaultLocale),
 				withI18nPrefix("resources-pathfinders", defaultLocale),
-				withI18nPrefix("events", defaultLocale),
+				withI18nPrefix("resources-events", defaultLocale),
 				withI18nPrefix("curricula", defaultLocale),
 			],
 			Data: [

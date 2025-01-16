@@ -26,3 +26,7 @@
 - Video => Video
 - Quiz => Quiz
 - Tabs => Tabs
+
+## resources
+
+- introduction-to-dictionary-users: get rid of `<ul>` in table

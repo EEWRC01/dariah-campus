@@ -27,17 +27,17 @@ The course will focus on modeling dictionaries using TEI Lex-0, a subset of the 
 
 Upon completion of this course, students will be able to
 
-- understand the importance of using community-established best practices for encoding dictionaries
-- recognize the differences in scope between TEI and TEI Lex-0
-- efficiently use both TEI and TEI Lex-0 Guidelines
-- encode moderately complex dictionary entries using TEI Lex-0
-- identify channels of communication with TEI and TEI Lex-0 experts
+* understand the importance of using community-established best practices for encoding dictionaries
+* recognize the differences in scope between TEI and TEI Lex-0
+* efficiently use both TEI and TEI Lex-0 Guidelines
+* encode moderately complex dictionary entries using TEI Lex-0
+* identify channels of communication with TEI and TEI Lex-0 experts
 
 NOTE: we'll do this as a step-by-step course, taking a fairly complex dictionary entry (or a few of them if we can't find one that ticks all the boxes) and then go through the process of encoding in great detail. This will be the main difference from the TEI Lex-0 documentation which goes from issues to examples, this tutorial will go from concrete examples of dictionaries to fully encoded entries.
 
 ## Introduction: Text Encoding Initiative
 
-- Community standard. Not only dictionaries. Bigger picture: digital humanities, textual resources.
+* Community standard. Not only dictionaries. Bigger picture: digital humanities, textual resources.
 
 Now that you've learned the basics of XML, we have some good news and some bad news for you. The good news is that you are ready to start marking up your dictionaries. The bad news is that XML on its own is not enough if you want to make sure that your dictionary follows the best practices established in the retrodigitization community.
 
@@ -55,23 +55,23 @@ The TEI consortium was established in 1987 as an international research project 
 
 The TEI recommendations are continuously updated and occasionally major releases are published. These major releases are numbered incrementally starting with TEI P1 (in 1990) to the latest release TEI P5 (in 2007). Since, 2011 TEI is also registered as its own media type (RFC 6129).
 
-TEI is not a standard in the sense that it is prescribed by the international standardization bodies like ISO or W3C. Since the first draft of the _TEI Guidelines_ was released in the 1990s, however, TEI has developed into a community-driven infrastructure and one of the most important _de facto_ standards within the humanities. It has been used in the preparation of countless digital editions of literary and dramatic texts, historical documents, manuscripts, corpora _and_ dictionaries.
+TEI is not a standard in the sense that it is prescribed by the international standardization bodies like ISO or W3C. Since the first draft of the *TEI Guidelines* was released in the 1990s, however, TEI has developed into a community-driven infrastructure and one of the most important *de facto* standards within the humanities. It has been used in the preparation of countless digital editions of literary and dramatic texts, historical documents, manuscripts, corpora *and* dictionaries.
 
-The first _TEI Guidelines_ (P1 to P3) were based on SGML, while the more recent revisions – TEI P4 (June 2002) and TEI P5 (November 2007) – have used XML.
+The first *TEI Guidelines* (P1 to P3) were based on SGML, while the more recent revisions – TEI P4 (June 2002) and TEI P5 (November 2007) – have used XML.
 
-In the rest of this unit, we will learn how to use _TEI_ in general, and how to use it to encode dictionaries, in particular.
+In the rest of this unit, we will learn how to use *TEI* in general, and how to use it to encode dictionaries, in particular.
 
 **Further reading**
 
-- Lou Burnard, The Evolution of the Text Encoding Initiative: From Research Project to Research Infrastructure, in Journal of the Text Encoding Initiative, 2013, [http://jtei.revues.org/811](http://jtei.revues.org/811)
-- Lou Burnard, What is the Text Encoding Initiative, 2014, [http://books.openedition.org/oep/426?lang=en](http://books.openedition.org/oep/426?lang=en)
-- Nancy M. Ide and C. M. Sperberg-McQueen, The Text Encoding Initiative: Its History, Goals, and Future Development:[http://www.cs.vassar.edu/\~ide/papers/teiHistory.pdf](http://www.cs.vassar.edu/\~ide/papers/teiHistory.pdf)
+* Lou Burnard, The Evolution of the Text Encoding Initiative: From Research Project to Research Infrastructure, in Journal of the Text Encoding Initiative, 2013, [http://jtei.revues.org/811](http://jtei.revues.org/811)
+* Lou Burnard, What is the Text Encoding Initiative, 2014, [http://books.openedition.org/oep/426?lang=en](http://books.openedition.org/oep/426?lang=en)
+* Nancy M. Ide and C. M. Sperberg-McQueen, The Text Encoding Initiative: Its History, Goals, and Future Development:[http://www.cs.vassar.edu/\~ide/papers/teiHistory.pdf](http://www.cs.vassar.edu/~ide/papers/teiHistory.pdf)
 
 ## Starting with TEI
 
 ## In Medias Res
 
-We'll start this lesson by converting one part of the XML-encoded entry for _lexicographer_ from Johnson's dictionary into TEI.
+We'll start this lesson by converting one part of the XML-encoded entry for *lexicographer* from Johnson's dictionary into TEI.
 
 This is just to give you a taste of all those wonderful things to come and to give you a little more practice in using oXygen to rename existing elements and attributes or to create new ones. We'll cover different TEI elements in more depth later on.
 
@@ -79,7 +79,7 @@ This is just to give you a taste of all those wonderful things to come and to gi
 
 2. Type "tei" in the search field
 
-3. Double-click on the template called _All_ in the TEI5 folder
+3. Double-click on the template called *All* in the TEI5 folder
 
 4. Find the element `<title>` (which is the child of `<titleStmt>`, which itself is a child of `<fileDesc>`, which is a child of `<teiHeader>`) and give your file an appropriate tile by writing it between the `<title>` and `</title>`
 
@@ -101,7 +101,7 @@ This is just to give you a taste of all those wonderful things to come and to gi
 
     ![](http://i.imgur.com/OavdVsI.png)
 
-11. When we asked you to copy and paste from your old file, we asked you to copy a fragment of xml which itself was not well-formed: `<entry><lemma normalized='lexicographer'>Lexico‘grapher</lemma>. <grammar>n.s.</grammar>` is not well-formed because each starting tag in XML must be matched by its end tag. That's why you need to enter `</entry>`in the empty row above `</body>`.
+11. When we asked you to copy and paste from your old file, we asked you to copy a fragment of xml which itself was not well-formed: `<entry><lemma normalized='lexicographer'>Lexico'grapher</lemma>. <grammar>n.s.</grammar>` is not well-formed because each starting tag in XML must be matched by its end tag. That's why you need to enter `</entry>`in the empty row above `</body>`.
 
 12. Now, double-click the element name in `<lemma>`.
 
@@ -155,11 +155,11 @@ This is just to give you a taste of all those wonderful things to come and to gi
 
 Congratulations! Your dictionary entry is beginning to look like it's speaking TEI! If you have followed this exercise, you will have noticed several things:
 
-- your `<form>` and `<orth>` elements have been accepted as proper TEI because oXygen has not underlined them in red.
-- we still have quite a bit of work to do on the rest of the entry: every element that's underlined in red indicates an error
-- because you selected a TEI template when you started working on this file, oXygen has been trying to help you as much as it can in suggesting possible elements and even possible attribute values
-- the reason why oXygen can do all these things has nothing to do with magic (unfortunately!), but with the regimented world of XML schemas. We've talked briefly about them in Unit 2. A schema is a set of rules that the XML parser uses to validate your document against. The TEI schema tells oXygen: `<lemma>` is not a valid TEI element, but `<form type="lemma">` is.
-- your TEI document is not both well-formed and valid. Make sure you understand the difference between the two concepts and, if necessary, revisit the corresponding section in Lesson 4 in Unit 2.
+* your `<form>` and `<orth>` elements have been accepted as proper TEI because oXygen has not underlined them in red.
+* we still have quite a bit of work to do on the rest of the entry: every element that's underlined in red indicates an error
+* because you selected a TEI template when you started working on this file, oXygen has been trying to help you as much as it can in suggesting possible elements and even possible attribute values
+* the reason why oXygen can do all these things has nothing to do with magic (unfortunately!), but with the regimented world of XML schemas. We've talked briefly about them in Unit 2. A schema is a set of rules that the XML parser uses to validate your document against. The TEI schema tells oXygen: `<lemma>` is not a valid TEI element, but `<form type="lemma">` is.
+* your TEI document is not both well-formed and valid. Make sure you understand the difference between the two concepts and, if necessary, revisit the corresponding section in Lesson 4 in Unit 2.
 
 This completes your baptism by fire in things TEI. On the next page you will learn more about TEI itself and how to discover all those semi-exotic elements that populate the TEI universe.
 
@@ -167,7 +167,7 @@ This completes your baptism by fire in things TEI. On the next page you will lea
 
 The TEI Guidelines cover some 500 predefined elements organized in modules. A TEI module groups together associated TEI elements such as the TEI elements recommended for the encoding of drama or dictionaries. There are also more general TEI modules which contain 'core' and 'header' elements -- basic elements most likely to be used in all TEI documents.
 
-The following table contains a list of all TEI modules with links to the chapters of the _TEI Guidelines_ where they are defined.
+The following table contains a list of all TEI modules with links to the chapters of the *TEI Guidelines* where they are defined.
 
 | Module name   | Formal public identifier             | Corresponding TEI Chapter                                                                                     |
 | ------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------- |
@@ -193,11 +193,11 @@ The following table contains a list of all TEI modules with links to the chapter
 | transcr       | Transcription of Primary Sources     | [11 Representation of Primary Sources](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/PH.html)           |
 | verse         | Verse                                | [6 Verse](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/VE.html)                                        |
 
-As you can see, _The TEI Guidelines_ are themselves quite massive. Finding your way around may be difficult at first. We'll be focusing on Chapter 9: Print Dictionaries, which will make your job somewhat easier.
+As you can see, *The TEI Guidelines* are themselves quite massive. Finding your way around may be difficult at first. We'll be focusing on Chapter 9: Print Dictionaries, which will make your job somewhat easier.
 
 As you go through this unit, you should also make sure you read through the Chapter 9 of the Guidelines. We'll be covering it section by section so you won't have to read the whole Chapter in one go.
 
-Sometimes, however, it will be more useful for you to look up the declarations and examples of particular TEI elements, such as `<entry>`, `<sense>` or `<def>`. In those situations, instead of going through the dictionary chapter, it will be easier for you to consult the _[Appendix C](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/REF-ELEMENTS.html)_ of _The Guidelines_, which contains an alphabetic list of all the TEI Elements.
+Sometimes, however, it will be more useful for you to look up the declarations and examples of particular TEI elements, such as `<entry>`, `<sense>` or `<def>`. In those situations, instead of going through the dictionary chapter, it will be easier for you to consult the *[Appendix C](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/REF-ELEMENTS.html)* of *The Guidelines*, which contains an alphabetic list of all the TEI Elements.
 
 ![](http://i.imgur.com/Feuy9gD.png)
 
@@ -209,14 +209,14 @@ Sometimes, however, it will be more useful for you to look up the declarations a
 
 **Further reading:**
 
-- Elena Pierazzo, Modelling (Digital) Texts, in Digital Scholarly Editing: Theories, Models and Methods, 2015, [http://hal.univ-grenoble-alpes.fr/hal-01182162](http://hal.univ-grenoble-alpes.fr/hal-01182162)
-- Text Encoding Initiative, The TEI Infrastructure, [http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ST.html](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ST.html)
+* Elena Pierazzo, Modelling (Digital) Texts, in Digital Scholarly Editing: Theories, Models and Methods, 2015, [http://hal.univ-grenoble-alpes.fr/hal-01182162](http://hal.univ-grenoble-alpes.fr/hal-01182162)
+* Text Encoding Initiative, The TEI Infrastructure, [http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ST.html](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ST.html)
 
 ## Is \<form type="lemma"> really better than \<lemma>?
 
-_TEI Guidelines_ better, we'll see why validating against the TEI schema is an important aspect in the preparation of high-quality digital editions.
+*TEI Guidelines* better, we'll see why validating against the TEI schema is an important aspect in the preparation of high-quality digital editions.
 
-TEI-compliant `<form type="lemma"><orth>...</orth></form>` is not necessarily _better_ than `<lemma/>`: it is certainly more verbose and it is probably not as intuitive for you as the first version of the encoding you did on your own in XML. TEI comes with its own baggage. Some elements may sound strange (what is `<mentioned>` doing in my `<etym>`?) and some may drive you crazy (`<cit type="example"><quote>...</quote></cit>` sounds ridiculous if you know that without TEI you could simply call it `<example>...</example>` or `<quote>...</quote>`).
+TEI-compliant `<form type="lemma"><orth>...</orth></form>` is not necessarily *better* than `<lemma/>`: it is certainly more verbose and it is probably not as intuitive for you as the first version of the encoding you did on your own in XML. TEI comes with its own baggage. Some elements may sound strange (what is `<mentioned>` doing in my `<etym>`?) and some may drive you crazy (`<cit type="example"><quote>...</quote></cit>` sounds ridiculous if you know that without TEI you could simply call it `<example>...</example>` or `<quote>...</quote>`).
 
 The translation of the abstract model of dictionary structure into its TEI XML serialization is a process in which, like in any act of translation, some things may get lost. TEI element names will not always be direct, one-to-one reflections of the lexicographic terms you may be familiar with. This is because the TEI vocabulary is heavily restricted and also influenced by some historical decisions. The fact that some elements of the serialization have names closely corresponding to what we see or imagine or are used to in the abstract dictionary model is more or less a lucky coincidence. It is certainly not the pattern to be expected.
 
@@ -232,7 +232,7 @@ Community standard. Not only dictionaries. Bigger picture: digital humanities, t
 
 ### Navigating TEI and TEI Lex-0 Guidelines
 
-- TODO: screenshots and explanations of how TEI Lex-0 Guidelines are to be used, searched etc.
+* TODO: screenshots and explanations of how TEI Lex-0 Guidelines are to be used, searched etc.
 
 ### From data encoding to data enrichment
 

@@ -40,11 +40,7 @@ This learning resource is presented in two formats: a video screencast, which yo
 
 This screencast was recorded for the Spring School LiSeH 2021, and presents much of the same material as in the full module below, with some omissions.
 
-<VideoCard
-  title="Click to view"
-  id="DUlfC8NL0Bs"
-  image="images/cv_and_skos_title_image.JPG"
-/>
+<VideoCard title="Click to view" id="DUlfC8NL0Bs" image="images/cv_and_skos_title_image.JPG" />
 
 ## Introduction
 
@@ -58,36 +54,36 @@ Patricia Harpring [^1] introduced the following definition of controlled vocabul
 
 There are many different types of controlled vocabularies, the most common among them are:
 
-- Thesaurus - a type of controlled vocabulary used in information systems that organizes concepts in hierarchical and/or associative relationships and provides their semantic definitions
-- Classification schema - a system that based primarily on classifying things or concepts into groups or classes with a detailed explanation of those classification methods
-- Subject heading list - a list of terms describing subjects in information system
-- Taxonomy - a system that organizes things and concepts in groups based on their common characteristics and/or differences
-- Terminology - a list of terms used to describe concepts in a certain domain
-- Glossary - an alphabetical list of terms with their explanation used in a specific context
+* Thesaurus - a type of controlled vocabulary used in information systems that organizes concepts in hierarchical and/or associative relationships and provides their semantic definitions
+* Classification schema - a system that based primarily on classifying things or concepts into groups or classes with a detailed explanation of those classification methods
+* Subject heading list - a list of terms describing subjects in information system
+* Taxonomy - a system that organizes things and concepts in groups based on their common characteristics and/or differences
+* Terminology - a list of terms used to describe concepts in a certain domain
+* Glossary - an alphabetical list of terms with their explanation used in a specific context
 
-**Diagram 1.** below shows how controlled vocabularies are embedded in architecture of an information system (the example is derived from [DEFC controlled vocabulary](https://vocabs.acdh.oeaw.ac.at/defc_thesaurus/en/)). In this example, the Archeological site is a Universal abstract class, whereas Athens is an instance of Archaeological site class and a Particular that represents the exact and real archaeological site studied and described in the system. Athens can be of one or many types that are defined in a controlled vocabulary, for example, it can be a type of ‘Hillside’.
+**Diagram 1.** below shows how controlled vocabularies are embedded in architecture of an information system (the example is derived from [DEFC controlled vocabulary](https://vocabs.acdh.oeaw.ac.at/defc_thesaurus/en/)). In this example, the Archeological site is a Universal abstract class, whereas Athens is an instance of Archaeological site class and a Particular that represents the exact and real archaeological site studied and described in the system. Athens can be of one or many types that are defined in a controlled vocabulary, for example, it can be a type of 'Hillside'.
 
 ![Diagram 1. Controlled vocabularies in data architecture](images/cv_and_skos_model_diagram_1.png)
 
 Controlled vocabularies (CVs) are prominently used in many domains of research and industry:
 
-- On the Web, vocabularies are often used in building the information architecture for websites, data repositories, information systems, thereby providing terms for indexing and retrieval of information objects.
-- CVs are widely used in biology for classification of living organisms (e.g. taxonomies of living organisms, classifications of cross-species anatomical entities).
-- Public health and medicine have CVs in various forms (terminologies, thesauri, ontologies) for defining categorizations and classifications for biomedical investigations, diseases, symptoms, medical errors, etc.
-- International organizations actively use CVs to standardize terms and translations in international affairs. The most notable examples are the United Nations terminologies that are translated into six main languages of the UN to eliminate ambiguity in terms used in international communication.
-- GLAM (Galleries/Libraries/Archives/Museums) have used CVs for a very long time to describe their objects and resources, build catalogues and information systems.
-- The fields of Computer Science as data mining, knowledge extraction, or conversation AI use CVs to classify entities and objects in text or speech recognition (Named Entity Recognition and Named Entity Disambiguation, e.g. CVs used to categorize intent in conversation with a robot).
+* On the Web, vocabularies are often used in building the information architecture for websites, data repositories, information systems, thereby providing terms for indexing and retrieval of information objects.
+* CVs are widely used in biology for classification of living organisms (e.g. taxonomies of living organisms, classifications of cross-species anatomical entities).
+* Public health and medicine have CVs in various forms (terminologies, thesauri, ontologies) for defining categorizations and classifications for biomedical investigations, diseases, symptoms, medical errors, etc.
+* International organizations actively use CVs to standardize terms and translations in international affairs. The most notable examples are the United Nations terminologies that are translated into six main languages of the UN to eliminate ambiguity in terms used in international communication.
+* GLAM (Galleries/Libraries/Archives/Museums) have used CVs for a very long time to describe their objects and resources, build catalogues and information systems.
+* The fields of Computer Science as data mining, knowledge extraction, or conversation AI use CVs to classify entities and objects in text or speech recognition (Named Entity Recognition and Named Entity Disambiguation, e.g. CVs used to categorize intent in conversation with a robot).
 
 Thereby the CVs are used :
 
-- to organize large volumes of data (group, categorize)
-- to ensure future retrieval/search functionality
-- to simplify user experience and navigation on the website
-- to have a common understanding of used terms (reduce the ambiguity of words)
-- for data interoperability and dataset integration (contributing to Open Data and Open Science)
-- to facilitate an exploration process in information systems
-- as a base for recommendation systems
-- in question-answering systems
+* to organize large volumes of data (group, categorize)
+* to ensure future retrieval/search functionality
+* to simplify user experience and navigation on the website
+* to have a common understanding of used terms (reduce the ambiguity of words)
+* for data interoperability and dataset integration (contributing to Open Data and Open Science)
+* to facilitate an exploration process in information systems
+* as a base for recommendation systems
+* in question-answering systems
 
 ### Role of CVs in Semantic web
 
@@ -101,13 +97,13 @@ W3C developed specifications and standards to support the usage of CVs in the co
 
 The field of Digital Humanities (DH) deals with the production of digital objects which could be data resources (e.g. 3D models, TEI [^3] documents, data visualizations) as well as with the production of metadata for real-world objects (e.g. archaeological finds, historical manuscripts). In both cases, it involves the creation of digital assets. CVs are used to describe, group and distinguish these resources.
 
-_Why CVs are important in DH projects?_
+*Why CVs are important in DH projects?*
 
-DH data is highly interpretational and often observational. To a certain extent and in certain DH disciplines (e.g. literary studies) it is shaped by a researcher’s worldview and opinion. This makes it more difficult to standardize and develop a common understanding of the used terminology. Nevertheless, CVs are an attempt to make the conceptualizations explicit and thus understandable to recipients.
+DH data is highly interpretational and often observational. To a certain extent and in certain DH disciplines (e.g. literary studies) it is shaped by a researcher's worldview and opinion. This makes it more difficult to standardize and develop a common understanding of the used terminology. Nevertheless, CVs are an attempt to make the conceptualizations explicit and thus understandable to recipients.
 
 Moreover, Digital Humanities is one of the domains that has adopted Open Data and Open Science initiatives actively in recent years. This makes it even more crucial to design and publish CVs and link them to external authoritative reference resource to allow data interoperability and linking with data from other DH projects.
 
-_Approaches to CVs interoperability_
+*Approaches to CVs interoperability*
 
 There are different approaches to how CVs can be reused or made interoperable with each other in order to facilitate data integration.
 
@@ -157,9 +153,9 @@ ex:cat rdf:type skos:Concept.
 
 The Concept is defined by a label in natural language. SKOS provides three properties to attach labels to a concept:
 
-- skos:prefLabel - preferred label for a concept, only one unique preferred label per language is allowed;
-- skos:altLabel - alternative labels for a concept, e.g. synonyms, abbreviations and acronyms (can be many);
-- skos:hiddenLabel - misspellings and other variants, this label is accessible for text indexing by applications but not visible for the user.
+* skos:prefLabel - preferred label for a concept, only one unique preferred label per language is allowed;
+* skos:altLabel - alternative labels for a concept, e.g. synonyms, abbreviations and acronyms (can be many);
+* skos:hiddenLabel - misspellings and other variants, this label is accessible for text indexing by applications but not visible for the user.
 
 ```turtle
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -177,13 +173,13 @@ ex:cat rdf:type skos:Concept;
 
 There are two types of relationships between concepts that can be established in a vocabulary:
 
-- Hierarchical via properties skos:broader, skos:narrower
-  - SKOS model doesn’t state that broader & narrower are transitive, but it also doesn’t imply that these properties are intransitive (_Note on transitivity: the relationship is transitive if concept A is related to concept B. Concept B is related to concept C. That implies that concept A is related to concept C._)
-  - For explicit transitivity use skos:broaderTransitive and skos:narrowerTransitive
-- Associative via property skos:related
-  - is not defined as a transitive property
+* Hierarchical via properties skos:broader, skos:narrower
+  * SKOS model doesn't state that broader & narrower are transitive, but it also doesn't imply that these properties are intransitive (*Note on transitivity: the relationship is transitive if concept A is related to concept B. Concept B is related to concept C. That implies that concept A is related to concept C.*)
+  * For explicit transitivity use skos:broaderTransitive and skos:narrowerTransitive
+* Associative via property skos:related
+  * is not defined as a transitive property
 
-Important to not mix hierarchical and associative relationships: if two concepts are in broader/narrower relationships between each other then they are explicitly in hierarchical relationships, therefore, don’t need to be related via skos:related property. Similarly, if two concepts are related via skos:related property we can infer that they are related in some other distinct hierarchical relationships (e.g. a concept representing a tangible object is related to a concept describing a method that uses that object).
+Important to not mix hierarchical and associative relationships: if two concepts are in broader/narrower relationships between each other then they are explicitly in hierarchical relationships, therefore, don't need to be related via skos:related property. Similarly, if two concepts are related via skos:related property we can infer that they are related in some other distinct hierarchical relationships (e.g. a concept representing a tangible object is related to a concept describing a method that uses that object).
 
 ```turtle
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -207,13 +203,13 @@ SKOS defines properties to add human-readable documentation about concept. It is
 
 The following properties can be used:
 
-- skos:note - general documentation purposes
-- skos:scopeNote - partial information about the intended meaning of a concept
-- skos:definition - complete explanation of the intended meaning of a concept
-- skos:example - example of the use of a concept
-- skos:historyNote - significant changes to the meaning or the form of a concept
-- skos:editorialNote - administrative information for editors
-- skos:changeNote - changes for the purposes of administration and maintenance
+* skos:note - general documentation purposes
+* skos:scopeNote - partial information about the intended meaning of a concept
+* skos:definition - complete explanation of the intended meaning of a concept
+* skos:example - example of the use of a concept
+* skos:historyNote - significant changes to the meaning or the form of a concept
+* skos:editorialNote - administrative information for editors
+* skos:changeNote - changes for the purposes of administration and maintenance
 
 ```turtle
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -236,10 +232,10 @@ As mentioned above, CV forms a schema of data descriptors. Therefore SKOS introd
 
 The following statements define the purpose and usage of Concept Scheme class:
 
-- skos:ConceptScheme is a class for representing a controlled vocabulary.
-- Concepts have to be linked to ConceptScheme via skos:inScheme property.
-- skos:hasTopConcept is used to define entry points of a hierarchy.
-- Metadata about Concept Scheme can be expressed using Dublin Core properties such as dct:creator, dct:contributor, dct: title, dct:rightHolder …
+* skos:ConceptScheme is a class for representing a controlled vocabulary.
+* Concepts have to be linked to ConceptScheme via skos:inScheme property.
+* skos:hasTopConcept is used to define entry points of a hierarchy.
+* Metadata about Concept Scheme can be expressed using Dublin Core properties such as dct:creator, dct:contributor, dct: title, dct:rightHolder …
 
 ```turtle
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -261,9 +257,9 @@ ex:animals rdf:type skos:Concept;
 
 #### Grouping concepts within one vocabulary
 
-- SKOS provides a class of Collection for the purposes of grouping concepts based on their shared characteristics.
-- Class skos:Collection/skos:OrderedCollection is used to group concepts into meaningful collections within Concept Scheme.
-- Concepts are added to Collection via skos:member or skos:memberList property.
+* SKOS provides a class of Collection for the purposes of grouping concepts based on their shared characteristics.
+* Class skos:Collection/skos:OrderedCollection is used to group concepts into meaningful collections within Concept Scheme.
+* Concepts are added to Collection via skos:member or skos:memberList property.
 
 ```turtle
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -294,11 +290,11 @@ Concepts can be semantically reconciled to concepts in different Concept Schemes
 
 SKOS provides the following properties to link concepts with external resources:
 
-- skos:exactMatch - the local term is an exact match to a term in an external vocabulary
-- skos:closeMatch - not exact but close match to a term in an external vocabulary
-- skos:broadMatch - the local term has a broader match in an external vocabulary
-- skos:narrowMatch - the local term has a narrower term in an external vocabulary
-- skos:relatedMatch - the related term in an external vocabulary
+* skos:exactMatch - the local term is an exact match to a term in an external vocabulary
+* skos:closeMatch - not exact but close match to a term in an external vocabulary
+* skos:broadMatch - the local term has a broader match in an external vocabulary
+* skos:narrowMatch - the local term has a narrower term in an external vocabulary
+* skos:relatedMatch - the related term in an external vocabulary
 
 ```turtle
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -315,9 +311,9 @@ ex:europeanWildcat rdf:type skos:Concept;
 
 Sometimes it is required to describe relationships among lexical labels representing concepts. For this SKOS provides an extension SKOS-XL - [SKOS eXtension for Labels](https://www.w3.org/TR/skos-reference/skos-xl.html) - to identify, describe and link lexical labels.
 
-- Each label is defined as skosxl:Label class and assigned a URI
-- The lexical form is stored via skosxl:literalForm property
-- Labels relations are expressed via skosxl:labelRelation
+* Each label is defined as skosxl:Label class and assigned a URI
+* The lexical form is stored via skosxl:literalForm property
+* Labels relations are expressed via skosxl:labelRelation
 
 ```turtle
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -346,7 +342,7 @@ Test your knowledge of the SKOS standard with the quiz. The correct answers are 
   <Quiz.Card>
     <Quiz.MultipleChoice>
       <Quiz.Question>
-        **Select all triples with _correct_ RDF syntax.** _Please, assume the following prefixes for all options:_
+        **Select all triples with *correct* RDF syntax.** *Please, assume the following prefixes for all options:*
 
         ```turtle
         @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -371,13 +367,12 @@ Test your knowledge of the SKOS standard with the quiz. The correct answers are 
         `ex:europeanWildcat rdf:type skos:Concept, skos:preflabel "European wildcat"@en.`
       </Quiz.MultipleChoice.Option>
     </Quiz.MultipleChoice>
-
   </Quiz.Card>
 
   <Quiz.Card>
     <Quiz.MultipleChoice>
       <Quiz.Question>
-        **Select all _correct_ SKOS records.** _Please, assume the following prefixes for all options:_
+        **Select all *correct* SKOS records.** *Please, assume the following prefixes for all options:*
 
         ```turtle
         @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -402,13 +397,12 @@ Test your knowledge of the SKOS standard with the quiz. The correct answers are 
         `ex:eurasianLynx a skos:Concept; skos:prefLabel "Eurasian lynx"@en; skos:prefLabel "Eurasischer Luchs"@en.`
       </Quiz.MultipleChoice.Option>
     </Quiz.MultipleChoice>
-
   </Quiz.Card>
 
   <Quiz.Card>
     <Quiz.MultipleChoice>
       <Quiz.Question>
-        **Select all _incorrect_ SKOS records.** _Please, assume the following prefixes for all options:_
+        **Select all *incorrect* SKOS records.** *Please, assume the following prefixes for all options:*
 
         ```turtle
         @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -433,13 +427,12 @@ Test your knowledge of the SKOS standard with the quiz. The correct answers are 
         `ex:europeanWildcat a skos:Concept; skos:broader ex:wildcat; skos:broadMatch wikidata:Q43576.`
       </Quiz.MultipleChoice.Option>
     </Quiz.MultipleChoice>
-
   </Quiz.Card>
 
   <Quiz.Card>
     <Quiz.MultipleChoice>
       <Quiz.Question>
-        **Select all _incorrect_ statements.**
+        **Select all *incorrect* statements.**
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
@@ -458,17 +451,16 @@ Test your knowledge of the SKOS standard with the quiz. The correct answers are 
         Concept can have several alternative labels in one language.
       </Quiz.MultipleChoice.Option>
     </Quiz.MultipleChoice>
-
   </Quiz.Card>
 
   <Quiz.Card>
     <Quiz.MultipleChoice>
       <Quiz.Question>
-        **Select all _correct_ statements.**
+        **Select all *correct* statements.**
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        Concept can’t have more than one preferred label in one language.
+        Concept can't have more than one preferred label in one language.
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -483,7 +475,6 @@ Test your knowledge of the SKOS standard with the quiz. The correct answers are 
         Concept can have many matching Concepts in external Concept Schemas.
       </Quiz.MultipleChoice.Option>
     </Quiz.MultipleChoice>
-
   </Quiz.Card>
 </Quiz>
 
@@ -504,7 +495,7 @@ The future retrieval and search functionality will directly depend on the qualit
 9. Ambiguous label for a concept
 10. Flat data (no hierarchy and associative relationships among concepts)
 
-_The above material is derived from the following work:_ Mader, Christian, Bernhard Haslhofer, and Antoine Isaac. "Finding quality issues in SKOS vocabularies." In International Conference on Theory and Practice of Digital Libraries, pp. 222-233. Springer, Berlin, Heidelberg, 2012.
+*The above material is derived from the following work:* Mader, Christian, Bernhard Haslhofer, and Antoine Isaac. "Finding quality issues in SKOS vocabularies." In International Conference on Theory and Practice of Digital Libraries, pp. 222-233. Springer, Berlin, Heidelberg, 2012.
 
 ## Task: Model Music styles vocabulary
 
@@ -512,12 +503,12 @@ There are many styles used to categorize music. Consider the following styles: p
 
 1. Structure/draw your own vocabulary called "Music styles"
 2. Model this vocabulary in a SKOS record:
-   - model in RDF turtle format
-   - add at least one documentary note for each concept
-   - add labels in other languages
-   - feel free to add more music styles
-   - establish relationships to external LOD resources (dbpedia, wikidata)
-   - save file in .ttl format
+   * model in RDF turtle format
+   * add at least one documentary note for each concept
+   * add labels in other languages
+   * feel free to add more music styles
+   * establish relationships to external LOD resources (dbpedia, wikidata)
+   * save file in .ttl format
 3. Visualize "Music styles" using web tool [SKOS play](http://labs.sparna.fr/skos-play/upload). Try out different visualization types.
 
 ## Controlled vocabulary as a backbone of information architecture
@@ -530,19 +521,19 @@ Picture 1. Visualization of IAD Thesaurus [^6]
 
 ![Picture 1. Visualization of IAD thesaurus](images/iad_thesaurus_visualization.PNG)
 
-- Database values: CVs are closed lists in the user interface represented as dropdown lists when creating or annotating a record.
+* Database values: CVs are closed lists in the user interface represented as dropdown lists when creating or annotating a record.
 
 Picture 2. CV in data curation interface
 
 ![Picture 2. Controlled vocabularies in IAD curation interface](images/cv_in_curation_interface.PNG)
 
-- Context information: when exploring data it is important to provide a user with an explanation of used terms in the interface.
+* Context information: when exploring data it is important to provide a user with an explanation of used terms in the interface.
 
 Picture 3. CV in user interface
 
 ![Picture 3. Pop up with a vocabulary term definition and traslations in user interface](images/cv_popup_in_userinterface.png)
 
-- Faceted search is based on CVs: dropdowns and autocompletes
+* Faceted search is based on CVs: dropdowns and autocompletes
 
 Picture 4. CV in faceted search interface
 
@@ -552,7 +543,7 @@ Picture 5. CV in faceted search interface
 
 ![Picture 5. Controlled vocabularies in IAD search interface](images/cv_in_search_interface_02.PNG)
 
-- CVs are building blocks of Linked Open Data and used for connecting distributed datasets via concepts persistent URIs. Each concept has a unique stable and resolvable URI that can be reused by other projects to refer to this concept. The reference can be done by using directly URI or by retrieving a URI using the API of a vocabulary repository.
+* CVs are building blocks of Linked Open Data and used for connecting distributed datasets via concepts persistent URIs. Each concept has a unique stable and resolvable URI that can be reused by other projects to refer to this concept. The reference can be done by using directly URI or by retrieving a URI using the API of a vocabulary repository.
 
 Picture 6. IAD Thesaurus in Vocabs repository
 
@@ -568,18 +559,18 @@ Vocabulary can be integrated into a project's software at a database architectur
 
 SKOS editors are tools for creating SKOS vocabulary in a user-friendly interface:
 
-- [iQvoc](http://iqvoc.net/)
-- [VocBench](http://vocbench.uniroma2.it/)
-- [TemaTres](https://www.vocabularyserver.com/)
-- [Themas](https://github.com/isl/THEMAS/)
-- [Vocabs editor](https://vocabseditor.acdh.oeaw.ac.at/)
+* [iQvoc](http://iqvoc.net/)
+* [VocBench](http://vocbench.uniroma2.it/)
+* [TemaTres](https://www.vocabularyserver.com/)
+* [Themas](https://github.com/isl/THEMAS/)
+* [Vocabs editor](https://vocabseditor.acdh.oeaw.ac.at/)
 
 Most of the tools allow SKOS data import and export.
 
-- [OpenRefine](https://openrefine.org/) with [RDF extension](https://github.com/stkenny/grefine-rdf-extension)
-- [Karma](https://usc-isi-i2.github.io/karma/)
-- [SKOS play](http://labs.sparna.fr/skos-play/)
-- SKOS files can also be programmed, for example, using Python [rdflib](https://rdflib.readthedocs.io/) package - a package to work with RDF data
+* [OpenRefine](https://openrefine.org/) with [RDF extension](https://github.com/stkenny/grefine-rdf-extension)
+* [Karma](https://usc-isi-i2.github.io/karma/)
+* [SKOS play](http://labs.sparna.fr/skos-play/)
+* SKOS files can also be programmed, for example, using Python [rdflib](https://rdflib.readthedocs.io/) package - a package to work with RDF data
 
 [SKOSMOS](http://skosmos.org/) is a vocabulary repository and browser which queries data via a SPARQL endpoint and provides a REST API to allow for linked data.
 
@@ -587,9 +578,9 @@ Most of the tools allow SKOS data import and export.
 
 Validation tools are very important to detect any inconsistencies in SKOS structure and syntax.
 
-- [Skosify](https://github.com/NatLibFi/Skosify) - corrects errors and adds missing symmetric statements; it can be used as a command line tool or python library.
+* [Skosify](https://github.com/NatLibFi/Skosify) - corrects errors and adds missing symmetric statements; it can be used as a command line tool or python library.
 
-- [SKOS Testing tool](http://labs.sparna.fr/skos-testing-tool/) - provides a validation report on the quality of submitted SKOS file; based on qSKOS.
+* [SKOS Testing tool](http://labs.sparna.fr/skos-testing-tool/) - provides a validation report on the quality of submitted SKOS file; based on qSKOS.
 
 ### Visualization
 
@@ -610,50 +601,55 @@ ACDH-CH vocabs contains four major services covering different aspects of vocabu
 
 Various domains controlled vocabularies registry - [BARTOC](https://bartoc.org/en)
 
-_Category: General_
+*Category: General*
 
-- [GEMET - General Multilingual Environmental Thesaurus](http://www.eionet.europa.eu/gemet/en/themes/)
-- [UNESCO Thesaurus](http://skos.um.es/unescothes/CS000/html)
-- [EuroVoc](http://eurovoc.europa.eu/drupal/?q=navigation&cl=en)
+* [GEMET - General Multilingual Environmental Thesaurus](http://www.eionet.europa.eu/gemet/en/themes/)
+* [UNESCO Thesaurus](http://skos.um.es/unescothes/CS000/html)
+* [EuroVoc](http://eurovoc.europa.eu/drupal/?q=navigation\&cl=en)
 
-_Category: Meta-thesauri_
+*Category: Meta-thesauri*
 
-- [Backbone Thesaurus](https://vocabs.acdh.oeaw.ac.at/bbt/en/)
+* [Backbone Thesaurus](https://vocabs.acdh.oeaw.ac.at/bbt/en/)
 
-_Category: Resource type_
+*Category: Resource type*
 
-- [Controlled Vocabulary for Resource Type Genres](http://vocabularies.coar-repositories.org/documentation/resource_types/)
-- [Thesaurus for Graphic Materials](http://www.loc.gov/pictures/collection/tgm/)
+* [Controlled Vocabulary for Resource Type Genres](http://vocabularies.coar-repositories.org/documentation/resource_types/)
+* [Thesaurus for Graphic Materials](http://www.loc.gov/pictures/collection/tgm/)
 
-_Category: Digital Humanities_
+*Category: Digital Humanities*
 
-- [TaDiRAH - Taxonomy of Digital Research Activities in the Humanities](http://tadirah.dariah.eu/vocab/)
+* [TaDiRAH - Taxonomy of Digital Research Activities in the Humanities](http://tadirah.dariah.eu/vocab/)
 
-_Category: Geosciences_
+*Category: Geosciences*
 
-- [GBA Thesaurus](http://resource.geolba.ac.at/)
+* [GBA Thesaurus](http://resource.geolba.ac.at/)
 
-_Category: Cultural Heritage_
+*Category: Cultural Heritage*
 
-- [The Forum on Information Standards in Heritage (FISH) Linked Data Vocabularies for Cultural Heritage](http://www.heritagedata.org/blog/vocabularies-provided/)
-- [Getty Art & Architecture Thesaurus](http://www.getty.edu/research/tools/vocabularies/aat/index.html)
-- [Travel digital thesaurus](https://vocabs.acdh.oeaw.ac.at/traveldigital_thesaurus/en/)
-- [Iconclass](http://www.iconclass.nl/home)
+* [The Forum on Information Standards in Heritage (FISH) Linked Data Vocabularies for Cultural Heritage](http://www.heritagedata.org/blog/vocabularies-provided/)
+* [Getty Art & Architecture Thesaurus](http://www.getty.edu/research/tools/vocabularies/aat/index.html)
+* [Travel digital thesaurus](https://vocabs.acdh.oeaw.ac.at/traveldigital_thesaurus/en/)
+* [Iconclass](http://www.iconclass.nl/home)
 
-_Category: Archaeology_
+*Category: Archaeology*
 
-- [Archaeological Objects Thesaurus Scotland](http://vocabulary.locloud.eu/Archeological_Objects/index.php)
-- [iDAI.vocab](http://thesauri.dainst.org)
-- [DEFC Thesaurus](https://vocabs.acdh.oeaw.ac.at/defc_thesaurus/en/)
-- [Iron-Age-Danube Thesaurus](https://vocabs.acdh.oeaw.ac.at/iad_thesaurus/en/)
+* [Archaeological Objects Thesaurus Scotland](http://vocabulary.locloud.eu/Archeological_Objects/index.php)
+* [iDAI.vocab](http://thesauri.dainst.org)
+* [DEFC Thesaurus](https://vocabs.acdh.oeaw.ac.at/defc_thesaurus/en/)
+* [Iron-Age-Danube Thesaurus](https://vocabs.acdh.oeaw.ac.at/iad_thesaurus/en/)
 
 ## Acknowledgement
 
 The creation of this learning material was supported by the Visegrad Fund Project "Training Digital Scholars: Knowledge Exchange between V4 and Austria" under the International Visegrad Fund's Grant No. 21820079.
 
 [^1]: Harpring, Patricia. Introduction to controlled vocabularies: terminology for art, architecture, and other cultural works. Getty Publications, 2010.
+
 [^2]: Berners-Lee, Tim, James Hendler, and Ora Lassila. "The semantic web." Scientific american 284, no. 5 (2001): 28-37.
+
 [^3]: [DariahTeach: Text encoding and the Text Encoding Initiative](https://teach.dariah.eu/course/view.php?id=23)
+
 [^4]: [Backbone Thesaurus](https://www.backbonethesaurus.eu/)
+
 [^5]: [Alistair Miles, Sean Bechhofer. SKOS Reference, W3C Recommendation 18 August 2009](https://www.w3.org/TR/skos-reference/)
+
 [^6]: [IAD Thesaurus](https://vocabs.acdh.oeaw.ac.at/iad_thesaurus/en/)

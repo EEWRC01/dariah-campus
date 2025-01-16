@@ -1,7 +1,7 @@
 ---
 title: "DYLEN: Diachronic Dynamics of Lexical Networks"
 locale: en
-publication-date: 2024-09-12T16:30:00
+publication-date: 2024-09-12
 version: 1.0.0
 authors:
   - koenigshofer-elisabeth
@@ -58,9 +58,9 @@ and 2 additional components:
 
 * Time series analysis.
 
-<Figure alignment="center" src="images/picture1.png">
+<Embed src="/assets/content/assets/en/resources/hosted/introduction-to-diachronic-dynamics-of-lexical-networks/picture1.png">
   Screenshot of the DYLEN user interface.
-</Figure>
+</Embed>
 
 <SideNote type="note" title="amc and ParlAT">
   Both corpora provide large-scale language data on Austrian German from the 21st century.
@@ -82,15 +82,15 @@ The user interface is very intuitive but every search starts with deciding on ei
 
 Connected words are **semantic neighbours** that share some aspects of the **target word**. Some can even substitute the target word in a particular context. The ego network visualises the **50** most closely related semantic neighbours of a target word. Note that it does not show the target word itself because it would render the visualisation impossible to read. The semantic neighbours are classified as parts of speech (POS), e.g. noun, proper nouns and verbs.
 
-<Figure alignment="center" src="images/egonetwork-interface.png" alt="A graph, two line graphs to show the semantic neighbours, node metrics and time series analysis for the word 'Geld' in the amc texts in 1996.">
+<Embed src="/assets/content/assets/en/resources/hosted/introduction-to-diachronic-dynamics-of-lexical-networks/egonetwork-interface.png" alt="A graph, two line graphs to show the semantic neighbours, node metrics and time series analysis for the word 'Geld' in the amc texts in 1996.">
   Ego network of the word “Geld” (money), taken from the amc  texts in 1996.
-</Figure>
+</Embed>
 
 #### Instructions:
 
-<Figure alignment="center" src="images/picture2.png">
+<Embed src="/assets/content/assets/en/resources/hosted/introduction-to-diachronic-dynamics-of-lexical-networks/picture2.png">
   Input field for ego network
-</Figure>
+</Embed>
 
 On the input field on the left side bar, you can
 
@@ -106,9 +106,9 @@ On the input field on the left side bar, you can
 
 Once you clicked on visualise, DYLEN will generate your network. Let us stick with our “Geld” (money) example.
 
-<Figure alignment="center" src="images/egonetwork_geld_nodedetail.png" alt="The ego network for 'Geld': differently sized nodes connected by lines, a timeline on the top and parts of speech in different colours">
+<Embed src="/assets/content/assets/en/resources/hosted/introduction-to-diachronic-dynamics-of-lexical-networks/egonetwork_geld_nodedetail.png" alt="The ego network for 'Geld': differently sized nodes connected by lines, a timeline on the top and parts of speech in different colours">
   The ego network for “Geld” (money)
-</Figure>
+</Embed>
 
 Above, you see the semantic neighbours represented by nodes that can be dragged further apart to get a better overview. Their size indicates their frequency. The bigger the node, the more commonly it is used in the corpus. You can click on each node to highlight the connections. The colours represent different parts of speech and you can change them to your preference.
 
@@ -118,15 +118,15 @@ The Time Series Analysis allows to compare two words over time; the comparison c
 
 #### Metrics and Node Metric Comparison
 
-<Figure alignment="center" src="images/parallelcoordinatesoptions.png" alt="A bar with five sliders">
+<Embed src="/assets/content/assets/en/resources/hosted/introduction-to-diachronic-dynamics-of-lexical-networks/parallelcoordinatesoptions.png" alt="A bar with five sliders">
   Parallel coordinates options: normalised frequency, degree centrality, betweenness centrality, pagerank, clustering coefficient.
-</Figure>
+</Embed>
 
 In addition, you can select the metrics for the parallel coordinates with the sliders. These metrics are presented in the parallel coordinates plot. Every graph line represents one word and each vertical axis stands for the value in the respective metric. You can visualise all words or selected words in the node metrics comparison. When you click the lines, you can inspect the values for each metric.
 
-<Figure alignment="center" src="images/node-metric-comparison_geldstrafe.png" alt="Four lines cut by five axes for the words: verurteilen, Strafe, Haft and Gefängnis">
+<Embed src="/assets/content/assets/en/resources/hosted/introduction-to-diachronic-dynamics-of-lexical-networks/node-metric-comparison_geldstrafe.png" alt="Four lines cut by five axes for the words: verurteilen, Strafe, Haft and Gefängnis">
   Lines and fives axes for the words “verurteilen”, “Strafe”, “Haft”, “Gefängnis” when analysing an ego network for “Geldstrafe” in 1996.
-</Figure>
+</Embed>
 
 <SideNote type="note" title="What do the metrics mean?">
   #### Frequency
@@ -172,17 +172,17 @@ On the input field on the left side bar, you can
 
 4. and finally click *Visualise*.
 
-<Figure alignment="center" src="images/generalnetwork_party_comparison_spö-övp2000.png" alt="Four visualisations for general network (party)">
+<Embed src="/assets/content/assets/en/resources/hosted/introduction-to-diachronic-dynamics-of-lexical-networks/generalnetwork_party_comparison_spö-övp2000.png" alt="Four visualisations for general network (party)">
   General network (party) comparison for SPÖ and ÖVP in 2000. The word “brauchen” (need) and its connections are highlighted in the first network visualisation.
-</Figure>
+</Embed>
 
 ### Node Metrics Comparison
 
 The general network analysis allows for node metric comparison too. You can choose between the same metrics as in the ego network. When you compare two parties or speakers, each component gets a different colour. Also, you can ask DYLEN to return a table for the node metrics with indicating colours (see below).
 
-<Figure alignment="center" src="images/generalnetwork_party_nodemetrics_spö_övp_2000.png" alt="Table with metric columns showing words in alphabetical order and the metric values.">
+<Embed src="/assets/content/assets/en/resources/hosted/introduction-to-diachronic-dynamics-of-lexical-networks/generalnetwork_party_nodemetrics_spö_övp_2000.png" alt="Table with metric columns showing words in alphabetical order and the metric values.">
   In the table, one can see a table of nodes and the values for the respective metrics.
-</Figure>
+</Embed>
 
 ### Time Series Analysis
 
@@ -497,7 +497,7 @@ In the general network analysis, the development of speakers or parties can be t
 ## Practical Understanding and Exercises
 
 Please use our DYLEN tool integration or open the
-tool<a href="https://dylen-tool.acdh.oeaw.ac.at" target="_blank"> in a new tab</a> to complete the
+[tool](https://dylen-tool.acdh.oeaw.ac.at) in a new tab to complete the
 following tasks. If you are on a mobile device, use the hamburger menu in the top right corner to
 open the Dylen tool’s navigation bar including links to “Ego Network” etc.
 

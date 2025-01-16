@@ -1,7 +1,7 @@
 ---
 title: Modeling Dictionaries in OntoLex-Lemon
 locale: en
-publication-date: 2022-01-02T13:29:45.624Z
+publication-date: 2022-01-02
 version: 1.0.0
 authors:
   - mc-crae-john
@@ -235,20 +235,20 @@ The decomposition module is used to represent how multiword or compound expressi
 <#summer_school> a ontolex:MultiWordExpression ;
   decomp:subterm <#summer>, <#school> .
 
-<#école_d’été> a ontolex:MultiWordExpression ;
-  decomp:constituent <#école_d’été/école> ,
-                     <#école_d’été/de> ,
-                     <#école_d’été/été> ;
-  rdf:_1 <#école_d’été/école> ;
-  rdf:_2 <#école_d’été/de> ;
-  rdf:_3 <#école_d’été/été> ;
+<#école_d'été> a ontolex:MultiWordExpression ;
+  decomp:constituent <#école_d'été/école> ,
+                     <#école_d'été/de> ,
+                     <#école_d'été/été> ;
+  rdf:_1 <#école_d'été/école> ;
+  rdf:_2 <#école_d'été/de> ;
+  rdf:_3 <#école_d'été/été> ;
 
-<#école_d’été/de> a decomp:Component ;
+<#école_d'été/de> a decomp:Component ;
   decomp:correspondsTo <#de> ;
   lexinfo:lexTermType lexinfo:contraction .
 ```
 
-In the above example, we see that the English term **summer school** is indicated as being composed of the words **summer** and **school** by means of the `subterm` property. For the French example **école d’été**, we go for a more complex representation capturing the order of the words and creating identifiers including `<#école_d’été/de>`, which indicate the usage of the word **de** within the multiword expression and allow us to indicate properties, in this case that the word is in a contracted form.
+In the above example, we see that the English term **summer school** is indicated as being composed of the words **summer** and **school** by means of the `subterm` property. For the French example **école d’été**, we go for a more complex representation capturing the order of the words and creating identifiers including `<#école_d'été/de>`, which indicate the usage of the word **de** within the multiword expression and allow us to indicate properties, in this case that the word is in a contracted form.
 
 ### Variation and Translation
 

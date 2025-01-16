@@ -27,8 +27,10 @@ export default async function ResourcesPage(
 	const t = await getTranslations("ResourcesPage");
 
 	const resources = await Promise.all([
+		createCollectionResource("resources-events", locale).all(),
 		createCollectionResource("resources-external", locale).all(),
 		createCollectionResource("resources-hosted", locale).all(),
+		createCollectionResource("resources-pathfinders", locale).all(),
 	]);
 
 	return (

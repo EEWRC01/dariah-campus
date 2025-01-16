@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import { MainContent } from "@/components/main-content";
 import { createCollectionResource } from "@/lib/keystatic/resources";
 
-interface ResourcePageProps {
+interface HostedResourcePageProps {
 	params: Promise<{
 		id: string;
 	}>;
@@ -14,7 +14,7 @@ interface ResourcePageProps {
 export const dynamicParams = false;
 
 export async function generateStaticParams(): Promise<
-	Array<Pick<Awaited<ResourcePageProps["params"]>, "id">>
+	Array<Pick<Awaited<HostedResourcePageProps["params"]>, "id">>
 > {
 	const locale = await getLocale();
 
@@ -26,7 +26,7 @@ export async function generateStaticParams(): Promise<
 }
 
 export async function generateMetadata(
-	props: Readonly<ResourcePageProps>,
+	props: Readonly<HostedResourcePageProps>,
 	_parent: ResolvingMetadata,
 ): Promise<Metadata> {
 	const { params } = props;
@@ -46,7 +46,9 @@ export async function generateMetadata(
 	return metadata;
 }
 
-export default async function ResourcePage(props: Readonly<ResourcePageProps>): Promise<ReactNode> {
+export default async function HostedResourcePage(
+	props: Readonly<HostedResourcePageProps>,
+): Promise<ReactNode> {
 	const { params } = props;
 
 	const locale = await getLocale();

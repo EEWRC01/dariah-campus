@@ -27,10 +27,10 @@ This course describes the OntoLex-Lemon model, a recent standard for the represe
 
 Upon completion of this course, students will be able to
 
-- Understand how lexical data can be represented as linked data
-- Describe the benefits of linked data for lexicography
-- Use the OntoLex-Lemon module to model lexical information
-- Design a schema based on OntoLex-Lemon to represent a specific lexical resource
+* Understand how lexical data can be represented as linked data
+* Describe the benefits of linked data for lexicography
+* Use the OntoLex-Lemon module to model lexical information
+* Design a schema based on OntoLex-Lemon to represent a specific lexical resource
 
 ## Introduction
 
@@ -40,7 +40,7 @@ OntoLex-lemon is a vocabulary developed by the [OntoLex Community Group](https:/
 
 ![](images/introduction-to-the-ontolex-lemon-model.png "Timeline of the development of the OntoLex-Lemon model")
 
-The model has been developed over a long period and originates with three models that were developed independently, the [LingInfo](http://lrec.elra.info/proceedings/lrec2006/workshops/W14/Ontolex06.pdf#page=32) model developed by Paul Buitelaar, the [LexOnto](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.73.1056\&rep=rep1\&type=pdf) model developed by Philipp Cimiano and the[ Linguistic Information Repository (LIR) ](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBB120E33DBD895791136BDB61A8A228/S1351324910000082a.pdf/enriching-ontologies-with-multilingual-information.pdf)developed by Elena Montiel and colleagues. Realising the common overlap of these models, these researchers came together to develop first the [LexInfo](https://lexinfo.net/) model and the _[lemon](https://lemon-model.net/)_ (Lexicon Model for Ontologies) models. The model was then opened to a wider community by means of the founding of the community group, which developed the first version of the model, with the final specification being released in 2016 and a further module focused on representing lexicographic resources was released in 2019.
+The model has been developed over a long period and originates with three models that were developed independently, the [LingInfo](http://lrec.elra.info/proceedings/lrec2006/workshops/W14/Ontolex06.pdf#page=32) model developed by Paul Buitelaar, the [LexOnto](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.73.1056\&rep=rep1\&type=pdf) model developed by Philipp Cimiano and the[ Linguistic Information Repository (LIR) ](https://www.cambridge.org/core/services/aop-cambridge-core/content/view/BBB120E33DBD895791136BDB61A8A228/S1351324910000082a.pdf/enriching-ontologies-with-multilingual-information.pdf)developed by Elena Montiel and colleagues. Realising the common overlap of these models, these researchers came together to develop first the [LexInfo](https://lexinfo.net/) model and the *[lemon](https://lemon-model.net/)* (Lexicon Model for Ontologies) models. The model was then opened to a wider community by means of the founding of the community group, which developed the first version of the model, with the final specification being released in 2016 and a further module focused on representing lexicographic resources was released in 2019.
 
 ### Model Requirements
 
@@ -79,11 +79,11 @@ Lexical entries are the core part of a dictionary model, however the exact defin
 
 For example, the following distinctions are made in an OntoLex-lemon model:
 
-- All inflected forms of a word, e.g., **work** and **works**, are part of the same lexical entry.
-- Derived forms such as **worker** are different lexical entries to the base form (**work**).
-- Words of different part-of-speech are different lexical entries (such as work as a **verb** and a **noun**)
-- Words that have the same written lemma or different morphology are different entries. For example, **lead** can be read as /lɛd/ or /liːd/ and should be different lexical entries. Similarly, the German noun **Band** should be different lexical entries for the neuter noun with plural **Bänder** (meaning 'ribbon') and the feminine noun with plural **Bands** (the loan word from English meaning a musical group). In this case both gender and plurals are reasons to seperate the entries.
-- Homographs are modelled as different lexical entries even if they have no difference in pronunciation, morphology or syntax. For example, **bank** (meaning financial institute and derived from the Italian 'banca') is a distinct entry to **bank** (meaning side of a river and derived from the Old English 'hōbanca'). These words are homographs as they have a different etymology.
+* All inflected forms of a word, e.g., **work** and **works**, are part of the same lexical entry.
+* Derived forms such as **worker** are different lexical entries to the base form (**work**).
+* Words of different part-of-speech are different lexical entries (such as work as a **verb** and a **noun**)
+* Words that have the same written lemma or different morphology are different entries. For example, **lead** can be read as /lɛd/ or /liːd/ and should be different lexical entries. Similarly, the German noun **Band** should be different lexical entries for the neuter noun with plural **Bänder** (meaning 'ribbon') and the feminine noun with plural **Bands** (the loan word from English meaning a musical group). In this case both gender and plurals are reasons to seperate the entries.
+* Homographs are modelled as different lexical entries even if they have no difference in pronunciation, morphology or syntax. For example, **bank** (meaning financial institute and derived from the Italian 'banca') is a distinct entry to **bank** (meaning side of a river and derived from the Old English 'hōbanca'). These words are homographs as they have a different etymology.
 
 ### Lexical Forms
 
@@ -237,20 +237,20 @@ The decomposition module is used to represent how multiword or compound expressi
 <#summer_school> a ontolex:MultiWordExpression ;
   decomp:subterm <#summer>, <#school> .
 
-<#école_d’été> a ontolex:MultiWordExpression ;
-  decomp:constituent <#école_d’été/école> ,
-                     <#école_d’été/de> ,
-                     <#école_d’été/été> ;
-  rdf:_1 <#école_d’été/école> ;
-  rdf:_2 <#école_d’été/de> ;
-  rdf:_3 <#école_d’été/été> ;
+<#école_d'été> a ontolex:MultiWordExpression ;
+  decomp:constituent <#école_d'été/école> ,
+                     <#école_d'été/de> ,
+                     <#école_d'été/été> ;
+  rdf:_1 <#école_d'été/école> ;
+  rdf:_2 <#école_d'été/de> ;
+  rdf:_3 <#école_d'été/été> ;
 
-<#école_d’été/de> a decomp:Component ;
+<#école_d'été/de> a decomp:Component ;
   decomp:correspondsTo <#de> ;
   lexinfo:lexTermType lexinfo:contraction .
 ```
 
-In the above example, we see that the English term **summer school** is indicated as being composed of the words **summer** and **school** by means of the `subterm` property. For the French example **école d'été**, we go for a more complex representation capturing the order of the words and creating identifiers including `<#école_d’été/de>`, which indicate the usage of the word **de** within the multiword expression and allow us to indicate properties, in this case that the word is in a contracted form.
+In the above example, we see that the English term **summer school** is indicated as being composed of the words **summer** and **school** by means of the `subterm` property. For the French example **école d'été**, we go for a more complex representation capturing the order of the words and creating identifiers including `<#école_d'été/de>`, which indicate the usage of the word **de** within the multiword expression and allow us to indicate properties, in this case that the word is in a contracted form.
 
 ### Variation and Translation
 
@@ -358,9 +358,9 @@ Note that here we have a flat sense structure using the core elements as describ
 
 The OntoLex-lemon specification gives further examples of usage of the model:
 
-- [https://www.w3.org/2016/05/ontolex/](https://www.w3.org/2016/05/ontolex/)
-- [https://www.w3.org/2019/09/lexicog/](https://www.w3.org/2019/09/lexicog/) (Lexicography module)
+* [https://www.w3.org/2016/05/ontolex/](https://www.w3.org/2016/05/ontolex/)
+* [https://www.w3.org/2019/09/lexicog/](https://www.w3.org/2019/09/lexicog/) (Lexicography module)
 
 You are very welcome to join the community group at the link below:
 
-- [http://www.w3.org/community/ontolex](http://www.w3.org/community/ontolex)
+* [http://www.w3.org/community/ontolex](http://www.w3.org/community/ontolex)

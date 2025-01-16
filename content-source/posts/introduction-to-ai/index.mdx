@@ -25,6 +25,7 @@ toc: true
 draft: false
 uuid: YM4PK9ApgMcr4CXa9q05T
 ---
+
 ## Introduction
 
 Prompt engineering is a critical skill to develop when working with artificial intelligence (AI) and machine learning, especially when interacting with large language models (LLMs) like ChatGPT. It involves crafting effective and precise input prompts to elicit the desired output from an AI model. This skill is essential in various fields, including the digital humanities, where researchers and professionals leverage AI to explore, analyze, and interpret cultural, historical, and archaeological data.
@@ -33,21 +34,21 @@ Prompt engineering is a critical skill to develop when working with artificial i
 
 After completing this training resource, learners should be able to:
 
-- Understand a wide array of prompt engineering techniques useful in text to text and text to image AI tools
-- Practice discernment in knowing when to use each method and why
-- Identify examples of each technique covered in this resource
-- Recall a wide range of fields in which AI is currently being applied
-- Discuss the benefits, drawbacks and limitations of applied AI using examples
+* Understand a wide array of prompt engineering techniques useful in text to text and text to image AI tools
+* Practice discernment in knowing when to use each method and why
+* Identify examples of each technique covered in this resource
+* Recall a wide range of fields in which AI is currently being applied
+* Discuss the benefits, drawbacks and limitations of applied AI using examples
 
-## What are ‘Prompts’ and How to Use Them?
+## What are 'Prompts' and How to Use Them?
 
 While Artificial Intelligence is a powerful tool, it's essential to remember that AI-generated outputs require careful review and corroboration. AI models can produce inaccurate or misleading information, especially if prompts are ambiguous or lack specificity. Users should be critical and evaluate the outputs, cross-referencing them against reliable sources. Trusting AI outputs without proper scrutiny can lead to the propagation of errors or misinterpretations in research and analysis.
 
-Before we start this module in earnest, let’s take a quick look at how we can use AI to generate text or images using ‘prompts’.  A ‘prompt’ is a line of text that instructs the text or image generate as to what you want it to produce.  Prompts can be entered into various AI-driven platforms, including:
+Before we start this module in earnest, let's take a quick look at how we can use AI to generate text or images using 'prompts'.  A 'prompt' is a line of text that instructs the text or image generate as to what you want it to produce.  Prompts can be entered into various AI-driven platforms, including:
 
-- Text-based AI systems: Such as OpenAI's ChatGPT, Microsoft's Copilot, Anthropic's Claude or Google's Gemini, where prompts guide the model to generate responses.
-- AI-driven analysis tools: Used in text mining, natural language processing, or image recognition software.
-- Educational and research platforms: Like digital humanities tools and databases integrated with AI capabilities.
+* Text-based AI systems: Such as OpenAI's ChatGPT, Microsoft's Copilot, Anthropic's Claude or Google's Gemini, where prompts guide the model to generate responses.
+* AI-driven analysis tools: Used in text mining, natural language processing, or image recognition software.
+* Educational and research platforms: Like digital humanities tools and databases integrated with AI capabilities.
 
 Prompt engineering allows for more precise and meaningful interactions with AI tools, enhancing research and educational outcomes. By refining prompts, users can ensure that the AI provides responses that are both relevant and insightful. The following are examples of queries with simple prompts and corrected, more specific prompts.
 
@@ -67,9 +68,7 @@ Well-Engineered Prompt: "Provide a detailed analysis of the architectural struct
 
 Why it's better: This prompt specifies the location, historical period, and aspects of the site to focus on, leading to a more accurate and relevant response.
 
-In the next section, we will take a closer look at the methods of prompt engineering in text-to-text AI. 
-
-
+In the next section, we will take a closer look at the methods of prompt engineering in text-to-text AI.
 
 ## Introduction to Prompt Engineering in Text-to-Text AI
 
@@ -103,7 +102,7 @@ Sample Prompt: "If I give you ingredients, can you provide a recipe using only t
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “If it’s sunny, suggest outdoor activities.”
+        “If it's sunny, suggest outdoor activities.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -116,7 +115,6 @@ Sample Prompt: "If I give you ingredients, can you provide a recipe using only t
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 2. Prompt Libraries
 
@@ -152,7 +150,6 @@ Sample Prompt: "Here's a template: 'Can you \[action] \[object]?' Now fill in th
   </Quiz.Card>
 </Quiz>
 
-
 #### 3. Branching
 
 Explanation: The Branching method is used in multi-step processes or when dealing with multiple options. It involves structured inputs that guide the AI through separate steps.
@@ -173,7 +170,7 @@ Sample Prompt: "Let's troubleshoot. First tell me what's not working. Then I'll 
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
-        “What’s your favorite color?”
+        “What's your favorite color?”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
@@ -186,7 +183,6 @@ Sample Prompt: "Let's troubleshoot. First tell me what's not working. Then I'll 
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 4. Stemming and Lemmatization (Pre-processing)
 
@@ -204,11 +200,11 @@ Sample Prompt: "Convert 'running', 'ran', and 'runner' to their root form 'run'.
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option>
-        “List synonyms for ‘happy’.”
+        “List synonyms for 'happy'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Change ‘better’, ‘best’ to ‘good’.”
+        “Change 'better', 'best' to 'good'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -221,7 +217,6 @@ Sample Prompt: "Convert 'running', 'ran', and 'runner' to their root form 'run'.
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 5. Domain-Specific Language
 
@@ -247,7 +242,7 @@ Sample Prompt: "Using medical terminology, explain the symptoms of diabetes."
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Using legal terms, define ‘contract law’.”
+        “Using legal terms, define 'contract law'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -256,7 +251,6 @@ Sample Prompt: "Using medical terminology, explain the symptoms of diabetes."
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 6. Syntactic Cues
 
@@ -292,7 +286,6 @@ Sample Prompt: "In a bullet-point format, list the steps in photosynthesis."
   </Quiz.Card>
 </Quiz>
 
-
 #### 7. Parallel Prompts
 
 Explanation: This method involves using similar structures in multiple prompts to maintain consistency and facilitate comparison.
@@ -326,7 +319,6 @@ Sample Prompt: "Compare 'night' and 'day' in separate but structurally similar s
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 8. Identity Assignation
 
@@ -362,7 +354,6 @@ Sample Prompt: "As a nutritionist, recommend a healthy meal plan for a day."
   </Quiz.Card>
 </Quiz>
 
-
 #### 9. Multi-Turn Refinement
 
 Explanation: This method involves a series of prompts and responses that build upon each other for a more refined or detailed outcome.
@@ -387,7 +378,7 @@ Sample Prompt: "Start by describing a basic concept. Then, I will ask follow-up 
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “First, give a brief overview of the French Revolution. I’ll ask more after.”
+        “First, give a brief overview of the French Revolution. I'll ask more after.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -396,7 +387,6 @@ Sample Prompt: "Start by describing a basic concept. Then, I will ask follow-up 
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 10. Emotion and Tone Indicators
 
@@ -426,12 +416,11 @@ Sample Prompt: "Write a motivational message in an uplifting tone."
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
-        “What’s the latest news in technology?”
+        “What's the latest news in technology?”
       </Quiz.MultipleChoice.Option>
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 11. Synonym Variation
 
@@ -449,7 +438,7 @@ Sample Prompt: "Write about 'happiness', 'joy', and 'contentment', treating each
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Define ‘liberty’, ‘freedom’, and ‘independence’.”
+        “Define 'liberty', 'freedom', and 'independence'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -466,7 +455,6 @@ Sample Prompt: "Write about 'happiness', 'joy', and 'contentment', treating each
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 12. Anaphoric References
 
@@ -488,7 +476,7 @@ Sample Prompt: "After explaining a concept, refer to it as 'this theory' in subs
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “After discussing a novel, refer to its main character as ‘he’ or ‘she’.”
+        “After discussing a novel, refer to its main character as 'he' or 'she'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -501,7 +489,6 @@ Sample Prompt: "After explaining a concept, refer to it as 'this theory' in subs
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 13. Time Constraints
 
@@ -537,7 +524,6 @@ Sample Prompt: "Describe the evolution of smartphones over the last 20 years."
   </Quiz.Card>
 </Quiz>
 
-
 #### 14. Scenario Setting
 
 Explanation: Creates a hypothetical or real-life scenario for the AI to respond to, enhancing creativity and context understanding.
@@ -554,7 +540,7 @@ Sample Prompt: "Imagine you're a detective solving a mystery. How would you proc
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Imagine you’re an astronaut on Mars. Describe your day.”
+        “Imagine you're an astronaut on Mars. Describe your day.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -571,7 +557,6 @@ Sample Prompt: "Imagine you're a detective solving a mystery. How would you proc
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 15. Comparative and Contrastive Prompts
 
@@ -607,7 +592,6 @@ Sample Prompt: "Compare and contrast renewable and non-renewable energy sources.
   </Quiz.Card>
 </Quiz>
 
-
 #### 16. Problem-Solution Format
 
 Explanation: This method frames prompts in a structure that identifies a problem and proposes solutions.
@@ -642,7 +626,6 @@ Sample Prompt: "Identify the main challenges of remote learning and suggest pote
   </Quiz.Card>
 </Quiz>
 
-
 #### 17. Explicit Reference
 
 Explanation: This method directly cites or refers to specific sources or content within the prompt to guide the AI's response.
@@ -671,12 +654,11 @@ Sample Prompt: "Referring to Orwell's '1984', discuss the theme of surveillance.
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Referring to Shakespeare’s ‘Hamlet’, analyze the character of Ophelia.”
+        “Referring to Shakespeare's 'Hamlet', analyze the character of Ophelia.”
       </Quiz.MultipleChoice.Option>
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 18. Feedback Loop Integration
 
@@ -706,12 +688,11 @@ Sample Prompt: "Provide feedback on each draft of the essay, and I'll revise acc
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Give me different versions of this story, and I’ll tell you what to change each time.”
+        “Give me different versions of this story, and I'll tell you what to change each time.”
       </Quiz.MultipleChoice.Option>
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 19. User-Generated Examples
 
@@ -729,7 +710,7 @@ Sample Prompt: "Give me an example of a time you felt happy, and I'll analyze it
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Tell me about a memorable vacation and I’ll describe the cultural aspects.”
+        “Tell me about a memorable vacation and I'll describe the cultural aspects.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -741,12 +722,11 @@ Sample Prompt: "Give me an example of a time you felt happy, and I'll analyze it
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
-        “Explain Newton’s laws of motion.”
+        “Explain Newton's laws of motion.”
       </Quiz.MultipleChoice.Option>
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 20. Conditional and Hypothetical Scenarios
 
@@ -782,7 +762,6 @@ Sample Prompt: "If humans could live on Mars, how would society be structured?"
   </Quiz.Card>
 </Quiz>
 
-
 #### 21. Instructional Prompts
 
 Explanation: Directs the AI to provide instructions, step-by-step guides, or how-to explanations.
@@ -816,7 +795,6 @@ Sample Prompt: "Explain how to bake a chocolate cake from scratch."
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 22. Metaphorical Language
 
@@ -852,7 +830,6 @@ Sample Prompt: "Describe the internet as if it were a vast ocean."
   </Quiz.Card>
 </Quiz>
 
-
 #### 23. Opinion-Driven Prompts
 
 Explanation: Encourages responses based on opinions, either simulated or by analyzing others' perspectives.
@@ -886,7 +863,6 @@ Sample Prompt: "What is your opinion on the impact of social media on communicat
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 24. Collaborative Storytelling
 
@@ -922,7 +898,6 @@ Sample Prompt: "I'll start a story about a mysterious island. You continue from 
   </Quiz.Card>
 </Quiz>
 
-
 ### Text to Text AI in Summary
 
 As we conclude our exploration of prompt engineering methods for text-to-text AI, it's important to reflect on the versatility and power these techniques offer. The ability to effectively communicate with AI opens up a wide range of possibilities in research, creativity, and problem-solving. By mastering these methods, you can guide AI to generate more precise, relevant, and insightful responses, which will help the AI tool of your choice have an even greater impact on your goals.
@@ -953,7 +928,7 @@ Sample Prompt: "Create an image of a 'sunny, crowded beach' emphasizing 'sunny'.
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Generate an image of a ‘large, ancient tree’ focusing on ‘ancient’.”
+        “Generate an image of a 'large, ancient tree' focusing on 'ancient'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -970,7 +945,6 @@ Sample Prompt: "Create an image of a 'sunny, crowded beach' emphasizing 'sunny'.
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 2. Dataset-Informed Reference Cues
 
@@ -1000,12 +974,11 @@ Sample Prompt: "Create an image in the style of a 19th-century landscape paintin
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Generate an image in a cubist style, similar to Picasso’s known works.”
+        “Generate an image in a cubist style, similar to Picasso's known works.”
       </Quiz.MultipleChoice.Option>
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 3. Sensorial Language
 
@@ -1027,7 +1000,7 @@ Sample Prompt: "Generate an image of a 'lush, fragrant rose garden at sunrise'."
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Create an image of a ‘warm, cozy, candle-lit room’.”
+        “Create an image of a 'warm, cozy, candle-lit room'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -1041,10 +1014,9 @@ Sample Prompt: "Generate an image of a 'lush, fragrant rose garden at sunrise'."
   </Quiz.Card>
 </Quiz>
 
-
 #### 4. Contextual Anchoring
 
-Explanation: This method involves using specific context or background settings in the prompt to guide the AI’s image generation process.
+Explanation: This method involves using specific context or background settings in the prompt to guide the AI's image generation process.
 
 When to Use: Effective when a detailed background or setting is crucial to the image, or to provide a sense of place.
 
@@ -1066,7 +1038,7 @@ Sample Prompt: "Create an image of a 'busy New York street in the 1920s'."
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Generate an image of ‘a small village in the Swiss Alps’.”
+        “Generate an image of 'a small village in the Swiss Alps'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -1075,7 +1047,6 @@ Sample Prompt: "Create an image of a 'busy New York street in the 1920s'."
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 5. Emotional Resonance
 
@@ -1093,7 +1064,7 @@ Sample Prompt: "Generate an image that evokes a feeling of 'nostalgia and warmth
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Create an image that embodies ‘serenity and peace’.”
+        “Create an image that embodies 'serenity and peace'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -1110,7 +1081,6 @@ Sample Prompt: "Generate an image that evokes a feeling of 'nostalgia and warmth
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 6. Historical Accuracy
 
@@ -1132,7 +1102,7 @@ Sample Prompt: "Create an image depicting 'a typical street scene in Victorian L
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Generate an image of ‘an ancient Roman marketplace’.”
+        “Generate an image of 'an ancient Roman marketplace'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -1145,7 +1115,6 @@ Sample Prompt: "Create an image depicting 'a typical street scene in Victorian L
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 7. Symbolic Representation
 
@@ -1171,7 +1140,7 @@ Sample Prompt: "Generate an image representing 'freedom' using the symbol of a b
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Create an image symbolizing ‘hope’ with a rising sun.”
+        “Create an image symbolizing 'hope' with a rising sun.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -1180,7 +1149,6 @@ Sample Prompt: "Generate an image representing 'freedom' using the symbol of a b
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 8. Abstract Conceptualization
 
@@ -1198,7 +1166,7 @@ Sample Prompt: "Create an image that visualizes the concept of 'time passing'."
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Generate an image visualizing ‘the feeling of joy’.”
+        “Generate an image visualizing 'the feeling of joy'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -1215,7 +1183,6 @@ Sample Prompt: "Create an image that visualizes the concept of 'time passing'."
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 9. Composite Imagery
 
@@ -1241,7 +1208,7 @@ Sample Prompt: "Create an image that combines elements of 'a futuristic city' an
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Generate an image that blends ‘ancient architecture’ and ‘modern technology’.”
+        “Generate an image that blends 'ancient architecture' and 'modern technology'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -1250,7 +1217,6 @@ Sample Prompt: "Create an image that combines elements of 'a futuristic city' an
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 10. Genre-Specific Elements
 
@@ -1286,7 +1252,6 @@ Sample Prompt: "Create an image in the style of a Gothic horror scene."
   </Quiz.Card>
 </Quiz>
 
-
 #### 11. Scale and Proportion
 
 Explanation: Focuses on manipulating the scale and proportion of elements in the prompt to create dramatic or surreal images.
@@ -1320,7 +1285,6 @@ Sample Prompt: "Generate an image of a tiny elephant standing next to a giant fl
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 12. Mood and Atmosphere
 
@@ -1356,7 +1320,6 @@ Sample Prompt: "Create an image of a mysterious, fog-covered forest at dusk."
   </Quiz.Card>
 </Quiz>
 
-
 #### 13. Color Theory Application
 
 Explanation: Utilizes principles of color theory to guide the AI in choosing color palettes and combinations that evoke specific moods or themes.
@@ -1391,7 +1354,6 @@ Sample Prompt: "Create an image with a calming palette of cool blues and greens.
   </Quiz.Card>
 </Quiz>
 
-
 #### 14. Intertextual References
 
 Explanation: Involves incorporating references to other works of art, literature, or culture to create layered and meaningful images.
@@ -1420,12 +1382,11 @@ Sample Prompt: "Create an image inspired by Van Gogh's 'Starry Night' and the po
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Generate an image blending themes from ‘1984’ by George Orwell and ‘Brave New World’ by Aldous Huxley.”
+        “Generate an image blending themes from '1984' by George Orwell and 'Brave New World' by Aldous Huxley.”
       </Quiz.MultipleChoice.Option>
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 #### 15. Narrative Elements
 
@@ -1447,7 +1408,7 @@ Sample Prompt: "Create an image of a 'secret door hidden behind a bookshelf, lea
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “Generate an image showing ‘a key mysteriously appearing in an old, forgotten drawer’.”
+        “Generate an image showing 'a key mysteriously appearing in an old, forgotten drawer'.”
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -1460,7 +1421,6 @@ Sample Prompt: "Create an image of a 'secret door hidden behind a bookshelf, lea
     </Quiz.MultipleChoice>
   </Quiz.Card>
 </Quiz>
-
 
 ### AI image generation techniques in Summary
 

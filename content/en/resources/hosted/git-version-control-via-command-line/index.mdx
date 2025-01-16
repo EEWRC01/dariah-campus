@@ -1,7 +1,7 @@
 ---
 title: Git Version Control via Command Line
 locale: en
-publication-date: 2024-12-18T13:43:36.660Z
+publication-date: 2024-12-18
 version: 1.0.0
 authors:
   - siam-omar
@@ -50,9 +50,9 @@ Git can record which changes, to which documents, have been made when, and by wh
 
 Version control allows to save different versions of content, restores previous versions, and compares different versions. This is especially beneficial when working with multiple documents, and when working in teams (potentially working on the same document).
 
-<Figure src="images/branches.png">
+<Embed src="/assets/content/assets/en/resources/hosted/git-version-control-via-command-line/branches.png">
   Git’s version control works with branches.
-</Figure>
+</Embed>
 
 Git allows to create separate branches for changes to any document. For example, in the image above, the document is represented by the **main branch**. When a change should be created, a copy, the branch “feature A” is **pulled** from the main branch. Once the change is made, the feature branch is ready to transfer back into the main branch. Similarly, we can **fetch** a branch “feature B” and create another change. When changes have been **committed**, it can be **pushed** back into the main branch, too. Git version control features allow to trace those changes and consider them before they are **merged** into the main branch.
 
@@ -62,9 +62,9 @@ The paragraph above features **terminology** (in bold) that will become essentia
 
 This diagram is a great summary of how content moves in Git, between the “working area”, which is simply the files and folders in a project as they exist on your computer, the “staging area”, which we can call a “holding zone”, and the “repository”, which are the permanently recorded commit snapshots.
 
-<Figure src="images/git_terminology.png">
+<Embed src="/assets/content/assets/en/resources/hosted/git-version-control-via-command-line/git_terminology.png">
   Git workflow
-</Figure>
+</Embed>
 
 * **Working area:** This is where you manipulate your files. For example, you can make changes to the text in an MDX document. The working area usually resides on your local machine.
 * **Staging area:** This “holding zone” allows to **stage** changes in your documents, and **commit** those changes once you are comfortable, and **push** these changes to your repository.
@@ -220,9 +220,9 @@ git init
 
 This will initially set up Git’s internal bookkeeping metadata, which is stored in a hidden .Git folder. Git will respond with:
 
-<Figure src="images/git_initialise_empty_gitrepo.png">
+<Embed src="/assets/content/assets/en/resources/hosted/git-version-control-via-command-line/git_initialise_empty_gitrepo.png">
   Initialize an empty Git repository on your local machine.
-</Figure>
+</Embed>
 
 Let’s also create some new content. In a real research project this would mean editing or adding an XML/TEI document or similar. To demonstrate the mechanics we’ll keep it basic here and use the terminal to create a simple text file. When you want to create a text file via the command line: The text in "", following *echo*, is the content of the text file which you specify with “filename.txt”, txt being a text file extension.
 
@@ -240,9 +240,9 @@ git status
 
 Note that Git informs us that changes have been made to a file called `my-document.txt`, but that file is currently “untracked”, which means it is not currently managed by Git’s versioning. Git also tells us that, in order to tell it to keep track of changes to that file, we should “use `git add` to track”. Generally, if you find yourself in situations where you’re unsure how to proceed, `git status` will most of the time show helpful hints. It’s probably the Git command you’ll be using most often.
 
-<Figure src="images/add_file_status.png">
+<Embed src="/assets/content/assets/en/resources/hosted/git-version-control-via-command-line/add_file_status.png">
   In the image you can see that a text file was created and that the status was checked. There are no commits yet, but some changes are already staged, others yet untracked.
-</Figure>
+</Embed>
 
 ## Mark Content Changes to be Included in the Version History
 

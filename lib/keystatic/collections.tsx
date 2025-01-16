@@ -221,7 +221,7 @@ export const createDocumentation = createCollection("/documentation/", (paths, l
 	});
 });
 
-export const createEvents = createCollection("/events/", (paths, locale) => {
+export const createEvents = createCollection("/resources/events/", (paths, locale) => {
 	return collection({
 		label: "Events",
 		path: paths.contentPath,
@@ -229,7 +229,7 @@ export const createEvents = createCollection("/events/", (paths, locale) => {
 		slugField: "title",
 		columns: ["title"],
 		entryLayout: "content",
-		previewUrl: createPreviewUrl("/events/{slug}"),
+		previewUrl: createPreviewUrl("/resources/events/{slug}"),
 		schema: {
 			title: fields.slug({
 				name: {

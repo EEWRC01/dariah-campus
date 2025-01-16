@@ -30,15 +30,16 @@ uuid: IbZ4arshkA06y5Uem0UsT
 categories:
   - dariah
 ---
+
 This course introduces the legacy dictionary viewer Publex, a generic, modular dictionary publication tool for retrodigitized dictionaries.
 
 ## Learning Outcomes
 
 After using this resource you should:
 
-- decide whether a dictionary fulfills the requirements to be published with Publex
-- configure the display of their dictionary in Publex
-- use Publex to make a dictionary available in open access
+* decide whether a dictionary fulfills the requirements to be published with Publex
+* configure the display of their dictionary in Publex
+* use Publex to make a dictionary available in open access
 
 ## Introduction
 
@@ -112,9 +113,9 @@ Logged in to your account in the upper menu bar, the profile button takes you to
 
 ##### Dictionary entries
 
-- The files are required to be provided in **valid XML**. (We recommend providing the data according to the [guidelines of TEI Lex-0](https://dariah-eric.github.io/lexicalresources/pages/TEILex0/TEILex0.html).)
-- Please make sure that every dictionary text you want to be printed is annotated as a text node. **Dictionary texts should not be encoded as an attribute value**.
-- In case of large dictionaries, the files for the dictionary entries should be split into several files. The individual files should **not** be **larger than 16 MB**.
+* The files are required to be provided in **valid XML**. (We recommend providing the data according to the [guidelines of TEI Lex-0](https://dariah-eric.github.io/lexicalresources/pages/TEILex0/TEILex0.html).)
+* Please make sure that every dictionary text you want to be printed is annotated as a text node. **Dictionary texts should not be encoded as an attribute value**.
+* In case of large dictionaries, the files for the dictionary entries should be split into several files. The individual files should **not** be **larger than 16 MB**.
 
 ##### Use of non-unicode characters
 
@@ -122,13 +123,13 @@ If your dictionary contains special characters which are not available in the Un
 
 1. Check whether your special characters are contained in the [allEntities](https://bitbucket.org/tcdh/publex-allentities/src/master/allEntities.xml) file. For this, you can explore the KompLett font in the GlyphrStudio web tool:
 
-- Load the file KompLettR.ttf you find [here](https://bitbucket.org/tcdh/publex-allentities/src/master/KompLett_R.ttf) into [Glyphr Studio](http://www.glyphrstudio.com/online) and make sure you choose to import all glyphs:
+* Load the file KompLettR.ttf you find [here](https://bitbucket.org/tcdh/publex-allentities/src/master/KompLett_R.ttf) into [Glyphr Studio](http://www.glyphrstudio.com/online) and make sure you choose to import all glyphs:
 
 ![Import Komplett Font file](images/glyphr_studio_load_a_file.png)
 
 ![](images/glyphr_studio_import_all.png)
 
-- After the file has been loaded, you can view the font characters it contains. The special characters defined in the allEntities file are located in the **Private Use Area** of the font. Therefore, select this area for display:
+* After the file has been loaded, you can view the font characters it contains. The special characters defined in the allEntities file are located in the **Private Use Area** of the font. Therefore, select this area for display:
 
 ![](images/glyphr_studio_private_use_area.png)
 
@@ -138,13 +139,13 @@ If your dictionary contains special characters which are not available in the Un
 
 3. Using the position number, **look up the character's name** in the [allEntities file](https://bitbucket.org/tcdh/publex-allentities/src/master/allEntities.xml).
 
-- Every entry in the allEntities file is structured as follows: the declaration of a new entry `<!ENTITY` followed by the name, the Unicode position (or position in the private used area) and a closing `>`.
+* Every entry in the allEntities file is structured as follows: the declaration of a new entry `<!ENTITY` followed by the name, the Unicode position (or position in the private used area) and a closing `>`.
 
 Here you can see an example with the special character “u with superscripted plus”:
 
 ![u with superscripted plus (entity file)](images/uplusabove.png)
 
-4. In the XML file of your dictionary text, replace the corresponding special character with `&entity name;` (entity name = “plusaboveu” in the following example; used as "&plusaboveu;").
+4. In the XML file of your dictionary text, replace the corresponding special character with `&entity name;` (entity name = “plusaboveu” in the following example; used as "\&plusaboveu;").
 
 ![u with superscripted plus (xml)](images/uplusabove_xml.png)
 
@@ -161,7 +162,7 @@ And this is how the character is finally displayed using the KomplettFont:
 </SideNote>
 
 <SideNote type="note">
-  You _don't need_ the allEntities file if your special characters are all
+  You *don't need* the allEntities file if your special characters are all
   defined in the Unicode standard and if you encode all your special characters
   with hexadecimals codes. - If you have special characters in your dictionary
   that are **neither defined in the Unicode Standard nor in our allEntities**,
@@ -181,13 +182,13 @@ The data is imported into Publex from Bitbucket, a Git repository.
 
 ![Create new repository](images/new_repo.png)
 
-- Select a **project** to which the repo is to be assigned to. If you do not have any projects in your Bitbucket account yet, you can also create a new project at this point.
-- Enter a **name** for the new repository, e.g. you can name it after your dictionary.
-- Choose the **access level**. If you decide to make your repository **public**, all the data you store in it will be accessible online for everyone. If you do not want this to be possible, select **private**.
-- You can include a **README** with a short information about the content of your repository, but this is not necessary for your upload to Publex.
-- We recommend to choose 'main' as **default branch name** as suggested by Bitbucket.
-- For the field "Include .gitignore?" you can simply use the default setting.
-- Now you are ready to hit the "Create repository"-button.
+* Select a **project** to which the repo is to be assigned to. If you do not have any projects in your Bitbucket account yet, you can also create a new project at this point.
+* Enter a **name** for the new repository, e.g. you can name it after your dictionary.
+* Choose the **access level**. If you decide to make your repository **public**, all the data you store in it will be accessible online for everyone. If you do not want this to be possible, select **private**.
+* You can include a **README** with a short information about the content of your repository, but this is not necessary for your upload to Publex.
+* We recommend to choose 'main' as **default branch name** as suggested by Bitbucket.
+* For the field "Include .gitignore?" you can simply use the default setting.
+* Now you are ready to hit the "Create repository"-button.
 
 This is how it looks now:
 
@@ -195,7 +196,7 @@ This is how it looks now:
 
 4. Now you can **upload your dictionary data to the repository**.
 
-- To do this, you first have to **clone the repository** which means that you create a copy of it on your local system. When you click the "clone"-button in the right corner, a window will open, **copy the clone command** that appears.
+* To do this, you first have to **clone the repository** which means that you create a copy of it on your local system. When you click the "clone"-button in the right corner, a window will open, **copy the clone command** that appears.
 
 ![Copy clone command](images/clone_command.png)
 
@@ -209,16 +210,16 @@ b) using Mac: To open terminal from your applications folder, click your desktop
 
 c) using Linux: Press Ctrl+Alt+T.
 
-- Once opened the terminal window, change into the local directory where you want to clone your repository. `cd <path_to_directory>`
-- Paste the command you copied from Bitbucket, e.g.: `git clone https://Trifoglio@bitbucket.org/Trifoglio/my_dictionary.git`
-- Now a new sub-directory should appear on your local drive with the same name as the repository.
-- In this directory, **create a new folder** which you call "data" for example.
-- **Put all the files that belong to your dictionary into this folder**. Note: If you want to use entities from the KompLett font, you must also place the file allEntities.xml in this folder.
-- Now you are almost finished. The final step is to transfer the locally added files to the remote Bitbucket Cloud repository. In your terminal window:
-- enter `cd <path_to_local_repo>`
-- enter `git add --all`
-- enter `git commit -m '<commit_message>'` with a commit message that describes your changes, e.g. `git commit -m 'upload dictionary data'`
-- enter `git push`
+* Once opened the terminal window, change into the local directory where you want to clone your repository. `cd <path_to_directory>`
+* Paste the command you copied from Bitbucket, e.g.: `git clone https://Trifoglio@bitbucket.org/Trifoglio/my_dictionary.git`
+* Now a new sub-directory should appear on your local drive with the same name as the repository.
+* In this directory, **create a new folder** which you call "data" for example.
+* **Put all the files that belong to your dictionary into this folder**. Note: If you want to use entities from the KompLett font, you must also place the file allEntities.xml in this folder.
+* Now you are almost finished. The final step is to transfer the locally added files to the remote Bitbucket Cloud repository. In your terminal window:
+* enter `cd <path_to_local_repo>`
+* enter `git add --all`
+* enter `git commit -m '<commit_message>'` with a commit message that describes your changes, e.g. `git commit -m 'upload dictionary data'`
+* enter `git push`
 
 If everything worked fine, you should now see the files in your repository online in your Bitbucket account. Now we are prepared to create a new dictionary in Publex!
 
@@ -267,12 +268,12 @@ c) Tell Publex, whether your repository is public or private.
    ![Private Git](images/privategit.png)
 2. By activating the button, a SSH key becomes visible. Please add this key to your Bitbucket account.
 
-- Copy the key.
-- In your Bitbucket account, go to your personal settings (see the settings-icon in the upper right corner).
+* Copy the key.
+* In your Bitbucket account, go to your personal settings (see the settings-icon in the upper right corner).
 
 ![Personal settings](images/bitbucket_personal-settings.png)
 
-- In personal settings, go to "SSH keys" and click on "Add key". A Window opens where you can paste your key you copied from Publex.
+* In personal settings, go to "SSH keys" and click on "Add key". A Window opens where you can paste your key you copied from Publex.
 
   ![Add key](images/add_key.png)
 
@@ -288,7 +289,7 @@ Now you are ready to hit the button **Import Data**. The import starts now. It m
 
 As assistance we offer a small dictionary test data set. Via the button "Use Publex Test-Git" the corresponding data are entered into the form and the test dictionary can be imported.
 
-- ![Test_Git](images/button_test_git.png)
+* ![Test\_Git](images/button_test_git.png)
 
 ### Deleting and locking a dictionary
 
@@ -314,15 +315,15 @@ To add and edit the metadata of your dictionary, choose your dictionary in the D
 
 On this page, you are able to change the title and edit the dictionary description. You also can add a project website and classify your dictionary into one of the following categories:
 
-- General language dictionary
-- Multilingual dictionary
-- Historical language dictionary
-- Etymological dictionary
-- Regional or dialect dictionary
-- Foreign learners' dictionary
-- Technical and terminological dictionary
-- Authors' dictionary
-- Unspecified
+* General language dictionary
+* Multilingual dictionary
+* Historical language dictionary
+* Etymological dictionary
+* Regional or dialect dictionary
+* Foreign learners' dictionary
+* Technical and terminological dictionary
+* Authors' dictionary
+* Unspecified
 
 ![Dictionary Categories](images/metadata_categories.png)
 
@@ -343,16 +344,13 @@ b) In the Dictionary Overview, select a dictionary that has already been added a
 
 There are a few basic things to keep in mind when defining the styling rules:
 
-- The requirement for the publication of a dictionary is the presence of a **lemma rule** (i.e. for one of the rules, the field ["Add to lemma list"](#search-and-lemma-field) must be selected).
-- The order of the rules is relevant: **Subordinate rules override the preceding ones**. For example: I want the font size of my entries to be 12 pt, so I define this feature in a rule for all `<entry>` elements. Thus, all the texts contained in `<entry>` will be formatted accordingly. However, the lemma (e.g. `<form type="lemma">`) should be bolded and displayed in a larger font. If I define this in a subordinate rule, the definition from the first rule is overwritten specifically for these elements. Therefore it is recommended: More general rules should be placed at the beginning of the list.
-- The order can be modified at any time using the arrow buttons.
+* The requirement for the publication of a dictionary is the presence of a **lemma rule** (i.e. for one of the rules, the field ["Add to lemma list"](#search-and-lemma-field) must be selected).
+* The order of the rules is relevant: **Subordinate rules override the preceding ones**. For example: I want the font size of my entries to be 12 pt, so I define this feature in a rule for all `<entry>` elements. Thus, all the texts contained in `<entry>` will be formatted accordingly. However, the lemma (e.g. `<form type="lemma">`) should be bolded and displayed in a larger font. If I define this in a subordinate rule, the definition from the first rule is overwritten specifically for these elements. Therefore it is recommended: More general rules should be placed at the beginning of the list.
+* The order can be modified at any time using the arrow buttons.
 
   ![Change Order](images/arrows.png)
 
-<SideNote
-  type="tip"
-  title="Advice for the choice of font"
->
+<SideNote type="tip" title="Advice for the choice of font">
   It is recommended to use the [KompLett
   font](https://tcdh.uni-trier.de/en/projekt/komplett), as it contains more
   characters compared to other fonts and, therefore, the probability is higher
@@ -410,21 +408,21 @@ For each rule, there are different options you can select in the settings:
 
 ![settings](images/settings.png)
 
-- **Display text on website** This checkbox is activated by default. You should only deactivate it if you do NOT want the text of the element to be displayed.
-- **Set as searchable field** If you want the selected element to appear as a search field in the dictionary look-up, activate this field.
-- **Add to lemma list** By activating this field, you define a so-called lemma rule. This means that the text contained in the element appears in the lemma list and makes the associated dictionary entries accessible. Note: At the same time, "Set as searchable field" is activated. Lemmas always form a search field.
+* **Display text on website** This checkbox is activated by default. You should only deactivate it if you do NOT want the text of the element to be displayed.
+* **Set as searchable field** If you want the selected element to appear as a search field in the dictionary look-up, activate this field.
+* **Add to lemma list** By activating this field, you define a so-called lemma rule. This means that the text contained in the element appears in the lemma list and makes the associated dictionary entries accessible. Note: At the same time, "Set as searchable field" is activated. Lemmas always form a search field.
 
 ### Define the styling
 
 Finally, you can define the concrete layout. A wide variety of text formatting functions are available to you for this purpose:
 
-![Styling functions I](images/styling_functions\_1.png)
+![Styling functions I](images/styling_functions_1.png)
 
-![Styling functions II](images/styling_functions\_2.png)
+![Styling functions II](images/styling_functions_2.png)
 
 Planned additional formatting functions:
 
-![Styling functions II](images/styling_functions\_3.png)
+![Styling functions II](images/styling_functions_3.png)
 
 ### Save and discard
 
@@ -468,16 +466,13 @@ To import exported styling rules, click on "Import configuration file". A window
 
 After clicking on "OK", the rules are imported and displayed.
 
-<SideNote
-  type="warning"
-  title="Saving"
->
+<SideNote type="warning" title="Saving">
   Make sure to click on "Save" after importing the rules.
 </SideNote>
 
 ## Styling a Dictionary: An Example
 
-For a concrete demonstration of the different functions and the procedure, we use the dictionary entry _bluome_ from the _Mittelhochdeutsches Handwörterbuch_ by Matthias Lexer as an example in the following:
+For a concrete demonstration of the different functions and the procedure, we use the dictionary entry *bluome* from the *Mittelhochdeutsches Handwörterbuch* by Matthias Lexer as an example in the following:
 
 ![Lexer bluome Foto](images/bluome_categories.png)
 
@@ -553,7 +548,7 @@ Now the styling for our example entry is defined. We save the rule with the "Sav
   preview](#the-dictionary-viewer:-preview-your-dictionary).
 </SideNote>
 
-In the dictionary preview, our example entry _bluome_ now looks like this:
+In the dictionary preview, our example entry *bluome* now looks like this:
 
 ![Preview entry bluome](images/bluome_preview.png)
 
@@ -607,9 +602,9 @@ Further search fields can be added via the plus button. These all are linked wit
 
 Upper and lower case are irrelevant for the entry and blank characters are ignored. Special characters can be replaced by their basic characters in the search, e.g. diacritics do not have to be entered (ë = e).
 
-A truncated search is possible. For example, _bach*_ returns all words beginning with this character string and _\*bach_ returns the words ending with this string.
+A truncated search is possible. For example, *bach\** returns all words beginning with this character string and *\*bach* returns the words ending with this string.
 
-When entering multi-word units, it is necessary to enclose the search string in inverted commas to search for the entered word sequence (e.g. _"laut und buchstabe"_), otherwise the word order will not be taken into account.
+When entering multi-word units, it is necessary to enclose the search string in inverted commas to search for the entered word sequence (e.g. *"laut und buchstabe"*), otherwise the word order will not be taken into account.
 
 The search is started by pressing the enter key.
 
@@ -628,11 +623,11 @@ In order to publish a dictionary, the following requirements must be fulfilled:
 
 #### How to publish?
 
-- To publish your dictionary, go to the Dictionary Overview page, change the button with the label "Publishing status of your dictionary" from "unpublished" to "published".
+* To publish your dictionary, go to the Dictionary Overview page, change the button with the label "Publishing status of your dictionary" from "unpublished" to "published".
 
 ![Publication](images/publication_button.png)
 
-- Your dictionary is available online now. It appears on the overview page of all dictionaries published with Publex. You can also access this page via the "Published Dictionaries" button in the top menu bar:
+* Your dictionary is available online now. It appears on the overview page of all dictionaries published with Publex. You can also access this page via the "Published Dictionaries" button in the top menu bar:
 
 ![Publex Button](images/publex_button.png)
 
@@ -640,7 +635,7 @@ The published dictionaries are displayed with basic metadata and can be accessed
 
 ![Published Dictionaries](images/published_dictionaries.png)
 
-- Each published dictionary is also given its own persistent address it can be accessed through.
+* Each published dictionary is also given its own persistent address it can be accessed through.
 
 #### Reverse a publication
 

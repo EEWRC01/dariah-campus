@@ -29,9 +29,9 @@ This course will explore the notion of lexicographic evidence and the limitation
 
 Upon completion of this course, students will be able to
 
-- understand the fundamentals of corpus linguistics and corpus design
-- determine the suitability of a corpus for a particular project
-- understand the role of the corpus in lexicographic practice
+* understand the fundamentals of corpus linguistics and corpus design
+* determine the suitability of a corpus for a particular project
+* understand the role of the corpus in lexicographic practice
 
 ### Dependencies
 
@@ -112,11 +112,11 @@ At the end of the previous chapter, we defined a corpus as a collection of texts
 
 A number of different types of corpora can be distinguished depending on their internal properties or their intended purpose(s), i.e.
 
-- Language(s): monolingual, multilingual (comparable and parallel)
-- Coverage: general, specialised
-- Medium: spoken, written, multimedia, visual content
-- Time: diachronic, synchronic
-- Static vs Dynamic: open (monitor), closed
+* Language(s): monolingual, multilingual (comparable and parallel)
+* Coverage: general, specialised
+* Medium: spoken, written, multimedia, visual content
+* Time: diachronic, synchronic
+* Static vs Dynamic: open (monitor), closed
 
 In this section, we will take a closer look at these properties and their purposes.
 
@@ -130,15 +130,15 @@ A multilingual corpus contains texts in more than one language. Two types of a m
 
 A parallel corpus is a corpus with the same texts in two or more languages, which are aligned, most often at the sentence level. A parallel corpus can be created:
 
-- automatically by aligning previous translations
-- segment by segment by a translator during translation in a CAT (Computer-assisted translation) tool and stored in a TM (Translation Memory) database
+* automatically by aligning previous translations
+* segment by segment by a translator during translation in a CAT (Computer-assisted translation) tool and stored in a TM (Translation Memory) database
 
 Parallel corpus data is generally quite difficult to obtain. Therefore parallel corpora have limited availability for many specific domains and rare languages. An example of a parallel corpus is the [EUROPARL](https://www.statmt.org/europarl/) corpus.
 
 A comparable corpus is a collection of texts in two or more languages that are similar in their subject, domain, genre, or register. Comparable corpora are less demanding and less time-consuming to compile than parallel corpora. Examples of comparable corpora are:
 
-- CHILDES TalkBank: [https://childes.talkbank.org/](https://childes.talkbank.org/)
-- International Corpus of English: [http://ice-corpora.net/ice/index.html](http://ice-corpora.net/ice/index.html)
+* CHILDES TalkBank: [https://childes.talkbank.org/](https://childes.talkbank.org/)
+* International Corpus of English: [http://ice-corpora.net/ice/index.html](http://ice-corpora.net/ice/index.html)
 
 #### Coverage
 
@@ -192,9 +192,9 @@ Kilgarriff and Grefenstette (2003: 8) state that "representativeness" is a fuzzy
 
 Example:
 
-_If you want a corpus that is representative of general English, a corpus of newspapers will not do._
+*If you want a corpus that is representative of general English, a corpus of newspapers will not do.*
 
-_If you want a corpus representative of English newspapers, a corpus containing only The Times will not do._
+*If you want a corpus representative of English newspapers, a corpus containing only The Times will not do.*
 
 #### Corpus Size
 
@@ -218,14 +218,14 @@ In practice, the ideal corpus composition and size are often hampered by limitat
 
 Minimally, a corpus consists of a large, diverse collection of files containing language samples as raw text, but more often than not, corpus texts are enriched with additional linguistic information, which we call corpus annotations. These annotations add value to a corpus and enable more advanced querying, e.g.
 
-- You will not only be able to search for a particular word form, but also for a lemma and retrieve all forms that occur for that lemma;
-- You will be able to search for adjectives that occur frequently with a particular lemma;
-- You will be able to search for syntactic constructions;
-- You will be able to search for a lemma in one of its senses in your corpus.
+* You will not only be able to search for a particular word form, but also for a lemma and retrieve all forms that occur for that lemma;
+* You will be able to search for adjectives that occur frequently with a particular lemma;
+* You will be able to search for syntactic constructions;
+* You will be able to search for a lemma in one of its senses in your corpus.
 
 In this section, we look at different types of corpus annotation and we will illustrate these on the basis of a short newspaper article from The [Guardian](https://www.theguardian.com/science/2022/mar/01/tyrannosaurus-rex-may-have-been-three-species-scientists-say) (The Guardian, Nicola Davis, 01-03-2022).
 
-![](https://lh4.googleusercontent.com/DXUUcLdn8bayhptZ6O7c5yMReIeofKH9Tl\_7UKr-7\_7G12F3IWdq3DajoJCSRNtVJlZMO6PNI-SPP_Dixp-bayiqJZ8LuiczvzVvel5BFCaHsMq8tXggSk7hyqw0Q6Dvaf2u-608)
+![](https://lh4.googleusercontent.com/DXUUcLdn8bayhptZ6O7c5yMReIeofKH9Tl_7UKr-7_7G12F3IWdq3DajoJCSRNtVJlZMO6PNI-SPP_Dixp-bayiqJZ8LuiczvzVvel5BFCaHsMq8tXggSk7hyqw0Q6Dvaf2u-608)
 
 We start with tokenisation, then part-of-speech tagging, followed by lemmatisation, and then syntactic and semantic annotation. More annotation layers can be added, but these will not be discussed here.
 
@@ -247,22 +247,22 @@ One of the most widely used types of corpus enrichment is part-of-speech (POS) t
 
 The tags that can be used are defined in a tagset. Different tagsets exist, e.g.
 
-- [Brown tagset](http://korpus.uib.no/icame/manuals/BROWN/INDEX.HTM#bc6)
-- [Stuttgart-Tübingen tagset](https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets/)
-- [Universal Dependencies tagset](https://universaldependencies.org/u/pos/)
+* [Brown tagset](http://korpus.uib.no/icame/manuals/BROWN/INDEX.HTM#bc6)
+* [Stuttgart-Tübingen tagset](https://www.ims.uni-stuttgart.de/forschung/ressourcen/lexika/germantagsets/)
+* [Universal Dependencies tagset](https://universaldependencies.org/u/pos/)
 
-Apart from the different names that are used for the tags, pos taggers can also differ in their approach, i.e. "functional" versus "lexical" tagging. For example, _walking_ in the sentence _(The) walking is good for your health_ will be tagged as a NOUN in a functional approach and as a VERB in a lexical approach. The UD annotation, for instance, is based on a lexicalist view of syntax.
+Apart from the different names that are used for the tags, pos taggers can also differ in their approach, i.e. "functional" versus "lexical" tagging. For example, *walking* in the sentence *(The) walking is good for your health* will be tagged as a NOUN in a functional approach and as a VERB in a lexical approach. The UD annotation, for instance, is based on a lexicalist view of syntax.
 
 To avoid surprises in the results from your corpus analysis, it is always wise to check the documentation of your corpus to see which tagset is used.
 
 For mainstream languages (e.g. English, German, French) tagging accuracy of up to 97-98% is achieved. For non-mainstream languages, this percentage is considerably lower. Despite the high accuracy in mainstream languages, there are still some tricky cases, e.g.:
 
-- Multiword expressions (so that, in spite of)
-- Variably spelled compounds (noticeboard, notice-board, notice board)
+* Multiword expressions (so that, in spite of)
+* Variably spelled compounds (noticeboard, notice-board, notice board)
 
 Some of these problems are illustrated in our example text. T rex is tokenised and tagged separately and rex is tagged as a plural noun.
 
-![](https://lh4.googleusercontent.com/19G3WXJPkYBGLKsJFkNYsD0oWe\_-PxfViJ0k3HRB-Bz1FxeUyGkZPeoUXY71Hd4PIFYMCSbnkCESg51XL6DSc8q85FduFyqxNsLrz2eQdzvWwBxsNqxRm8ZyR8stNd5Prw3fYoAY)
+![](https://lh4.googleusercontent.com/19G3WXJPkYBGLKsJFkNYsD0oWe_-PxfViJ0k3HRB-Bz1FxeUyGkZPeoUXY71Hd4PIFYMCSbnkCESg51XL6DSc8q85FduFyqxNsLrz2eQdzvWwBxsNqxRm8ZyR8stNd5Prw3fYoAY)
 
 Part of speech tagging provides the basis for further forms of analysis such as parsing and semantic annotation.
 
@@ -270,7 +270,7 @@ Part of speech tagging provides the basis for further forms of analysis such as 
 
 Lemmatisation means that each word form in the corpus is assigned to a lemma or "base form". For instance,
 
-Forms: Do, does, did, done, doing →  Lemma: do
+Forms: Do, does, did, done, doing →  Lemma: do
 
 Forms: Corpus, corpora → Lemma: corpus
 
@@ -280,11 +280,11 @@ The figure below shows the extract from our text, POS tagged and lemmatised: ![]
 
 ##### Syntactic annotation
 
-Syntactic annotation provides information about the grammatical structure of sentences. This is also called parsing. Two types of parsers can be distinguished, those annotating constituent structures and those annotating dependencies (Figure taken from Jurafsky et al. 2021, Chapter 14, p.2). Syntactically annotated corpora are called treebanks as syntactic structures are commonly visualised in the form of trees. ![](https://lh5.googleusercontent.com/UgKZaXXtD3ktqLc0T3qKN-veKEgTwCYQ1OSIuS2ez1d_O-aWn8m3xKNNbWKEMhdZwwORCUoQjMdsF92RNFNHafV57TTdRSRYzHSNR4FOkOKgQUQV8lS9BQ3L-Iha8cJLxHmAHwvz) For a more computational description of dependency and constituency parsing, see Chapters 13 and 14 from [Jurafksy et al. 2021](https://web.stanford.edu/\~jurafsky/slp3/).
+Syntactic annotation provides information about the grammatical structure of sentences. This is also called parsing. Two types of parsers can be distinguished, those annotating constituent structures and those annotating dependencies (Figure taken from Jurafsky et al. 2021, Chapter 14, p.2). Syntactically annotated corpora are called treebanks as syntactic structures are commonly visualised in the form of trees. ![](https://lh5.googleusercontent.com/UgKZaXXtD3ktqLc0T3qKN-veKEgTwCYQ1OSIuS2ez1d_O-aWn8m3xKNNbWKEMhdZwwORCUoQjMdsF92RNFNHafV57TTdRSRYzHSNR4FOkOKgQUQV8lS9BQ3L-Iha8cJLxHmAHwvz) For a more computational description of dependency and constituency parsing, see Chapters 13 and 14 from [Jurafksy et al. 2021](https://web.stanford.edu/~jurafsky/slp3/).
 
 Probably, the best-known example of dependency kind of treebanks are the universal dependency treebanks. Universal Dependencies (UD) is a framework for consistent annotation of grammar (parts of speech, morphological features, and syntactic dependencies) across different human languages. There are at the time of writing nearly 200 treebanks in over 100 languages. ([https://universaldependencies.org/#language-](https://universaldependencies.org/#language-) accessed March 2022)
 
-The Figure below shows a sample UD annotation for English. ![](https://lh6.googleusercontent.com/JCcLD0Iq3mlb8o7-6ciMyPDrpwfZJUU4AIWMMGZ71CJrYmacsFLNSJFwwTMMJ-K0RMOtpBRtWaLfC2BTKbEKnCE2qap4cyMcd94kqQxTSsbSCgjXJ5\_HaL_F78fsM8k0QCUGlbt\_)
+The Figure below shows a sample UD annotation for English. ![](https://lh6.googleusercontent.com/JCcLD0Iq3mlb8o7-6ciMyPDrpwfZJUU4AIWMMGZ71CJrYmacsFLNSJFwwTMMJ-K0RMOtpBRtWaLfC2BTKbEKnCE2qap4cyMcd94kqQxTSsbSCgjXJ5_HaL_F78fsM8k0QCUGlbt_)
 
 Each word line contains the following fields:
 
@@ -303,7 +303,7 @@ Further information on Universal Dependencies can be found on the [UD website](h
 
 The final layer of annotation that we discuss here, is semantic annotation. This refers to adding semantic information to the words in the corpus. Semantic annotation is less common, even for corpora of the major languages. The best-known semantically annotated corpora are the SemCor corpora that use a wordnet as their sense inventory. See, for instance, the English SemCor corpus which is available in the Sketch Engine.
 
-![](https://lh3.googleusercontent.com/oe_StqUCy1oPoMt-UWhL1y6MqeH8AfujAnSai9BHBaTPlLB9n2cnNAgp9O36BkowjE-YYHqUh9kSBeNgW0begsRDELs9PGYi_lFiGPzwJZWhWYdmgVtGHGAAtjzg9Rme4BQ81b6\_)
+![](https://lh3.googleusercontent.com/oe_StqUCy1oPoMt-UWhL1y6MqeH8AfujAnSai9BHBaTPlLB9n2cnNAgp9O36BkowjE-YYHqUh9kSBeNgW0begsRDELs9PGYi_lFiGPzwJZWhWYdmgVtGHGAAtjzg9Rme4BQ81b6_)
 
 Semantically annotated corpora are, for instance, used in NLP for Word Sense Disambiguation (WSD).
 
@@ -349,25 +349,25 @@ An easy way to familiarise yourself with the composition of a corpus is to read 
 
 Apart from looking at the metadata and the documentation, it is important to also have a close look at the actual texts in the corpus. A direct, practical, and fascinating way to explore the textual characteristics of corpora is by using keyword lists. Keywords are words and phrases typical for your corpus because they appear in your corpus more frequently than they would in general language.
 
-In his paper '[getting to know your corpus](https://www.sketchengine.eu/wp-content/uploads/2015/07/Getting_to_know\_2012.pdf)', Adam Kilgarriff (2012) shows how keyword lists can be used to compare corpora and why this is useful for lexicographic purposes. We highly recommend reading it.
+In his paper '[getting to know your corpus](https://www.sketchengine.eu/wp-content/uploads/2015/07/Getting_to_know_2012.pdf)', Adam Kilgarriff (2012) shows how keyword lists can be used to compare corpora and why this is useful for lexicographic purposes. We highly recommend reading it.
 
 ### Some notes of caution when using corpora
 
-Most corpora that you will use, will contain various levels of linguistic annotation. Although automatic corpus processing and annotation tools provide excellent results, they are not flawless. Contractions, for instance, can sometimes be problematic in automatic processing. Is _aren't_ considered as one token or as two, and if it is split into two tokens, which two - _are n't, or are not._ Different systems do different things. Compounds that can have different orthographic forms (i.e. written with or without a space or with a hyphen) can also cause problems. For example, _website_ versus _web site_. Searching for _website_ will not normally return hits for _web site_ as automatic procedures do not lemmatise these to one and the same lemma form. Therefore you should always check how they are treated in your corpus. Finally, it is important to realise that we are dealing with authentic material and that this material may also contain errors or idiosyncratic instances.
+Most corpora that you will use, will contain various levels of linguistic annotation. Although automatic corpus processing and annotation tools provide excellent results, they are not flawless. Contractions, for instance, can sometimes be problematic in automatic processing. Is *aren't* considered as one token or as two, and if it is split into two tokens, which two - *are n't, or are not.* Different systems do different things. Compounds that can have different orthographic forms (i.e. written with or without a space or with a hyphen) can also cause problems. For example, *website* versus *web site*. Searching for *website* will not normally return hits for *web site* as automatic procedures do not lemmatise these to one and the same lemma form. Therefore you should always check how they are treated in your corpus. Finally, it is important to realise that we are dealing with authentic material and that this material may also contain errors or idiosyncratic instances.
 
 ## Corpora in lexicographic practice
 
 Nowadays corpora have become an integral part of lexicographic practice, but the role of the corpus can differ. Three approaches can be distinguished:
 
-- Corpus-driven
+* Corpus-driven
 
 In a corpus-driven project, the corpus data is leading. The entries, sense divisions and definitions are fully consistent with, and reflect directly, the evidence of the corpus (e.g. examples are used verbatim) (Krishnamurthy 2008:240)
 
-- Corpus-based
+* Corpus-based
 
 In corpus-based projects, the corpus plays a major role, but some lexicographical decisions are not based on corpus data, either due to shortcomings of the corpus or due to practical considerations (e.g. all items of a lexical set are included in the dictionary regardless of their occurrence in the corpus) (Kosem 2016)
 
-- Corpus-informed
+* Corpus-informed
 
 We speak of corpus-informed when the corpus is used in a limited way, for example, in upgrades of an existing dictionary by adding example sentences from a corpus. (Kosem 2016)
 
@@ -393,7 +393,7 @@ In general, n-grams are sequences of items. In the context of corpora, n-grams a
 
 These are the top twenty 5-grams containing the word end:
 
-![](https://lh6.googleusercontent.com/RgTGQhK7pRNu1pgvpPHqy2dm1de1wpipLlxjCKsWHMLjV7XrYKLOM07VTGsCP29YwlzyvqB5nCgJgBVE_ALLwypqxQg0-SlwMAP91sHQ1IIaAtDBoqeqBHdZ9W-0JvHrwumboB4\_NpC2G9lTCQ)
+![](https://lh6.googleusercontent.com/RgTGQhK7pRNu1pgvpPHqy2dm1de1wpipLlxjCKsWHMLjV7XrYKLOM07VTGsCP29YwlzyvqB5nCgJgBVE_ALLwypqxQg0-SlwMAP91sHQ1IIaAtDBoqeqBHdZ9W-0JvHrwumboB4_NpC2G9lTCQ)
 
 ### Collocations
 
@@ -403,17 +403,17 @@ There are several tools which can be used to extract collocation information fro
 
 The Word Sketch is the best starting point for exploring collocations. It identifies words which typically appear together and categorizes them according to the relation between them. Each column represents a different grammatical relation.
 
-![](https://lh6.googleusercontent.com/ZIFA89\_yEK-rAkVc3TNJbNNwbGTvyZbszQSyMYr8Co4SlG45\_zSgDLjaXP-LvZRmEtHrQrd0KNBldSeqZfYrrigu4ZPqWptqdft4Bv8W2ZAi1LOSQ6Iaw8z_UY1Z_M6XB54HutlxIwwBa0OBqw)
+![](https://lh6.googleusercontent.com/ZIFA89_yEK-rAkVc3TNJbNNwbGTvyZbszQSyMYr8Co4SlG45_zSgDLjaXP-LvZRmEtHrQrd0KNBldSeqZfYrrigu4ZPqWptqdft4Bv8W2ZAi1LOSQ6Iaw8z_UY1Z_M6XB54HutlxIwwBa0OBqw)
 
 The fact that a word combination is frequent is often of limited use or even insignificant for the purpose of lexicography. For example, these are the most frequent collocations of the word bedroom (only adjectives modifying the noun are included)
 
-_small own spare twin front main comfortable big large_
+*small own spare twin front main comfortable big large*
 
 Looking at the list, one notices that most of the words are very predictable. In other words, if a person wants to speak about a bedroom of a small size, they will naturally use the word small. They will not usually need to consult a dictionary to make sure that small is a suitable word combination. Including such information in a dictionary is not particularly useful.
 
-On the other hand, collocations which are typical, or strong, are far more useful. Typicality often brings up collocations which are not (completely) predictable. _Twin bedroom_ is an example. A collocation list for bedroom ordered by the typicality score will look quite different with these items at the top:
+On the other hand, collocations which are typical, or strong, are far more useful. Typicality often brings up collocations which are not (completely) predictable. *Twin bedroom* is an example. A collocation list for bedroom ordered by the typicality score will look quite different with these items at the top:
 
-_master double spacious spare en-suite upstairs twin guest air-conditioned_
+*master double spacious spare en-suite upstairs twin guest air-conditioned*
 
 It contains several collocations which could be very useful if included in a dictionary.
 
@@ -425,11 +425,11 @@ There are several aspects that should be considered. As summarised in Kosem et a
 
 These conditions can be met by only selecting sentences which:
 
-- are not too long to make them difficult to understand but long enough to provide enough context for the headword.
-- contain easy to understand, i.e. high-frequency words, but words which constitute a typical context, for example, strong collocations.
-- do not contain frequent references pointing outside the sentence, such as a large number of pronouns
-- do not require the knowledge of specific extralinguistic reality to be understood.
-- avoid controversial topics or topics which make dictionary users feel uneasy because of their cultural or religious background.
+* are not too long to make them difficult to understand but long enough to provide enough context for the headword.
+* contain easy to understand, i.e. high-frequency words, but words which constitute a typical context, for example, strong collocations.
+* do not contain frequent references pointing outside the sentence, such as a large number of pronouns
+* do not require the knowledge of specific extralinguistic reality to be understood.
+* avoid controversial topics or topics which make dictionary users feel uneasy because of their cultural or religious background.
 
 This may seem relatively easy, but, as lexicographers know all too well, finding good dictionary examples that meet all of these criteria is a difficult task. For example, short sentences might be preferred over long ones for intelligibility reasons. However, without (enough) context, short example sentences can quickly lose their informative value, and in cases where the original example has been shortened, even their naturalness. In some cases, like in dictionaries for language learners, where the productive value of examples is very important, examples with more context are actually preferred. (Kosem et al. 2018: 120)
 
@@ -447,7 +447,7 @@ For this to work, time-stamped data are required. Time-stamped refers to data wh
 
 ### Word senses
 
-Corpora can also help to identify the different senses of a polysemous word. For instance, by looking at the concordances (i.e. …) of the noun party in the example below, we see occurrences of the different senses of the noun party, i.e. party in the sense of political party, but also in the sense of a social event. ![](https://lh3.googleusercontent.com/rJ1rFQV9guLxdP0QQV9orXMhyB3Ocw8lyfR-RrcQOgtHRziYhXNuAtA8sB2m\_5duArn2imyXr53hrne1gM0zePZBFtNLtRh0NXZU_YWbJoJXYjeTvZ5FsQAaUPX29Eed8HRuf7\_AF5u2Ca0q8A)
+Corpora can also help to identify the different senses of a polysemous word. For instance, by looking at the concordances (i.e. …) of the noun party in the example below, we see occurrences of the different senses of the noun party, i.e. party in the sense of political party, but also in the sense of a social event. ![](https://lh3.googleusercontent.com/rJ1rFQV9guLxdP0QQV9orXMhyB3Ocw8lyfR-RrcQOgtHRziYhXNuAtA8sB2m_5duArn2imyXr53hrne1gM0zePZBFtNLtRh0NXZU_YWbJoJXYjeTvZ5FsQAaUPX29Eed8HRuf7_AF5u2Ca0q8A)
 
 These different senses can also be observed when looking at the word sketch of party:
 
@@ -459,7 +459,7 @@ Dictionary labels give information about the restricted use of a word or its sen
 
 This screen short shows that word outback is a lot more frequent (has a higher relative density) in texts collected from the Australian .au top-level domain. The relative density is not affected by the difference in the volume of text collected from each domain.
 
-![](https://lh5.googleusercontent.com/It4uGokPFMWHytNPEMD-HAL01L8oUcnSX1\_IXKW_LiY_hDrGXHfok1TNEGRwMBD0AvKuOUiTpgLtNNhdBCBK48odb66GOONJ55YkoT5MfzVx-BKJBFaX14sGxrG7A9IcVw-O4C8vzYRPjL0ndg)
+![](https://lh5.googleusercontent.com/It4uGokPFMWHytNPEMD-HAL01L8oUcnSX1_IXKW_LiY_hDrGXHfok1TNEGRwMBD0AvKuOUiTpgLtNNhdBCBK48odb66GOONJ55YkoT5MfzVx-BKJBFaX14sGxrG7A9IcVw-O4C8vzYRPjL0ndg)
 
 Similarly, a corpus with metadata classifying documents into topics can provide information about the usage restrictions of collocations identified by the word sketch:
 
@@ -481,20 +481,20 @@ There are several ways to explore syntactic patterns of a word.
 
 Generating n-grams of different sizes that contain the word can show prepositions and other function words frequently found before and after the word. In Sketch Engine, the ADVANCED tab of the n-gram tools lets the user specify various search options and restricting conditions.
 
-![](https://lh6.googleusercontent.com/EBoY2x5ncS2SlOurDIigmizTIJ4ekpCdTBPuO1Zo8QiqVmA8u5XHv6ndJeb4joeWaFXJzKzzYSX6OFRBFozSZpHiE\_7UOmIH1veF1MBig1lUyaNogoURd1SKAxSA59-Fb_eZ9410dD_xcB1L5w)
+![](https://lh6.googleusercontent.com/EBoY2x5ncS2SlOurDIigmizTIJ4ekpCdTBPuO1Zo8QiqVmA8u5XHv6ndJeb4joeWaFXJzKzzYSX6OFRBFozSZpHiE_7UOmIH1veF1MBig1lUyaNogoURd1SKAxSA59-Fb_eZ9410dD_xcB1L5w)
 
 #### Word sketches for discovering patterns
 
 Word sketches contain some grammatical relations specifically designed to identify the typical patterns, such as prepositions before and after the word or usage patterns:
 
-![](https://lh4.googleusercontent.com/sE77wTNcEmMGBk4UbN7xkMlhZNQ7hC8NOzC-r9C_FAdelZFyx1\_gN4PXXOlEYV-iB6cWfXwlrp7fMizC25F1H5RrlmThXoKTO_R7IFHH0gmJjD-O-6Xn-UPqvP8De-c2HdwN_AgBrnZi42FQpA)
+![](https://lh4.googleusercontent.com/sE77wTNcEmMGBk4UbN7xkMlhZNQ7hC8NOzC-r9C_FAdelZFyx1_gN4PXXOlEYV-iB6cWfXwlrp7fMizC25F1H5RrlmThXoKTO_R7IFHH0gmJjD-O-6Xn-UPqvP8De-c2HdwN_AgBrnZi42FQpA)
 
 #### Concordance for discovering patterns
 
 Using the concordance for discovering patterns involves mainly two concordance tools:
 
-- sorting the concordance lines
-- frequency distribution
+* sorting the concordance lines
+* frequency distribution
 
 ##### Sorting
 
@@ -512,23 +512,23 @@ A similar technique can be used to analyse the left or right context or of other
 
 Different tools which are part of a corpus software offer various types of statistics. It is beyond the scope of this course to provide a detailed explanation of each of them. However, when using Sketch Engine, the interface provides quick reference as well as detailed information about the various types of statistics via tooltips that are displayed upon hovering the mouse over the statistic or over the column header. The tooltips frequently contain links to more detailed information.
 
-![](https://lh5.googleusercontent.com/tP9qIUGtSQFZNTWUO\_7vFuONBqNNrYtjq4EQdpDy7cWPVE7iuL2rke0PYvNp7co0nRa6I6aB-X0fJxRKAIOB86rLTWpTu4HoEb_AUQ2WUOonU-XgXed06zTMxOxNeqlPumbnKiCBPZLPLbDEYQ)
+![](https://lh5.googleusercontent.com/tP9qIUGtSQFZNTWUO_7vFuONBqNNrYtjq4EQdpDy7cWPVE7iuL2rke0PYvNp7co0nRa6I6aB-X0fJxRKAIOB86rLTWpTu4HoEb_AUQ2WUOonU-XgXed06zTMxOxNeqlPumbnKiCBPZLPLbDEYQ)
 
 #### Corpus size
 
 The size of the corpus is typically given in the number of words. Different corpus systems, however, have different ways of defining what a word is and it is common to see slightly different sizes depending on which corpus software is used. Sketch Engine provides different size measures, the most frequently used ones are the size in words and tokens whose definitions can be found on these links:
 
-[https://www.sketchengine.eu/my_keywords/token/](https://www.sketchengine.eu/my_keywords/token/)
+[https://www.sketchengine.eu/my\_keywords/token/](https://www.sketchengine.eu/my_keywords/token/)
 
-[https://www.sketchengine.eu/my_keywords/word/](https://www.sketchengine.eu/my_keywords/word/)
+[https://www.sketchengine.eu/my\_keywords/word/](https://www.sketchengine.eu/my_keywords/word/)
 
 #### Frequency
 
-The frequency is the basic statistics in corpora. It refers to the number of hits (the number of times the search word or phrase was found). It can only be used to compare information derived from the same corpus. It cannot be used to compare two different corpora because two corpora have different corpus sizes and, naturally, a larger corpus will produce a higher frequency than the smaller corpus. See also [https://www.sketchengine.eu/my_keywords/frequency/](https://www.sketchengine.eu/my_keywords/frequency/)
+The frequency is the basic statistics in corpora. It refers to the number of hits (the number of times the search word or phrase was found). It can only be used to compare information derived from the same corpus. It cannot be used to compare two different corpora because two corpora have different corpus sizes and, naturally, a larger corpus will produce a higher frequency than the smaller corpus. See also [https://www.sketchengine.eu/my\_keywords/frequency/](https://www.sketchengine.eu/my_keywords/frequency/)
 
 #### Relative frequency, normalized frequency, frequency per million
 
-All three terms refer to the same statistic. Relative frequency is used to compare information derived from corpora of different sizes. The value does not depend on the corpus size. Sketch Engine uses frequency per million. Thus, a relative  frequency of 10 per million means that there are 10 hits in each million tokens on average. If the corpus is smaller than a million, it indicates what the frequency would be if the corpus had a million tokens. See also [https://www.sketchengine.eu/my_keywords/freqmill/](https://www.sketchengine.eu/my_keywords/freqmill/)
+All three terms refer to the same statistic. Relative frequency is used to compare information derived from corpora of different sizes. The value does not depend on the corpus size. Sketch Engine uses frequency per million. Thus, a relative  frequency of 10 per million means that there are 10 hits in each million tokens on average. If the corpus is smaller than a million, it indicates what the frequency would be if the corpus had a million tokens. See also [https://www.sketchengine.eu/my\_keywords/freqmill/](https://www.sketchengine.eu/my_keywords/freqmill/)
 
 #### Association scores and collocation metrics
 
@@ -542,7 +542,7 @@ The T-score expresses the certainty with which we can argue that there is an ass
 
 Unfortunately, with multi-billion-word corpora, the corpus size affects the score to such an extent, that it mainly brings up co-occurrences which are only frequent without being particularly interesting or useful.
 
-See also [https://www.sketchengine.eu/my_keywords/t-score/](https://www.sketchengine.eu/my_keywords/t-score/)
+See also [https://www.sketchengine.eu/my\_keywords/t-score/](https://www.sketchengine.eu/my_keywords/t-score/)
 
 ##### MI Score
 
@@ -550,13 +550,13 @@ The Mutual Information Score will highlight pairs of words that frequently appea
 
 Since the score is affected by the corpus size, it is not particularly useful with modern large corpora where it frequently detects various random fixed items of little interest, for example, combinations of words which are misspelt and only appear very infrequently in the corpus.
 
-See also [https://www.sketchengine.eu/my_keywords/mi-score/](https://www.sketchengine.eu/my_keywords/mi-score/)
+See also [https://www.sketchengine.eu/my\_keywords/mi-score/](https://www.sketchengine.eu/my_keywords/mi-score/)
 
 ##### logDice
 
 The logDice score is a better option suited to large corpora. It is only based on the frequency of the node and the collocate and the frequency of the whole collocation (co-occurrence of the node and collocate). logDice is not affected by the size of the corpus and, therefore, can be used to compare scores between different corpora.
 
-See also [https://www.sketchengine.eu/my_keywords/logdice/](https://www.sketchengine.eu/my_keywords/logdice/)
+See also [https://www.sketchengine.eu/my\_keywords/logdice/](https://www.sketchengine.eu/my_keywords/logdice/)
 
 #### Keyness score
 
@@ -564,7 +564,7 @@ The keyness score refers to any type of score used to identify keywords which ar
 
 ##### Simple Math
 
-The score used in Sketch Engine is called Simple Maths. It is used to identify keywords (single word items), terms (mutliword items), key n-grams and also key collocations. See also [https://www.sketchengine.eu/my_keywords/simple-maths/](https://www.sketchengine.eu/my_keywords/simple-maths/)
+The score used in Sketch Engine is called Simple Maths. It is used to identify keywords (single word items), terms (mutliword items), key n-grams and also key collocations. See also [https://www.sketchengine.eu/my\_keywords/simple-maths/](https://www.sketchengine.eu/my_keywords/simple-maths/)
 
 ## Next steps
 
@@ -586,7 +586,7 @@ EAGLES Evaluation Working Group (1996). Evaluation of Natural Language Processin
 
 Geyken, A. (2007). The DWDS Corpus: A reference corpus for the German language of the 20th century. In C. Fellbaum (ed.) Idioms and Collocations: Corpus-based Linguistic and Lexicographic Studies. London: Continuum Press23–40.
 
-Gries, S. (2009). [What is corpus linguistics?](https://stgries.info/research/2009\_STG_CorpLing_LangLingCompass.pdf) Language and Linguistics Compass 3. 1-17.
+Gries, S. (2009). [What is corpus linguistics?](https://stgries.info/research/2009_STG_CorpLing_LangLingCompass.pdf) Language and Linguistics Compass 3. 1-17.
 
 Gries, S. and· A.L. Berez (2017). [Linguistic Annotation in/for Corpus Linguistics](https://scholarspace.manoa.hawaii.edu/server/api/core/bitstreams/2a1388a5-104f-4495-b547-068b7ec04ccf/content). In N. Ide and J. Pustejovsky (eds.), Handbook of Linguistic Annotation. 379-409.
 
@@ -598,7 +598,7 @@ Hanks, P. (2013) Lexical Analysis: Norms and Exploitations. The MIT Press. Cambr
 
 Hartmann, R. R. K. (ed.). 1983. Lexicography; Principles and practice. London: Academic Press.
 
-Jurafksy D. and D.H. Martin (2021). Speech and Language Processing (3rd ed. Draft) Available at: [https://web.stanford.edu/\~jurafsky/slp3/](https://web.stanford.edu/\~jurafsky/slp3/) (accessed 30 April 2022).
+Jurafksy D. and D.H. Martin (2021). Speech and Language Processing (3rd ed. Draft) Available at: [https://web.stanford.edu/\~jurafsky/slp3/](https://web.stanford.edu/~jurafsky/slp3/) (accessed 30 April 2022).
 
 Kilgarriff A. and G. Grefenstette (2003). [Introduction to the Special Issue on Web as Corpus.](https://www.kilgarriff.co.uk/Publications/2003-KilgGrefenstette-WACIntro.pdf) Computational Linguistics 29 (3).
 
@@ -636,4 +636,4 @@ Svensén, B. (2009). A Handbook of Lexicography. The Theory and Practice of Dict
 
 Vries, M, de, Verslag der Redactie van het Nederlandsch Woordenboek. Haarlem: Kruseman, 1854-1862.
 
-Wortel, D. (1997). Het woordenboekcitaat in de oudste WNT-delen. In Voortgang. Jaarboek voor de Neerlandistiek, 17. 191-206. Available at: [https://www.dbnl.org/tekst/\_voo004199701\_01/\_voo004199701\_01\_0009.php](https://www.dbnl.org/tekst/\_voo004199701\_01/\_voo004199701\_01\_0009.php) (accessed 23 July 2021)
+Wortel, D. (1997). Het woordenboekcitaat in de oudste WNT-delen. In Voortgang. Jaarboek voor de Neerlandistiek, 17. 191-206. Available at: [https://www.dbnl.org/tekst/\_voo004199701\_01/\_voo004199701\_01\_0009.php](https://www.dbnl.org/tekst/_voo004199701_01/_voo004199701_01_0009.php) (accessed 23 July 2021)
