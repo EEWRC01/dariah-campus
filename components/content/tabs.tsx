@@ -19,7 +19,7 @@ export function Tabs(props: Readonly<TabsProps>): ReactNode {
 
 	return (
 		<AriaTabs className="my-4">
-			<AriaTabList className="flex flex-wrap items-center gap-x-4 border-b border-stroke-weak">
+			<AriaTabList className="flex flex-wrap items-center gap-x-4 border-b border-neutral-200">
 				{tabs.map((tab, index) => {
 					const { title } = tab.props;
 

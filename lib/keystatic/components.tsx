@@ -3,6 +3,7 @@ import { fields } from "@keystatic/core";
 import { block, inline, mark, repeating, wrapper } from "@keystatic/core/content-components";
 import {
 	AppWindowIcon,
+	BookIcon,
 	CaptionsIcon,
 	ChevronDownSquareIcon,
 	GridIcon,
@@ -28,6 +29,7 @@ import {
 	CalloutPreview,
 	DisclosurePreview,
 	EmbedPreview,
+	ExternalResourcePreview,
 	FigurePreview,
 	GridItemPreview,
 	GridPreview,
@@ -36,6 +38,7 @@ import {
 	TableOfContentsPreview,
 	TabPreview,
 	TabsPreview,
+	VideoCardPreview,
 	VideoPreview,
 } from "@/lib/keystatic/previews";
 
@@ -106,6 +109,35 @@ export const createEmbed = createComponent((_paths, _locale) => {
 				const { children, value } = props;
 
 				return <EmbedPreview src={value.src}>{children}</EmbedPreview>;
+			},
+		}),
+	};
+});
+
+export const createExternalResource = createComponent((_paths, _locale) => {
+	return {
+		ExternalResource: block({
+			label: "ExternalResource",
+			description: "Insert an link to an external resource.",
+			icon: <BookIcon />,
+			schema: {
+				title: fields.text({
+					label: "Title",
+					validation: { isRequired: true },
+				}),
+				subtitle: fields.text({
+					label: "Subtitle",
+					validation: { isRequired: true },
+				}),
+				url: fields.url({
+					label: "URL",
+					validation: { isRequired: true },
+				}),
+			},
+			ContentView(props) {
+				const { value } = props;
+
+				return <ExternalResourcePreview subtitle={value.subtitle} title={value.title} />;
 			},
 		}),
 	};
@@ -327,7 +359,7 @@ export const createVideo = createComponent((_paths, _locale) => {
 					defaultValue: "youtube",
 				}),
 				id: fields.text({
-					label: "ID",
+					label: "Video ID",
 					validation: { isRequired: true },
 				}),
 				startTime: fields.number({
@@ -342,6 +374,52 @@ export const createVideo = createComponent((_paths, _locale) => {
 					<VideoPreview id={value.id} provider={value.provider} startTime={value.startTime}>
 						{children}
 					</VideoPreview>
+				);
+			},
+		}),
+	};
+});
+
+export const createVideoCard = createComponent((_paths, _locale) => {
+	return {
+		VideoCard: block({
+			label: "Video card",
+			description: "Insert an video card.",
+			icon: <VideoIcon />,
+			schema: {
+				provider: fields.select({
+					label: "Provider",
+					options: videoProviders,
+					defaultValue: "youtube",
+				}),
+				id: fields.text({
+					label: "Video ID",
+					validation: { isRequired: true },
+				}),
+				startTime: fields.number({
+					label: "Start time",
+					validation: { isRequired: false },
+				}),
+				title: fields.text({
+					label: "Title",
+					validation: { isRequired: true },
+				}),
+				subtitle: fields.text({
+					label: "Subtitle",
+					validation: { isRequired: false },
+				}),
+			},
+			ContentView(props) {
+				const { value } = props;
+
+				return (
+					<VideoCardPreview
+						id={value.id}
+						provider={value.provider}
+						startTime={value.startTime}
+						subtitle={value.subtitle}
+						title={value.title}
+					/>
 				);
 			},
 		}),

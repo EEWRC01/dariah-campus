@@ -23,7 +23,7 @@ const calloutKindStyles = styles({
 			caution: "border-stroke-error-weak bg-fill-error-weak text-text-error border",
 			important:
 				"border-stroke-information-weak bg-fill-information-weak text-text-information border",
-			note: "border-stroke-weak bg-fill-weak text-text-weak border",
+			note: "bg-fill-weak text-text-weak border border-neutral-200",
 			tip: "border-stroke-success-weak bg-fill-success-weak text-text-success border",
 			warning: "border-stroke-warning-weak bg-fill-warning-weak text-text-warning border",
 		},
@@ -44,7 +44,7 @@ export function CalloutPreview(props: Readonly<CalloutPreviewProps>): ReactNode 
 	const { children, kind = "note", title } = props;
 
 	return (
-		<aside className="rounded-lg text-tiny p-4 leading-relaxed">
+		<aside className="text-tiny rounded-lg p-4 leading-relaxed">
 			<NotEditable className="mb-4 flex items-center justify-between gap-x-8">
 				<strong className="font-strong">{isNonEmptyString(title) ? title : "(No title)"}</strong>
 				<span className={calloutKindStyles({ kind })}>{kind}</span>
@@ -63,7 +63,7 @@ export function DisclosurePreview(props: Readonly<DisclosurePreviewProps>): Reac
 	const { children, title } = props;
 
 	return (
-		<aside className="rounded-lg text-tiny p-4 leading-relaxed">
+		<aside className="text-tiny rounded-lg p-4 leading-relaxed">
 			<NotEditable className="mb-4 flex items-center justify-between gap-x-8">
 				<strong className="font-strong">{isNonEmptyString(title) ? title : "(No title)"}</strong>
 			</NotEditable>
@@ -87,13 +87,30 @@ export function EmbedPreview(props: Readonly<EmbedPreviewProps>): ReactNode {
 					// eslint-disable-next-line jsx-a11y/iframe-has-title
 					<iframe
 						allowFullScreen={true}
-						className="rounded-lg border-stroke-weak aspect-video w-full overflow-hidden border"
+						className="aspect-video w-full overflow-hidden rounded-lg border border-neutral-200"
 						src={src}
 					/>
 				) : null}
 			</NotEditable>
 			<figcaption>{children}</figcaption>
 		</figure>
+	);
+}
+
+interface ExternalResourcePreviewProps {
+	subtitle: string;
+	title: string;
+}
+
+export function ExternalResourcePreview(props: Readonly<ExternalResourcePreviewProps>): ReactNode {
+	const { subtitle, title } = props;
+
+	return (
+		<aside className="grid gap-y-2">
+			<div>{title}</div>
+			<div>{subtitle}</div>
+			<div>Go to resource</div>
+		</aside>
 	);
 }
 
@@ -117,7 +134,7 @@ export function FigurePreview(props: Readonly<FigurePreviewProps>): ReactNode {
 					// eslint-disable-next-line @next/next/no-img-element
 					<img
 						alt={alt}
-						className="rounded-lg border-stroke-weak w-full overflow-hidden border"
+						className="w-full overflow-hidden rounded-lg border border-neutral-200"
 						src={url}
 					/>
 				) : null}
@@ -184,7 +201,7 @@ export function HeadingIdPreview(props: Readonly<HeadingIdPreviewProps>): ReactN
 
 	return (
 		<NotEditable className="inline">
-			<span className="border-stroke-weak bg-fill-weak text-text-weak px-2 opacity-50">
+			<span className="bg-fill-weak text-text-weak border-neutral-200 px-2 opacity-50">
 				{"#"}
 				{children}
 			</span>
@@ -201,7 +218,7 @@ export function LinkButtonPreview(props: Readonly<LinkButtonPreviewProps>): Reac
 	const { children, link: _link } = props;
 
 	return (
-		<div className="rounded-lg border-stroke-brand-strong bg-fill-brand-strong text-small font-strong text-text-inverse-strong shadow-raised inline-flex min-h-12 items-center border px-6 py-2.5">
+		<div className="border-stroke-brand-strong bg-fill-brand-strong font-strong text-text-inverse-strong shadow-raised inline-flex min-h-12 items-center rounded-lg border px-6 py-2.5 text-sm">
 			{children}
 		</div>
 	);
@@ -217,6 +234,7 @@ export function TableOfContentsPreview(props: Readonly<TableOfContentsPreviewPro
 	return (
 		<div className="grid gap-y-2">
 			<strong className="font-strong">{title}</strong>
+			{/* eslint-disable-next-line react/jsx-no-literals */}
 			<div>Will be generated at build time.</div>
 		</div>
 	);
@@ -268,13 +286,48 @@ export function VideoPreview(props: Readonly<VideoPreviewProps>): ReactNode {
 					<iframe
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						allowFullScreen={true}
-						className="rounded-lg border-stroke-weak aspect-video w-full overflow-hidden border"
+						className="aspect-video w-full overflow-hidden rounded-lg border border-neutral-200"
 						referrerPolicy="strict-origin-when-cross-origin"
 						src={href}
 					/>
 				) : null}
 			</NotEditable>
 			<figcaption>{children}</figcaption>
+		</figure>
+	);
+}
+
+interface VideoCardPreviewProps {
+	id: string;
+	provider: VideoProvider;
+	startTime?: number | null;
+	subtitle?: string;
+	title: string;
+}
+
+export function VideoCardPreview(props: Readonly<VideoCardPreviewProps>): ReactNode {
+	const { id, provider, startTime, subtitle, title } = props;
+
+	const href = isNonEmptyString(id) ? String(createVideoUrl(provider, id, startTime)) : null;
+
+	return (
+		<figure className="grid gap-y-2">
+			<NotEditable>
+				{href != null ? (
+					// eslint-disable-next-line jsx-a11y/iframe-has-title
+					<iframe
+						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+						allowFullScreen={true}
+						className="aspect-video w-full overflow-hidden rounded-lg border border-neutral-200"
+						referrerPolicy="strict-origin-when-cross-origin"
+						src={href}
+					/>
+				) : null}
+				<figcaption>
+					<div>{title}</div>
+					<div>{subtitle}</div>
+				</figcaption>
+			</NotEditable>
 		</figure>
 	);
 }
