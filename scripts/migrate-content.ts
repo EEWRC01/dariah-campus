@@ -1,11 +1,13 @@
-import "mdast-util-mdx-jsx";
-
+import { copyFileSync, mkdirSync } from "node:fs";
 import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import { extname, join, relative } from "node:path";
 
 import { assert, log } from "@acdh-oeaw/lib";
 import { typographyConfig } from "@acdh-oeaw/mdx-lib";
 import slugify from "@sindresorhus/slugify";
+import { valueToEstree } from "estree-util-value-to-estree";
+import type { Root } from "mdast";
+import type { MdxJsxAttribute, MdxJsxTextElement } from "mdast-util-mdx-jsx";
 import withGfm from "remark-gfm";
 import withMdx from "remark-mdx";
 import fromMarkdown from "remark-parse";
@@ -402,6 +404,7 @@ async function migrateResources(
 			{ collection: "hosted" | "external" | "pathfinders"; id: string }
 		>(
 			// @ts-expect-error It's fine.
+			// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
 			(await import("../resources.json", { with: { type: "json" } })).default,
 		);
 		return resources;
@@ -431,10 +434,10 @@ async function migrateResources(
 
 		const resourceType =
 			metadata.remote?.date && metadata.remote.publisher && metadata.remote.url
-				? metadata.type === "pathfinder"
+				? "external"
+				: metadata.type === "pathfinder"
 					? "pathfinders"
-					: "external"
-				: "hosted";
+					: "hosted";
 
 		const outputSlug = sanitize(slug);
 		const outputFolder =
@@ -554,23 +557,93 @@ async function migrateResources(
 			.use(withMdx)
 			.use(withTypographicQuotes, typographyConfig[metadata.lang === "de" ? "de" : "en"])
 			.use(() => {
-				return function transform(tree) {
-					visit(tree, "mdxJsxTextElement", (node) => {
+				return function transform(tree: Root) {
+					visit(tree, "mdxJsxTextElement", (node, index, parent) => {
+						assert(index != null);
+						assert(parent != null);
+						// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+						assert(node.name != null);
+
+						// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 						switch (node.name) {
 							case "a": {
-								break;
+								throw new Error("Unexpected <a> element .");
 							}
 
 							case "code": {
-								break;
+								throw new Error("Unexpected <code> element .");
 							}
 
 							case "Download": {
+								// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+								const url = node.attributes.find((attribute) => {
+									return (attribute as MdxJsxAttribute).name === "url";
+									// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+								})?.value as string | undefined;
+								// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+								const title = node.attributes.find((attribute) => {
+									return (attribute as MdxJsxAttribute).name === "title";
+									// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+								})?.value as string | undefined;
+
+								assert(url, `Missing url attribute on <Download> (${entry.name}).`);
+								assert(title, `Missing title attribute on <Download> (${entry.name}).`);
+
+								const sourceFilePath = join(folder, url);
+								const targetFolderPath = join(
+									publicFolder,
+									"assets",
+									"content",
+									"downloads",
+									"en",
+									"resources",
+									resourceType,
+									outputSlug,
+								);
+								mkdirSync(targetFolderPath, { recursive: true });
+								const targetFilePath = join(targetFolderPath, slugify(url));
+								copyFileSync(sourceFilePath, targetFilePath);
+
+								const newNode: MdxJsxTextElement = {
+									type: "mdxJsxTextElement",
+									name: "Link",
+									attributes: [
+										{
+											type: "mdxJsxAttribute",
+											name: "link",
+											value: {
+												type: "mdxJsxAttributeValueExpression",
+												value: "",
+												data: {
+													estree: {
+														type: "Program",
+														body: [
+															{
+																type: "ExpressionStatement",
+																expression: valueToEstree({
+																	discriminant: "download",
+																	value: `/${relative(publicFolder, targetFilePath)}`,
+																}),
+															},
+														],
+														sourceType: "module",
+														comments: [],
+													},
+												},
+											},
+										},
+									],
+									children: [{ type: "text", value: title }],
+								};
+
+								// eslint-disable-next-line @typescript-eslint/no-unsafe-call, @typescript-eslint/no-unsafe-member-access
+								parent.children.splice(index, 1, newNode);
+
 								break;
 							}
 
 							case "li": {
-								break;
+								throw new Error("Unexpected <li> element .");
 							}
 
 							case "Quiz.Question": {
@@ -578,23 +651,29 @@ async function migrateResources(
 							}
 
 							case "span": {
-								break;
+								throw new Error("Unexpected <span> element .");
 							}
 
 							case "ul": {
-								break;
+								throw new Error("Unexpected <ul> element .");
 							}
 						}
 					});
 
-					visit(tree, "mdxJsxFlowElement", (node) => {
+					visit(tree, "mdxJsxFlowElement", (node, index, parent) => {
+						assert(index != null);
+						assert(parent != null);
+						// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+						assert(node.name != null);
+
+						// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 						switch (node.name) {
 							case "a": {
-								break;
+								throw new Error("Unexpected <a> element .");
 							}
 
 							case "code": {
-								break;
+								throw new Error("Unexpected <code> element .");
 							}
 
 							case "Download": {
@@ -614,11 +693,11 @@ async function migrateResources(
 							}
 
 							case "figure": {
-								break;
+								throw new Error("Unexpected <figure> element .");
 							}
 
 							case "figcaption": {
-								break;
+								throw new Error("Unexpected <figcaption> element .");
 							}
 
 							case "Flex": {
@@ -630,7 +709,7 @@ async function migrateResources(
 							}
 
 							case "img": {
-								break;
+								throw new Error("Unexpected <img> element .");
 							}
 
 							case "Panel": {
@@ -638,7 +717,7 @@ async function migrateResources(
 							}
 
 							case "p": {
-								break;
+								throw new Error("Unexpected <p> element .");
 							}
 
 							case "Quiz": {
@@ -674,27 +753,27 @@ async function migrateResources(
 							}
 
 							case "table": {
-								break;
+								throw new Error("Unexpected <table> element.");
 							}
 
 							case "tbody": {
-								break;
+								throw new Error("Unexpected <tbody> element.");
 							}
 
 							case "td": {
-								break;
+								throw new Error("Unexpected <td> element.");
 							}
 
 							case "thead": {
-								break;
+								throw new Error("Unexpected <thead> element.");
 							}
 
 							case "th": {
-								break;
+								throw new Error("Unexpected <th> element.");
 							}
 
 							case "tr": {
-								break;
+								throw new Error("Unexpected <tr> element.");
 							}
 
 							case "Tab": {

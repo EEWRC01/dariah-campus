@@ -171,6 +171,9 @@ importers:
       '@types/hast':
         specifier: ^3.0.4
         version: 3.0.4
+      '@types/mdast':
+        specifier: ^4.0.4
+        version: 4.0.4
       '@types/mdx':
         specifier: ^2.0.13
         version: 2.0.13
@@ -213,6 +216,9 @@ importers:
       eslint-plugin-check-file:
         specifier: ^2.8.0
         version: 2.8.0(eslint@9.18.0(jiti@2.4.2))
+      estree-util-value-to-estree:
+        specifier: ^3.2.1
+        version: 3.2.1
       globals:
         specifier: ^15.14.0
         version: 15.14.0

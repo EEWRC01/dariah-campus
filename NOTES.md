@@ -1,5 +1,10 @@
 ## content schema
 
+### sources
+
+- drop pathfinders from sources
+- drop events from sources
+
 ### people
 
 - dropped title field
@@ -9,3 +14,8 @@
 
 - moved "domain" and "targetGroup" to shared-metadata
 - dropped draft field
+- drop pathfinders from sources and from content-type
+
+### events
+
+- drop events from sources
