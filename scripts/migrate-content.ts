@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-
 import "mdast-util-mdx-jsx";
 
 import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises";
@@ -28,6 +25,35 @@ const contentFolder = join(process.cwd(), "content");
 
 function sanitize(input: string) {
 	return slugify(input);
+}
+
+interface CurriculumSource {
+	title: string;
+	shortTitle: string;
+	lang: "en" | "de" | "sv";
+	date: string;
+	version: string;
+	editors?: Array<string>;
+	tags: Array<string>;
+	resources: Array<string>;
+	abstract: string;
+	featuredImage?: string;
+}
+
+interface Curriculum {
+	title: string;
+	locale: "en" | "de" | "sv";
+	"publication-date": string;
+	version: string;
+	editors: Array<string>;
+	tags: Array<string>;
+	resources: Array<{ discriminant: "hosted-resources" | "external-resources"; value: string }>;
+	"featured-image"?: string;
+	summary: {
+		/** short title */
+		title?: string;
+		content: string;
+	};
 }
 
 interface PersonSource {
@@ -122,6 +148,26 @@ interface ExternalResource {
 		publisher: string;
 	};
 	"content-type": string;
+}
+
+interface PathfinderResource {
+	title: string;
+	locale: "en" | "de" | "sv";
+	"publication-date": string;
+	version: string;
+	authors: Array<string>;
+	editors: Array<string>;
+	contributors: Array<string>;
+	tags: Array<string>;
+	sources: Array<string>;
+	"featured-image"?: string;
+	license: "cc-by-4.0";
+	"table-of-contents": boolean;
+	summary: {
+		/** short title */
+		title?: string;
+		content: string;
+	};
 }
 
 interface SourceSource {
@@ -351,7 +397,10 @@ async function migrateResources(
 	sources: Map<string, string>,
 ) {
 	try {
-		const resources = new Map<string, string>(
+		const resources = new Map<
+			string,
+			{ collection: "hosted" | "external" | "pathfinders"; id: string }
+		>(
 			// @ts-expect-error It's fine.
 			(await import("../resources.json", { with: { type: "json" } })).default,
 		);
@@ -364,9 +413,10 @@ async function migrateResources(
 
 	const externalResourcesFolder = join(contentFolder, "en", "resources", "external");
 	const hostedResourcesFolder = join(contentFolder, "en", "resources", "hosted");
+	const pathfinderResourcesFolder = join(contentFolder, "en", "resources", "pathfinders");
 
 	/** Map legacy identifiers to new ones. */
-	const map = new Map<string, { collection: "hosted" | "external"; id: string }>();
+	const map = new Map<string, { collection: "hosted" | "external" | "pathfinders"; id: string }>();
 
 	for (const entry of await readdir(dataFolderPath, { withFileTypes: true })) {
 		if (!entry.isDirectory()) continue;
@@ -379,12 +429,20 @@ async function migrateResources(
 		matter(vfile, { strip: true });
 		const metadata = vfile.data.matter as ResourceSource;
 
-		const isRemote = metadata.remote?.date && metadata.remote.publisher && metadata.remote.url;
+		const resourceType =
+			metadata.remote?.date && metadata.remote.publisher && metadata.remote.url
+				? metadata.type === "pathfinder"
+					? "pathfinders"
+					: "external"
+				: "hosted";
 
 		const outputSlug = sanitize(slug);
-		const outputFolder = isRemote
-			? join(externalResourcesFolder, outputSlug)
-			: join(hostedResourcesFolder, outputSlug);
+		const outputFolder =
+			resourceType === "external"
+				? join(externalResourcesFolder, outputSlug)
+				: resourceType === "pathfinders"
+					? join(pathfinderResourcesFolder, outputSlug)
+					: join(hostedResourcesFolder, outputSlug);
 		await mkdir(outputFolder, { recursive: true });
 		const outputFilePath = join(outputFolder, "index.mdx");
 
@@ -393,9 +451,10 @@ async function migrateResources(
 		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 		assert(metadata.licence === "ccby-4.0", `Invalid license: ${metadata.licence}`);
 		assert(
-			contentTypes.find((t) => {
-				return t.value === metadata.type;
-			}),
+			metadata.type === "pathfinder" ||
+				contentTypes.find((t) => {
+					return t.value === metadata.type;
+				}),
 			`Invalid content type: ${metadata.type}`,
 		);
 
@@ -446,7 +505,12 @@ async function migrateResources(
 			"content-type": metadata.type,
 		};
 
-		if (isRemote) {
+		if (resourceType === "pathfinders") {
+			// @ts-expect-error It's fine.
+			delete frontmatter["content-type"];
+		}
+
+		if (resourceType === "external") {
 			assert(metadata.remote);
 			assert(metadata.remote.date);
 			assert(metadata.remote.url);
@@ -468,7 +532,7 @@ async function migrateResources(
 				"assets",
 				"en",
 				"resources",
-				isRemote ? "external" : "hosted",
+				resourceType,
 				outputSlug,
 			);
 			await mkdir(outputImageFolder, { recursive: true });
@@ -677,11 +741,134 @@ async function migrateResources(
 	return map;
 }
 
+async function migrateCurricula(
+	people: Map<string, string>,
+	tags: Map<string, string>,
+	sources: Map<string, string>,
+	resources: Map<string, { collection: "hosted" | "external" | "pathfinders"; id: string }>,
+) {
+	try {
+		const curricula = new Map<string, string>(
+			// @ts-expect-error It's fine.
+			(await import("../curricula.json", { with: { type: "json" } })).default,
+		);
+		return curricula;
+	} catch {
+		/** noop */
+	}
+
+	const dataFolderPath = join(sourceFolder, "courses");
+
+	const collectionFolder = join(contentFolder, "en", "curricula");
+
+	const map = new Map<string, string>();
+
+	for (const entry of await readdir(dataFolderPath, { withFileTypes: true })) {
+		if (!entry.isDirectory()) continue;
+
+		const slug = entry.name;
+		const folder = join(dataFolderPath, slug);
+		const filePath = join(folder, "index.mdx");
+
+		const vfile = await read(filePath);
+		matter(vfile, { strip: true });
+		const metadata = vfile.data.matter as CurriculumSource;
+
+		const outputSlug = sanitize(slug);
+		const outputFolder = join(collectionFolder, outputSlug);
+		await mkdir(outputFolder, { recursive: true });
+		const outputFilePath = join(outputFolder, "index.mdx");
+
+		const frontmatter: Curriculum = {
+			title: metadata.title.trim(),
+			locale: metadata.lang,
+			"publication-date": metadata.date,
+			version: metadata.version,
+			editors:
+				metadata.editors?.map((id) => {
+					const _id = people.get(id);
+					assert(_id, `Missing person id for ${id}`);
+					return _id;
+				}) ?? [],
+			tags: metadata.tags.map((id) => {
+				const _id = tags.get(id);
+				assert(_id, `Missing tag id for ${id}`);
+				return _id;
+			}),
+			resources: metadata.resources.map((id) => {
+				const _id = id.slice(0, -"/index".length);
+				const r = resources.get(_id);
+				assert(r, `Missing resource id for ${_id}`);
+				return {
+					discriminant: r.collection === "external" ? "external-resources" : "hosted-resources",
+					value: r.id,
+				};
+			}),
+			"featured-image": undefined,
+			summary: {
+				title: metadata.shortTitle,
+				content: metadata.abstract.trim(),
+			},
+		};
+
+		//
+
+		if (metadata.featuredImage) {
+			const imageFilePath = join(folder, metadata.featuredImage);
+			const outputImageFolder = join(
+				publicFolder,
+				"assets",
+				"content",
+				"assets",
+				"en",
+				"curricula",
+				outputSlug,
+			);
+			await mkdir(outputImageFolder, { recursive: true });
+			const outputImageFilePath = join(
+				outputImageFolder,
+				`featured-image${extname(imageFilePath)}`,
+			);
+			await copyFile(imageFilePath, outputImageFilePath);
+			frontmatter["featured-image"] = `/${relative(publicFolder, outputImageFilePath)}`;
+		}
+
+		//
+
+		const processor = unified()
+			.use(fromMarkdown)
+			.use(withGfm)
+			.use(withMdx)
+			.use(withTypographicQuotes, typographyConfig[metadata.lang === "de" ? "de" : "en"])
+			.use(toMarkdown, {
+				bullet: "*",
+				emphasis: "*",
+				rule: "-",
+				strong: "*",
+			});
+		const out = await processor.process(vfile);
+		const content = String(out);
+
+		//
+
+		const output = `---\n${YAML.stringify(frontmatter)}---\n${content}`;
+
+		await writeFile(outputFilePath, output, { encoding: "utf-8" });
+	}
+
+	await writeFile("curricula.json", JSON.stringify(Array.from(map.entries())), {
+		encoding: "utf-8",
+	});
+
+	return map;
+}
+
 async function migrate() {
 	const people = await migratePeople();
 	const tags = await migrateTags();
 	const sources = await migrateSources();
 	const resources = await migrateResources(people, tags, sources);
+	const curricula = await migrateCurricula(people, tags, sources, resources);
 }
 
 migrate()

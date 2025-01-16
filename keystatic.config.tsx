@@ -11,6 +11,7 @@ import {
 	createPeople,
 	createResourcesExternal,
 	createResourcesHosted,
+	createResourcesPathfinders,
 	createSources,
 	createTags,
 } from "@/lib/keystatic/collections";
@@ -24,6 +25,8 @@ export default config({
 		[withI18nPrefix("people", defaultLocale)]: createPeople(defaultLocale),
 		[withI18nPrefix("resources-external", defaultLocale)]: createResourcesExternal(defaultLocale),
 		[withI18nPrefix("resources-hosted", defaultLocale)]: createResourcesHosted(defaultLocale),
+		[withI18nPrefix("resources-pathfinders", defaultLocale)]:
+			createResourcesPathfinders(defaultLocale),
 		[withI18nPrefix("sources", defaultLocale)]: createSources(defaultLocale),
 		[withI18nPrefix("tags", defaultLocale)]: createTags(defaultLocale),
 	},
@@ -58,6 +61,7 @@ export default config({
 			Content: [
 				withI18nPrefix("resources-hosted", defaultLocale),
 				withI18nPrefix("resources-external", defaultLocale),
+				withI18nPrefix("resources-pathfinders", defaultLocale),
 				withI18nPrefix("events", defaultLocale),
 				withI18nPrefix("curricula", defaultLocale),
 			],

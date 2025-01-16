@@ -44,7 +44,7 @@ export function CalloutPreview(props: Readonly<CalloutPreviewProps>): ReactNode 
 	const { children, kind = "note", title } = props;
 
 	return (
-		<aside className="rounded-2 text-tiny p-4 leading-relaxed">
+		<aside className="rounded-lg text-tiny p-4 leading-relaxed">
 			<NotEditable className="mb-4 flex items-center justify-between gap-x-8">
 				<strong className="font-strong">{isNonEmptyString(title) ? title : "(No title)"}</strong>
 				<span className={calloutKindStyles({ kind })}>{kind}</span>
@@ -63,7 +63,7 @@ export function DisclosurePreview(props: Readonly<DisclosurePreviewProps>): Reac
 	const { children, title } = props;
 
 	return (
-		<aside className="rounded-2 text-tiny p-4 leading-relaxed">
+		<aside className="rounded-lg text-tiny p-4 leading-relaxed">
 			<NotEditable className="mb-4 flex items-center justify-between gap-x-8">
 				<strong className="font-strong">{isNonEmptyString(title) ? title : "(No title)"}</strong>
 			</NotEditable>
@@ -87,7 +87,7 @@ export function EmbedPreview(props: Readonly<EmbedPreviewProps>): ReactNode {
 					// eslint-disable-next-line jsx-a11y/iframe-has-title
 					<iframe
 						allowFullScreen={true}
-						className="rounded-2 border-stroke-weak aspect-video w-full overflow-hidden border"
+						className="rounded-lg border-stroke-weak aspect-video w-full overflow-hidden border"
 						src={src}
 					/>
 				) : null}
@@ -117,7 +117,7 @@ export function FigurePreview(props: Readonly<FigurePreviewProps>): ReactNode {
 					// eslint-disable-next-line @next/next/no-img-element
 					<img
 						alt={alt}
-						className="rounded-2 border-stroke-weak w-full overflow-hidden border"
+						className="rounded-lg border-stroke-weak w-full overflow-hidden border"
 						src={url}
 					/>
 				) : null}
@@ -201,7 +201,7 @@ export function LinkButtonPreview(props: Readonly<LinkButtonPreviewProps>): Reac
 	const { children, link: _link } = props;
 
 	return (
-		<div className="rounded-2 border-stroke-brand-strong bg-fill-brand-strong text-small font-strong text-text-inverse-strong shadow-raised inline-flex min-h-12 items-center border px-6 py-2.5">
+		<div className="rounded-lg border-stroke-brand-strong bg-fill-brand-strong text-small font-strong text-text-inverse-strong shadow-raised inline-flex min-h-12 items-center border px-6 py-2.5">
 			{children}
 		</div>
 	);
@@ -268,7 +268,7 @@ export function VideoPreview(props: Readonly<VideoPreviewProps>): ReactNode {
 					<iframe
 						allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 						allowFullScreen={true}
-						className="rounded-2 border-stroke-weak aspect-video w-full overflow-hidden border"
+						className="rounded-lg border-stroke-weak aspect-video w-full overflow-hidden border"
 						referrerPolicy="strict-origin-when-cross-origin"
 						src={href}
 					/>

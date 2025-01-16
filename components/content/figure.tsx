@@ -21,10 +21,9 @@ export function Figure(props: Readonly<FigureProps>): ReactNode {
 
 	return (
 		<figure className={cn("grid gap-y-2", alignment === "center" ? "justify-center" : undefined)}>
-			{/* @ts-expect-error @see https://github.com/vercel/next.js/discussions/67365 */}
 			<Image
 				alt={alt}
-				className="overflow-hidden rounded-2"
+				className="overflow-hidden rounded-lg"
 				height={height}
 				src={src}
 				width={width}

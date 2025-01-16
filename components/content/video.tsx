@@ -22,7 +22,7 @@ export function Video(props: Readonly<VideoProps>): ReactNode {
 			<iframe
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 				allowFullScreen={true}
-				className="aspect-video w-full overflow-hidden rounded-2"
+				className="aspect-video w-full overflow-hidden rounded-lg"
 				referrerPolicy="strict-origin-when-cross-origin"
 				src={src}
 				title={title}

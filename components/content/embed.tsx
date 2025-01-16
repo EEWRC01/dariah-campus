@@ -14,7 +14,7 @@ export function Embed(props: Readonly<EmbedProps>): ReactNode {
 		<figure>
 			<iframe
 				allowFullScreen={true}
-				className="aspect-video w-full overflow-hidden rounded-2"
+				className="aspect-video w-full overflow-hidden rounded-lg"
 				referrerPolicy="strict-origin-when-cross-origin"
 				src={src}
 				title={title}

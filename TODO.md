@@ -26,7 +26,3 @@
 - Video => Video
 - Quiz => Quiz
 - Tabs => Tabs
-
-## content schema
-
-should "pathfinder" be a content type (currently they are a source)
