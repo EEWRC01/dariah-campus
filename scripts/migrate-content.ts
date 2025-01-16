@@ -404,7 +404,7 @@ async function migrateResources(
 			{ collection: "hosted" | "external" | "pathfinders"; id: string }
 		>(
 			// @ts-expect-error It's fine.
-			// eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
+
 			(await import("../resources.json", { with: { type: "json" } })).default,
 		);
 		return resources;
@@ -600,6 +600,11 @@ async function migrateResources(
 								const targetFilePath = join(targetFolderPath, slugify(url));
 								copyFileSync(sourceFilePath, targetFilePath);
 
+								const link = {
+									discriminant: "download",
+									value: `/${relative(publicFolder, targetFilePath)}`,
+								};
+
 								const newNode: MdxJsxTextElement = {
 									type: "mdxJsxTextElement",
 									name: "Link",
@@ -609,17 +614,14 @@ async function migrateResources(
 											name: "link",
 											value: {
 												type: "mdxJsxAttributeValueExpression",
-												value: "",
+												value: JSON.stringify(link),
 												data: {
 													estree: {
 														type: "Program",
 														body: [
 															{
 																type: "ExpressionStatement",
-																expression: valueToEstree({
-																	discriminant: "download",
-																	value: `/${relative(publicFolder, targetFilePath)}`,
-																}),
+																expression: valueToEstree(link),
 															},
 														],
 														sourceType: "module",
@@ -698,6 +700,11 @@ async function migrateResources(
 								const targetFilePath = join(targetFolderPath, slugify(url));
 								copyFileSync(sourceFilePath, targetFilePath);
 
+								const link = {
+									discriminant: "download",
+									value: `/${relative(publicFolder, targetFilePath)}`,
+								};
+
 								const newNode: MdxJsxTextElement = {
 									type: "mdxJsxTextElement",
 									name: "Link",
@@ -707,17 +714,14 @@ async function migrateResources(
 											name: "link",
 											value: {
 												type: "mdxJsxAttributeValueExpression",
-												value: "",
+												value: JSON.stringify(link),
 												data: {
 													estree: {
 														type: "Program",
 														body: [
 															{
 																type: "ExpressionStatement",
-																expression: valueToEstree({
-																	discriminant: "download",
-																	value: `/${relative(publicFolder, targetFilePath)}`,
-																}),
+																expression: valueToEstree(link),
 															},
 														],
 														sourceType: "module",
@@ -758,7 +762,6 @@ async function migrateResources(
 									name: "Embed",
 									attributes,
 
-									// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 									children: node.children ?? [],
 								};
 
@@ -817,7 +820,6 @@ async function migrateResources(
 									name: "Embed",
 									attributes,
 
-									// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
 									children: node.children ?? [],
 								};
 
@@ -919,6 +921,61 @@ async function migrateResources(
 							}
 
 							case "Video": {
+								const provider = node.attributes.find((a) => {
+									return a.name === "provider";
+								})?.value;
+								const id = node.attributes.find((a) => {
+									return a.name === "id";
+								})?.value;
+								const caption = node.attributes.find((a) => {
+									return a.name === "caption";
+								})?.value;
+								const startTime = node.attributes.find((a) => {
+									return a.name === "startTime";
+								})?.value;
+
+								const attributes: Array<MdxJsxAttribute> = [
+									{ type: "mdxJsxAttribute", name: "provider", value: provider ?? "youtube" },
+									{ type: "mdxJsxAttribute", name: "id", value: id },
+								];
+
+								if (startTime) {
+									attributes.push({
+										type: "mdxJsxAttribute",
+										name: "startTime",
+										value: {
+											type: "mdxJsxAttributeValueExpression",
+											value: String(startTime),
+											data: {
+												estree: {
+													type: "Program",
+													sourceType: "module",
+													comments: [],
+													body: [
+														{
+															type: "ExpressionStatement",
+															expression: { type: "Literal", value: Number(startTime) },
+														},
+													],
+												},
+											},
+										},
+									});
+								}
+
+								if (caption && node.children.length) {
+									throw new Error(`Both caption and children: ${entry.name}`);
+								}
+
+								const newNode: MdxJsxFlowElement = {
+									type: "mdxJsxFlowElement",
+									name: "Video",
+									attributes,
+									children: caption ? [{ type: "text", value: caption }] : (node.children ?? []),
+								};
+
+								parent.children.splice(index, 1, newNode);
+
 								break;
 							}
 
@@ -939,6 +996,9 @@ async function migrateResources(
 								})?.value;
 								const image = node.attributes.find((a) => {
 									return a.name === "image";
+								})?.value;
+								const startTime = node.attributes.find((a) => {
+									return a.name === "startTime";
 								})?.value;
 
 								assert(id, `Missing videocard id: ${entry.name}`);
@@ -974,6 +1034,33 @@ async function migrateResources(
 								if (subtitle) {
 									attributes.push({ type: "mdxJsxAttribute", name: "subtitle", value: subtitle });
 								}
+								if (startTime) {
+									attributes.push({
+										type: "mdxJsxAttribute",
+										name: "startTime",
+										value: {
+											type: "mdxJsxAttributeValueExpression",
+											value: String(startTime),
+											data: {
+												estree: {
+													type: "Program",
+													sourceType: "module",
+													comments: [],
+													body: [
+														{
+															type: "ExpressionStatement",
+															expression: { type: "Literal", value: Number(startTime) },
+														},
+													],
+												},
+											},
+										},
+									});
+								}
+
+								if (node.children.length) {
+									throw new Error(`children: ${entry.name}`);
+								}
 
 								const newNode: MdxJsxFlowElement = {
 									type: "mdxJsxFlowElement",
@@ -988,6 +1075,54 @@ async function migrateResources(
 							}
 
 							case "YouTube": {
+								const id = node.attributes.find((a) => {
+									return a.name === "id";
+								})?.value;
+								const caption = node.attributes.find((a) => {
+									return a.name === "caption";
+								})?.value;
+								const startTime = node.attributes.find((a) => {
+									return a.name === "startTime";
+								})?.value;
+
+								const attributes: Array<MdxJsxAttribute> = [
+									{ type: "mdxJsxAttribute", name: "provider", value: "youtube" },
+									{ type: "mdxJsxAttribute", name: "id", value: id },
+								];
+
+								if (startTime) {
+									attributes.push({
+										type: "mdxJsxAttribute",
+										name: "startTime",
+										value: {
+											type: "mdxJsxAttributeValueExpression",
+											value: String(startTime),
+											data: {
+												estree: {
+													type: "Program",
+													sourceType: "module",
+													comments: [],
+													body: [
+														{
+															type: "ExpressionStatement",
+															expression: { type: "Literal", value: Number(startTime) },
+														},
+													],
+												},
+											},
+										},
+									});
+								}
+
+								const newNode: MdxJsxFlowElement = {
+									type: "mdxJsxFlowElement",
+									name: "Video",
+									attributes,
+									children: caption ? [{ type: "text", value: caption }] : [],
+								};
+
+								parent.children.splice(index, 1, newNode);
+
 								break;
 							}
 						}
