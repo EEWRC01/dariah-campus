@@ -800,7 +800,7 @@ async function migrateResources(
 								} else {
 									const sourceFilePath = join(folder, src);
 
-									const targetFilePath = join(targetFolder, basename(sourceFilePath));
+									const targetFilePath = join(targetFolder, slugify(basename(sourceFilePath)));
 									copyFileSync(sourceFilePath, targetFilePath);
 									src = `/${relative(publicFolder, targetFilePath)}`;
 								}
@@ -923,6 +923,67 @@ async function migrateResources(
 							}
 
 							case "VideoCard": {
+								// <VideoCard provider="youtube" id="2DqkFEjoHXc" title="The ELDAH consent form wizard" subtitle="Click here to view" image="images/ytthumbnailiv.jpg" />
+
+								const provider = node.attributes.find((a) => {
+									return a.name === "provider";
+								})?.value;
+								const id = node.attributes.find((a) => {
+									return a.name === "id";
+								})?.value;
+								const title = node.attributes.find((a) => {
+									return a.name === "title";
+								})?.value;
+								const subtitle = node.attributes.find((a) => {
+									return a.name === "subtitle";
+								})?.value;
+								const image = node.attributes.find((a) => {
+									return a.name === "image";
+								})?.value;
+
+								assert(id, `Missing videocard id: ${entry.name}`);
+								assert(title, `Missing videocard title: ${entry.name}`);
+								assert(image, `Missing videocard image: ${entry.name}`);
+
+								const imageSourcePath = join(folder, image);
+								const targetFolder = join(
+									publicFolder,
+									"assets",
+									"content",
+									"assets",
+									"en",
+									"resources",
+									resourceType,
+									outputSlug,
+								);
+								mkdirSync(targetFolder, { recursive: true });
+								const targetFilePath = join(targetFolder, slugify(basename(imageSourcePath)));
+								copyFileSync(imageSourcePath, targetFilePath);
+
+								const attributes: Array<MdxJsxAttribute> = [
+									{ type: "mdxJsxAttribute", name: "provider", value: provider ?? "youtube" },
+									{ type: "mdxJsxAttribute", name: "id", value: id },
+									{ type: "mdxJsxAttribute", name: "title", value: title },
+									{
+										type: "mdxJsxAttribute",
+										name: "image",
+										value: `/${relative(publicFolder, targetFilePath)}`,
+									},
+								];
+
+								if (subtitle) {
+									attributes.push({ type: "mdxJsxAttribute", name: "subtitle", value: subtitle });
+								}
+
+								const newNode: MdxJsxFlowElement = {
+									type: "mdxJsxFlowElement",
+									name: "VideoCard",
+									attributes,
+									children: [],
+								};
+
+								parent.children.splice(index, 1, newNode);
+
 								break;
 							}
 

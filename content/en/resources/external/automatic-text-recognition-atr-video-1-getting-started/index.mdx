@@ -56,7 +56,7 @@ The second step is to optimise images. To find out more about the required image
 
 Once your images are optimised, you upload them onto a transcription platform. In this training module series, we use the French platform, [eScriptorium](https://escriptorium.inria.fr/). However, the process is the same when using other platforms such as [Transkribus](https://www.transkribus.org/) or [OCR-D](https://ocr-d.de/en/). Moreover, there is no difference between transcribing images of handwritten manuscripts and printed text.
 
-<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/escriptorium.png">
+<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/escriptorium-png">
   Example of uploading an image to eScriptorium
 </Embed>
 
@@ -66,7 +66,7 @@ The third step is the layout analysis. The software recognises zones of text on 
 
 The layout analysis step is essential for defining the layout of the text and locating the titles, subtitles, margins or annotations that accompany the main body of text. To go further refer to the training module: “Layout analysis”.
 
-<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/zone_gallicorpora_htr_15_bpt6k1057726c-edited.png">
+<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/zone-gallicorpora-htr-15-bpt6k1057726c-edited-png">
   Segmentation example from the Gallic(orpora) project with three different zones
 </Embed>
 
@@ -74,13 +74,13 @@ The layout analysis step is essential for defining the layout of the text and lo
 
 Once the areas and lines of text have been recognised, the next step is to predict the content of the text. It is important to understand that the machine does not actually read the text like the human eye does. It actually predicts the probability of a combination of letters or a specific word appearing. The time taken by this prediction process depends on several factors, such as the number of images or the performance of your computer.
 
-<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/atrprediction.png">
+<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/atrprediction-png">
   Example of Text Recognition
 </Embed>
 
 Model training is at the core of the ATR process. A model is a file that is created, improved and trained based on preexisting training data. This training data is also known as ground truth data. It consists of several pages of transcriptions aligned line by line with the images. These transcriptions are made and checked manually by a person. This correct transcription is considered as “the truth”, and the artificial intelligence uses it to learn to distinguish the correct sign.
 
-<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/htrtraining.png">
+<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/htrtraining-png">
   ATR Training Cycle
 </Embed>
 
@@ -93,7 +93,7 @@ To train a model, there are two options: either create a new model from scratch 
 
 Once the model has produced the transcription, you will have to check its performance. This is the fifth step: quality assurance and metrics. In the ATR transcription, several types of errors can occur, such as the addition of a sign that does not exist in the original text, the deletion of a sign, the replacement of one sign by another, etc.
 
-<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/atrerrortypes.png">
+<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/atrerrortypes-png">
   Types of Transcription Errors
 </Embed>
 
@@ -101,7 +101,7 @@ The performance of a model in predicting a text is evaluated types of score. The
 
 The accuracy rate is a good indicator of the performance of the model used, but the score to be achieved depends on the desired goal.
 
-<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/accuracylevel.png">
+<Embed src="/assets/content/assets/en/resources/external/automatic-text-recognition-atr-video-1-getting-started/accuracylevel-png">
   Use according to accuracy rate in per cent
 </Embed>
 

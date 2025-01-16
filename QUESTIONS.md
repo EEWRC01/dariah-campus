@@ -9,4 +9,7 @@
   - what-does-data-want
 
 - all curricula should have an editor:
+
   - automatic-text-recognition-made-easy
+
+- VideoCard subtitle is often just "Click here to view"
