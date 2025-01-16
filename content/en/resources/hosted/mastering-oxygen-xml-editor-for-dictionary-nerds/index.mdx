@@ -93,9 +93,9 @@ The Project view is designed to assist you with organizing and managing related 
 
 By default, the view is positioned on the left side of the Oxygen XML Editor window, above the Outline view. If the view has been closed, it can be reopened at any time from the Window > Show View > Project menu (or using the Show Project View action from the Project menu).
 
-<SideNote type="note" title="What's where?">
+<Callout kind title="What's where?">
   When you inspect the folder you have created your local hard drive, you will see that folder`oXygenTest` contains the `testProject.xpr` file, whereas in oXygen’s Project View, it looks like `testProject.xpr` somehow contains your folder. This may appear confusing at first. While `testProject.xpr` is physically inside the `oXygenTest` folder, oXygen will be treating and displaying its project file as a so-called *logical container* which is a collection of resources (folders and files). Just accept it as “one of those things.” After a while, it won’t bother you at all.
-</SideNote>
+</Callout>
 
 #### Adding resources to projects
 
@@ -220,9 +220,9 @@ Now, do the following:
    This will wrap the content in the `orth` element inside the `form` element.
    ![](https://i.imgur.com/tEkrSQs.png)
 
-<SideNote type="note" title="Takeaway">
+<Callout kind title="Takeaway">
   If you need to wrap some content in a nested set of tags using this simple shortcut, always start from the outer set. The content will remain selected, so you won’t have to do it manually again, to surround it with a second set of tags.
-</SideNote>
+</Callout>
 
 **Exercise.** Use the same shortcut to wrap the rest of the entry in `<sense></sense>` and the definition in `<def></def>`. Add the `@type` attribute to`form` with the value “lemma”. You should end up with an entry looking like this:
 
@@ -254,7 +254,7 @@ To start, select oXygen > Preferences (Mac) or Options > Preferences (Windows), 
 
 ![](https://i.imgur.com/7tcWKzu.png)
 
-<SideNote type="info" title="Takeaways">
+<Callout kind="note" title="Takeaways">
   1. It’s probably not a great idea to change default shortcuts because your team members may already be familiar with them and they will need to unlearn them.
 
   2. Whether you are changing existing or creating new shortcuts, you should click the “Enable platform-independent shortcut keys” radio button before clicking “OK” in step 5 above. Different operating systems do not use the same modifier keys, but if you go for platform-independent shortcut keys, there will be some consistency among them:
@@ -265,7 +265,7 @@ To start, select oXygen > Preferences (Mac) or Options > Preferences (Windows), 
      * M4 will represent the Ctrl key on macOS, and is undefined on other platforms.
 
   3. If you are working in a team, make sure to save your shortcut (and other kinds of) customizations in “Project Options”.
-</SideNote>
+</Callout>
 
 ### Code templates
 
@@ -341,11 +341,11 @@ If you are like Tom Cruise and you feel the need for speed, you may want to use 
 
 **Exercise.** Create a shortcut for a dictionary example in TEI and apply it to the same entry as above.
 
-<SideNote type="info" title="Takeaways">
+<Callout kind="note" title="Takeaways">
   1. Code templates and custom shortcuts are *very* cool.
   2. Don’t create a code template for everything: think about the contsructs that you or members of your team will use most often.
   3. If no text is selected and you use a code template that expects a selection, it will still work. Try it out!
-</SideNote>
+</Callout>
 
 ## Editing modes
 
@@ -428,7 +428,7 @@ Wait, that’s it? Well, it doesn’t look like much. If you too feel underwhelm
 
 We’ll learn how to do that by creating a CSS stylesheet and by writing some dictionary-specific styles. But before we do that, we’ll need to do a extend the default TEI framework in oXygen.
 
-<SideNote type="info" title="Frameworks in oXygen">
+<Callout kind="note" title="Frameworks in oXygen">
   oXygen includes a variety of specialized editors, views, and features that are dynamic according to the type of document that you open or create. It also comes with built-in frameworks for the most popular XML document types, including TEI.
 
   A *framework* is a set of rules and settings that improve editing capabilities for its particular file type. The framework settings include:
@@ -438,7 +438,7 @@ We’ll learn how to do that by creating a CSS stylesheet and by writing some di
   * User actions invoked from toolbars or menus in Author mode.
   * Built-in transformation scenarios used for publishing XML documents.
   * New document templates to make it easy to create XML documents.
-</SideNote>
+</Callout>
 
 When you open a TEI file in oXygen, oXygen will recognize it as a TEI file because of its namespace. oXygen will then apply the defaults defined by the TEI framework, including CSS stylesheets for the Author Mode. But as we saw above, the default CSS stylesheets for the TEI framework do not tell oXygen how to display dictioanry data. We’ll extend the framework and a new stylesheet ourselves. Fun times! :)
 

@@ -148,22 +148,22 @@ And this is how the character is finally displayed using the KomplettFont:
 
 ![u with superscripted plus (displayed)](images/uplusabove_wbnetz.png)
 
-<SideNote type="info">
+<Callout kind="note">
   The allEntities file must be uploaded with the dictionary files during import.
   How this works, you will find out [here](#import). To display the special
   characters in the published dictionary, it is necessary to select the KompLett
   font in the configuration. Details can be found in [this
   section](#define-your-styling-rules).
-</SideNote>
+</Callout>
 
-<SideNote type="note">
+<Callout kind>
   You *don’t need* the allEntities file if your special characters are all
   defined in the Unicode standard and if you encode all your special characters
   with hexadecimals codes. - If you have special characters in your dictionary
   that are **neither defined in the Unicode Standard nor in our allEntities**,
   please contact the Publex team
   \[[kompetenzzentrum@uni-trier.de](mailto:kompetenzzentrum@uni-trier.de)].
-</SideNote>
+</Callout>
 
 #### 2. Store the data in a Bitbucket repository
 
@@ -322,10 +322,10 @@ On this page, you are able to change the title and edit the dictionary descripti
 
 ![Dictionary Categories](images/metadata_categories.png)
 
-<SideNote type="warning">
+<Callout kind="warning">
   Don’t forget to hit the “Save”-Button to make sure Publex records your
   changes.
-</SideNote>
+</Callout>
 
 ## Define your styling rules
 
@@ -345,12 +345,12 @@ There are a few basic things to keep in mind when defining the styling rules:
 
   ![Change Order](images/arrows.png)
 
-<SideNote type="tip" title="Advice for the choice of font">
+<Callout kind="tip" title="Advice for the choice of font">
   It is recommended to use the [KompLett
   font](https://tcdh.uni-trier.de/en/projekt/komplett), as it contains more
   characters compared to other fonts and, therefore, the probability is higher
   that all characters can be displayed.
-</SideNote>
+</Callout>
 
 ### Adding a new rule
 
@@ -366,11 +366,11 @@ Type in the name for the rule.
 
 ![Name rule](images/name_rule.png)
 
-<SideNote type="tip">
+<Callout kind="tip">
   Try to use meaningful names, e.g. “lemma”, “definition” or “citation”.
 
   This helps you to keep a better overview of the rules. In addition, in the [dictionary look-up](#the-dictionary-look-up), the name serves as the label of the associated search field (if [“set as searchable field”](#searchable-field) is selected).
-</SideNote>
+</Callout>
 
 ### Choice of the element tag
 
@@ -461,9 +461,9 @@ To import exported styling rules, click on “Import configuration file”. A wi
 
 After clicking on “OK”, the rules are imported and displayed.
 
-<SideNote type="warning" title="Saving">
+<Callout kind="warning" title="Saving">
   Make sure to click on “Save” after importing the rules.
-</SideNote>
+</Callout>
 
 ## Styling a Dictionary: An Example
 
@@ -537,11 +537,11 @@ Finally, we define the rules for the elements that mark typographic features. In
 
 Now the styling for our example entry is defined. We save the rule with the “Save” button and create a backup copy by exporting the configuration as a JSON file.
 
-<SideNote type="tip">
+<Callout kind="tip">
   In parallel with the creation of the styling rules, you can view a current
   representation of your dictionary in the [dictionary
   preview](#the-dictionary-viewer:-preview-your-dictionary).
-</SideNote>
+</Callout>
 
 In the dictionary preview, our example entry *bluome* now looks like this:
 

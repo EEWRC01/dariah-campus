@@ -761,7 +761,6 @@ async function migrateResources(
 									type: "mdxJsxFlowElement",
 									name: "Embed",
 									attributes,
-
 									children: node.children ?? [],
 								};
 
@@ -771,6 +770,33 @@ async function migrateResources(
 							}
 
 							case "ExternalResource": {
+								const title = node.attributes.find((a) => {
+									return a.name === "title";
+								})?.value;
+								const subtitle = node.attributes.find((a) => {
+									return a.name === "subtitle";
+								})?.value;
+								const url = node.attributes.find((a) => {
+									return a.name === "url";
+								})?.value;
+
+								assert(title);
+								assert(subtitle);
+								assert(url);
+
+								const newNode: MdxJsxFlowElement = {
+									type: "mdxJsxFlowElement",
+									name: "ExternalResource",
+									attributes: [
+										{ type: "mdxJsxAttribute", name: "title", value: title },
+										{ type: "mdxJsxAttribute", name: "subtitle", value: subtitle },
+										{ type: "mdxJsxAttribute", name: "url", value: url },
+									],
+									children: [],
+								};
+
+								parent.children.splice(index, 1, newNode);
+
 								break;
 							}
 
@@ -885,6 +911,40 @@ async function migrateResources(
 							}
 
 							case "SideNote": {
+								const type = node.attributes.find((a) => {
+									return a.name === "type";
+								})?.value;
+								const title = node.attributes.find((a) => {
+									return a.name === "title";
+								})?.value;
+
+								assert(type, "Missing type");
+
+								const calloutKinds = {
+									danger: "caution",
+									important: "important",
+									info: "note",
+									tip: "tip",
+									warning: "warning",
+								};
+
+								const attributes: Array<MdxJsxAttribute> = [
+									{ type: "mdxJsxAttribute", name: "kind", value: calloutKinds[type] },
+								];
+
+								if (title) {
+									attributes.push({ type: "mdxJsxAttribute", name: "title", value: title });
+								}
+
+								const newNode: MdxJsxFlowElement = {
+									type: "mdxJsxFlowElement",
+									name: "Callout",
+									attributes,
+									children: node.children,
+								};
+
+								parent.children.splice(index, 1, newNode);
+
 								break;
 							}
 

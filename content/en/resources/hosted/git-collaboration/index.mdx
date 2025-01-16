@@ -57,13 +57,13 @@ In the following, we will learn a few new Git commands needed to work with remot
 
 If no remote repository for a project has been established yet, you need to create a new one.
 
-<SideNote type="note" title="Git hosting providers">
+<Callout kind title="Git hosting providers">
   There are various Git hosting providers out there, some of the most prominent ones being GitHub and GitLab.
 
   We are going to use **GitHub** in this section, but other services like GitLab work very similarly. Although **GitHub** has a nice **browser-based graphical user interface at [https://github.com](https://github.com)**, and also provides a **Desktop client** for all operating systems, we are going to keep using the terminal to communicate with GitHub first.
 
   If you want to follow along, please download and install the GitHub CLI and **create a GitHub user** account if you don’t have one already.
-</SideNote>
+</Callout>
 
 First, let’s create a new empty remote repository called my-test-project on GitHub’s servers:
 
@@ -123,9 +123,9 @@ git push
 
 `Git push` is the opposite action of `git fetch` and `git pull`. You *push back* your local branch or repository into the remote repository. If you have already an upstream remote for your local branch, `git push` can push to that branch as a default. In case you don’t want to use the default branch, you can specify the branch every time you push: `git push <remote> <branch-name>`.
 
-<SideNote type="tip" title="Good practice when collaborating">
+<Callout kind="tip" title="Good practice when collaborating">
   When you collaborate with others, it is considered good practice to `git pull` before you `git push` to the remote. This way, you can resolve conflicts locally and avoid conflicts in the remote. These so-called *merge conflicts* are sometimes difficult to entangle, so take your time when pushing your work. Code editors clearly visualize conflicts and help you with a clean work flow.
-</SideNote>
+</Callout>
 
 ## Working Collaboratively in Code Editors
 
@@ -134,9 +134,9 @@ Some of the more well-known ones are [VS Codium](https://vscodium.com/), [Visual
 
 In order to work with your team but use a code editor, you need to link the code editor and your respective GitHub, GitLab, Bitbucket etc account. This way, the code editor can access the remote repository and you can set up your local version and/or bring locally created files into the remote repo. Follow the installation instructions for your favourite code editor and come back for information on linking the editor with your hosting provider.
 
-<SideNote type="note" title="Working with VS Code and GitLab">
+<Callout kind title="Working with VS Code and GitLab">
   In the Git: VS Code resource, you can find more details on how to use a code editor, for example VS Code and VSCodium. In that resource, the hosting service is GitLab.
-</SideNote>
+</Callout>
 
 ### Getting a Throw Away Password for Git: Creating an Access Token
 

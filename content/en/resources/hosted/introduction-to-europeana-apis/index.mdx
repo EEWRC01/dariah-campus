@@ -101,9 +101,9 @@ Prof. Lorena explains to Costis that when using Europeana’s API suite, he need
 
 Based on the guidance he has received so far from Prof. Lorena, Costis understands that exploiting the Europeana APIs can facilitate the discovery and retrieval of valuable information. However, achieving this goal requires formulating efficient queries. A crucial step for Costis is to understand the query syntax. Prof. Lorena explains that Europeana APIs use standard [Hypertext Transfer Protocol (HTTP) methods](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) such as GET and POST,  along with parameters that refine searches. HTTP is a protocol that implements a request-response interaction between a client and a server.
 
-<SideNote type="tip">
+<Callout kind="tip">
   According to the HTTP GET method, a user (client) sends a request (query) to a server (Europeana API), and the server (Europeana API) sends a response (query result) back to the client (user). The POST method works similarly, but instead of retrieving a response from the server, it aims to create or update a resource on the server’s side.
-</SideNote>
+</Callout>
 
 These requests and updates are further specified using parameters. In the case of Europeana APIs, these parameters include specific keywords, subjects, dates, location, and other metadata types, along with the API key, which is also defined within the query as a parameter.
 
@@ -139,9 +139,9 @@ https://api.europeana.eu/record/v2/search.json?query=Hungarian+AND+Revolution
 
 A crucial aspect in exploiting Europeana APIs is understanding how to interpret API responses. Prof. Lorena discusses with Costis the data formats in which responses are structured. In a typical scenario, responses are formulated in [JavaScript Object Notation (JSON)](https://www.json.org/json-en.html) format, a programming language-independent format that includes name/value pairs (e.g. “title”: ”Mona Lisa”, “creator”: “Leonardo da Vinci” ) and is specifically designed for efficient data transfer between machines. Despite being machine-readable, JSON is also human-readable, making it accessible to experienced users. Alongside handling successful query responses, it is essential to implement error handling to address potential issues such as rate limits, missing data, or invalid queries. To achieve error handling, it is important to recognize that an error has occurred and identify its type. This is typically done by the value of the success field, which in the case of error has the value false (“success”: false), followed by a meaningful error message. Understanding the structure of API responses and understanding how to navigate through nested data ensures effective information extraction and utilisation. Prof. Lorena guides Costis to an excellent [JSON tutorial](https://www.w3schools.com/js/js_json_intro.asp) provided by the [World Wide Web Consortium (W3C)](https://www.w3.org/), which helps him learn more about JSON and understand how to work with responses.
 
-<SideNote type="note" title="Exercise 1">
+<Callout kind title="Exercise 1">
   Refine the query of Costis to retrieve results only of type “Portrait”.
-</SideNote>
+</Callout>
 
 While responses from the Search API are always structured in JSON format, other APIs can provide responses in [RDF/XML](https://www.w3.org/TR/rdf-syntax-grammar/) syntax as well. For instance, the Record API supports both JSON and RDF/XML. RDF/XML, a machine-understandable format that expresses an [RDF](https://www.w3.org/RDF/) graph as an [XML](https://www.w3.org/TR/xml/) document, is robust and can be processed by various applications, even if it is more challenging for humans to interpret compared to JSON. The selection of format depends largely on the software used by the recipient application that processes the responses. The query formulation specifies the desired response format, as illustrated in the following two queries. These queries have identical criteria but differ in the response format: the first generates a JSON response, while the second produces an RDF/XML response.
 

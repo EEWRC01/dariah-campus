@@ -74,13 +74,13 @@ Let’s look at how change tracking with Git works in practice, in a local proje
 
 However, if you prefer to work with Git via a **graphical user interface (GUI)**, take a look at the bonus section at the end of this introduction, which lists some popular editor or operating system integrations.
 
-<SideNote type="note">
+<Callout kind>
   The commands you learn for working in a local project also apply for working collaboratively. Working in the terminal helps to understand what is going on behind the scenes.
-</SideNote>
+</Callout>
 
 ## Installing Git
 
-<SideNote type="tip" title="Don't be afraid of the command line interface (CLI)">
+<Callout kind="tip" title="Don't be afraid of the command line interface (CLI)">
   Many users, particularly Windows users, depend on using Graphical User Interfaces (GUI) in their daily lives and work schedules. GUIs have tabs, menus and windows that you can click on. GUIs are perceived as more user-friendly because they graphically represent the actions you take when you interact with the machine in front of you.
 
   The command line interface (CLI) relies on text input. The user needs to know syntax and commands to use it. So instead of clicking on symbols, you type what you would like your machine to do. To open the command line, search for *terminal* or *command prompt*. When you open your CLI, it will look something like this:
@@ -102,9 +102,9 @@ However, if you prefer to work with Git via a **graphical user interface (GUI)**
   ```
 
   There are multiple tutorials available that help you to familiarize yourself with the command line.
-</SideNote>
+</Callout>
 
-<SideNote type="note" title="Git for Windows, Mac, Linux">
+<Callout kind title="Git for Windows, Mac, Linux">
   <Tabs>
     <Tab title="Windows">
       If you haven’t yet installed Git on your Windows computer, follow the instructions on [https://git-scm.com/downloads](https://git-scm.com/downloads), or [https://gitforwindows.org/](https://gitforwindows.org/).
@@ -208,7 +208,7 @@ However, if you prefer to work with Git via a **graphical user interface (GUI)**
       ```
     </Tab>
   </Tabs>
-</SideNote>
+</Callout>
 
 ## Initialize a Git Project in Your Terminal
 
@@ -252,7 +252,7 @@ Let’s follow the advice and use `git add` to tell Git to keep an eye on change
 git add my-document.txt
 ```
 
-<SideNote type="note" title="Adding multiple files">
+<Callout kind title="Adding multiple files">
   To add multiple files, it is possible to list them individually:
 
   ```bash
@@ -264,7 +264,7 @@ git add my-document.txt
   ```bash
   git add -A
   ```
-</SideNote>
+</Callout>
 
 Note that `git add` does not automatically **commit** the changes, but places them in the **staging area**.
 
@@ -282,11 +282,11 @@ git commit -m "Add test document"
 
 Every project snapshot we commit to history should include a semantically meaningful set of changes, and this may involve edits to different documents. `git add` allows to granularly choose which changes to which files should be part of the next snapshot, while `git commit` will label that set of changes, and actually save a new snapshot.
 
-<SideNote type="note" title="Commit messages">
+<Callout kind title="Commit messages">
   Commit messages are usually written in imperative language. For example it is customary to say “Change document title”, not “Changed document title”. Nevertheless, it’s perfectly fine to agree on different project-specific conventions, just try to be consistent.
 
   When in a hurry, it’s tempting to write non-descriptive commit messages like “Added changes”. Try to come up with something that describes the change, you’ll thank yourself later!
-</SideNote>
+</Callout>
 
 ### View history of changes
 
@@ -334,7 +334,7 @@ git log --oneline
 git diff 7f733ac ab9b27f
 ```
 
-<SideNote type="note" title="Diffing not-yet-committed work">
+<Callout kind title="Diffing not-yet-committed work">
   To compare working directory to staging area:
 
   ```bash
@@ -346,7 +346,7 @@ git diff 7f733ac ab9b27f
   ```bash
   git diff --staged
   ```
-</SideNote>
+</Callout>
 
 The format in which the changes are displayed can be a bit hard to read in the terminal, especially for larger changesets, so it’s best to view them in a real text editor.
 

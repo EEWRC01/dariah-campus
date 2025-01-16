@@ -339,11 +339,11 @@ In order to adjust the search results to the needs of your research question, th
 * **\* Asterisk:** particularly useful, since the preceding element can appear 0 or more times, i.e. it is optional and might be repeated.
 * **(…) Brackets:** these can be used to group characters (and even regular expressions) to form new elements. In addition, we can combine them with the quantifiers ?, +, and \* and let them operate on specified groups. Example: *(wo)?man - man, woman*
 
-<SideNote type="info" title="Info:">
+<Callout kind="note" title="Info:">
   You might be familiar with the usage of wildcards, i.e. plain ?, +, or \* from other tools. In wildcard syntax, the asterisk, for example denotes “zero or more characters”. **VOICE 3.0 Online**, however, **uses regex** (regular expressions). Here, the symbols work as quantifiers which operate on the preceding element. In regex, the use of the asterisk in *hous\** will only quantify the final “e” and thus will only match *hous, house, housee, houseeee*, etc.
 
   If you want to use the **symbols as wildcards**, you have to place the **placeholder character** “.” (full stop) in front of them. Thus, searching for *house.+* will result in *house, houses, household, housewives*, etc., or *.+ize* in *organize, apologize, harmonize,* etc.
-</SideNote>
+</Callout>
 
 To gain even more precise control over the number of allowed and necessary character repetitions, you can use curly brackets with *min,max*. Leaving the max empty means there is no upper limit (see section 3.2 of the [search manual](https://voice.acdh.oeaw.ac.at/wp-content/uploads/2021/09/Search-manual-VOICE-3.0-Online.pdf)).
 
@@ -452,13 +452,13 @@ Once you have set your filters, you can use the search field in the middle area 
 
 If you would like to add particular speech events to your subcorpus, tick the box next to the speech event. **Please note** that in order to do so, the function “**Manual selection**”, which can be found in the “**Filter**” tab, has to be turned on.
 
-<SideNote type="tip" title="Tip: Manual Selection">
+<Callout kind="tip" title="Tip: Manual Selection">
   The function “**Manual selection**” in the filter area gives you the option to manually choose speech events for your subcorpus. In order to do so, you must turn on the function and go to the corpus tree. Speech events can be added by ticking the respective box. This function can be used before you run a search or after you have run a search.
 
   <Embed src="/assets/content/assets/en/resources/hosted/tutorial-for-voice-3-0/voice3-0-filters-manually-png">
     Activating manual selection
   </Embed>
-</SideNote>
+</Callout>
 
 #### Setting bookmarks
 
