@@ -446,6 +446,8 @@ async function migrateResources(
 		await mkdir(outputFolder, { recursive: true });
 		const outputFilePath = join(outputFolder, "index.mdx");
 
+		map.set(entry.name, { id: outputSlug, collection: resourceType });
+
 		//
 
 		// eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
