@@ -18,7 +18,7 @@ export async function generateStaticParams(): Promise<
 > {
 	const locale = await getLocale();
 
-	const ids = await createCollectionResource("events", locale).list();
+	const ids = await createCollectionResource("resources-events", locale).list();
 
 	return ids.map((id) => {
 		return { id };
@@ -36,7 +36,7 @@ export async function generateMetadata(
 	const { id: _id } = await params;
 	const id = decodeURIComponent(_id);
 
-	const event = await createCollectionResource("events", locale).read(id);
+	const event = await createCollectionResource("resources-events", locale).read(id);
 	const { title } = event.data;
 
 	const metadata: Metadata = {
@@ -54,7 +54,7 @@ export default async function EventPage(props: Readonly<EventPageProps>): Promis
 	const { id: _id } = await params;
 	const id = decodeURIComponent(_id);
 
-	const event = await createCollectionResource("events", locale).read(id);
+	const event = await createCollectionResource("resources-events", locale).read(id);
 	const { content, title } = event.data;
 	const { default: Content } = await event.compile(content);
 

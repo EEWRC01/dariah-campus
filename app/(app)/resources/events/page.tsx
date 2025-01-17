@@ -1,3 +1,4 @@
+import { compareDesc } from "date-fns";
 import type { Metadata, ResolvingMetadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
@@ -24,7 +25,11 @@ export default async function EventsPage(_props: Readonly<EventsPageProps>): Pro
 	const locale = await getLocale();
 	const t = await getTranslations("EventsPage");
 
-	const events = await createCollectionResource("events", locale).all();
+	const events = await createCollectionResource("resources-events", locale).all();
+
+	const sortedEvents = events.sort((a, z) => {
+		return compareDesc(new Date(a.data["publication-date"]), new Date(z.data["publication-date"]));
+	});
 
 	return (
 		<MainContent>

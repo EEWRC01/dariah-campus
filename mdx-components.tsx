@@ -1,13 +1,37 @@
+import { Callout } from "@/components/content/callout";
+import { Disclosure } from "@/components/content/disclosure";
+import { Embed } from "@/components/content/embed";
+import { ExternalResource } from "@/components/content/external-resource";
+import { Figure } from "@/components/content/figure";
+import { Grid, GridItem } from "@/components/content/grid";
 import { Link as ContentLink } from "@/components/content/link";
 import { LinkButton } from "@/components/content/link-button";
+import { Quiz } from "@/components/content/quiz";
+import { TableOfContents } from "@/components/content/table-of-contents";
+import { Tab, Tabs } from "@/components/content/tabs";
+import { Video } from "@/components/content/video";
+import { VideoCard } from "@/components/content/video-card";
 import { Link } from "@/components/link";
 import { ServerImage as Image } from "@/components/server-image";
 
 const components = {
 	a: Link,
+	Callout,
+	Disclosure,
+	Embed,
+	ExternalResource,
+	Figure,
+	Grid,
+	GridItem,
 	img: Image,
 	Link: ContentLink,
 	LinkButton,
+	Quiz,
+	Tab,
+	TableOfContents,
+	Tabs,
+	Video,
+	VideoCard,
 };
 
 declare global {

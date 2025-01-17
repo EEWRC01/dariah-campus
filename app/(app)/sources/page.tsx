@@ -26,6 +26,10 @@ export default async function SourcesPage(_props: Readonly<SourcesPageProps>): P
 
 	const sources = await createCollectionResource("sources", locale).all();
 
+	const sortedSources = sources.sort((a, z) => {
+		return a.data.name.localeCompare(z.data.name);
+	});
+
 	return (
 		<MainContent>
 			<section>
