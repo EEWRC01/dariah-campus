@@ -14,11 +14,13 @@ export function PreviewCard(props: PreviewCardProps): ReactNode {
 	const { abstract, href, locale, people, title } = props;
 
 	return (
-		<article>
-			<h2>
-				<span>ICON</span>
-				{title}
-			</h2>
+		<article className="flex flex-col overflow-hidden rounded-xl border border-neutral-150 shadow-sm hover:shadow-md">
+			<div>
+				<h2>
+					<span>ICON</span>
+					{title}
+				</h2>
+			</div>
 			<div>{abstract}</div>
 			<footer>
 				<div>
