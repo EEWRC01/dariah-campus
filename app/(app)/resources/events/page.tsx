@@ -1,3 +1,4 @@
+import { keyByToMap } from "@acdh-oeaw/lib";
 import { compareDesc } from "date-fns";
 import type { Metadata, ResolvingMetadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
@@ -29,6 +30,12 @@ export default async function EventsPage(_props: Readonly<EventsPageProps>): Pro
 
 	const sortedEvents = events.sort((a, z) => {
 		return compareDesc(new Date(a.data["publication-date"]), new Date(z.data["publication-date"]));
+	});
+
+	const people = await createCollectionResource("people", locale).all();
+
+	const peopleById = keyByToMap(people, (person) => {
+		return person.id;
 	});
 
 	return (

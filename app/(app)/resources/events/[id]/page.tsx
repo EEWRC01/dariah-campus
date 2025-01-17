@@ -1,3 +1,4 @@
+import { keyByToMap } from "@acdh-oeaw/lib";
 import type { Metadata, ResolvingMetadata } from "next";
 import { getLocale } from "next-intl/server";
 import type { ReactNode } from "react";
@@ -57,6 +58,16 @@ export default async function EventPage(props: Readonly<EventPageProps>): Promis
 	const event = await createCollectionResource("resources-events", locale).read(id);
 	const { content, title } = event.data;
 	const { default: Content } = await event.compile(content);
+
+	const people = await createCollectionResource("people", locale).all();
+	const tags = await createCollectionResource("tags", locale).all();
+
+	const peopleById = keyByToMap(people, (person) => {
+		return person.id;
+	});
+	const tagsById = keyByToMap(tags, (tag) => {
+		return tag.id;
+	});
 
 	return (
 		<MainContent>

@@ -1,3 +1,4 @@
+import { keyByToMap } from "@acdh-oeaw/lib";
 import type { Metadata, ResolvingMetadata } from "next";
 import { getLocale } from "next-intl/server";
 import type { ReactNode } from "react";
@@ -59,6 +60,16 @@ export default async function HostedResourcePage(
 	const resource = await createCollectionResource("resources-hosted", locale).read(id);
 	const { content, title } = resource.data;
 	const { default: Content } = await resource.compile(content);
+
+	const people = await createCollectionResource("people", locale).all();
+	const tags = await createCollectionResource("tags", locale).all();
+
+	const peopleById = keyByToMap(people, (person) => {
+		return person.id;
+	});
+	const tagsById = keyByToMap(tags, (tag) => {
+		return tag.id;
+	});
 
 	return (
 		<MainContent>
