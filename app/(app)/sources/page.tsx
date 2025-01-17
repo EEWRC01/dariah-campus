@@ -34,6 +34,15 @@ export default async function SourcesPage(_props: Readonly<SourcesPageProps>): P
 		<MainContent>
 			<section>
 				<h1>{t("title")}</h1>
+				<ul role="list">
+					{sortedSources.map((source) => {
+						const { content, image, name } = source.data;
+
+						const href = `/sources/${source.id}`;
+
+						return <li key={source.id}></li>;
+					})}
+				</ul>
 			</section>
 		</MainContent>
 	);

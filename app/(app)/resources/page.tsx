@@ -6,7 +6,6 @@ import type { ReactNode } from "react";
 
 import { MainContent } from "@/components/main-content";
 import { PreviewCard } from "@/components/preview-card";
-import { maxPeople } from "@/config/content.config";
 import { createCollectionResource } from "@/lib/keystatic/resources";
 
 interface ResourcesPageProps extends EmptyObject {}
@@ -55,7 +54,7 @@ export default async function ResourcesPage(
 					{sortedResources.map((resource) => {
 						const { authors, locale, summary, title } = resource.data;
 
-						const people = authors.slice(0, maxPeople).map((id) => {
+						const people = authors.map((id) => {
 							const person = peopleById.get(id)!;
 							return {
 								id,

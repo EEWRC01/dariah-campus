@@ -12,6 +12,7 @@ import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 
 import { Link } from "@/components/link";
+import { maxPeople } from "@/config/content.config";
 
 const icons = {
 	audio: MicIcon,
