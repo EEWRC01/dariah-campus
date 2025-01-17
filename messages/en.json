@@ -80,6 +80,9 @@
 		},
 		"title": "Page not found"
 	},
+	"PreviewCard": {
+		"read-more": "Read more"
+	},
 	"ResourcesPage": {
 		"meta": {
 			"title": "Resources"

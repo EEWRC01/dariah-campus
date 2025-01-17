@@ -8,6 +8,7 @@ import {
 	UsersIcon,
 	VideoIcon,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
 
 import { Link } from "@/components/link";
@@ -43,6 +44,8 @@ interface PreviewCardProps {
 export function PreviewCard(props: PreviewCardProps): ReactNode {
 	const { abstract, href, kind, locale, people, title } = props;
 
+	const t = useTranslations("PreviewCard");
+
 	const Icon = icons[kind];
 
 	return (
@@ -53,6 +56,9 @@ export function PreviewCard(props: PreviewCardProps): ReactNode {
 					{title}
 				</h2>
 			</div>
+			<div className="rounded bg-primary-600 px-2 py-1 text-xs font-medium text-white">
+				{locale.toUpperCase()}
+			</div>
 			<div>{abstract}</div>
 			<footer>
 				<div>
@@ -60,7 +66,7 @@ export function PreviewCard(props: PreviewCardProps): ReactNode {
 						return <div key={person.id}></div>;
 					})}
 				</div>
-				<Link href={href}>Read more</Link>
+				<Link href={href}>{t("read-more")} &rarr;</Link>
 			</footer>
 		</article>
 	);
