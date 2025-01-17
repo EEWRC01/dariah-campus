@@ -66,11 +66,19 @@ export default async function ResourcesPage(
 
 						const href = `/resources/${resource.collection.slice(10)}/${resource.id}`;
 
+						const kind =
+							resource.collection === "resources-events"
+								? "event"
+								: resource.collection === "resources-pathfinders"
+									? "pathfinder"
+									: resource.data["content-type"];
+
 						return (
 							<li key={resource.id}>
 								<PreviewCard
 									abstract={summary.content}
 									href={href}
+									kind={kind}
 									locale={locale}
 									people={people}
 									title={summary.title || title}
