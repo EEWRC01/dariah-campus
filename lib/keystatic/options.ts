@@ -60,6 +60,11 @@ export const linkKinds = [
 	{ label: "Documentation", value: "documentation" },
 	{ label: "Download", value: "download" },
 	{ label: "External", value: "external" },
+	{ label: "Curricula", value: "curricula" },
+	{ label: "Events", value: "resources-events" },
+	{ label: "External resources", value: "resources-external" },
+	{ label: "Hosted resources", value: "resources-hosted" },
+	{ label: "Pathfinders", value: "resources-pathfinders" },
 ] as const;
 
 export type LinkKind = (typeof linkKinds)[number]["value"];

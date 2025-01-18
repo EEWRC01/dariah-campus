@@ -50,7 +50,10 @@ export default async function ResourcesPage(
 		<MainContent>
 			<section>
 				<h1>{t("title")}</h1>
-				<ul role="list">
+				<ul
+					className="grid grid-cols-[repeat(auto-fill,minmax(min(24rem,100%),1fr))] gap-8"
+					role="list"
+				>
 					{sortedResources.map((resource) => {
 						const { authors, locale, summary, title } = resource.data;
 

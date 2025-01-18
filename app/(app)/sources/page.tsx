@@ -34,7 +34,10 @@ export default async function SourcesPage(_props: Readonly<SourcesPageProps>): P
 		<MainContent>
 			<section>
 				<h1>{t("title")}</h1>
-				<ul role="list">
+				<ul
+					className="grid grid-cols-[repeat(auto-fill,minmax(min(24rem,100%),1fr))] gap-8"
+					role="list"
+				>
 					{sortedSources.map((source) => {
 						const { content, image, name } = source.data;
 

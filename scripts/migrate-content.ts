@@ -3,7 +3,7 @@ import { copyFile, mkdir, readdir, readFile, writeFile } from "node:fs/promises"
 import { basename, extname, join, relative } from "node:path";
 
 import { assert, isUrl, log } from "@acdh-oeaw/lib";
-import { typographyConfig } from "@acdh-oeaw/mdx-lib";
+// import { typographyConfig } from "@acdh-oeaw/mdx-lib";
 import slugify from "@sindresorhus/slugify";
 import { valueToEstree } from "estree-util-value-to-estree";
 import type { Root } from "mdast";
@@ -11,7 +11,7 @@ import type { MdxJsxAttribute, MdxJsxFlowElement, MdxJsxTextElement } from "mdas
 import withGfm from "remark-gfm";
 import withMdx from "remark-mdx";
 import fromMarkdown from "remark-parse";
-import withTypographicQuotes from "remark-smartypants";
+// import withTypographicQuotes from "remark-smartypants";
 import toMarkdown from "remark-stringify";
 import { read } from "to-vfile";
 import { unified } from "unified";
@@ -72,7 +72,7 @@ interface PersonSource {
 interface Person {
 	image: string;
 	name: string;
-	social: Array<{ kind: SocialMediaKind; href: string }>;
+	social: Array<{ discriminant: SocialMediaKind; value: string }>;
 }
 
 interface ResourceSource {
@@ -232,16 +232,27 @@ async function migratePeople() {
 		};
 
 		if (metadata.email) {
-			frontmatter.social.push({ kind: "email", href: metadata.email });
+			const email = metadata.email.replace("[AT]", "@").replace("[DOT]", ".");
+			assert(/.+?@.+?/.exec(email), `Invalid email: ${entry.name}`);
+			frontmatter.social.push({ discriminant: "email", value: email });
 		}
 		if (metadata.orcid) {
-			frontmatter.social.push({ kind: "orcid", href: metadata.orcid });
+			if (!isUrl(metadata.orcid)) {
+				metadata.orcid = new URL(metadata.orcid, "https://orcid.org").toString();
+			}
+			assert(isUrl(metadata.orcid), `ORCID not URL: ${entry.name}`);
+			frontmatter.social.push({ discriminant: "orcid", value: metadata.orcid });
 		}
 		if (metadata.twitter) {
-			frontmatter.social.push({ kind: "twitter", href: metadata.twitter });
+			if (!isUrl(metadata.twitter)) {
+				metadata.twitter = new URL(metadata.twitter.replace(/^@/, ""), "https://x.com").toString();
+			}
+			assert(isUrl(metadata.twitter), `Twitter not URL: ${entry.name}`);
+			frontmatter.social.push({ discriminant: "twitter", value: metadata.twitter });
 		}
 		if (metadata.website) {
-			frontmatter.social.push({ kind: "website", href: metadata.website });
+			assert(isUrl(metadata.website), `Website not URL: ${entry.name}`);
+			frontmatter.social.push({ discriminant: "website", value: metadata.website });
 		}
 
 		if (metadata.avatar) {
@@ -555,7 +566,7 @@ async function migrateResources(
 			.use(fromMarkdown)
 			.use(withGfm)
 			.use(withMdx)
-			.use(withTypographicQuotes, typographyConfig[metadata.lang === "de" ? "de" : "en"])
+			// .use(withTypographicQuotes, typographyConfig[metadata.lang === "de" ? "de" : "en"])
 			.use(() => {
 				return function transform(tree: Root) {
 					visit(tree, "mdxJsxTextElement", (node, index, parent) => {
@@ -1310,7 +1321,7 @@ async function migrateCurricula(
 			.use(fromMarkdown)
 			.use(withGfm)
 			.use(withMdx)
-			.use(withTypographicQuotes, typographyConfig[metadata.lang === "de" ? "de" : "en"])
+			// .use(withTypographicQuotes, typographyConfig[metadata.lang === "de" ? "de" : "en"])
 			.use(toMarkdown, {
 				bullet: "*",
 				emphasis: "*",

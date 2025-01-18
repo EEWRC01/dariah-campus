@@ -81,6 +81,7 @@
 		"title": "Page not found"
 	},
 	"PreviewCard": {
+		"authors": "Authors",
 		"read-more": "Read more"
 	},
 	"ResourcesPage": {
