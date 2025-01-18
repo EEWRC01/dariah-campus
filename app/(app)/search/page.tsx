@@ -1,9 +1,14 @@
+import { keyByToMap } from "@acdh-oeaw/lib";
 import type { Metadata, ResolvingMetadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 
 import { Providers } from "@/app/(app)/search/_components/providers";
+import { SearchFacets } from "@/app/(app)/search/_components/search-facets";
+import { SearchResults } from "@/app/(app)/search/_components/search-results";
 import { MainContent } from "@/components/main-content";
+import { PageTitle } from "@/components/page-title";
+import { createCollectionResource } from "@/lib/keystatic/resources";
 
 interface SearchPageProps extends EmptyObject {}
 
@@ -21,13 +26,29 @@ export async function generateMetadata(
 }
 
 export default async function SearchPage(_props: Readonly<SearchPageProps>): Promise<ReactNode> {
+	const locale = await getLocale();
 	const t = await getTranslations("SearchPage");
+
+	const tags = await createCollectionResource("tags", locale).all();
+
+	const tagsById = keyByToMap(tags, (tag) => {
+		return tag.id;
+	});
 
 	return (
 		<Providers>
-			<MainContent>
+			<MainContent className="mx-auto grid w-full max-w-screen-xl content-start space-y-24 px-4 py-8 xs:px-8 xs:py-16 md:py-24">
+				<div>
+					<PageTitle>{t("title")}</PageTitle>
+				</div>
+
+				<aside>
+					<SearchFacets attribute="locale" />
+					<SearchFacets attribute="tags" />
+				</aside>
+
 				<section>
-					<h1>{t("title")}</h1>
+					<SearchResults />
 				</section>
 			</MainContent>
 		</Providers>

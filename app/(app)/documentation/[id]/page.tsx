@@ -61,17 +61,12 @@ export default async function DocumentationPage(
 	const { default: Content } = await entry.compile(content);
 
 	return (
-		<MainContent>
-			<section>
-				<div>
-					<h1>{title}</h1>
-					<p>{lead}</p>
-				</div>
-			</section>
-
-			<section>
-				<Content />
-			</section>
+		<MainContent className="mx-auto grid w-full max-w-screen-xl content-start space-y-24 px-4 py-8 xs:px-8 xs:py-16 md:py-24">
+			<div>
+				<h1>{title}</h1>
+				<p>{lead}</p>
+			</div>
+			<Content />
 		</MainContent>
 	);
 }

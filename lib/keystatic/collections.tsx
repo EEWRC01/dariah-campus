@@ -782,7 +782,7 @@ export const createResourcesExternal = createCollection("/resources/external/", 
 			}),
 			authors: fields.multiRelationship({
 				label: "Authors",
-				validation: { length: { min: 1 } },
+				// validation: { length: { min: 1 } }, // FIXME:
 				collection: withI18nPrefix("people", locale),
 			}),
 			editors: fields.multiRelationship({
@@ -924,7 +924,7 @@ export const createResourcesHosted = createCollection("/resources/hosted/", (pat
 			}),
 			authors: fields.multiRelationship({
 				label: "Authors",
-				validation: { length: { min: 1 } },
+				// validation: { length: { min: 1 } }, // FIXME:
 				collection: withI18nPrefix("people", locale),
 			}),
 			editors: fields.multiRelationship({

@@ -1,7 +1,8 @@
 "use client";
 
+import { type ReactNode, useState } from "react";
+
 import { LoadingIndicator } from "@/components/loading-indicator";
-import { useState, type ReactNode } from "react";
 
 export function CourseRegistry(): ReactNode {
 	const [isLoading, setIsLoading] = useState(true);
@@ -11,19 +12,19 @@ export function CourseRegistry(): ReactNode {
 	}
 
 	return (
-		<div className="relative">
+		<div className="relative min-h-[640px]">
 			{isLoading ? (
 				<div className="absolute inset-0 grid place-content-center">
 					<LoadingIndicator />
 				</div>
 			) : null}
 			<iframe
-				src="https://dhcr.clarin-dariah.eu?parent_domain=dariah.eu"
-				title="Course registry"
-				loading="lazy"
 				className="relative size-full"
+				loading="lazy"
 				onLoad={onLoad}
 				sandbox=""
+				src="https://dhcr.clarin-dariah.eu?parent_domain=dariah.eu"
+				title="Course registry"
 			/>
 		</div>
 	);

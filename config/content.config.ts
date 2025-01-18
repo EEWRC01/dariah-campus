@@ -1,2 +1,2 @@
 /** Max. avatars on resource preview cards. */
-export const maxPeople = 3;
+export const maxAvatars = 3;

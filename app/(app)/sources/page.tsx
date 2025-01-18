@@ -2,7 +2,10 @@ import type { Metadata, ResolvingMetadata } from "next";
 import { getLocale, getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 
+import { Card, CardContent, CardFooter, CardTitle } from "@/components/card";
+import { Link } from "@/components/link";
 import { MainContent } from "@/components/main-content";
+import { PageTitle } from "@/components/page-title";
 import { createCollectionResource } from "@/lib/keystatic/resources";
 
 interface SourcesPageProps extends EmptyObject {}
@@ -31,26 +34,37 @@ export default async function SourcesPage(_props: Readonly<SourcesPageProps>): P
 	});
 
 	return (
-		<MainContent>
-			<section>
-				<h1>{t("title")}</h1>
-				<ul
-					className="grid grid-cols-[repeat(auto-fill,minmax(min(24rem,100%),1fr))] gap-8"
-					role="list"
-				>
-					{sortedSources.map((source) => {
-						const { content, image, name } = source.data;
+		<MainContent className="mx-auto grid w-full max-w-screen-xl content-start space-y-24 px-4 py-8 xs:px-8 xs:py-16 md:py-24">
+			<div>
+				<PageTitle>{t("title")}</PageTitle>
+			</div>
+			<ul
+				className="grid grid-cols-[repeat(auto-fill,minmax(min(24rem,100%),1fr))] gap-8"
+				role="list"
+			>
+				{sortedSources.map((source) => {
+					const { content, image, name } = source.data;
 
-						const href = `/sources/${source.id}`;
+					const href = `/sources/${source.id}`;
 
-						return (
-							<li key={source.id}>
-								<pre>{JSON.stringify(source, null, 2)}</pre>
-							</li>
-						);
-					})}
-				</ul>
-			</section>
+					return (
+						<li key={source.id}>
+							<Card>
+								<img alt="" src={image} />
+								<CardContent>
+									<CardTitle>
+										<Link href={href}>{name}</Link>
+									</CardTitle>
+									<div>{content}</div>
+								</CardContent>
+								<CardFooter>
+									<span></span>
+								</CardFooter>
+							</Card>
+						</li>
+					);
+				})}
+			</ul>
 		</MainContent>
 	);
 }

@@ -43,6 +43,7 @@
 		"title": "Course registry"
 	},
 	"CurriculaPage": {
+		"editors": "Editors",
 		"meta": {
 			"title": "Curricula"
 		},
@@ -53,6 +54,7 @@
 		"try-again": "Try again"
 	},
 	"EventsPage": {
+		"authors": "Authors",
 		"meta": {
 			"title": "Events"
 		},
@@ -81,6 +83,7 @@
 		"title": "Page not found"
 	},
 	"PathfindersPage": {
+		"authors": "Authors",
 		"meta": {
 			"title": "Pathfinders"
 		},
@@ -91,6 +94,7 @@
 		"read-more": "Read more"
 	},
 	"ResourcesPage": {
+		"authors": "Authors",
 		"meta": {
 			"title": "Resources"
 		},

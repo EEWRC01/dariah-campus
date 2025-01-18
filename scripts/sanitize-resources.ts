@@ -10,7 +10,10 @@ async function sanitize() {
 		const filePath = join(sourceFolder, entry.name, "index.mdx");
 
 		let fileContent = await readFile(filePath, { encoding: "utf-8" });
-		fileContent = fileContent.replaceAll(/[‘’]/g, "'").replace(/\xa0/g, " ");
+		fileContent = fileContent
+			.replaceAll(/[”“]/g, '"')
+			.replaceAll(/[‘’]/g, "'")
+			.replace(/\xa0/g, " ");
 
 		await writeFile(filePath, fileContent, { encoding: "utf-8" });
 	}

@@ -30,13 +30,10 @@ export default async function ImprintPage(_props: Readonly<ImprintPageProps>): P
 	const html = await getImprintHtml(locale);
 
 	return (
-		<MainContent>
-			<section>
-				<div>
-					<h1>{t("title")}</h1>
-				</div>
-			</section>
-
+		<MainContent className="mx-auto grid w-full max-w-screen-xl content-start space-y-24 px-4 py-8 xs:px-8 xs:py-16 md:py-24">
+			<div>
+				<h1>{t("title")}</h1>
+			</div>
 			<section dangerouslySetInnerHTML={{ __html: html }} />
 		</MainContent>
 	);

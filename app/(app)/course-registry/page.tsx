@@ -26,12 +26,9 @@ export default async function CourseRegistryPage(
 	const t = await getTranslations("CourseRegistryPage");
 
 	return (
-		<MainContent>
+		<MainContent className="grid">
 			<h1 className="sr-only">{t("title")}</h1>
-
-			<section>
-				<CourseRegistry />
-			</section>
+			<CourseRegistry />
 		</MainContent>
 	);
 }

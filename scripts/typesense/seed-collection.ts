@@ -1,9 +1,11 @@
+import { withI18nPrefix } from "@acdh-oeaw/keystatic-lib";
 import { assert, log } from "@acdh-oeaw/lib";
+import { createReader } from "@keystatic/core/reader";
 import { Client } from "typesense";
 
 import { env } from "@/config/env.config";
 import { defaultLocale } from "@/config/i18n.config";
-import { createCollectionResource } from "@/lib/keystatic/resources";
+import config from "@/keystatic.config";
 
 async function seed() {
 	const apiKey = env.TYPESENSE_ADMIN_API_KEY;
@@ -23,41 +25,41 @@ async function seed() {
 
 	const collection = env.NEXT_PUBLIC_TYPESENSE_COLLECTION;
 
+	await client
+		.collections(collection)
+		.documents()
+		.delete({ filter_by: "", ignore_not_found: true });
+
 	const locale = defaultLocale;
+	const reader = createReader(process.cwd(), config);
 
-	const events = await createCollectionResource("resources-events", locale).all();
-	const externalResources = await createCollectionResource("resources-external", locale).all();
-	const hostedResources = await createCollectionResource("resources-hosted", locale).all();
-	const pathfinders = await createCollectionResource("resources-pathfinders", locale).all();
-	const curricula = await createCollectionResource("curricula", locale).all();
+	const collections = [
+		"resources-events",
+		"resources-external",
+		"resources-hosted",
+		"resources-pathfinders",
+		"curricula",
+	] as const;
 
-	function createResource(input: {
-		id: string;
-		collection: string;
-		data: {
-			title: string;
-			locale: string;
-			"publication-date": string;
-			summary: { title: string; content: string };
-			tags: Array<string>;
-		};
-	}) {
-		return {
-			id: input.id,
-			collection: input.collection,
-			title: input.data.summary.title || input.data.title,
-			locale: input.data.locale,
-			"publication-date": input.data["publication-date"],
-			summary: input.data.summary.content,
-			tags: input.data.tags,
-		};
+	for (const name of collections) {
+		const items = await reader.collections[withI18nPrefix(name, locale)].all();
+
+		if (items.length === 0) continue;
+
+		const documents = items.map((item) => {
+			return {
+				id: item.slug,
+				collection: name,
+				title: item.entry.summary.title || item.entry.title,
+				locale: item.entry.locale,
+				"publication-date": item.entry["publication-date"],
+				summary: item.entry.summary.content,
+				tags: item.entry.tags,
+			};
+		});
+
+		await client.collections(collection).documents().import(documents);
 	}
-
-	await client.collections(collection).documents().import(events.map(createResource));
-	await client.collections(collection).documents().import(externalResources.map(createResource));
-	await client.collections(collection).documents().import(hostedResources.map(createResource));
-	await client.collections(collection).documents().import(pathfinders.map(createResource));
-	await client.collections(collection).documents().import(curricula.map(createResource));
 }
 
 seed()
