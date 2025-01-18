@@ -51,7 +51,7 @@ export function PreviewCard(props: PreviewCardProps): ReactNode {
 	const Icon = icons[kind];
 
 	return (
-		<article className="flex flex-col overflow-hidden rounded-xl border border-neutral-150 shadow-sm hover:shadow-md">
+		<article className="relative flex flex-col overflow-hidden rounded-xl border border-neutral-150 shadow-sm hover:shadow-md">
 			<div className="flex flex-col space-y-5 p-10">
 				<h2 className="text-2xl font-semibold">
 					<Link

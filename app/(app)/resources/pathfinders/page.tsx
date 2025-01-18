@@ -8,13 +8,13 @@ import { MainContent } from "@/components/main-content";
 import { PreviewCard } from "@/components/preview-card";
 import { createCollectionResource } from "@/lib/keystatic/resources";
 
-interface EventsPageProps extends EmptyObject {}
+interface PathfindersPageProps extends EmptyObject {}
 
 export async function generateMetadata(
-	_props: Readonly<EventsPageProps>,
+	_props: Readonly<PathfindersPageProps>,
 	_parent: ResolvingMetadata,
 ): Promise<Metadata> {
-	const t = await getTranslations("EventsPage");
+	const t = await getTranslations("PathfindersPage");
 
 	const metadata: Metadata = {
 		title: t("meta.title"),
@@ -23,11 +23,13 @@ export async function generateMetadata(
 	return metadata;
 }
 
-export default async function EventsPage(_props: Readonly<EventsPageProps>): Promise<ReactNode> {
+export default async function PathfindersPage(
+	_props: Readonly<PathfindersPageProps>,
+): Promise<ReactNode> {
 	const locale = await getLocale();
-	const t = await getTranslations("EventsPage");
+	const t = await getTranslations("PathfindersPage");
 
-	const resources = await createCollectionResource("resources-events", locale).all();
+	const resources = await createCollectionResource("resources-pathfinders", locale).all();
 
 	const sortedResources = resources.sort((a, z) => {
 		return compareDesc(new Date(a.data["publication-date"]), new Date(z.data["publication-date"]));
@@ -61,7 +63,7 @@ export default async function EventsPage(_props: Readonly<EventsPageProps>): Pro
 
 						const href = `/resources/${resource.collection.slice(10)}/${resource.id}`;
 
-						const kind = "event";
+						const kind = "pathfinder";
 
 						return (
 							<li key={resource.id}>

@@ -3,10 +3,8 @@ import { Client, Errors } from "typesense";
 import type { CollectionCreateSchema } from "typesense/lib/Typesense/Collections";
 
 import { env } from "@/config/env.config";
-import { defaultLocale } from "@/config/i18n.config";
-import { createCollectionResource } from "@/lib/keystatic/resources";
 
-async function generate() {
+async function create() {
 	const apiKey = env.TYPESENSE_ADMIN_API_KEY;
 	assert(apiKey, "Missing TYPESENSE_ADMIN_API_KEY environment variable.");
 
@@ -22,8 +20,10 @@ async function generate() {
 		],
 	});
 
+	const collection = env.NEXT_PUBLIC_TYPESENSE_COLLECTION;
+
 	const schema: CollectionCreateSchema = {
-		name: env.NEXT_PUBLIC_TYPESENSE_COLLECTION,
+		name: collection,
 		fields: [
 			{ name: "title", type: "string", sort: true },
 			{ name: "locale", type: "string", facet: true },
@@ -41,23 +41,12 @@ async function generate() {
 	}
 
 	await client.collections().create(schema);
-
-	const locale = defaultLocale;
-
-	const tags = await createCollectionResource("tags", locale).all();
-
-	const events = await createCollectionResource("resources-events", locale).all();
-	const externalResources = await createCollectionResource("resources-external", locale).all();
-	const hostedResources = await createCollectionResource("resources-hosted", locale).all();
-	const pathfinders = await createCollectionResource("resources-pathfinders", locale).all();
-
-	const curricula = await createCollectionResource("curricula", locale).all();
 }
 
-generate()
+create()
 	.then(() => {
-		log.success("Successfully generated search index.");
+		log.success("Successfully created typesense collection.");
 	})
 	.catch((error: unknown) => {
-		log.error("Failed to generate search index.\n", String(error));
+		log.error("Failed to create typesense collection.\n", String(error));
 	});

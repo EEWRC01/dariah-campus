@@ -43,7 +43,11 @@ export default async function SourcesPage(_props: Readonly<SourcesPageProps>): P
 
 						const href = `/sources/${source.id}`;
 
-						return <li key={source.id}></li>;
+						return (
+							<li key={source.id}>
+								<pre>{JSON.stringify(source, null, 2)}</pre>
+							</li>
+						);
 					})}
 				</ul>
 			</section>

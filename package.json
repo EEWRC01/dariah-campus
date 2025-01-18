@@ -34,8 +34,9 @@
 		"test:e2e:ui": "playwright test --ui",
 		"test:e2e:update-snapshots": "playwright test --update-snapshots",
 		"types:check": "tsc --noEmit",
-		"typesense:create": "dotenv -c development -- tsx ./scripts/typesense/create-collection.ts",
-		"typesense:seed": "dotenv -c development -- tsx ./scripts/typesense/seed-collection.ts",
+		"typesense:api-key:create": "dotenv -c development -- tsx ./scripts/typesense/create-api-key.ts",
+		"typesense:collection:create": "dotenv -c development -- tsx ./scripts/typesense/create-collection.ts",
+		"typesense:collection:seed": "dotenv -c development -- tsx ./scripts/typesense/seed-collection.ts",
 		"validate": "run-p format:check lint:check types:check test test:e2e"
 	},
 	"dependencies": {

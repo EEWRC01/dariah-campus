@@ -80,6 +80,12 @@
 		},
 		"title": "Page not found"
 	},
+	"PathfindersPage": {
+		"meta": {
+			"title": "Pathfinders"
+		},
+		"title": "Pathfinders"
+	},
 	"PreviewCard": {
 		"authors": "Authors",
 		"read-more": "Read more"

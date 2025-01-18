@@ -15,13 +15,13 @@
 			{
 				"title": "Events",
 				"description": "Missed a face-to-face DARIAH event? Check out what happened",
-				"href": "/events",
+				"href": "/resources/events",
 				"image": "/assets/content/assets/en/index-page/browse-section/links/1/image.svg"
 			},
 			{
 				"title": "Pathfinders",
 				"description": "Collections of external resources curated by the DARIAH team",
-				"href": "/sources/dariah-pathfinders",
+				"href": "/resources/pathfinders",
 				"image": "/assets/content/assets/en/index-page/browse-section/links/2/image.svg"
 			}
 		]
