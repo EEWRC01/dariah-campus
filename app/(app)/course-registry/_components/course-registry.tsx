@@ -12,7 +12,7 @@ export function CourseRegistry(): ReactNode {
 	}
 
 	return (
-		<div className="relative min-h-[640px]">
+		<div className="relative min-h-[calc(100vh-100px)]">
 			{isLoading ? (
 				<div className="absolute inset-0 grid place-content-center">
 					<LoadingIndicator />
@@ -22,7 +22,6 @@ export function CourseRegistry(): ReactNode {
 				className="relative size-full"
 				loading="lazy"
 				onLoad={onLoad}
-				sandbox=""
 				src="https://dhcr.clarin-dariah.eu?parent_domain=dariah.eu"
 				title="Course registry"
 			/>

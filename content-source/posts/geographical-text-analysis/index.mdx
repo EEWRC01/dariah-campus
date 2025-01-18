@@ -79,7 +79,7 @@ To keep up to date with progress of the GTA tool, follow the project on Twitter:
 
 Place names are the most widely used way of expressing a location. They occur in a wide range of different types of sources, from quantitative sources such as census data, where each row of data is referred to by place name, to unstructured texts such as a description of a journey or an official report. As such, place names are extremely important to humanities geographies. One of the major challenges in building a GIS database is often to convert place names into the precisely defined, coordinate-based locations required by spatial data in GIS.
 
-Sometimes, place names refer to a specific and precisely defined administrative unit such as a municipality, district or county in census data. In these cases, polygons are usually the most suitable way of representing the places that the names refer to. More often, however, the location a place name refers to is vaguer. In phrases such as “Scarlet fever was prevalent in *Manchester* and *Salford*” or “*Helm Crag* is a high mountain near *Grasmere*” (place names are shown in italics) the places that the text is referring to are not precisely delimited, indeed, Grasmere can refer to either the lake or the village next to it. In these cases, a point is usually a much more satisfactory and convenient way of representing the location. The challenge, however, is to find coordinates for the place names.
+Sometimes, place names refer to a specific and precisely defined administrative unit such as a municipality, district or county in census data. In these cases, polygons are usually the most suitable way of representing the places that the names refer to. More often, however, the location a place name refers to is vaguer. In phrases such as "Scarlet fever was prevalent in *Manchester* and *Salford*" or "*Helm Crag* is a high mountain near *Grasmere*" (place names are shown in italics) the places that the text is referring to are not precisely delimited, indeed, Grasmere can refer to either the lake or the village next to it. In these cases, a point is usually a much more satisfactory and convenient way of representing the location. The challenge, however, is to find coordinates for the place names.
 
 Gazetteers can be particularly useful, if not crucial, for performing this task. A gazetteer can be thought of as a sort of 'geographical directory' that provides basic reference information about the geographical makeup of a country, a region, or even a continent. From a GIS perspective, a gazetteer must contain a minimum of place names and coordinates for those places. It may also contain additional information such as population size, areas, heights, feature types (town, mountain, river, etc.), and so on. Gazetteers are becoming increasingly available for free. In this exercise we will look at the GeoNames gazetteer ([www.GeoNames.org](http://www.GeoNames.org)) in particular, however, many other gazetteers are also available. We will also encounter GeoNames and some other gazetteers when we annotate place-names in a text within Recogito, an online annotation tool.
 
@@ -279,7 +279,7 @@ We will now explore the process of making manual additions to our data, starting
 * Locate the row that contains annotation data for 'Hardraw Scar' (one of the first places we annotated within Recogito). You will notice that it does not have any latitude or longitude coordinates, and has been flagged as *'Not Identifiable'*. We will now add data to this entry manually.
 * You might remember that 'Hardraw Scar' is a geographic place-name for a limestone gorge (with the text also making reference to a waterfall named 'Hardraw Force'), and it did not appear in any of Recogito's gazetteers We therefore 'flagged' the place-name as **Not Identifiable**. We will now add coordinates to this place-name manually, using Google Maps.
 * In a web browser go to: [http://maps.google.com](http://maps.google.com).
-* Type “Hardraw Scar” into the search box in the top-left corner (do not use the auto complete options that appear). Click 'search' or press 'return' on your keyboard.
+* Type "Hardraw Scar" into the search box in the top-left corner (do not use the auto complete options that appear). Click 'search' or press 'return' on your keyboard.
 * You will be zoomed in to a point as shown below - you may want to zoom out to check that you are in approximately the right location.
 
 ![](images/picture-22.jpg)
@@ -399,7 +399,7 @@ Take a quick look through the entire file. The important points are:\
 
 ![](images/picture-44.jpg)
 
-The “main 'geoname' table” referred to is in fact the gazetteer file for Britain, **GB.txt**, that has already been downloaded for you. Other points to note here are as follows:
+The "main 'geoname' table" referred to is in fact the gazetteer file for Britain, **GB.txt**, that has already been downloaded for you. Other points to note here are as follows:
 
 * Each row refers to a field of information (see above). For example, 'geonameid' is the heading for the first field.
 * In addition to the field heading, the information after the colon (:) provides some additional metadata about the content of the field. Thus, we are told that the entries in the 'geonameid' field are integer (numerical) identifiers.
@@ -417,11 +417,11 @@ Use Excel to open the file **GB.txt** using the techniques we learned in step 1.
 
 ![](images/picture-45.jpg)
 
-Once it is opened it should look similar to below. You may want to widen some of the columns to get rid of the “###” effect and reveal the data.
+Once it is opened it should look similar to below. You may want to widen some of the columns to get rid of the "###" effect and reveal the data.
 
 ![](images/picture-46.jpg)
 
-There are two things to notice. First, this file does not contain column headings, so you will need to add these as described below. Second, the file contains a lot of fields that you may not want – effectively everything after latitude, so from column G (“Feature Class” according to the metadata) onwards.
+There are two things to notice. First, this file does not contain column headings, so you will need to add these as described below. Second, the file contains a lot of fields that you may not want – effectively everything after latitude, so from column G ("Feature Class" according to the metadata) onwards.
 
 Although it is not essential, it saves time to delete many of these unneeded fields. To do this, highlight the fields by clicking on the heading for column G and dragging across to column Q. All of these columns should be highlighted. Now right-click on the column heading and click **Delete** on the menu that appears.
 

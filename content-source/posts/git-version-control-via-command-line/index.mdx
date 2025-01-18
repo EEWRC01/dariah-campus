@@ -64,7 +64,7 @@ The paragraph above features **terminology** (in bold) that will become essentia
 
 ### Official Terminology: Working Area, Staging Area, Repository
 
-This diagram is a great summary of how content moves in Git, between the “working area”, which is simply the files and folders in a project as they exist on your computer, the “staging area”, which we can call a “holding zone”, and the “repository”, which are the permanently recorded commit snapshots.
+This diagram is a great summary of how content moves in Git, between the "working area", which is simply the files and folders in a project as they exist on your computer, the "staging area", which we can call a "holding zone", and the "repository", which are the permanently recorded commit snapshots.
 
 <Figure src="images/git_terminology.png">
   Git workflow
@@ -274,11 +274,11 @@ Note that `git add` does not automatically **commit** the changes, but places th
 
 ### Bundle Changes into Meaningful Chunks
 
-Including content changes in Git's version history involves a two-step process. First, we put changes in the “holding zone” or **“staging area”**. We can continue adding related changes to other documents, or additional newly created documents. This allows **creating semantically meaningful units of changes**.
+Including content changes in Git's version history involves a two-step process. First, we put changes in the "holding zone" or **"staging area"**. We can continue adding related changes to other documents, or additional newly created documents. This allows **creating semantically meaningful units of changes**.
 
-When all related changes have been added to the “holding area”, we can save them together as a version history snapshot, with a message that briefly describes the changes so it is easy to find them later when viewing the version history.
+When all related changes have been added to the "holding area", we can save them together as a version history snapshot, with a message that briefly describes the changes so it is easy to find them later when viewing the version history.
 
-These units are called **“commits”**, and **“committing”** means permanently recording a snapshot of contents at a specific point in time, with a message describing the change:
+These units are called **"commits"**, and **"committing"** means permanently recording a snapshot of contents at a specific point in time, with a message describing the change:
 
 ```bash
 git commit -m "Add test document"
@@ -287,9 +287,9 @@ git commit -m "Add test document"
 Every project snapshot we commit to history should include a semantically meaningful set of changes, and this may involve edits to different documents. `git add` allows to granularly choose which changes to which files should be part of the next snapshot, while `git commit` will label that set of changes, and actually save a new snapshot.
 
 <SideNote type="note" title="Commit messages">
-  Commit messages are usually written in imperative language. For example it is customary to say “Change document title”, not “Changed document title”. Nevertheless, it's perfectly fine to agree on different project-specific conventions, just try to be consistent.
+  Commit messages are usually written in imperative language. For example it is customary to say "Change document title", not "Changed document title". Nevertheless, it's perfectly fine to agree on different project-specific conventions, just try to be consistent.
 
-  When in a hurry, it's tempting to write non-descriptive commit messages like “Added changes”. Try to come up with something that describes the change, you'll thank yourself later!
+  When in a hurry, it's tempting to write non-descriptive commit messages like "Added changes". Try to come up with something that describes the change, you'll thank yourself later!
 </SideNote>
 
 ### View history of changes

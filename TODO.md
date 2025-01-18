@@ -30,3 +30,5 @@
 ## resources
 
 - introduction-to-dictionary-users: get rid of `<ul>` in table
+
+- iframe sandbox

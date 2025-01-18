@@ -56,7 +56,7 @@ After completing this resource, learners will be able to:
 
 The first step is to get images of the text you want to transcribe.
 
-The second step is to optimise images. To find out more about the required image quality and preparation prior to uploading, please refer to the training module: “Image optimisation“.
+The second step is to optimise images. To find out more about the required image quality and preparation prior to uploading, please refer to the training module: "Image optimisation".
 
 Once your images are optimised, you upload them onto a transcription platform. In this training module series, we use the French platform, [eScriptorium](https://escriptorium.inria.fr/). However, the process is the same when using other platforms such as [Transkribus](https://www.transkribus.org/) or [OCR-D](https://ocr-d.de/en/). Moreover, there is no difference between transcribing images of handwritten manuscripts and printed text.
 
@@ -68,7 +68,7 @@ Once your images are optimised, you upload them onto a transcription platform. I
 
 The third step is the layout analysis. The software recognises zones of text on a page. In other words, it distinguishes between areas with text and areas with other non-textual content or no content at all. Segmentation is the process by which a digital image is divided into several zones corresponding to the layout of the document. Segmentation itself can be broken down into two different steps: recognition of text zones, and recognition of the lines of text within the zones.
 
-The layout analysis step is essential for defining the layout of the text and locating the titles, subtitles, margins or annotations that accompany the main body of text. To go further refer to the training module: “Layout analysis”.
+The layout analysis step is essential for defining the layout of the text and locating the titles, subtitles, margins or annotations that accompany the main body of text. To go further refer to the training module: "Layout analysis".
 
 <Figure src="images/zone_gallicorpora_htr_15_bpt6k1057726c-edited.png">
   Segmentation example from the Gallic(orpora) project with three different zones
@@ -82,7 +82,7 @@ Once the areas and lines of text have been recognised, the next step is to predi
   Example of Text Recognition
 </Figure>
 
-Model training is at the core of the ATR process. A model is a file that is created, improved and trained based on preexisting training data. This training data is also known as ground truth data. It consists of several pages of transcriptions aligned line by line with the images. These transcriptions are made and checked manually by a person. This correct transcription is considered as “the truth”, and the artificial intelligence uses it to learn to distinguish the correct sign.
+Model training is at the core of the ATR process. A model is a file that is created, improved and trained based on preexisting training data. This training data is also known as ground truth data. It consists of several pages of transcriptions aligned line by line with the images. These transcriptions are made and checked manually by a person. This correct transcription is considered as "the truth", and the artificial intelligence uses it to learn to distinguish the correct sign.
 
 <Figure src="images/htrtraining.png">
   ATR Training Cycle
@@ -101,7 +101,7 @@ Once the model has produced the transcription, you will have to check its perfor
   Types of Transcription Errors
 </Figure>
 
-The performance of a model in predicting a text is evaluated types of score. The most common are accuracy and character or word error rate. The character error rate (CER) compares the total number of characters of the test set, including spaces, to the addition of the number of insertions, substitutions and deletions of characters that are required to obtain the ground truth result. Each minor transcription error is an error. This means that every missing comma, the identification of a “u” instead of a “v”, an additional space or even an uppercase letter instead of a lowercase letter are included in the CER as errors.
+The performance of a model in predicting a text is evaluated types of score. The most common are accuracy and character or word error rate. The character error rate (CER) compares the total number of characters of the test set, including spaces, to the addition of the number of insertions, substitutions and deletions of characters that are required to obtain the ground truth result. Each minor transcription error is an error. This means that every missing comma, the identification of a "u" instead of a "v", an additional space or even an uppercase letter instead of a lowercase letter are included in the CER as errors.
 
 The accuracy rate is a good indicator of the performance of the model used, but the score to be achieved depends on the desired goal.
 

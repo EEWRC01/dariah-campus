@@ -50,12 +50,22 @@ export default async function SourcesPage(_props: Readonly<SourcesPageProps>): P
 					return (
 						<li key={source.id}>
 							<Card>
-								<img alt="" src={image} />
+								<img
+									alt=""
+									className="aspect-[1.25] border-b border-neutral-100 object-cover"
+									loading="lazy"
+									src={image}
+								/>
 								<CardContent>
 									<CardTitle>
-										<Link href={href}>{name}</Link>
+										<Link
+											className="rounded transition hover:text-primary-600 focus:outline-none focus-visible:ring focus-visible:ring-primary-600"
+											href={href}
+										>
+											{name}
+										</Link>
 									</CardTitle>
-									<div>{content}</div>
+									<div className="leading-7 text-neutral-500">{content}</div>
 								</CardContent>
 								<CardFooter>
 									<span></span>
