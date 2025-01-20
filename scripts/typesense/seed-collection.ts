@@ -53,8 +53,18 @@ async function seed() {
 				title: item.entry.summary.title || item.entry.title,
 				locale: item.entry.locale,
 				"publication-date": item.entry["publication-date"],
+				kind:
+					"content-type" in item.entry
+						? item.entry["content-type"]
+						: name === "curricula"
+							? "curriculum"
+							: name === "resources-events"
+								? "event"
+								: "pathfinder",
 				summary: item.entry.summary.content,
 				tags: item.entry.tags,
+				people: "authors" in item.entry ? item.entry.authors : item.entry.editors,
+				sources: "sources" in item.entry ? item.entry.sources : [],
 			};
 		});
 

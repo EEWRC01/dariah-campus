@@ -27,6 +27,8 @@ async function create() {
 		fields: [
 			{ name: "title", type: "string", sort: true },
 			{ name: "locale", type: "string", facet: true },
+			{ name: "people", type: "string[]", facet: true },
+			{ name: "sources", type: "string[]", facet: true },
 			{ name: "tags", type: "string[]", facet: true },
 		],
 		default_sorting_field: "title",

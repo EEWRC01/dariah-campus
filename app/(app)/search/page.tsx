@@ -38,18 +38,33 @@ export default async function SearchPage(_props: Readonly<SearchPageProps>): Pro
 	return (
 		<Providers>
 			<MainContent className="mx-auto grid w-full max-w-screen-xl content-start space-y-24 px-4 py-8 xs:px-8 xs:py-16 md:py-24">
-				<div>
+				<div className="grid gap-y-4">
 					<PageTitle>{t("title")}</PageTitle>
 				</div>
 
-				<aside>
-					<SearchFacets attribute="locale" />
-					<SearchFacets attribute="tags" />
-				</aside>
+				<div className="grid grid-cols-[320px_1fr] gap-8">
+					<aside className="grid content-start gap-y-8">
+						<h2 className="text-2xl font-bold">{t("search-filter")}</h2>
 
-				<section>
-					<SearchResults />
-				</section>
+						<div className="grid gap-y-1.5">
+							<h3 className="text-sm font-bold uppercase tracking-widest text-neutral-600">
+								{t("locale")}
+							</h3>
+							<SearchFacets attribute="locale" />
+						</div>
+
+						<div className="grid gap-y-1.5">
+							<h3 className="text-sm font-bold uppercase tracking-widest text-neutral-600">
+								{t("tags")}
+							</h3>
+							<SearchFacets attribute="tags" />
+						</div>
+					</aside>
+
+					<section>
+						<SearchResults />
+					</section>
+				</div>
 			</MainContent>
 		</Providers>
 	);

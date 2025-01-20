@@ -2,8 +2,8 @@
 
 ### sources
 
-- drop pathfinders from sources
-- drop events from sources
+- dropped pathfinders from sources
+- dropped events from sources
 
 ### people
 

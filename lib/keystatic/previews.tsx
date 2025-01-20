@@ -17,7 +17,7 @@ import type {
 type LinkSchema = ParsedValueForComponentSchema<ReturnType<typeof createLinkSchema>>;
 
 const calloutKindStyles = styles({
-	base: "text-tiny inline-flex min-h-6 rounded-full px-2",
+	base: "inline-flex min-h-6 rounded-full px-2 text-sm",
 	variants: {
 		kind: {
 			caution: "border-stroke-error-weak bg-fill-error-weak text-text-error border",
@@ -44,9 +44,9 @@ export function CalloutPreview(props: Readonly<CalloutPreviewProps>): ReactNode 
 	const { children, kind = "note", title } = props;
 
 	return (
-		<aside className="text-tiny rounded-lg p-4 leading-relaxed">
+		<aside className="rounded-lg p-4 text-sm leading-relaxed">
 			<NotEditable className="mb-4 flex items-center justify-between gap-x-8">
-				<strong className="font-strong">{isNonEmptyString(title) ? title : "(No title)"}</strong>
+				<strong className="font-bold">{isNonEmptyString(title) ? title : "(No title)"}</strong>
 				<span className={calloutKindStyles({ kind })}>{kind}</span>
 			</NotEditable>
 			{children}
@@ -63,9 +63,9 @@ export function DisclosurePreview(props: Readonly<DisclosurePreviewProps>): Reac
 	const { children, title } = props;
 
 	return (
-		<aside className="text-tiny rounded-lg p-4 leading-relaxed">
+		<aside className="rounded-lg p-4 text-sm leading-relaxed">
 			<NotEditable className="mb-4 flex items-center justify-between gap-x-8">
-				<strong className="font-strong">{isNonEmptyString(title) ? title : "(No title)"}</strong>
+				<strong className="font-bold">{isNonEmptyString(title) ? title : "(No title)"}</strong>
 			</NotEditable>
 			{children}
 		</aside>
@@ -139,7 +139,7 @@ export function FigurePreview(props: Readonly<FigurePreviewProps>): ReactNode {
 					/>
 				) : null}
 			</NotEditable>
-			<figcaption className="text-tiny">{children}</figcaption>
+			<figcaption className="text-sm">{children}</figcaption>
 		</figure>
 	);
 }
@@ -218,7 +218,7 @@ export function LinkButtonPreview(props: Readonly<LinkButtonPreviewProps>): Reac
 	const { children, link: _link } = props;
 
 	return (
-		<div className="border-stroke-brand-strong bg-fill-brand-strong font-strong text-text-inverse-strong shadow-raised inline-flex min-h-12 items-center rounded-lg border px-6 py-2.5 text-sm">
+		<div className="border-stroke-brand-strong bg-fill-brand-strong text-text-inverse-strong shadow-raised inline-flex min-h-12 items-center rounded-lg border px-6 py-2.5 text-sm font-bold">
 			{children}
 		</div>
 	);
@@ -233,7 +233,7 @@ export function TableOfContentsPreview(props: Readonly<TableOfContentsPreviewPro
 
 	return (
 		<div className="grid gap-y-2">
-			<strong className="font-strong">{title}</strong>
+			<strong className="font-bold">{title}</strong>
 			{/* eslint-disable-next-line react/jsx-no-literals */}
 			<div>Will be generated at build time.</div>
 		</div>
@@ -259,8 +259,8 @@ export function TabPreview(props: Readonly<TabPreviewProps>): ReactNode {
 	const { children, title } = props;
 
 	return (
-		<div className="text-tiny grid gap-y-2">
-			<strong className="font-strong">{isNonEmptyString(title) ? title : "(No title)"}</strong>
+		<div className="grid gap-y-2 text-sm">
+			<strong className="font-bold">{isNonEmptyString(title) ? title : "(No title)"}</strong>
 			<div>{children}</div>
 		</div>
 	);

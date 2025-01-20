@@ -31,7 +31,7 @@ export function Callout(props: Readonly<CalloutProps>): ReactNode {
 
 	return (
 		<aside className={calloutStyles({ kind })}>
-			{title ? <strong className="my-3 font-strong text-text-strong">{title}</strong> : null}
+			{title ? <strong className="my-3 font-bold text-text-strong">{title}</strong> : null}
 			{children}
 		</aside>
 	);

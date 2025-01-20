@@ -3,6 +3,8 @@ import { getLocale } from "next-intl/server";
 import type { ReactNode } from "react";
 
 import { MainContent } from "@/components/main-content";
+import { PageLead } from "@/components/page-lead";
+import { PageTitle } from "@/components/page-title";
 import { createCollectionResource } from "@/lib/keystatic/resources";
 
 interface DocumentationPageProps {
@@ -61,12 +63,14 @@ export default async function DocumentationPage(
 	const { default: Content } = await entry.compile(content);
 
 	return (
-		<MainContent className="mx-auto grid w-full max-w-screen-xl content-start space-y-24 px-4 py-8 xs:px-8 xs:py-16 md:py-24">
-			<div>
-				<h1>{title}</h1>
-				<p>{lead}</p>
+		<MainContent className="mx-auto grid w-full max-w-screen-lg content-start space-y-24 px-4 py-8 xs:px-8 xs:py-16 md:py-24">
+			<div className="grid gap-y-4">
+				<PageTitle>{title}</PageTitle>
+				<PageLead>{lead}</PageLead>
 			</div>
-			<Content />
+			<div className="prose">
+				<Content />
+			</div>
 		</MainContent>
 	);
 }

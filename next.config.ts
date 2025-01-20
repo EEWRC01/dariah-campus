@@ -59,6 +59,16 @@ const config: NextConfig = {
 
 		return Promise.resolve(redirects);
 	},
+	rewrites() {
+		const rewrites: Awaited<ReturnType<NonNullable<NextConfig["rewrites"]>>> = [
+			{
+				source: "/documentation",
+				destination: "/documentation/about",
+			},
+		];
+
+		return Promise.resolve(rewrites);
+	},
 	typescript: {
 		ignoreBuildErrors: true,
 	},

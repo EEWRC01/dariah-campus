@@ -5,6 +5,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 
 import { MainContent } from "@/components/main-content";
+import { PageTitle } from "@/components/page-title";
 import type { Locale } from "@/config/i18n.config";
 import { createImprintUrl } from "@/config/imprint.config";
 
@@ -30,11 +31,11 @@ export default async function ImprintPage(_props: Readonly<ImprintPageProps>): P
 	const html = await getImprintHtml(locale);
 
 	return (
-		<MainContent className="mx-auto grid w-full max-w-screen-xl content-start space-y-24 px-4 py-8 xs:px-8 xs:py-16 md:py-24">
-			<div>
-				<h1>{t("title")}</h1>
+		<MainContent className="mx-auto grid w-full max-w-screen-lg content-start space-y-24 px-4 py-8 xs:px-8 xs:py-16 md:py-24">
+			<div className="grid gap-y-4">
+				<PageTitle>{t("title")}</PageTitle>
 			</div>
-			<section dangerouslySetInnerHTML={{ __html: html }} />
+			<div dangerouslySetInnerHTML={{ __html: html }} className="prose" />
 		</MainContent>
 	);
 }

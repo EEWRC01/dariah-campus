@@ -246,7 +246,7 @@ async function TeamSection(): Promise<ReactNode> {
 			<SectionLead>{lead}</SectionLead>
 			<ul className="mx-auto grid grid-cols-2 gap-8 py-6 md:grid-cols-4" role="list">
 				{team.map(async (item, index) => {
-					const { description, person: id } = item;
+					const { person: id, role } = item;
 
 					const person = await createCollectionResource("people", locale).read(id);
 					const { image, name } = person.data;
@@ -262,7 +262,7 @@ async function TeamSection(): Promise<ReactNode> {
 									width={96}
 								/>
 								<h3 className="font-bold">{name}</h3>
-								<p className="text-sm text-neutral-500">{description}</p>
+								<p className="text-sm text-neutral-500">{role}</p>
 							</article>
 						</li>
 					);

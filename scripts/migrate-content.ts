@@ -1198,6 +1198,23 @@ async function migrateResources(
 							}
 						}
 					});
+
+					visit(tree, "link", (node) => {
+						const url = node.url;
+
+						if (!url.startsWith("http")) {
+							console.log(node);
+						}
+					});
+
+					visit(tree, "image", (node) => {
+						const src = node.url;
+						const alt = node.alt;
+
+						if (!src.startsWith("images")) {
+							console.log(node);
+						}
+					});
 				};
 			})
 			.use(toMarkdown, {

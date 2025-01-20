@@ -28,7 +28,7 @@ export function Tabs(props: Readonly<TabsProps>): ReactNode {
 					return (
 						<AriaTab
 							key={id}
-							className="-mb-px cursor-default border-b-2 border-transparent py-3 transition selected:border-current selected:font-strong"
+							className="-mb-px cursor-default border-b-2 border-transparent py-3 transition selected:border-current selected:font-bold"
 							id={id}
 						>
 							{title}

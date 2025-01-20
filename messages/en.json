@@ -101,15 +101,20 @@
 		"title": "Resources"
 	},
 	"SearchPage": {
+		"locale": "Languages",
 		"meta": {
 			"title": "Search"
 		},
+		"search-filter": "Filter",
+		"tags": "Tags",
 		"title": "Search"
 	},
 	"SourcesPage": {
+		"lead": "DARIAH learning resources don't all live in one place. Here you can explore our materials based on the context in which they were produced.",
 		"meta": {
 			"title": "Sources"
 		},
+		"resources": "{count, plural, =0 {no resources} =1 {one resource} other {# resources}}",
 		"title": "Sources"
 	}
 }

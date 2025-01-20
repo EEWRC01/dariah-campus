@@ -2,7 +2,7 @@ import "mdast-util-mdx-jsx";
 
 import { createWriteStream, mkdirSync } from "node:fs";
 import { mkdir, readdir, writeFile } from "node:fs/promises";
-import { basename, join } from "node:path";
+import { basename, extname, join } from "node:path";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
 
@@ -33,7 +33,7 @@ async function download() {
 			.use(withGfm)
 			.use(() => {
 				return async function transform(tree) {
-					const promises: Array<[string, string]> = [];
+					const promises: Array<[string, string, any]> = [];
 
 					visit(tree, "mdxJsxFlowElement", (node) => {
 						if (node.name === "Figure") {
@@ -51,20 +51,32 @@ async function download() {
 							if (isUrl(url)) {
 								const targetFolder = join(sourceFolder, entry.name, "images");
 								mkdirSync(targetFolder, { recursive: true });
-								const fileName = slugify(basename(new URL(url).pathname));
+								const fileName = slugify(basename(new URL(url).pathname), {
+									preserveCharacters: ["."],
+								});
 								const targetFilePath = join(targetFolder, fileName);
 
-								promises.push([url, targetFilePath]);
+								promises.push([url, targetFilePath, urlAttr]);
 
 								urlAttr.value = `images/${fileName}`;
 							}
 						}
 					});
 
-					for (const [url, targetFilePath] of promises) {
+					for (const [url, targetFilePath, urlAttr] of promises) {
 						console.log(targetFilePath);
 						const response = await fetch(url);
 						const inputStream = Readable.fromWeb(response.body);
+
+						const mime = response.headers.get("content-type");
+						if (!mime.startsWith("image/")) {
+							throw new Error("Invalid mime type.");
+						}
+						if (!extname(targetFilePath).length) {
+							targetFilePath = `${targetFilePath}.${mime.slice(6)}`;
+							urlAttr.value = `${urlAttr.value}.${mime.slice(6)}`;
+						}
+
 						const outputStream = createWriteStream(targetFilePath);
 						await pipeline(inputStream, outputStream);
 					}

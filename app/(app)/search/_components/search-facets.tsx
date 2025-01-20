@@ -13,15 +13,15 @@ export function SearchFacets(props: SearchFacetsProps): ReactNode {
 	const facets = useRefinementList({ attribute });
 
 	return (
-		<ul role="list">
+		<ul className="grid gap-y-1" role="list">
 			{facets.items.map((item) => {
 				function onChange() {
 					facets.refine(item.value);
 				}
 
 				return (
-					<li key={item.value}>
-						<label>
+					<li key={item.value} className="flex">
+						<label className="inline-flex gap-x-2">
 							<input
 								checked={item.isRefined}
 								name="locale"

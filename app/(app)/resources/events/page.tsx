@@ -45,7 +45,7 @@ export default async function EventsPage(_props: Readonly<EventsPageProps>): Pro
 
 	return (
 		<MainContent className="mx-auto grid w-full max-w-screen-xl content-start space-y-24 px-4 py-8 xs:px-8 xs:py-16 md:py-24">
-			<div>
+			<div className="grid gap-y-4">
 				<PageTitle>{t("title")}</PageTitle>
 			</div>
 			<ul
@@ -74,7 +74,7 @@ export default async function EventsPage(_props: Readonly<EventsPageProps>): Pro
 								<CardContent>
 									<CardTitle>
 										<Link
-											className="rounded transition hover:text-primary-600 focus:outline-none focus-visible:ring focus-visible:ring-primary-600"
+											className="rounded transition after:absolute after:inset-0 hover:text-primary-600 focus:outline-none focus-visible:ring focus-visible:ring-primary-600"
 											href={href}
 										>
 											<span className="mr-2 inline-flex text-primary-600">

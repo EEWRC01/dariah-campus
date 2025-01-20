@@ -57,9 +57,9 @@ export const gridLayouts = [
 export type GridLayout = (typeof gridLayouts)[number]["value"];
 
 export const linkKinds = [
+	{ label: "Direct URL", value: "external" },
 	{ label: "Documentation", value: "documentation" },
 	{ label: "Download", value: "download" },
-	{ label: "External", value: "external" },
 	{ label: "Curricula", value: "curricula" },
 	{ label: "Events", value: "resources-events" },
 	{ label: "External resources", value: "resources-external" },

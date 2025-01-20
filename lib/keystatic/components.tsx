@@ -184,7 +184,7 @@ export const createFootnote = createComponent((_paths, _locale) => {
 			label: "Footnote",
 			icon: <SuperscriptIcon />,
 			schema: {},
-			className: "underline decoration-dotted align-super text-tiny",
+			className: "underline decoration-dotted align-super text-sm",
 		}),
 	};
 });

@@ -1,3 +1,4 @@
+import "@/styles/index.css";
 import "@/styles/cms.css";
 
 import type { Metadata } from "next";
