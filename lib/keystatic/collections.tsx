@@ -143,7 +143,7 @@ export const createCurricula = createCollection("/curricula/", (paths, locale) =
 					 * Prefer `<Link>` component over regular markdown links.
 					 * Note that this also disables *parsing* regular markdown links.
 					 */
-					link: false,
+					// link: false,
 				},
 				components: {
 					...createCallout(paths, locale),
@@ -207,7 +207,7 @@ export const createDocumentation = createCollection("/documentation/", (paths, l
 					 * Prefer `<Link>` component over regular markdown links.
 					 * Note that this also disables *parsing* regular markdown links.
 					 */
-					link: false,
+					// link: false,
 				},
 				components: {
 					...createCallout(paths, locale),
@@ -427,7 +427,7 @@ export const createEvents = createCollection("/resources/events/", (paths, local
 					 * Prefer `<Link>` component over regular markdown links.
 					 * Note that this also disables *parsing* regular markdown links.
 					 */
-					link: false,
+					// link: false,
 				},
 				components: {
 					...createCallout(paths, locale),
@@ -867,7 +867,7 @@ export const createResourcesExternal = createCollection("/resources/external/", 
 					 * Prefer `<Link>` component over regular markdown links.
 					 * Note that this also disables *parsing* regular markdown links.
 					 */
-					link: false,
+					// link: false,
 				},
 				components: {
 					// ...createCallout(paths, locale),
@@ -990,7 +990,7 @@ export const createResourcesHosted = createCollection("/resources/hosted/", (pat
 					 * Prefer `<Link>` component over regular markdown links.
 					 * Note that this also disables *parsing* regular markdown links.
 					 */
-					link: false,
+					// link: false,
 				},
 				components: {
 					...createCallout(paths, locale),
@@ -1110,7 +1110,7 @@ export const createResourcesPathfinders = createCollection(
 						 * Prefer `<Link>` component over regular markdown links.
 						 * Note that this also disables *parsing* regular markdown links.
 						 */
-						link: false,
+						// link: false,
 					},
 					components: {
 						...createCallout(paths, locale),
