@@ -1212,7 +1212,7 @@ async function migrateResources(
 						const alt = node.alt;
 
 						if (!src.startsWith("images")) {
-							console.log(node);
+							// console.log(node);
 						}
 					});
 				};

@@ -93,7 +93,7 @@ On the top right there is a `Clone` button which, when clicked, gives you two op
 
       ![](images/username_password_macos.png)
 
-      These are passed to Git and Git saves them in the “keychain” which also for example *Safari* uses to save credentials.
+      These are passed to Git and Git saves them in the "keychain" which also for example *Safari* uses to save credentials.
     </Tab>
 
     <Tab title="Linux">
@@ -119,7 +119,7 @@ On the top right there is a `Clone` button which, when clicked, gives you two op
 
           ![](images/credentials_dialog_windows.png "credentials dialogue Windows")
 
-          We recommend to `Sign in with your browser`. A browser window will open for you to log in to GitHub. Once you’re successfully authenticated, you can close the browser window.
+          We recommend to `Sign in with your browser`. A browser window will open for you to log in to GitHub. Once you're successfully authenticated, you can close the browser window.
 
           ![](images/authentication_successful_browser_github.png)
         </Tab>
@@ -150,7 +150,7 @@ At the end there is a little dialog in the bottom right corner, click open there
 
 ![](images/open_cloned_project.png)
 
-Because Visual Studio Code is a development environment where developers can execute code they just downloaded from somewhere on the internet, Visual Studio Code asks if we trust the current repository. Therefore, choose to “trust” the repository that you downloaded from a team you know.
+Because Visual Studio Code is a development environment where developers can execute code they just downloaded from somewhere on the internet, Visual Studio Code asks if we trust the current repository. Therefore, choose to "trust" the repository that you downloaded from a team you know.
 
 ![](images/trust_authors_windows.png)
 
@@ -164,7 +164,7 @@ Git can record which changes, to which documents, have been made when, and by wh
 
 Version control allows to save versions of content, restore previous versions, and compare different versions. This is especially beneficial when working with multiple documents, and when working in teams of more than one (potentially working on the same document).
 
-Before uploading any changes, you want to track them locally. After cloning the howto\_trainingmaterials, let’s open the `teapot.txt` in Visual Studio Code. This is done while the uppermost icon on the left is selected (the two sheets, files).
+Before uploading any changes, you want to track them locally. After cloning the howto\_trainingmaterials, let's open the `teapot.txt` in Visual Studio Code. This is done while the uppermost icon on the left is selected (the two sheets, files).
 
 We want to change something so we replace every `I` with `you` in the lyrics and add the line `You drink tea every day` at the end. Save this file version.
 
@@ -174,11 +174,11 @@ This only lists those files that we changed since we last made our changes perma
 
 ![](images/review_changes.png)
 
-If we are not 100% sure about the changes we will now **stage**, that is prepare to be **committed**, we can open each file and see the differences per line. This might also give us a hint what we did if the last **commit** was a while back and we don’t remember exactly why we changed the files.
+If we are not 100% sure about the changes we will now **stage**, that is prepare to be **committed**, we can open each file and see the differences per line. This might also give us a hint what we did if the last **commit** was a while back and we don't remember exactly why we changed the files.
 
 ### Mark Content Changes to be Included in the Version History
 
-Let’s tell Git that we are committed to our changes in the document `teapot.txt`:
+Let's tell Git that we are committed to our changes in the document `teapot.txt`:
 
 ![](images/stage_change.png)
 
@@ -194,10 +194,10 @@ See our Git version control via command line guide to learn more about [adding f
 
 ### Bundle Changes into Meaningful Chunks and commit to Them
 
-Including content changes in Git’s version history involves a two-step process. First, related changes are added to create semantically meaningful units of changes. These changes wait in the staging area but it needs an extra step to propagate these changes and feed them into the documents.
+Including content changes in Git's version history involves a two-step process. First, related changes are added to create semantically meaningful units of changes. These changes wait in the staging area but it needs an extra step to propagate these changes and feed them into the documents.
 Keep that in mind.
 
-When all related changes have been added to the “staging area”, we can save them together as a current snapshot of our data, a **commit**, with a **commit message** that briefly describes *why* changes were made. This makes it easier to understand them later when viewing the version history. **Committing** means permanently recording a snapshot of contents at a specific point in time. In VS Code you use the `commit` button.
+When all related changes have been added to the "staging area", we can save them together as a current snapshot of our data, a **commit**, with a **commit message** that briefly describes *why* changes were made. This makes it easier to understand them later when viewing the version history. **Committing** means permanently recording a snapshot of contents at a specific point in time. In VS Code you use the `commit` button.
 
 ![](images/commit_message_and_commit_button.png)
 
@@ -242,7 +242,7 @@ Whether you use `Learn More` or `Open Git log`, you will eventually see that Git
   ```
 </Callout>
 
-There is no graphical interface for this one time configuration. You need to copy the two suggested `git config` commands and fill in your own details and execute them in a terminal. Create a new text file with `File`->`New text file`, copy the above lines starting with `git config` and fill in your information. Use the Visual Studio Code tab `Terminal` at the bottom. Alternatively you can select “Terminal” and “New Terminal” from the menu bar.
+There is no graphical interface for this one time configuration. You need to copy the two suggested `git config` commands and fill in your own details and execute them in a terminal. Create a new text file with `File`->`New text file`, copy the above lines starting with `git config` and fill in your information. Use the Visual Studio Code tab `Terminal` at the bottom. Alternatively you can select "Terminal" and "New Terminal" from the menu bar.
 
 ![](images/menu_bar_terminal.png)
 
@@ -251,7 +251,7 @@ There is no graphical interface for this one time configuration. You need to cop
     <Tab title="Windows">
       ### Windows
 
-      Unfortunately when you click on “Terminal” now you get a terminal that does not know `git` (yet). If you want to set your e-mail and name you need to click on the `V` next to the `+` next to `powershell`. This will open a `Git bash`.
+      Unfortunately when you click on "Terminal" now you get a terminal that does not know `git` (yet). If you want to set your e-mail and name you need to click on the `V` next to the `+` next to `powershell`. This will open a `Git bash`.
 
       ![](images/windows_open_git_bash.png)
     </Tab>
@@ -288,7 +288,7 @@ To get our changes to the server, so other people in our team can fetch them to 
 
       ![](images/credentials_dialog_windows.png)
 
-      We recommend to `Sign in with your browser`. A browser window will open for you to log in to GitHub. Once you’re successfully authenticated, you can close the browser window.
+      We recommend to `Sign in with your browser`. A browser window will open for you to log in to GitHub. Once you're successfully authenticated, you can close the browser window.
 
       ![](images/authentication_successful_browser_github.png)
     </Tab>
@@ -358,7 +358,7 @@ And after resolving **all** the conflicts we do a `merge commit` (the text is th
 
 Open your code editor. Clone the repository [https://github.com/acdh-oeaw/howto\_trainingmaterials](https://github.com/acdh-oeaw/howto_trainingmaterials) to your local work station. We used it in the **Git collaboration** - resource too.
 
-Inspect the repository by checking its status, and **pull** all changes that have been created in the meantime. If you do this exercise on your own, there might be no changes - still, it’s best practice to pull regularly.
+Inspect the repository by checking its status, and **pull** all changes that have been created in the meantime. If you do this exercise on your own, there might be no changes - still, it's best practice to pull regularly.
 
 Navigate to the test-file.mdx and open it. In it, you will find several sentences talking about **a particular breed** of dogs. Replace the current breed with another of your choosing and move all those new sentences to the very end of the document. Save your actions and commit them with a meaningful message.
 
@@ -370,4 +370,4 @@ VS Code provides a user-friendly interface for collaborating with Git across Win
 
 ## End note
 
-This resource was originally published to the ACDH-CH ‘HowTo’ internal training platform on 5th November 2023. The publication date of this present resource reflects the date it was migrated to DARIAH-Campus.
+This resource was originally published to the ACDH-CH 'HowTo' internal training platform on 5th November 2023. The publication date of this present resource reflects the date it was migrated to DARIAH-Campus.

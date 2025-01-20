@@ -29,7 +29,7 @@ content-type: training-module
 
 ### Das Austrian Media Corpus (amc)
 
-Das Austrian Media Corpus (amc) ist eines der größten Textkorpora in deutscher Sprache. In ihm sind Texte der österreichischen Printmedienlandschaft der letzten Jahrezehnte versammelt. Der Inhalt des amc kann mit dem Schlagwort „journalistische Prosa“ zusammengefasst werden: er umfasst Komplettausgaben von Zeitungen und Zeitschriften, Agenturmeldungen der Austria Presse Agentur (APA) sowie Transkripte von TV-Produktionen (vorwiegend von Nachrichtensendungen).
+Das Austrian Media Corpus (amc) ist eines der größten Textkorpora in deutscher Sprache. In ihm sind Texte der österreichischen Printmedienlandschaft der letzten Jahrezehnte versammelt. Der Inhalt des amc kann mit dem Schlagwort "journalistische Prosa" zusammengefasst werden: er umfasst Komplettausgaben von Zeitungen und Zeitschriften, Agenturmeldungen der Austria Presse Agentur (APA) sowie Transkripte von TV-Produktionen (vorwiegend von Nachrichtensendungen).
 
 Das amc kann auf Anfrage genutzt werden, allerdings ausschließlich für Zwecke der wissenschaftlichen Forschung und Lehre und nur für die Untersuchung *sprachwissenschaftlicher* Fragestellungen. Ermöglicht wird das amc durch eine Kooperation zwischen der Austria Presse Agentur (APA) und der Österreichischen Akademie der Wissenschaften (ÖAW), konkret dem Austrian Centre for Digital Humanities and Cultural Heritage (ACDH-CH). Die APA sammelt die Textproduktion der Printmedien und stellt diese dem ACDH-CH zur Verfügung.
 
@@ -95,7 +95,7 @@ Einige der Token-Attribute im amc wären
 
 * `lemma` : hier steht die Grundform des Wortes (wie es von einem Lemmatisierungsprogramm ermitteln wurde).
 
-* `lc` : eine lower cased Version des Wortes. Die Suche in CQL ist *case sensitive*, `lc` kann verwendet werden, um case *insensitive* zu suchen, also Unterschiede in der Großkleinschreibung zu ignorieren. D.h. eine Suche`[word="Ciao"]` findet nur genau „Ciao“. Die Suche `[lc="ciao"]` findet
+* `lc` : eine lower cased Version des Wortes. Die Suche in CQL ist *case sensitive*, `lc` kann verwendet werden, um case *insensitive* zu suchen, also Unterschiede in der Großkleinschreibung zu ignorieren. D.h. eine Suche`[word="Ciao"]` findet nur genau "Ciao". Die Suche `[lc="ciao"]` findet
   ciao, Ciao, CIAO, CiAo, etc.
 
 * `posTT` : part-of-Speech tags nach dem STTS-Tagset, wie sie vom PoS tagger TreeTagger vergeben wurden.
@@ -103,7 +103,7 @@ Einige der Token-Attribute im amc wären
 * `pos` : part-of-Speech tags, wie sie vom PoS tagger RFTagger vergeben wurden: zusätzlich zur Wortart werden auch morphologische Informationen angegeben.
 
 <Embed src="/assets/content/assets/en/resources/hosted/corpus-query-language-im-austrian-media-corpus/amc3-2-concordance-lemma-noun-token-ciao-png">
-  Einfache Token-Suche nach ‚ciao‘ als Lemma.
+  Einfache Token-Suche nach 'ciao' als Lemma.
 </Embed>
 
 <Embed src="/assets/content/assets/en/resources/hosted/corpus-query-language-im-austrian-media-corpus/amc3-2-concordance-lemma-noun-ciao-viewoptions-png">
@@ -111,7 +111,7 @@ Einige der Token-Attribute im amc wären
 </Embed>
 
 <Embed src="/assets/content/assets/en/resources/hosted/corpus-query-language-im-austrian-media-corpus/amc3-2-concordance-lemma-noun-ciao-random-result-postt-annotation-png">
-  Beispiel-Suchergebnis für das Token ‚ciao‘. Es wurden die Attribute word, lemma, posTT, und pos ausgewählt. Die Information ist unter dem Token sichtbar.
+  Beispiel-Suchergebnis für das Token 'ciao'. Es wurden die Attribute word, lemma, posTT, und pos ausgewählt. Die Information ist unter dem Token sichtbar.
 </Embed>
 
 <Callout kind="tip" title="Attribute eines Korpus">
@@ -153,7 +153,7 @@ fliegen     VINF.Full.-             VVFIN  fliegen-v
 </doc>
 ```
 
-Dieses Datenformat nennt sich (in der SkE-Terminologie) „Vertikale“.
+Dieses Datenformat nennt sich (in der SkE-Terminologie) "Vertikale".
 
 Wie Sie sehen können, ist der Text tokenisiert. Jedes Token steht in einer separaten Zeile und diese Zeilen enthalten, in Spalten organisiert, die Wortform (also formal gesprochen das Token-Attribute `word`) gefolgt von den anderen Token-Attributen - in diesem Fall `pos`, `posTT` und `lempos` (eine Kombination aus Lemma und PoS).
 
@@ -173,7 +173,7 @@ Typischerweise finden sich in den Attributen des `<doc>`-Elements die Metadaten 
   <Quiz.Card>
     <Quiz.MultipleChoice variant="multiple">
       <Quiz.Question>
-        Welche der Aussagen treffen auf den Begriff „Token“ zu?
+        Welche der Aussagen treffen auf den Begriff "Token" zu?
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
@@ -259,19 +259,19 @@ Typischerweise finden sich in den Attributen des `<doc>`-Elements die Metadaten 
   </Quiz.Card>
 </Quiz>
 
-## Schnelleinstieg: Suche mit „simple search“
+## Schnelleinstieg: Suche mit "simple search"
 
 Die einfachste Form der Suche im amc ist die sogenannte **simple search**.
 
-Diese kann in der SkE innerhalb der „Concordance“-Funktion aufgerufen werden:
+Diese kann in der SkE innerhalb der "Concordance"-Funktion aufgerufen werden:
 
-* entweder durch Auswahl des Concordanece-Symbols im linken Menü und dann weiter unter dem Reiter „basic“
+* entweder durch Auswahl des Concordanece-Symbols im linken Menü und dann weiter unter dem Reiter "basic"
 
-* oder im Dashboard über den Auswahlpunkt „Concordance“. Die Funktionalität der **simple search** wird dann auch hier wieder unter dem Reiter „basic“ angezeigt.
+* oder im Dashboard über den Auswahlpunkt "Concordance". Die Funktionalität der **simple search** wird dann auch hier wieder unter dem Reiter "basic" angezeigt.
 
 Gibt man hier eine Wortform ein, so sucht die SkE
 
-* dieses Wort — und zwar case-insensitiv, d.h. ohne Berücksichtigung von Groß- und Kleinschreibung. Die Eingabe von *SMS* findet daher z.B. *SMS*, *sms*, *Sms*, etc.
+* dieses Wort -- und zwar case-insensitiv, d.h. ohne Berücksichtigung von Groß- und Kleinschreibung. Die Eingabe von *SMS* findet daher z.B. *SMS*, *sms*, *Sms*, etc.
 
 * entspricht die Sucheingabe auch einem Lemma, dann auch alle Flexionsformen dieses Lemmas. (D.h. eine Suche nach *Haus* findet daher auch alle Flexionsformen des *lemmas Haus*: das wären *Haus, Hauses*, *Hause*, *Häuser*, *Häusern*.)
 
@@ -291,15 +291,15 @@ In der simple search ist die Verwendung des Wildcards `*` (Jokerzeichen, Asteris
 
 #### Beispiele:
 
-* Haus`*`: alle Wörter, die mit der Buchstabenfolge *Haus* beginnen: *Haus*, *Hauses*, *Hausmaus*, *Haussa*, *Hausbesorgerin* … aber auch alle Wortformen von Lemmata, die mit *Haus* beginnen. Es wird also z.B. auch *Häusern* gefunden.
+* Haus`*`: alle Wörter, die mit der Buchstabenfolge *Haus* beginnen: *Haus*, *Hauses*, *Hausmaus*, *Haussa*, *Hausbesorgerin* ... aber auch alle Wortformen von Lemmata, die mit *Haus* beginnen. Es wird also z.B. auch *Häusern* gefunden.
 
-* `*`aus : alle Wörter, die mit der Buchstabenfolge *aus* enden: aus, Maus, Haus, Schildlaus, …
+* `*`aus : alle Wörter, die mit der Buchstabenfolge *aus* enden: aus, Maus, Haus, Schildlaus, ...
 
 * Ha`*`s: alle Wörter, die mit Ha beginnen, und mit *s* enden: *Has*, *Haus*, *Hass*, *Handelsabschluss*, *Hafenmeistergattinnenpendlerbus*, etc. Wegen der beiden speziellen Eigenschaften case-insensitiv und Lemma-Suche wird aber auch z.B. *haltlos* (case-insensitive) und *haltlose* gefunden (Ergebnis der impliziten Lemma-Suche, obwohl die gefundene Wortform dann gar nicht auf *s* endet!)
 
-Ein weiteres Beispiel für den case-insensitiven Charakter der simple search: *deutsch\** findet: *deutsch*, *deutsche*, *deutsches* … aber auch: *Deutschlands*, *Deutschmatura*,…
+Ein weiteres Beispiel für den case-insensitiven Charakter der simple search: *deutsch\** findet: *deutsch*, *deutsche*, *deutsches* ... aber auch: *Deutschlands*, *Deutschmatura*,...
 
-## “Vollsuche“ mit der Corpus Query Language (CQL)
+## "Vollsuche" mit der Corpus Query Language (CQL)
 
 Wie wir gesehen haben, kann in der simple search nur nach Token und dabei auch nur nach Wortformen und (implizit) Lemmata gesucht werden, oder exakter ausgedrückt: es kann nach Werten im Attribut *word* gesucht werden (wobei implizit intern zusätzlich auch noch die Attribute *lc* und *lemma* zur Suche mitherangezogen werden).
 
@@ -320,17 +320,17 @@ Im Gegensatz hierzu bietet die **CQL** weit mehr Möglichkeiten:
 Suchanfragen mit der CQL werden wieder unter **Concordance**, diesmal im Reiter **Advanced** unter Auswahl des **Query type** **CQL** eingegeben. In der Suche mit CQL wird jedes Token durch eckige Klammern bezeichnet. Innerhalb dieser Klammern werden dann die Bedingungen angegeben, welche die
 Attribute dieses Token erfüllen müssen:
 
-* `[ word="Haus" ]` Alle Einträge, bei denen das Attribut „word“ den Wert „Haus“ aufweist — also alle Token mit exakt der Buchstabenfolge „Haus“
+* `[ word="Haus" ]` Alle Einträge, bei denen das Attribut "word" den Wert "Haus" aufweist -- also alle Token mit exakt der Buchstabenfolge "Haus"
 
-* `[ lemma="Haus" ]` Alle Einträge, bei denen das Attribut „lemma“ den Wert „Haus“ aufweist — also „Haus“ „Hauses“ … „Häusern“
+* `[ lemma="Haus" ]` Alle Einträge, bei denen das Attribut "lemma" den Wert "Haus" aufweist -- also "Haus" "Hauses" ... "Häusern"
 
-* `[ posTT="NN" ]` Alle Einträge, bei denen das Attribut „posTT“ (dieses bezeichnet die PoS-Annotationen durch den TreeTagger) den Wert „NN“ aufweist — also alle Nomen
+* `[ posTT="NN" ]` Alle Einträge, bei denen das Attribut "posTT" (dieses bezeichnet die PoS-Annotationen durch den TreeTagger) den Wert "NN" aufweist -- also alle Nomen
 
 * `[]` (leere Klammern, also KEINE Bedingungen). Da hier für das Token keine weiteren Einschränkungen angegeben wurden, findet diese Suche ausnahmlos ALLE Token!
 
 Für die Suche nach Mehrwortausdrücken können die gewünschten Bedingungen für die Einzelworte einfach aneinandergereiht werden:
 
-* `[ posTT="ADJA" ]` `[ lemma="Haus" ]`: alle Token mit der Wortart (attributives) Adjektiv, gefolgt von einem Eintrag mit dem Lemma „Haus“ also z.B. schönes Haus, hohe Häuser, niedrigen Häusern, …
+* `[ posTT="ADJA" ]` `[ lemma="Haus" ]`: alle Token mit der Wortart (attributives) Adjektiv, gefolgt von einem Eintrag mit dem Lemma "Haus" also z.B. schönes Haus, hohe Häuser, niedrigen Häusern, ...
 
 <Embed src="/assets/content/assets/en/resources/hosted/corpus-query-language-im-austrian-media-corpus/amc-3-1-concord-cql-postt-adja-lemma-haus-research-result-dec22-boxes-png">
   Beispielhaftes Abfrageergebnis zur CQL-Abfrage attributives Adjektiv + Haus. Links oben sehen Sie die Suchabfrage und die Anzahl der gefundenen Ergebnisse. Mittig finden Sie die ersten Suchergebnisse. Sie sehen in rot die gefundenen Formen im Text, in grau darunter das jeweilige Lemma.
@@ -343,26 +343,26 @@ Für die Suche nach Mehrwortausdrücken können die gewünschten Bedingungen fü
 ## Reguläre Ausdrücke
 
 In der CQL können sogenannte [**reguläre Ausdrücke (regular expressions, Regex)**](https://www.sketchengine.eu/guide/regular-expressions/)
-verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche ernorm erhöht wird. Die wichtigsten „Bausteine“ bei der Zusammenstellung eines regulären Ausdrucks sind:
+verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche ernorm erhöht wird. Die wichtigsten "Bausteine" bei der Zusammenstellung eines regulären Ausdrucks sind:
 
-* „`.`“ : Ein Punkt steht als Platzhalter für jedes beliebige Zeichen, z.B. `[word="Ha.s"]` findet „Haus“ „Hass“ „Hals“ …
+* "`.`" : Ein Punkt steht als Platzhalter für jedes beliebige Zeichen, z.B. `[word="Ha.s"]` findet "Haus" "Hass" "Hals" ...
 
-* „`*`“ : steht für 0, 1 oder beliebig viele Wiederholungen des *vorhergehenden* Zeichens oder Ausdrucks. z.B. `[word="Hallo*"]` findet „Hall“ „Hallo“ „Halloo“ etc.
+* "`*`" : steht für 0, 1 oder beliebig viele Wiederholungen des *vorhergehenden* Zeichens oder Ausdrucks. z.B. `[word="Hallo*"]` findet "Hall" "Hallo" "Halloo" etc.
 
-* „`+`“ : steht für 1 oder beliebig viele Wiederholungen des vorhergehenden Zeichens oder Ausdrucks, z.B. `[word="Hallo+"]` findet „Hallo“ „Halloo“ etc. … aber *nicht* „Hall“. D.h., das Zeichen vor `*` ist *optional*, das Zeichen vor `+` hingegen ist *obligat*!
+* "`+`" : steht für 1 oder beliebig viele Wiederholungen des vorhergehenden Zeichens oder Ausdrucks, z.B. `[word="Hallo+"]` findet "Hallo" "Halloo" etc. ... aber *nicht* "Hall". D.h., das Zeichen vor `*` ist *optional*, das Zeichen vor `+` hingegen ist *obligat*!
 
-* „`?`“ : steht für 0 oder genau 1 Wiederholung des vorhergehenden Zeichens oder Ausdrucks, z.B. `[word="Hallo?"]` findet genau die beiden Formen „Hall“ und „Hallo“. D.h. das `?` steht für die Optionalität aber nicht für die Wiederholbarkeit des linken Nachbarn von `?`.
+* "`?`" : steht für 0 oder genau 1 Wiederholung des vorhergehenden Zeichens oder Ausdrucks, z.B. `[word="Hallo?"]` findet genau die beiden Formen "Hall" und "Hallo". D.h. das `?` steht für die Optionalität aber nicht für die Wiederholbarkeit des linken Nachbarn von `?`.
 
 **Kombination mit ****`.`****: Üblich ist es, ****`*`****, ****`+`****, ****`?`**** mit ****`.`**** (dem Platzhalter für jedes beliebige Zeichen) zu kombinieren.**
 
-* `[word=".?und"]` findet und, Mund, Hund, wund, rund, …
+* `[word=".?und"]` findet und, Mund, Hund, wund, rund, ...
 
-* `[word="Hunde.+"]` findet Hundehütte, Hundekuchen, Hundefriseur, aber natürlich auch Hunderttausend … (aber nicht Hunde!)
+* `[word="Hunde.+"]` findet Hundehütte, Hundekuchen, Hundefriseur, aber natürlich auch Hunderttausend ... (aber nicht Hunde!)
 
 * `[pos="N.Reg.*Pl.*"]` findet alle Nomen im Plural
 
 <Callout kind title="Unterschiedliche Bedeutung des Asterisk in simple search und CQL">
-  Beachten Sie den Unterschied zur Wirkungsweise des `*` in der simple search: dort steht ein `*` allein schon als Platzhalter für 0, 1, oder beliebig viele beliebige Zeichen. In einem regulären Ausdruck bezieht sich hingegen ein `*` immer auf den *linken Nachbarn*: die Suchanfrage `Haus*` liefert in der simple query bekanntlich alle Wörter, die mit „Haus“ beginnen, in der CQL jedoch „Hau“, „Haus“, „Hauss“, „Haussss“ etc., also „Hau“ gefolgt von 0, 1, oder beliebig vielen „s“, da sich der `*` in der CQL immer auf das vorhergehende Element – hier eben das „s“ – bezieht. Will man ein Suchverhalten wie in der simple query erreichen, muss die Abfrage in der CQL also wie folgt lauten: `[word="Haus.*"]`.
+  Beachten Sie den Unterschied zur Wirkungsweise des `*` in der simple search: dort steht ein `*` allein schon als Platzhalter für 0, 1, oder beliebig viele beliebige Zeichen. In einem regulären Ausdruck bezieht sich hingegen ein `*` immer auf den *linken Nachbarn*: die Suchanfrage `Haus*` liefert in der simple query bekanntlich alle Wörter, die mit "Haus" beginnen, in der CQL jedoch "Hau", "Haus", "Hauss", "Haussss" etc., also "Hau" gefolgt von 0, 1, oder beliebig vielen "s", da sich der `*` in der CQL immer auf das vorhergehende Element – hier eben das "s" – bezieht. Will man ein Suchverhalten wie in der simple query erreichen, muss die Abfrage in der CQL also wie folgt lauten: `[word="Haus.*"]`.
 </Callout>
 
 ### Quiz
@@ -371,7 +371,7 @@ verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche er
   <Quiz.Card>
     <Quiz.MultipleChoice variant="multiple">
       <Quiz.Question>
-        Mit welcher CQL-Abfrage könnten Sie im amc die Token „Wanze“, „ganze“, „Lanze“, „tanze“ finden?
+        Mit welcher CQL-Abfrage könnten Sie im amc die Token "Wanze", "ganze", "Lanze", "tanze" finden?
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option>
@@ -415,11 +415,11 @@ verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche er
   <Quiz.Card>
     <Quiz.MultipleChoice variant="multiple">
       <Quiz.Question>
-        Warum können mit der Suche `[word=".anze"]`die Begriffe „Schanze“, „Romanze“ oder „Pflanze“ nicht gefunden werden?
+        Warum können mit der Suche `[word=".anze"]`die Begriffe "Schanze", "Romanze" oder "Pflanze" nicht gefunden werden?
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “.“ ersetzt nur 1 Zeichen.
+        "." ersetzt nur 1 Zeichen.
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -435,7 +435,7 @@ verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche er
       </Quiz.Message>
 
       <Quiz.Message type="incorrect">
-        Wenn Sie z.B. die Begriffe „Schanze“ und „Pflanze“ suchen, müssen Sie den Ausdruck “.“ für jedes zu findende Zeichen eingeben.
+        Wenn Sie z.B. die Begriffe "Schanze" und "Pflanze" suchen, müssen Sie den Ausdruck "." für jedes zu findende Zeichen eingeben.
       </Quiz.Message>
     </Quiz.MultipleChoice>
   </Quiz.Card>
@@ -443,7 +443,7 @@ verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche er
   <Quiz.Card>
     <Quiz.MultipleChoice variant="multiple">
       <Quiz.Question>
-        Wie kann die CQL-Abfrage nach einem Token aussehen, um Ausdrücke wie „sie sind wie Katz und Maus“, „die Katze ist aus dem Sack“, oder auch Texte zu „eine Katze wartet im Tierheim“, oder auch zum „Nobelpreisträger Bernhard Katz“ zu finden?
+        Wie kann die CQL-Abfrage nach einem Token aussehen, um Ausdrücke wie "sie sind wie Katz und Maus", "die Katze ist aus dem Sack", oder auch Texte zu "eine Katze wartet im Tierheim", oder auch zum "Nobelpreisträger Bernhard Katz" zu finden?
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
@@ -459,7 +459,7 @@ verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche er
       </Quiz.Message>
 
       <Quiz.Message type="incorrect">
-        Achtung, Sie möchten wissen, in welchen Ausdrücken das Token „Katze“, „Katz“ oder sogar „Katzee“ vorkommt, aber nicht „Katzel“, „Katzen“, o.ä.
+        Achtung, Sie möchten wissen, in welchen Ausdrücken das Token "Katze", "Katz" oder sogar "Katzee" vorkommt, aber nicht "Katzel", "Katzen", o.ä.
       </Quiz.Message>
     </Quiz.MultipleChoice>
   </Quiz.Card>
@@ -467,23 +467,23 @@ verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche er
   <Quiz.Card>
     <Quiz.MultipleChoice variant="multiple">
       <Quiz.Question>
-        Warum ist es möglich mit `[word="Hunde.+"]` die Ausdrücke „Hundertschaft“ und „Hundezwinger“ zu finden?
+        Warum ist es möglich mit `[word="Hunde.+"]` die Ausdrücke "Hundertschaft" und "Hundezwinger" zu finden?
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “+“ findet immer das vorangehende Zeichen, zumindest einmal.
+        "+" findet immer das vorangehende Zeichen, zumindest einmal.
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “.+“ findet alle Ausdrücke, in denen sich ein beliebiges Zeichen beliebig oft, aber mindestens einmal wiederholt.
+        ".+" findet alle Ausdrücke, in denen sich ein beliebiges Zeichen beliebig oft, aber mindestens einmal wiederholt.
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
-        “+“ findet Wiederholungen, die zumindest so lang sind wie der vorangehene Ausdruck.
+        "+" findet Wiederholungen, die zumindest so lang sind wie der vorangehene Ausdruck.
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        “.“ findet ein beliebiges Zeichen
+        "." findet ein beliebiges Zeichen
       </Quiz.MultipleChoice.Option>
 
       <Quiz.Message type="correct">
@@ -499,7 +499,7 @@ verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche er
   <Quiz.Card>
     <Quiz.MultipleChoice variant="multiple">
       <Quiz.Question>
-        Wie kann die CQL-Abfrage lauten, um „Pflanze“, „Sprungschanze“, „Wanze“, „ganze“, „Romanze“ und „Landpomeranze“ zu finden?
+        Wie kann die CQL-Abfrage lauten, um "Pflanze", "Sprungschanze", "Wanze", "ganze", "Romanze" und "Landpomeranze" zu finden?
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
@@ -519,7 +519,7 @@ verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche er
 
 ### Wiederholungen
 
-Alternativ zu `*`, `+`, `?` kann man mit dem **ranges Operator** nicht nur festlegen, ob ein Ausdruck 0, 1, oder „öfter“ wiederholt werden soll, sondern es kann die *exakte* Mindest- und Maximalzahl an Wiederholungen spezifiziert werden.
+Alternativ zu `*`, `+`, `?` kann man mit dem **ranges Operator** nicht nur festlegen, ob ein Ausdruck 0, 1, oder "öfter" wiederholt werden soll, sondern es kann die *exakte* Mindest- und Maximalzahl an Wiederholungen spezifiziert werden.
 
 Die allgemeine Syntax für diesen Operator lautet: `{minimale Anzahl, maximale Anzahl}`
 
@@ -527,15 +527,15 @@ Damit gilt: `x{0,1}` bedeutet minimal 0 und maximal 1 Wiederholungen von `x` (un
 
 Beispiele:
 
-* `[word=".{10}"]` genau 10 Wiederholungen von “.“ – also alle Wörter oder Zahlen mit einer Länge von 10 Zeichen
+* `[word=".{10}"]` genau 10 Wiederholungen von "." – also alle Wörter oder Zahlen mit einer Länge von 10 Zeichen
 
-* `[word=".{10,}"]` mindestens 10 Wiederholungen von “.“ , keine Angabe der Maximalzahl: also alle Wörter oder Zahlen mit einer *Mindestlänge* von 10 Zeichen
+* `[word=".{10,}"]` mindestens 10 Wiederholungen von "." , keine Angabe der Maximalzahl: also alle Wörter oder Zahlen mit einer *Mindestlänge* von 10 Zeichen
 
 * `[word=".{10,15}"]` Wörter mit mindestens 10 und maximal 15 Zeichen
 
-* `[posTT="ADJ."]{2,}` Abfolge von mindestens 2 Adjektiven ( „ADJ.“ findet sowohl ADJA als auch ADJD, d.h. attributive und prädikative/adverbiale Adjektive)
+* `[posTT="ADJ."]{2,}` Abfolge von mindestens 2 Adjektiven ( "ADJ." findet sowohl ADJA als auch ADJD, d.h. attributive und prädikative/adverbiale Adjektive)
 
-* `[posTT="ADJ."] []{0,2} [lemma="Haus"]` Abfolge von einem ADJ und dem Lemma „Haus“, wobei zwischen Adjektiv und dem Nomen Haus bis zu 2 beliebige zusätzliche Token stehen können.
+* `[posTT="ADJ."] []{0,2} [lemma="Haus"]` Abfolge von einem ADJ und dem Lemma "Haus", wobei zwischen Adjektiv und dem Nomen Haus bis zu 2 beliebige zusätzliche Token stehen können.
 
 ### Logische Verknüpfungen
 
@@ -543,13 +543,13 @@ Es stehen die logischen Operatoren **& (logisches UND)** und **| (logisches ODER
 
 **A | B logisches oder** : es muss zumindest *eine* der beiden Bedingungen A oder B erfüllt sein.
 
-* `[word="Das|das"]` suche alle „Das“ oder „das“
+* `[word="Das|das"]` suche alle "Das" oder "das"
 
 * `[pos="ADJA|ADJD|ADV"]` suche alle Adjektive oder Adverben
 
 **A & B logisches und**: es muss sowohl Bedingung A als auch Bedingung B erfüllt sein.
 
-* `[word="schön" & posTT="ADV" & pos="ADV.*"]` finde „schön“, wenn sowohl der **TreeTagger (posTT)** als auch der **RFTagger (pos)** es als Adverb markiert haben.
+* `[word="schön" & posTT="ADV" & pos="ADV.*"]` finde "schön", wenn sowohl der **TreeTagger (posTT)** als auch der **RFTagger (pos)** es als Adverb markiert haben.
 
 ### Gruppierung mit `( )`
 
@@ -559,19 +559,19 @@ In regulären Ausdrücken können einzelne Komponenten mit `( )` zu Unterausdrü
 
 * `[word="(D|d)as"]` finde alle *Das* oder *das* Token
 
-* `[lc="(ur|vor){2,}"]` findet alle Wortformen (unabhängig von der Groß-Kleinschreibung) die mit zumindest 2 „ur“ oder „vor“ beginnen, z.B. *vorvorgestern* oder *Ururgroßvater* (aber auch *Vorurteil*!)
+* `[lc="(ur|vor){2,}"]` findet alle Wortformen (unabhängig von der Groß-Kleinschreibung) die mit zumindest 2 "ur" oder "vor" beginnen, z.B. *vorvorgestern* oder *Ururgroßvater* (aber auch *Vorurteil*!)
 
 * `[lc="(ha|he|hi|ho|hu){3,}"]` findet alle Wortformen (unabhängig von der Groß-Kleinschreibung) die
-  aus mindestens 3 Wiederholungen von ha, he, hi … bestehen - also *hahaha*, *hihihihihi*, etc.
+  aus mindestens 3 Wiederholungen von ha, he, hi ... bestehen - also *hahaha*, *hihihihihi*, etc.
 
 Gruppierungen können auch innerhalb anderer Gruppen platziert werden:
 
-* `([lemma="groß.*"] ([lemma="Haus"]|[lemma="Gebäude"])) | ([lemma="klein.*"] [lemma="(Hütte|Kate|Behausung)"])` sucht nach großen Häusern und Gebäuden oder kleinen Hütten und Behausungen (aber findet auch „großindustrielle Häuser“ und die „Kleinarler Hütte“)
+* `([lemma="groß.*"] ([lemma="Haus"]|[lemma="Gebäude"])) | ([lemma="klein.*"] [lemma="(Hütte|Kate|Behausung)"])` sucht nach großen Häusern und Gebäuden oder kleinen Hütten und Behausungen (aber findet auch "großindustrielle Häuser" und die "Kleinarler Hütte")
 
-* `[lc="(h(a|e|i|o|u)){3,}"]` Eine alternative Formulierung um alle Wortformen zu finden, die aus mindestens 3 Wiederholungen von ha, he, hi … bestehen
+* `[lc="(h(a|e|i|o|u)){3,}"]` Eine alternative Formulierung um alle Wortformen zu finden, die aus mindestens 3 Wiederholungen von ha, he, hi ... bestehen
 
 <Embed src="/assets/content/assets/en/resources/hosted/corpus-query-language-im-austrian-media-corpus/amc-4-1-concordance-cql-word-klima-undposttnn-png">
-  Screenshot der Suche im AMC\_4.1 des Ausdrucks „klima“ mit mindestens zwei Wiederholungen, die als Nomen im Treetagger getaggt wurden. Oben links sehen Sie den Suchausdruck, in der Mitte das Ergebnis. Alle gefundenen Begriffe sind als Nomen getaggt. Auch der Tippfehler  „klimafreundlichesMobilitätskonzept“, zusammengesetzte Nomen mit Bindestrich oder auch der Name einer Webseite mit Punkt werden gefunden.
+  Screenshot der Suche im AMC\_4.1 des Ausdrucks "klima" mit mindestens zwei Wiederholungen, die als Nomen im Treetagger getaggt wurden. Oben links sehen Sie den Suchausdruck, in der Mitte das Ergebnis. Alle gefundenen Begriffe sind als Nomen getaggt. Auch der Tippfehler  "klimafreundlichesMobilitätskonzept", zusammengesetzte Nomen mit Bindestrich oder auch der Name einer Webseite mit Punkt werden gefunden.
 </Embed>
 
 ### Zeichenklassen mit `[ ]`
@@ -584,7 +584,7 @@ Wir haben bisher den Platzhalter `.` verwendet, der für jedes beliebige Zeichen
 
 * `[lc="[ptkbdg].+"]` findet alle Wortformen, die mit einem Plosiv beginnen - und ist also äquivalent zu `[lc="(p|t|k|b|d|g).+"]`
 
-* `[lc="(h[aeiou]){3,}"]` Eine weitere alternative Formulierungsmöglichkeit um alle Wortformen zu finden, die aus mindestens 3 Wiederholungen von ha, he, hi … bestehen
+* `[lc="(h[aeiou]){3,}"]` Eine weitere alternative Formulierungsmöglichkeit um alle Wortformen zu finden, die aus mindestens 3 Wiederholungen von ha, he, hi ... bestehen
 
 Die bisherigen Beispiele lassen sich wie gezeigt auch mit der Verwendung von Gruppierung `( )` zusammen mit `|` formulieren. Die Zeichenklassendefinitionen bieten aber noch Möglichkeiten, die darüber hinausgehen:
 
@@ -600,9 +600,9 @@ Die bisherigen Beispiele lassen sich wie gezeigt auch mit der Verwendung von Gru
 
 *Negation* mit `[^ ...]` definieren:
 
-* `[^abc]` ein “^“ unmittelbar am Anfang der Zeichenklassendefinition bedeutet, dass die Zeichenklasse aus allen Zeichen *außer* den danach angeführten besteht!
+* `[^abc]` ein "^" unmittelbar am Anfang der Zeichenklassendefinition bedeutet, dass die Zeichenklasse aus allen Zeichen *außer* den danach angeführten besteht!
 
-* \[lc = `"[^ptkbdg].+"`] verwendet z.B. eine Zeichenklasse „*nicht* p,t,k,b,d,g“ ,und findet daher alle Wortformen, die *nicht* mit einem Plosiv beginnen.
+* \[lc = `"[^ptkbdg].+"`] verwendet z.B. eine Zeichenklasse "*nicht* p,t,k,b,d,g" ,und findet daher alle Wortformen, die *nicht* mit einem Plosiv beginnen.
 
 ### Quiz
 
@@ -642,19 +642,19 @@ Die bisherigen Beispiele lassen sich wie gezeigt auch mit der Verwendung von Gru
   <Quiz.Card>
     <Quiz.MultipleChoice variant="single">
       <Quiz.Question>
-        Die folgende Suche `[word="klima.{2,}" & posTT!="NN"]` liefert als Ergebnisse „klimatechnische“, „klimatisierte“, „klimabegünstigt“, „klimabedingt“, und „klimatisch“. „Klimaschutz“, „Klimagerät“, „Klimawandelleugner“ werden aber nicht gefunden. Warum?
+        Die folgende Suche `[word="klima.{2,}" & posTT!="NN"]` liefert als Ergebnisse "klimatechnische", "klimatisierte", "klimabegünstigt", "klimabedingt", und "klimatisch". "Klimaschutz", "Klimagerät", "Klimawandelleugner" werden aber nicht gefunden. Warum?
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option>
-        Die Worte „Klimaschutz“, „Klimagerät“, „Klimawandelleugner“ überschreiten die Maximalanzahl an Wiederholungen nach dem Ausdruck „klima.“
+        Die Worte "Klimaschutz", "Klimagerät", "Klimawandelleugner" überschreiten die Maximalanzahl an Wiederholungen nach dem Ausdruck "klima."
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        Aufgrund des logischen UND müssen zwei Kriterien erfüllt sein:  der Ausdruck „klima.“ muss vorkommen, UND es darf durch TreeTagger nicht als Nomen markiert worden sein.
+        Aufgrund des logischen UND müssen zwei Kriterien erfüllt sein:  der Ausdruck "klima." muss vorkommen, UND es darf durch TreeTagger nicht als Nomen markiert worden sein.
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
-        Aufgrund des logischen ODER können nur Treffer gefunden werden, die entweder das Wort „klima“ beinhalten ODER aber Nomen sind. Bei zwei ausschließenden Kriterien wird immer nur das erste Kriterium unbedingt erfüllt.
+        Aufgrund des logischen ODER können nur Treffer gefunden werden, die entweder das Wort "klima" beinhalten ODER aber Nomen sind. Bei zwei ausschließenden Kriterien wird immer nur das erste Kriterium unbedingt erfüllt.
       </Quiz.MultipleChoice.Option>
 
       <Quiz.Message type="correct">
@@ -670,7 +670,7 @@ Die bisherigen Beispiele lassen sich wie gezeigt auch mit der Verwendung von Gru
   <Quiz.Card>
     <Quiz.MultipleChoice variant="multiple">
       <Quiz.Question>
-        Mit `[]` wird eine Auswahl an Zeichen definiert, sodass ein Suchergebnis oft der Verwendung von | gleich ist (zB `[word="h(o|a)se"]` und `[word="h[oa]se"]` liefern dasselbe Ergebnis). Warum muss eine gemeinsame Suche nach „Schlund“ oder „Wund“ dennoch `[word="(schl|w)und"]` lauten?
+        Mit `[]` wird eine Auswahl an Zeichen definiert, sodass ein Suchergebnis oft der Verwendung von | gleich ist (zB `[word="h(o|a)se"]` und `[word="h[oa]se"]` liefern dasselbe Ergebnis). Warum muss eine gemeinsame Suche nach "Schlund" oder "Wund" dennoch `[word="(schl|w)und"]` lauten?
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
@@ -686,13 +686,13 @@ Die bisherigen Beispiele lassen sich wie gezeigt auch mit der Verwendung von Gru
 
 ## Regex auch auf Token-Ebene
 
-Die Operatoren für reguläre Ausdrücke können nicht nur auf den Inhalt von Token-Attributen — also auf der Buchstabenebene — angewendet werden, sondern auch auf ganze Token oder Abfolgen von Token:
+Die Operatoren für reguläre Ausdrücke können nicht nur auf den Inhalt von Token-Attributen -- also auf der Buchstabenebene -- angewendet werden, sondern auch auf ganze Token oder Abfolgen von Token:
 
-* `[word="ein"] [pos="ADJ.*"]* [word="Haus"]` findet „ein“ und „Haus“ mit *beliebig vielen optionalen* Adjektiven dazwischen: *ein Haus*, *ein schönes Haus*, *ein schönes großes Haus*, …
+* `[word="ein"] [pos="ADJ.*"]* [word="Haus"]` findet "ein" und "Haus" mit *beliebig vielen optionalen* Adjektiven dazwischen: *ein Haus*, *ein schönes Haus*, *ein schönes großes Haus*, ...
 
-* `[lemma="schön"] []{0,4} [word="Haus"]` findet „schön“ gefolgt von Haus – in einem Abstand von maximal 4 Token. (Zur Erinnerung: das leere `[]` passt auf *jedes beliebige* Token.)
+* `[lemma="schön"] []{0,4} [word="Haus"]` findet "schön" gefolgt von Haus – in einem Abstand von maximal 4 Token. (Zur Erinnerung: das leere `[]` passt auf *jedes beliebige* Token.)
 
-* `([lemma="schön"]|[lemma="groß"]) [lemma="Haus"]` findet „schön“ *oder* „groß“ + „Haus“. (und ist äquivalent zur Anfrage `[lemma="schön|groß"] [lemma="Haus"]`)
+* `([lemma="schön"]|[lemma="groß"]) [lemma="Haus"]` findet "schön" *oder* "groß" + "Haus". (und ist äquivalent zur Anfrage `[lemma="schön|groß"] [lemma="Haus"]`)
 
 ### Gleichzeitiges Suchen im linken und rechten Kontext: meet und union
 
@@ -700,9 +700,9 @@ Bisher konnten wir nur entweder im linken ***oder*** im rechten Kontext suchen. 
 
 * `(meet [TokenA] [TokenB] -linker_context rechter_context)`
 
-sucht nach `[TokenA]` in deren linker *oder* rechter Nachbarschaft ein `[TokenB]` zu finden ist. Was als „Nachbarschaft“ gilt, wird dabei über die Zahlen in **-linker\_context** und **rechter\_context** bestimmt.
+sucht nach `[TokenA]` in deren linker *oder* rechter Nachbarschaft ein `[TokenB]` zu finden ist. Was als "Nachbarschaft" gilt, wird dabei über die Zahlen in **-linker\_context** und **rechter\_context** bestimmt.
 
-z.B.: Suche nach dem Lemma „Hund“ in dessen linker oder rechter Umgebung im maximalen Abstand von 5 Token die Lemmas „beißen“ oder „bissig“ stehen.
+z.B.: Suche nach dem Lemma "Hund" in dessen linker oder rechter Umgebung im maximalen Abstand von 5 Token die Lemmas "beißen" oder "bissig" stehen.
 
 * `(meet [lemma="Hund"] [lemma="(beißen|bissig)"] -5 5)`
 
@@ -779,15 +779,15 @@ z.B.: Suche nach dem Lemma „Hund“ in dessen linker oder rechter Umgebung im 
 Sowohl bei der **simple search** als auch bei den bisherigen Beispielen zur **CQL** blieben Informationen auf der **Strukturebene** (Dokumente, Absätze, Sätze) unberücksichtigt. Hier wird nun gezeigt, wie *auf* und *mit* **Strukturinformationen** gesucht werden kann. Wie oben gezeigt, werden
 Struktur-Informationen in den Input-Daten für die SkE mithilfe von XML-Elementen kodiert. In HTML und XML gelten die folgenden Notationskonventionen:
 
-* `<S>` Beginn-tag einer Struktur namens „S“
+* `<S>` Beginn-tag einer Struktur namens "S"
 
-* `</S>` End-tag einer Struktur namens „S“
+* `</S>` End-tag einer Struktur namens "S"
 
-* `<S/>` Die gesamte Stuktur „S“ von Beginn bis Ende.
+* `<S/>` Die gesamte Stuktur "S" von Beginn bis Ende.
 
 Mit dieser Kodierungskonvention arbeiten wir auch in der Suchabfragesprache CQL.
 
-In amc steht die Struktur „doc“ (Dokument) für einen Zeitungsartikel, d.h.
+In amc steht die Struktur "doc" (Dokument) für einen Zeitungsartikel, d.h.
 
 * `<doc />` Findet alle (Zeitungs)Artikel
 
@@ -799,9 +799,9 @@ In amc steht die Struktur „doc“ (Dokument) für einen Zeitungsartikel, d.h.
 
 Strukturen können bekanntlich ihre eigenen Attribute aufweisen, und nach diesen kann wie folgt gesucht werden:
 
-* `<doc id="xyz"/>` Artikel mit der id „xyz“
+* `<doc id="xyz"/>` Artikel mit der id "xyz"
 
-* `<doc docsrc="STANDARD" & year="2017"/>` Artikel aus der Zeitung „Der Standard“ aus dem Jahr 2017 (beachten Sie, dass ein **logisches &** verwendet werden muss: Sie suchen nach Artikeln die zwei Bedingungen erfüllen müssen: sie müssen aus dem „STANDARD“ stammen UND das Veröffentlichungsjahr
+* `<doc docsrc="STANDARD" & year="2017"/>` Artikel aus der Zeitung "Der Standard" aus dem Jahr 2017 (beachten Sie, dass ein **logisches &** verwendet werden muss: Sie suchen nach Artikeln die zwei Bedingungen erfüllen müssen: sie müssen aus dem "STANDARD" stammen UND das Veröffentlichungsjahr
   2017 haben)
 
 Für die Spezifikation der Werte der Strukturattribute können reguläre Ausdrücke genauso verwendet werden, wie es oben bereits für den Inhalt von Token-Attributen demonstriert wurde:
@@ -818,15 +818,15 @@ Für die Spezifikation der Werte der Strukturattribute können reguläre Ausdrü
 
 Mit **containing** und **within** können Bedingungen auf Strukturen und auf Token miteinander kombiniert werden:
 
-**containing**: wird verwendet um Einschränkungen auf *Strukturen* auszudrücken: es wird nach Strukturen gesucht, die bestimmte „Dinge“ enthalten. z.B. alle Sätze, die das Wort „Haus“ beinhalten:
+**containing**: wird verwendet um Einschränkungen auf *Strukturen* auszudrücken: es wird nach Strukturen gesucht, die bestimmte "Dinge" enthalten. z.B. alle Sätze, die das Wort "Haus" beinhalten:
 
 * `<s/> containing [word="Haus"]`
 
-**within**: wird verwendet um Einschränkungen auf *Token* auszudrücken: es wird nach Token gesucht, die sich in bestimmten Strukturen befinden. z.B. alle Fundstellen für „Haus“, aber nur, wenn sie in einem Artikel des „STANDARD“ stehen, der 2010 oder später erschienen ist.
+**within**: wird verwendet um Einschränkungen auf *Token* auszudrücken: es wird nach Token gesucht, die sich in bestimmten Strukturen befinden. z.B. alle Fundstellen für "Haus", aber nur, wenn sie in einem Artikel des "STANDARD" stehen, der 2010 oder später erschienen ist.
 
 * `[word="Haus"] within <doc docsrc="STANDARD" & year>="2010"/>`
 
-* Auch die Verwendung von Negation (`not`) ist im Zusammenhang von `within` und `containing` möglich: z.B. suche nach „Ball“ — aber *nicht* im Sportressort (das wäre ein Versuch, eher Beispiele mit der Bedeutung Tanzball zu finden)
+* Auch die Verwendung von Negation (`not`) ist im Zusammenhang von `within` und `containing` möglich: z.B. suche nach "Ball" -- aber *nicht* im Sportressort (das wäre ein Versuch, eher Beispiele mit der Bedeutung Tanzball zu finden)
 
 * `[word="Ball"] not within <doc ressort2="sport"/>`
 
@@ -843,14 +843,14 @@ in denen typische Tanzballbegriffe vorkommen:
 
 * `[lemma="Ball"] within ( <doc ressort2 != "sport"/> containing [lemma="(Walzer|Polonaise|Champagner|Mitternachtseinlage)"] )`
 
-Also: suche nach „Ball“ innerhalb von Artikeln, die nicht aus dem Sportressort stammen, und in denen auch Walzer, Polonaise, Champagner oder Mitternachtseinlage vorkommen. Damit schränkt sich die Trefferanzahl für „Ball“ im amc von ca. 800.000 auf „nur noch“ ca. 50.000 ein. (Aber freilich gibt es darunter immer noch Artikel über Fußball, die *nicht* korrekt mit Sportressort markiert wurden und in denen Siege mit Champagner gefeiert werden, oder Spieler mit dem Eigennamen „Walzer“ vorkommen)
+Also: suche nach "Ball" innerhalb von Artikeln, die nicht aus dem Sportressort stammen, und in denen auch Walzer, Polonaise, Champagner oder Mitternachtseinlage vorkommen. Damit schränkt sich die Trefferanzahl für "Ball" im amc von ca. 800.000 auf "nur noch" ca. 50.000 ein. (Aber freilich gibt es darunter immer noch Artikel über Fußball, die *nicht* korrekt mit Sportressort markiert wurden und in denen Siege mit Champagner gefeiert werden, oder Spieler mit dem Eigennamen "Walzer" vorkommen)
 
 <Embed src="/assets/content/assets/en/resources/hosted/corpus-query-language-im-austrian-media-corpus/amc-4-2-lemmaballnotinsports-png">
-  Die oben genannte Suche liefert im AMC 4.2. Ergebnisse, die sich auf „Bälle“ im Sinne von „Tanzveranstaltungen“ beziehen. Die mit containing gesuchten Lemma müssen nicht in direkter Nachbarschaft des Suchbegriffs „Ball“ vorkommen, sehr wohl aber in den Artikeln, aus denen die Suchergebnisse stammen.
+  Die oben genannte Suche liefert im AMC 4.2. Ergebnisse, die sich auf "Bälle" im Sinne von "Tanzveranstaltungen" beziehen. Die mit containing gesuchten Lemma müssen nicht in direkter Nachbarschaft des Suchbegriffs "Ball" vorkommen, sehr wohl aber in den Artikeln, aus denen die Suchergebnisse stammen.
 </Embed>
 
 <Callout kind="tip">
-  Für solche kombinierten Filterungen sind in der NoSkE sogenannte Subkorpora oft hilfreich: Suchergebnisse lassen sich so einfach abspeichern, und nachfolgende Suchanfragen können dann in der Folge nur noch auf das eben erstelle Subkorpus angewandt und damit stufenweise verfeinert werden. So könnte z.B. das Ergebnis der obigen Abfrage als „tanzball01“-Subkorpus gespeichert werden. In weiteren Abfragen könnte man z.B. jene Artikel aus diesem Subkorpus ausschließen, in denen sportspezifische Wörter wie „Tor“, „Elfmeter“, „Torhüter“, „Stürmer“ etc. vorkommen und das Ergebnis in einem neuen, verfeinertes Subkorpus „tanzball02“ speichern.
+  Für solche kombinierten Filterungen sind in der NoSkE sogenannte Subkorpora oft hilfreich: Suchergebnisse lassen sich so einfach abspeichern, und nachfolgende Suchanfragen können dann in der Folge nur noch auf das eben erstelle Subkorpus angewandt und damit stufenweise verfeinert werden. So könnte z.B. das Ergebnis der obigen Abfrage als "tanzball01"-Subkorpus gespeichert werden. In weiteren Abfragen könnte man z.B. jene Artikel aus diesem Subkorpus ausschließen, in denen sportspezifische Wörter wie "Tor", "Elfmeter", "Torhüter", "Stürmer" etc. vorkommen und das Ergebnis in einem neuen, verfeinertes Subkorpus "tanzball02" speichern.
 </Callout>
 
 ## Tipps & Tricks
@@ -863,7 +863,7 @@ Also: suche nach „Ball“ innerhalb von Artikeln, die nicht aus dem Sportresso
 
 In der ADVANCED Suchmaske befindet sich unter dem Feld CQL ein Auswahlfeld für ein **Default attribute**, das mit dem Wert **lemma** vorausgefüllt ist. Bei Abfragen auf dieses Attribut ist **lemma** quasi der Default des Default. Es gilt also:
 
-* statt `[ lemma="Paradeiser" ]` kann (bei einem *default attribute* „lemma“) vereinfacht `"Paradeiser"` geschrieben werden (die doppelten Anführungszeichen bleiben aber weiterhin verpflichtend!)
+* statt `[ lemma="Paradeiser" ]` kann (bei einem *default attribute* "lemma") vereinfacht `"Paradeiser"` geschrieben werden (die doppelten Anführungszeichen bleiben aber weiterhin verpflichtend!)
 
 <Callout kind>
   Bei einfachen Abfragen ist das **Default attribute** eine willkommene Schreiberleichterung. Bei **komplexeren Suchen**, bei denen auf **mehr als nur ein Attribut** getestet werden soll, muss dann aber wieder auf die Langform zurückgegriffen werden.
@@ -881,7 +881,7 @@ passiert durch Voranstellen eines `\ (backslash)`.
 
 Das heißt
 
-* `[word="etc."]` hier steht `.` für jedes beliebige Zeichen (Anmerkung: die Suche nach „etc.“ wird genauso noch die Abkürzung „etc.“ finden, denn *regular expression*-Punkt „matcht“ auch mit dem dem „buchstäblichen“ Punkt wie eben jedes andere beliebige Zeichen)
+* `[word="etc."]` hier steht `.` für jedes beliebige Zeichen (Anmerkung: die Suche nach "etc." wird genauso noch die Abkürzung "etc." finden, denn *regular expression*-Punkt "matcht" auch mit dem dem "buchstäblichen" Punkt wie eben jedes andere beliebige Zeichen)
 
 * `[word="etc\."]` hier steht `.` tatsächlich für einen Punkt `(.)`
 
@@ -936,7 +936,7 @@ werden:
 
 ### Übersicht über die vorhandenen Attribute
 
-Um sich einen Überblick über den Namen und den Inhalt der vorhandenen Attribute zu machen ist die **CORPUS INFO** sehr hilfreich. Zu dieser gelangt man alternativ über die gleichnamige Schaltfläche im Dashboard oder — meist bequemer — über das Informations-Ikon neben dem Korpusnamen, der in der
+Um sich einen Überblick über den Namen und den Inhalt der vorhandenen Attribute zu machen ist die **CORPUS INFO** sehr hilfreich. Zu dieser gelangt man alternativ über die gleichnamige Schaltfläche im Dashboard oder -- meist bequemer -- über das Informations-Ikon neben dem Korpusnamen, der in der
 NoSkE am oberen Rand jeder einzelnen Seite eingeblendet wird. In der CORPUS INFO werden nicht nur statistische Daten über das Korpus angezeigt, sondern auch die Namen aller verfügbaren Token-Attribute, Strukturen und Struktur-Attribute.
 
 Informationen zu den Strukuren finden sich dabei unter dem Titel **TEXT TYPES**. Informationen zu den jeweiligen Struktur-Attributen werden durch einfaches Klicken auf einen konkreten Strukturnamen ausgeklappt.
@@ -950,14 +950,14 @@ Informationen zu den Strukuren finden sich dabei unter dem Titel **TEXT TYPES**.
 Nach einer erfolgten Suche kann über Auswahl der **View options** (dem Auge-Symbol in der Werkzeugleiste) die Anzeige angepasst werden. Hilfreich ist, dass hier die Anzeige einzelner Attribute oder Strukturen ein- oder ausgeblendet werden kann. In **View Options** kann auch angegeben werden, ob die ausgewählten Attribute nur für den eigentlichen *Treffer* (meist die beste Wahl) oder für *alle* Wörter der KWIC-Liste angezeigt werden sollen. Weiters besteht die Option, die ausgewählten Attribute as *tooltips*, d.h. nur bei *mouse over* anzuzeigen.
 
 <Embed src="/assets/content/assets/en/resources/hosted/corpus-query-language-im-austrian-media-corpus/amc4-1-concordance-viewoptions-schuetzen-klima-kwic-png">
-  Für View Options muss das Auge-Symbol ausgewählt werden. Die Funktionsmaske „View options“ zeigt hier die Auswahl „lemma“ und „posTI“. Darunter sieht man die entsprechende KWIC-Ansicht eines Suchergebnisses.
+  Für View Options muss das Auge-Symbol ausgewählt werden. Die Funktionsmaske "View options" zeigt hier die Auswahl "lemma" und "posTI". Darunter sieht man die entsprechende KWIC-Ansicht eines Suchergebnisses.
 </Embed>
 
 ### Frequency
 
 Suchergebnisse können mit der Option *Frequency* aus der Werkzeugleiste übersichtlicher zusammengefasst werden. Das ist oft hilfreich, um die Korrektheit einer Suchanfrage zu überprüfen. Bei der Analyse größerer Treffermengen kann es auch hilfreich sein, Frequenzlisten des *linken* oder
-*rechten* *Nachbarn* des Suchworts erstellen zu lassen (Auswahl von *1L* bzw. *1R*). So lassen sich sehr oft „auffällige“ Muster gut isolieren. Zum Beispiel liefert eine Suchanfrage nach der informellen Grußform „baba“ (`[lc="baba"]`) ca. 10.000 Treffer. Erstellt man eine Frequenzliste der
-linken Nachbarn von „baba“, so sticht an erster Stelle das Wort „Ali“ mit ca. 1.800 Ergebnissen hervor, weil eben „Ali Baba“ eine hochfrequente Wortfolge ist, die so einfach aus dem Gesamtzählergebnis exkludiert werden, oder bei der Verfeinerung der Suchanfrage berücksichtigt werden kann.
+*rechten* *Nachbarn* des Suchworts erstellen zu lassen (Auswahl von *1L* bzw. *1R*). So lassen sich sehr oft "auffällige" Muster gut isolieren. Zum Beispiel liefert eine Suchanfrage nach der informellen Grußform "baba" (`[lc="baba"]`) ca. 10.000 Treffer. Erstellt man eine Frequenzliste der
+linken Nachbarn von "baba", so sticht an erster Stelle das Wort "Ali" mit ca. 1.800 Ergebnissen hervor, weil eben "Ali Baba" eine hochfrequente Wortfolge ist, die so einfach aus dem Gesamtzählergebnis exkludiert werden, oder bei der Verfeinerung der Suchanfrage berücksichtigt werden kann.
 
 <Callout kind>
   Die *Frequency* Auswertung ist natürlich auch *das* essentielle Werkzeug für alle quantitativen Untersuchungen. Typischerweise werden damit die Ergebnisse einer CQL-Abfrage nach Metadaten-Faktoren wie `doc.region` (Region) oder `doc.year` (Erscheinungsjahr) ausgezählt. Die Ergebnisse können dann in unterschiedlichen Dateiformaten (`txt xls xml csv`) heruntergeladen und für die Weiterverarbeitung am lokalen Rechner gespeichert werden.
@@ -967,9 +967,9 @@ linken Nachbarn von „baba“, so sticht an erster Stelle das Wort „Ali“ mi
 
 Wir haben gesehen, dass in der CQL oft Strukturelemente einbezogen werden, um die Suche nach bestimmten Kriterien in den Metadaten einzuschränken.
 
-z.B. `[word="Haus"] within <s docsrc="STANDARD|PRESSE" year>="2010"/>` („Haus“ in STANDARD- oder PRESSE-Artikeln, die 2010 oder später erschienen sind.)
+z.B. `[word="Haus"] within <s docsrc="STANDARD|PRESSE" year>="2010"/>` ("Haus" in STANDARD- oder PRESSE-Artikeln, die 2010 oder später erschienen sind.)
 
-Alternativ können einfache Einschränkungen auf Basis der Metadaten auch im SkE *user-interface* vorgenommen werden. Dazu dient in der Suchmaske der Unterpunkt „Text Types“, wo die Suche auf `<doc>` mit spezifischen Attributwerten eingeschränkt werden kann.
+Alternativ können einfache Einschränkungen auf Basis der Metadaten auch im SkE *user-interface* vorgenommen werden. Dazu dient in der Suchmaske der Unterpunkt "Text Types", wo die Suche auf `<doc>` mit spezifischen Attributwerten eingeschränkt werden kann.
 
 Abgesehen davon, ist die dortige Auflistung der Attribute und ihrer möglichen Werte auch bei der Formulierung von CQL-Anfragen durchaus hilfreich, wenn man gerade nicht weiß, wie die Attributnamen genau lauten und welche Werte sie annehmen können.
 
@@ -1016,10 +1016,10 @@ Diese Ressource wurde ursprünglich am 27. April 2023 vom ACDH-CH veröffentlich
 De-facto wurden alle für das amc verwendeten PoS-Tagger auf dem [TIGER Korpus](https://www.ims.uni-stuttgart.de/forschung/ressourcen/korpora/tiger/) trainiert. Ausführliche Dokumentationen der Annotations-Konventionen für das TIGER Korpus finden sich hier:
 [https://www.ims.uni-stuttgart.de/documents/ressourcen/korpora/tiger-corpus/annotation](https://www.ims.uni-stuttgart.de/documents/ressourcen/korpora/tiger-corpus/annotation)
 
-Insbesondere relevant für das amc sind: [„A Brief Introduction to the TIGER Treebank“ ](https://www.ims.uni-stuttgart.de/documents/ressourcen/korpora/tiger-corpus/annotation/tiger_introduction.pdf)
+Insbesondere relevant für das amc sind: ["A Brief Introduction to the TIGER Treebank" ](https://www.ims.uni-stuttgart.de/documents/ressourcen/korpora/tiger-corpus/annotation/tiger_introduction.pdf)
 
 <Callout kind title="Adaptionen">
   Die minimalen Adaptionen des STTS Tagsets finden sich im Appendix Appendix A2 A.2 Deviation from STTS in the TIGER Treebank
 </Callout>
 
-„TIGER Morphologie-Annotationsschema“: Beschreibung der kombinierten PoS plus Morphoplogie-tags in `pos`: [https://www.ims.uni-stuttgart.de/documents/ressourcen/korpora/tiger-corpus/annotation/tiger\_scheme-morph.pdf](https://www.ims.uni-stuttgart.de/documents/ressourcen/korpora/tiger-corpus/annotation/tiger_scheme-morph.pdf)
+"TIGER Morphologie-Annotationsschema": Beschreibung der kombinierten PoS plus Morphoplogie-tags in `pos`: [https://www.ims.uni-stuttgart.de/documents/ressourcen/korpora/tiger-corpus/annotation/tiger\_scheme-morph.pdf](https://www.ims.uni-stuttgart.de/documents/ressourcen/korpora/tiger-corpus/annotation/tiger_scheme-morph.pdf)

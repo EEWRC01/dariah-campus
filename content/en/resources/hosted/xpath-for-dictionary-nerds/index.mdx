@@ -43,13 +43,13 @@ In this tutorial, you will learn how to write XPath expressions in order to navi
 
 ### Prerequisites
 
-To take this course, you should have a sound understanding of XML, its node types and relationships. This is not one of those nice-to-have requirements, but an abolute must. XPATH will make very little sense unless you’re well-versed in the basics of XML terminology.
+To take this course, you should have a sound understanding of XML, its node types and relationships. This is not one of those nice-to-have requirements, but an abolute must. XPATH will make very little sense unless you're well-versed in the basics of XML terminology.
 
-If you’re new to XML, make sure you review the basics by (re)visiting the ELEXIS course [Capturing, Modeling and Transforming Lexical Data: An Introduction](/id/3yV0rXgfTgBFa3jXHm1HX) and, in partiuclar, sections on [XML building blocks and basic rules](/id/3yV0rXgfTgBFa3jXHm1HX#xml-building-blocks-and-basic-rules)
+If you're new to XML, make sure you review the basics by (re)visiting the ELEXIS course [Capturing, Modeling and Transforming Lexical Data: An Introduction](/id/3yV0rXgfTgBFa3jXHm1HX) and, in partiuclar, sections on [XML building blocks and basic rules](/id/3yV0rXgfTgBFa3jXHm1HX#xml-building-blocks-and-basic-rules)
 
 ### Another language? Why, oh why?
 
-You may wonder why you need to learn yet another language to query your dictionary data. XML is, after all, a text format. You can open an XML-encoded dictionary in any text editor and search for strings in it using your editor’s basic search functions.
+You may wonder why you need to learn yet another language to query your dictionary data. XML is, after all, a text format. You can open an XML-encoded dictionary in any text editor and search for strings in it using your editor's basic search functions.
 
 The trouble with plain-text searches on XML data is that they are not *context-aware*. In a plain-text search, all strings are considered equal and the edtior will return all the hits containing the search string, regardless of its position in the dictionary hierarchy.
 
@@ -63,7 +63,7 @@ Say you have a large, XML-encoded dictionary and you are interested in:
 
 in all of the above cases, succinct XPath expressions will help you get to the specific data that fits your search criteria in a way that plain-text search could never do.
 
-In addition to being useful for studying dictionaries and extracting data from them, XPath is essential to know if you’re planning to use XSLT - a language for *transforming* XML documents. XSLT is applied to XML documents when we want to change them from one format to another (for instance, XML to HTML) or when we want to change something across dictionary (for instance, changing all `entry` elements to `entryFree` etc.)
+In addition to being useful for studying dictionaries and extracting data from them, XPath is essential to know if you're planning to use XSLT - a language for *transforming* XML documents. XSLT is applied to XML documents when we want to change them from one format to another (for instance, XML to HTML) or when we want to change something across dictionary (for instance, changing all `entry` elements to `entryFree` etc.)
 
 ### What do I need to work with XPath?
 
@@ -74,7 +74,7 @@ In order to work with XPath, you will need:
 
 XPath expressions are applied to XML data. So in order to query your dictionaries and get interesting results out of them, you have to have them encoded in XML. And you have to use an editor that lets you work with XPath.
 
-XPath can’t magically produce results that are not based on the actual structure and actual content of your dictionary. The usefulness of XPath searches is directly proportionate to the granularity at which you encoded your dictionary data: the more markup you have, the more interesting your searches can get.
+XPath can't magically produce results that are not based on the actual structure and actual content of your dictionary. The usefulness of XPath searches is directly proportionate to the granularity at which you encoded your dictionary data: the more markup you have, the more interesting your searches can get.
 
 To help you complete this tutorial, we have prepared a file which contains all the dictionary examples from the TEI Dictionary Chapter plus some.
 
@@ -87,11 +87,11 @@ Before proceeding, make sure to:
 
 ## XPath in oXygen
 
-Before learning the basics of XPath, let’s make sure we know how to use oXygen for making XPath queries.
+Before learning the basics of XPath, let's make sure we know how to use oXygen for making XPath queries.
 
 ### XPath Input Field
 
-Open the dictionaries file you’ve just created in oXygen and look for the XPath input field in the upper left corner of the window.
+Open the dictionaries file you've just created in oXygen and look for the XPath input field in the upper left corner of the window.
 
 ![](images/oxygen-input-01.png)
 
@@ -108,7 +108,7 @@ You should be seeing something like this:
 
 If you need to write complex XPath expression, the XPath input field will probably be too small. Not seeing the beginning or the end of the XPath expression can be a pain.
 
-oXygen also offers an XPath/XQuery Builder — a separate window pane where you can write longer expressions.
+oXygen also offers an XPath/XQuery Builder -- a separate window pane where you can write longer expressions.
 
 #### Launching the XPath Builder
 
@@ -116,7 +116,7 @@ To launch the XPath Builder:
 
 1. go to the main menu and select Window > Show View > XPath/XQuery Builder; or
 2. click the Switch to XPath Builder view button which looks like this `//★` and is positioned in the right-hand corner of the XPath input, or
-3. in the newer versions of oXygen, click on the icon next to the XPath input field and select the “Switch to XPath Builder View” from the dropdown menu, like this:
+3. in the newer versions of oXygen, click on the icon next to the XPath input field and select the "Switch to XPath Builder View" from the dropdown menu, like this:
 
 ![](images/oxygen-builder-01.png)
 
@@ -124,7 +124,7 @@ Once you launch the XPath Builder View, you should be seeing something like this
 
 ![](images/oxygen-builder-02.png)
 
-If your screen doesn’t look exactly like this, feel free to close some of the smaller window panes, since you won’t be needing them. You should probably leave the Outline pane (on the left-hand side as shown above) so that you can easily study the structure of your XML document.
+If your screen doesn't look exactly like this, feel free to close some of the smaller window panes, since you won't be needing them. You should probably leave the Outline pane (on the left-hand side as shown above) so that you can easily study the structure of your XML document.
 
 ![](images/oxygen-builder-03.png)
 
@@ -134,7 +134,7 @@ To apply an XPath query from the XPath/XQuery Builder, it is not enough to press
 
 To execute an XPath from the XPath/XQuery Builder, you have two options:
 
-1. Click on the small red “play” icon inside the Builder area; or
+1. Click on the small red "play" icon inside the Builder area; or
 2. Press `⌘-return` (Mac) or `ctrl-return` (Windows).
 
 ## XPath Expressions
@@ -151,13 +151,13 @@ You will get to know all of these as we go through various examples.
 
 ### Examples
 
-In the following examples, we’ll be working with the file you downloaded earlier on. Before we start inspect the file so that you become familiar with its structure.
+In the following examples, we'll be working with the file you downloaded earlier on. Before we start inspect the file so that you become familiar with its structure.
 
 #### Selecting nodes
 
 | Expression | Description                                                                                           |
 | ---------- | ----------------------------------------------------------------------------------------------------- |
-| *nodename* | Selects all nodes with the name “*nodename*”                                                          |
+| *nodename* | Selects all nodes with the name "*nodename*"                                                          |
 | `/`        | Selects from the document node                                                                        |
 | `//`       | Selects nodes in the document from the current node that match the selection no matter where they are |
 | `.`        | Selects the current node                                                                              |
@@ -212,17 +212,17 @@ Predicates are always written in *square brackets*.
 | `//cit[@type='translation']`            | all cit nodes of type translation    |
 | `//form[orth="competitor"]`             | all forms whose orth = competitor    |
 
-Now, as you can see, it’s easy to select a node such as `form` whose child (`orth`) is of a particular value. But what if you want to select the entire `entry` whose orthographic form is of a particular value? Let’s take this in three steps:
+Now, as you can see, it's easy to select a node such as `form` whose child (`orth`) is of a particular value. But what if you want to select the entire `entry` whose orthographic form is of a particular value? Let's take this in three steps:
 
 | Expression                      | Selects                             |
 | ------------------------------- | ----------------------------------- |
 | `//entry`                       | all entries                         |
 | `//entry[.//orth]`              | all entries that contain orth       |
-| `//entry[.//orth="competitor"]` | all entries whose orth=“competitor” |
+| `//entry[.//orth="competitor"]` | all entries whose orth="competitor" |
 
 As you noticed in `//form[orth="competitor"]`, the first node that you put in the square brackets is always the child of the node before the square brackets. `//entry[orth="competitor"]` would return no results from our document because there is no `entry` that has `orth` as its child: `orth` is the child of `form` and `form` is the child of `entry`, which makes `orth` the descendant of `entry`.
 
-That’s why we had to do something else: in `//entry[.//orth="competitor"]`, the dot inside the square brackets represent the “current node”, i.e. the child of entry, without specifically naming it. It is followed by double slashes to indicate that we are looking for orth *anywhere* down the tree starting from the current node.
+That's why we had to do something else: in `//entry[.//orth="competitor"]`, the dot inside the square brackets represent the "current node", i.e. the child of entry, without specifically naming it. It is followed by double slashes to indicate that we are looking for orth *anywhere* down the tree starting from the current node.
 
 Of course, since orth is the child of form, we could have also written `//entry[form/orth="competitor"]` and the result would have been the same.
 
@@ -278,7 +278,7 @@ XPath offers numerous ways of selecting axes, i.e. node sets that are in relatio
 | preceding-sibling  | Selects all siblings before the current node                                                                                 |
 | self               | Selects the current node                                                                                                     |
 
-So, what does mean in practice? Let’s see one example in three individual steps:
+So, what does mean in practice? Let's see one example in three individual steps:
 
 | Expression                          | Selects                               |
 | ----------------------------------- | ------------------------------------- |
@@ -303,6 +303,6 @@ As we learned above, `*` selects any element node, and if you look for `//orth/f
 **Exercise**
 
 1. Select all elements that are immediate siblings of orth other than pron and hyph
-2. We haven’t specifically covered this, but let’s see if we can figure out the following expression: `//entry[count(sense)>1]`
+2. We haven't specifically covered this, but let's see if we can figure out the following expression: `//entry[count(sense)>1]`
 3. What is the difference between `//entry[count(sense)>1]` and `//entry[count(.//sense)>1]`?
 4. What is the difference between `//entry[count(child::sense)>1]` and `//entry[count(descendant::sense)>1]`?

@@ -48,7 +48,7 @@ Controlled vocabularies are knowledge organization systems that contain (optiona
 
 Patricia Harpring [^1] introduced the following definition of controlled vocabulary (CV):
 
-> “A controlled vocabulary is an organized arrangement of words and phrases used to index content and/or to retrieve content through browsing or searching. It typically includes preferred and variant terms and has a defined scope or describes a specific domain.” (Harpring, P., 2010)
+> "A controlled vocabulary is an organized arrangement of words and phrases used to index content and/or to retrieve content through browsing or searching. It typically includes preferred and variant terms and has a defined scope or describes a specific domain." (Harpring, P., 2010)
 
 There are many different types of controlled vocabularies, the most common among them are:
 
@@ -59,7 +59,7 @@ There are many different types of controlled vocabularies, the most common among
 * Terminology - a list of terms used to describe concepts in a certain domain
 * Glossary - an alphabetical list of terms with their explanation used in a specific context
 
-**Diagram 1.** below shows how controlled vocabularies are embedded in architecture of an information system (the example is derived from [DEFC controlled vocabulary](https://vocabs.acdh.oeaw.ac.at/defc_thesaurus/en/)). In this example, the Archeological site is a Universal abstract class, whereas Athens is an instance of Archaeological site class and a Particular that represents the exact and real archaeological site studied and described in the system. Athens can be of one or many types that are defined in a controlled vocabulary, for example, it can be a type of ‘Hillside’.
+**Diagram 1.** below shows how controlled vocabularies are embedded in architecture of an information system (the example is derived from [DEFC controlled vocabulary](https://vocabs.acdh.oeaw.ac.at/defc_thesaurus/en/)). In this example, the Archeological site is a Universal abstract class, whereas Athens is an instance of Archaeological site class and a Particular that represents the exact and real archaeological site studied and described in the system. Athens can be of one or many types that are defined in a controlled vocabulary, for example, it can be a type of 'Hillside'.
 
 ![Diagram 1. Controlled vocabularies in data architecture](images/cv_and_skos_model_diagram_1.png)
 
@@ -87,7 +87,7 @@ Thereby the CVs are used :
 
 The main idea of Semantic Web is to enrich data with its semantics/meaning that not only humans but also machines could use, interpret and infer new knowledge from. CVs provide and document data semantics.
 
-Tim Berners-Lee in his fundamental paper “The Semantic Web” (2001) says that on the Semantic Web “information is given well-defined meaning” [^2]. CVs are one of the tools used for this mission.
+Tim Berners-Lee in his fundamental paper "The Semantic Web" (2001) says that on the Semantic Web "information is given well-defined meaning" [^2]. CVs are one of the tools used for this mission.
 
 W3C developed specifications and standards to support the usage of CVs in the context of the Semantic Web in order to express knowledge in a machine-readable format that can be used by computer applications to interpret it. SKOS (Simple Knowledge Organization System) is a standard schema to represent CVs using [Resource Description Framework (RDF)](https://www.w3.org/RDF/), which is a standard model for data exchange on the Web. Usage of RDF for CVs representation allows metadata to be shared and retrieved across different applications.
 
@@ -97,7 +97,7 @@ The field of Digital Humanities (DH) deals with the production of digital object
 
 *Why CVs are important in DH projects?*
 
-DH data is highly interpretational and often observational. To a certain extent and in certain DH disciplines (e.g. literary studies) it is shaped by a researcher’s worldview and opinion. This makes it more difficult to standardize and develop a common understanding of the used terminology. Nevertheless, CVs are an attempt to make the conceptualizations explicit and thus understandable to recipients.
+DH data is highly interpretational and often observational. To a certain extent and in certain DH disciplines (e.g. literary studies) it is shaped by a researcher's worldview and opinion. This makes it more difficult to standardize and develop a common understanding of the used terminology. Nevertheless, CVs are an attempt to make the conceptualizations explicit and thus understandable to recipients.
 
 Moreover, Digital Humanities is one of the domains that has adopted Open Data and Open Science initiatives actively in recent years. This makes it even more crucial to design and publish CVs and link them to external authoritative reference resource to allow data interoperability and linking with data from other DH projects.
 
@@ -105,7 +105,7 @@ Moreover, Digital Humanities is one of the domains that has adopted Open Data an
 
 There are different approaches to how CVs can be reused or made interoperable with each other in order to facilitate data integration.
 
-**Diagram 2.** below shows how different projects use one controlled vocabulary to describe their data. Both projects’ data can be queried with terms from this vocabulary. This is probably the best-case scenario that can happen because it ensures full data interoperability.
+**Diagram 2.** below shows how different projects use one controlled vocabulary to describe their data. Both projects' data can be queried with terms from this vocabulary. This is probably the best-case scenario that can happen because it ensures full data interoperability.
 
 ![Diagram 2. Usage of a common controlled vocabulary for data description in different projects](images/diagram_2.jpg)
 
@@ -135,7 +135,7 @@ Normative guide [SKOS Reference](https://www.w3.org/TR/skos-reference/) intended
 
 The central element of SKOS is a Concept.
 
-> “Concepts exist in the mind as abstract entities which are independent of the terms used to label them.” [SKOS Primer](https://www.w3.org/TR/skos-primer/)
+> "Concepts exist in the mind as abstract entities which are independent of the terms used to label them." [SKOS Primer](https://www.w3.org/TR/skos-primer/)
 
 To create a Concept one needs to create a Uniform Resource Identifier (URI) and assign this URI with rdf:type skos:Concept. This is how it is done in RDF syntax:
 
@@ -172,12 +172,12 @@ ex:cat rdf:type skos:Concept;
 There are two types of relationships between concepts that can be established in a vocabulary:
 
 * Hierarchical via properties skos:broader, skos:narrower
-  * SKOS model doesn’t state that broader & narrower are transitive, but it also doesn’t imply that these properties are intransitive (*Note on transitivity: the relationship is transitive if concept A is related to concept B. Concept B is related to concept C. That implies that concept A is related to concept C.*)
+  * SKOS model doesn't state that broader & narrower are transitive, but it also doesn't imply that these properties are intransitive (*Note on transitivity: the relationship is transitive if concept A is related to concept B. Concept B is related to concept C. That implies that concept A is related to concept C.*)
   * For explicit transitivity use skos:broaderTransitive and skos:narrowerTransitive
 * Associative via property skos:related
   * is not defined as a transitive property
 
-Important to not mix hierarchical and associative relationships: if two concepts are in broader/narrower relationships between each other then they are explicitly in hierarchical relationships, therefore, don’t need to be related via skos:related property. Similarly, if two concepts are related via skos:related property we can infer that they are related in some other distinct hierarchical relationships (e.g. a concept representing a tangible object is related to a concept describing a method that uses that object).
+Important to not mix hierarchical and associative relationships: if two concepts are in broader/narrower relationships between each other then they are explicitly in hierarchical relationships, therefore, don't need to be related via skos:related property. Similarly, if two concepts are related via skos:related property we can infer that they are related in some other distinct hierarchical relationships (e.g. a concept representing a tangible object is related to a concept describing a method that uses that object).
 
 ```turtle
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -458,7 +458,7 @@ Test your knowledge of the SKOS standard with the quiz. The correct answers are 
       </Quiz.Question>
 
       <Quiz.MultipleChoice.Option isCorrect>
-        Concept can’t have more than one preferred label in one language.
+        Concept can't have more than one preferred label in one language.
       </Quiz.MultipleChoice.Option>
 
       <Quiz.MultipleChoice.Option>
@@ -482,7 +482,7 @@ Test your knowledge of the SKOS standard with the quiz. The correct answers are 
 
 The future retrieval and search functionality will directly depend on the quality of CV, therefore, it is important to follow W3C recommendations for SKOS and check a vocabulary against the most common errors before using it in an application or publishing on the Web. The most common reasons for errors and bad practices are the following:
 
-1. Omitted or invalid language tags (e.g.: skos:prefLabel “stone”@english)
+1. Omitted or invalid language tags (e.g.: skos:prefLabel "stone"@english)
 2. Label conflicts (e.g. two concepts have the same preferred lexical label in a given language when they belong to the same concept scheme)
 3. Orphan concepts (e.g. concepts without any associative or hierarchical relationships)
 4. Undocumented concepts (concept should have one of the documentary notes)
@@ -493,13 +493,13 @@ The future retrieval and search functionality will directly depend on the qualit
 9. Ambiguous label for a concept
 10. Flat data (no hierarchy and associative relationships among concepts)
 
-*The above material is derived from the following work:* Mader, Christian, Bernhard Haslhofer, and Antoine Isaac. “Finding quality issues in SKOS vocabularies.” In International Conference on Theory and Practice of Digital Libraries, pp. 222-233. Springer, Berlin, Heidelberg, 2012.
+*The above material is derived from the following work:* Mader, Christian, Bernhard Haslhofer, and Antoine Isaac. "Finding quality issues in SKOS vocabularies." In International Conference on Theory and Practice of Digital Libraries, pp. 222-233. Springer, Berlin, Heidelberg, 2012.
 
 ## Task: Model Music styles vocabulary
 
 There are many styles used to categorize music. Consider the following styles: pop music, alternative rock, electronic music, punk rock, techno, rock, heavy metal.
 
-1. Structure/draw your own vocabulary called “Music styles”
+1. Structure/draw your own vocabulary called "Music styles"
 2. Model this vocabulary in a SKOS record:
    * model in RDF turtle format
    * add at least one documentary note for each concept
@@ -507,13 +507,13 @@ There are many styles used to categorize music. Consider the following styles: p
    * feel free to add more music styles
    * establish relationships to external LOD resources (dbpedia, wikidata)
    * save file in .ttl format
-3. Visualize “Music styles” using web tool [SKOS play](http://labs.sparna.fr/skos-play/upload). Try out different visualization types.
+3. Visualize "Music styles" using web tool [SKOS play](http://labs.sparna.fr/skos-play/upload). Try out different visualization types.
 
 ## Controlled vocabulary as a backbone of information architecture
 
 ### CV in data management web application
 
-Controlled vocabularies provide data descriptors for future data retrieval. This directly impacts search and data discovery. A CV is a building block in database design and is a part of information architecture in the user interface. The following examples show how one CV is used in different parts of the web application. The following examples are taken from [Iron-Age-Danube](https://www.iron-age-danube.eu/) project’s data management system.
+Controlled vocabularies provide data descriptors for future data retrieval. This directly impacts search and data discovery. A CV is a building block in database design and is a part of information architecture in the user interface. The following examples show how one CV is used in different parts of the web application. The following examples are taken from [Iron-Age-Danube](https://www.iron-age-danube.eu/) project's data management system.
 
 Picture 1. Visualization of IAD Thesaurus [^6]
 
@@ -551,7 +551,7 @@ Picture 6. IAD Thesaurus in Vocabs repository
 
 Creating a vocabulary is a lengthy and time-consuming process. Usually, it involves the conceptual thinking stage. In addition, the vocabulary refinement stage can last until the end of the project.
 
-Vocabulary can be integrated into a project’s software at a database architecture level or retrieved via API from the third-party applications. There are different open source tools available for managing controlled vocabularies.
+Vocabulary can be integrated into a project's software at a database architecture level or retrieved via API from the third-party applications. There are different open source tools available for managing controlled vocabularies.
 
 ### Editing and browsing
 
@@ -591,7 +591,7 @@ The [Austrian Centre for Digital Humanities and Cultural Heritage (ACDH-CH)](htt
 ACDH-CH vocabs contains four major services covering different aspects of vocabulary usage:
 
 1. [Vocabs repository](https://vocabs.acdh.oeaw.ac.at/en/) is a service based on the open source tool [SKOSMOS](https://skosmos.org/) to allow publication, reuse and retrieval of controlled vocabularies. It provides an API endpoint in order to integrate vocabulary terms in web applications.
-2. [Vocabs editor](https://vocabs.acdh.oeaw.ac.at/en/about#editor) is a web-based tool for collaborative development of small and medium-sized controlled vocabularies. The editor follows the SKOS data model for the main elements of vocabulary. The Dublin core schema is used to capture the metadata (such as date created, date modified, creator, contributor, source and other) about each element. Each concept scheme, as well as each individual concept, can be downloaded in RDF/XML and Turtle format. The user management system allows a user to share a concept scheme that she/he created with other users (called ‘curators’) to create new concepts, edit and delete concepts and collections within this concept scheme. Each user can find a summary of their latest activity on the user’s page. The tool also provides an API to retrieve the data.
+2. [Vocabs editor](https://vocabs.acdh.oeaw.ac.at/en/about#editor) is a web-based tool for collaborative development of small and medium-sized controlled vocabularies. The editor follows the SKOS data model for the main elements of vocabulary. The Dublin core schema is used to capture the metadata (such as date created, date modified, creator, contributor, source and other) about each element. Each concept scheme, as well as each individual concept, can be downloaded in RDF/XML and Turtle format. The user management system allows a user to share a concept scheme that she/he created with other users (called 'curators') to create new concepts, edit and delete concepts and collections within this concept scheme. Each user can find a summary of their latest activity on the user's page. The tool also provides an API to retrieve the data.
 3. [Vocabs SPARQL](https://vocabs-sparql.acdh.oeaw.ac.at/) is an interface for querying vocabularies triple store with SPARQL queries. It is developed on top of [Jena Fuseki](https://jena.apache.org/documentation/fuseki2/) triple store and uses a [YASGUI](https://triply.cc/docs/yasgui) interface to access the endpoint.
 4. Vocabs Visualize is a data visualization service developed to show the relationships between concepts in multiple vocabularies and see how the represented topics are connected.
 
@@ -638,11 +638,11 @@ Various domains controlled vocabularies registry - [BARTOC](https://bartoc.org/e
 
 ## Acknowledgement
 
-The creation of this learning material was supported by the Visegrad Fund Project “Training Digital Scholars: Knowledge Exchange between V4 and Austria” under the International Visegrad Fund’s Grant No. 21820079.
+The creation of this learning material was supported by the Visegrad Fund Project "Training Digital Scholars: Knowledge Exchange between V4 and Austria" under the International Visegrad Fund's Grant No. 21820079.
 
 [^1]: Harpring, Patricia. Introduction to controlled vocabularies: terminology for art, architecture, and other cultural works. Getty Publications, 2010.
 
-[^2]: Berners-Lee, Tim, James Hendler, and Ora Lassila. “The semantic web.” Scientific american 284, no. 5 (2001): 28-37.
+[^2]: Berners-Lee, Tim, James Hendler, and Ora Lassila. "The semantic web." Scientific american 284, no. 5 (2001): 28-37.
 
 [^3]: [DariahTeach: Text encoding and the Text Encoding Initiative](https://teach.dariah.eu/course/view.php?id=23)
 

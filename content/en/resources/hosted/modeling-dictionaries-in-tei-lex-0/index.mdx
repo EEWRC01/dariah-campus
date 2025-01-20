@@ -30,25 +30,25 @@ Upon completion of this course, students will be able to
 * encode moderately complex dictionary entries using TEI Lex-0
 * identify channels of communication with TEI and TEI Lex-0 experts
 
-NOTE: we’ll do this as a step-by-step course, taking a fairly complex dictionary entry (or a few of them if we can’t find one that ticks all the boxes) and then go through the process of encoding in great detail. This will be the main difference from the TEI Lex-0 documentation which goes from issues to examples, this tutorial will go from concrete examples of dictionaries to fully encoded entries.
+NOTE: we'll do this as a step-by-step course, taking a fairly complex dictionary entry (or a few of them if we can't find one that ticks all the boxes) and then go through the process of encoding in great detail. This will be the main difference from the TEI Lex-0 documentation which goes from issues to examples, this tutorial will go from concrete examples of dictionaries to fully encoded entries.
 
 ## Introduction: Text Encoding Initiative
 
 * Community standard. Not only dictionaries. Bigger picture: digital humanities, textual resources.
 
-Now that you’ve learned the basics of XML, we have some good news and some bad news for you. The good news is that you are ready to start marking up your dictionaries. The bad news is that XML on its own is not enough if you want to make sure that your dictionary follows the best practices established in the retrodigitization community.
+Now that you've learned the basics of XML, we have some good news and some bad news for you. The good news is that you are ready to start marking up your dictionaries. The bad news is that XML on its own is not enough if you want to make sure that your dictionary follows the best practices established in the retrodigitization community.
 
-![Good news for people who love bad news](http://i.imgur.com/5W4FYO0.jpg "CC BY-ND Olivia Mew")
+![Good news for people who love bad news](images/5-w4-fyo-0.jpg "CC BY-ND Olivia Mew")
 
-If you are not fundamentally opposed to the art of stretching a metaphor, you could think of XML as a language without words. XML comes with a basic set of grammatical rules on what words should or shouldn’t look like, and how you could combine them, but it is up to you to invent the words themselves.
+If you are not fundamentally opposed to the art of stretching a metaphor, you could think of XML as a language without words. XML comes with a basic set of grammatical rules on what words should or shouldn't look like, and how you could combine them, but it is up to you to invent the words themselves.
 
-Making up your own words is great if you are planning only to talk to yourself. For instance, you could decide that each dictionary entry should be wrapped in a tag called `<gobbledygook>` and each lemma in a tag called `<hullabaloo>`. As long as your XML was well-formed, you would be ok. But if you wanted your dictionary to “talk” to other dictionaries, you would have to invest a great deal of effort into translation. One person’s `<gobbledygook>` would be another person’s `<smorgasbord>`.
+Making up your own words is great if you are planning only to talk to yourself. For instance, you could decide that each dictionary entry should be wrapped in a tag called `<gobbledygook>` and each lemma in a tag called `<hullabaloo>`. As long as your XML was well-formed, you would be ok. But if you wanted your dictionary to "talk" to other dictionaries, you would have to invest a great deal of effort into translation. One person's `<gobbledygook>` would be another person's `<smorgasbord>`.
 
-Another question is that of consistency. How do you make sure that your dictionary uses the same encoding rules throughout? We’ve mentioned before that you can impose certain constraints on your XML structures in terms of where certain elements and attributes go. Wouldn’t it be nice if you didn’t have to write these rules from scratch every time you started a new dictionary project?
+Another question is that of consistency. How do you make sure that your dictionary uses the same encoding rules throughout? We've mentioned before that you can impose certain constraints on your XML structures in terms of where certain elements and attributes go. Wouldn't it be nice if you didn't have to write these rules from scratch every time you started a new dictionary project?
 
-By the mid-1980s, academics, librarians and archivists from North America and Europe realized that they needed a common vocabulary and a common ruleset for encoding texts in the humanities. That’s how Text Encoding Initiative (TEI) was born.
+By the mid-1980s, academics, librarians and archivists from North America and Europe realized that they needed a common vocabulary and a common ruleset for encoding texts in the humanities. That's how Text Encoding Initiative (TEI) was born.
 
-The TEI consortium was established in 1987 as an international research project to develop a set of guidelines to “facilitate the creation, exchange, and integration of textual data in machine-readable form.” The goal was to create a mechanism that would support the encoding of “all kinds of texts, in every human language, from every historical or social context.” A challenging goal!
+The TEI consortium was established in 1987 as an international research project to develop a set of guidelines to "facilitate the creation, exchange, and integration of textual data in machine-readable form." The goal was to create a mechanism that would support the encoding of "all kinds of texts, in every human language, from every historical or social context." A challenging goal!
 
 The TEI recommendations are continuously updated and occasionally major releases are published. These major releases are numbered incrementally starting with TEI P1 (in 1990) to the latest release TEI P5 (in 2007). Since, 2011 TEI is also registered as its own media type (RFC 6129).
 
@@ -68,13 +68,13 @@ In the rest of this unit, we will learn how to use *TEI* in general, and how to 
 
 ## In Medias Res
 
-We’ll start this lesson by converting one part of the XML-encoded entry for *lexicographer* from Johnson’s dictionary into TEI.
+We'll start this lesson by converting one part of the XML-encoded entry for *lexicographer* from Johnson's dictionary into TEI.
 
-This is just to give you a taste of all those wonderful things to come and to give you a little more practice in using oXygen to rename existing elements and attributes or to create new ones. We’ll cover different TEI elements in more depth later on.
+This is just to give you a taste of all those wonderful things to come and to give you a little more practice in using oXygen to rename existing elements and attributes or to create new ones. We'll cover different TEI elements in more depth later on.
 
 1. Select File › New from the menu
 
-2. Type “tei” in the search field
+2. Type "tei" in the search field
 
 3. Double-click on the template called *All* in the TEI5 folder
 
@@ -86,83 +86,83 @@ This is just to give you a taste of all those wonderful things to come and to gi
 
 7. Click on the downward pointing arrow next to `<teiHeader>` to fold the contents of the teiHeader.
 
-   ![](http://i.imgur.com/4sChbKf.png)
+   ![](images/4s-chb-kf.png)
 
 8. Go back to your previously saved XML file and copy everything starting with `<entry>` and ending with `</grammar>`; in your current TEI file, delete `<p></p>` inside `<body></body>` and then paste the copied contents from the old file instead.
 
-   ![](http://i.imgur.com/fUhNsam.png)
+   ![](images/f-uh-nsam.png)
 
-9. if you hover with your mouse over the elements `<lemma>` and `<grammar>` you will learn that they are “not allowed anywhere”. That means that TEI doesn’t know elements with such names. We’ll fix them in due course. But there is another error in this document that you should be able to fix without any knowledge of TEI. Can you think what it is?
+9. if you hover with your mouse over the elements `<lemma>` and `<grammar>` you will learn that they are "not allowed anywhere". That means that TEI doesn't know elements with such names. We'll fix them in due course. But there is another error in this document that you should be able to fix without any knowledge of TEI. Can you think what it is?
 
 10. Hover with your mouse over the underlined end tag `</body>` to see what error oXygen will report there.
 
-    ![](http://i.imgur.com/OavdVsI.png)
+    ![](images/oavd-vs-i.png)
 
-11. When we asked you to copy and paste from your old file, we asked you to copy a fragment of xml which itself was not well-formed: `<entry><lemma normalized='lexicographer'>Lexico'grapher</lemma>. <grammar>n.s.</grammar>` is not well-formed because each starting tag in XML must be matched by its end tag. That’s why you need to enter `</entry>`in the empty row above `</body>`.
+11. When we asked you to copy and paste from your old file, we asked you to copy a fragment of xml which itself was not well-formed: `<entry><lemma normalized='lexicographer'>Lexico'grapher</lemma>. <grammar>n.s.</grammar>` is not well-formed because each starting tag in XML must be matched by its end tag. That's why you need to enter `</entry>`in the empty row above `</body>`.
 
 12. Now, double-click the element name in `<lemma>`.
 
-    ![](http://i.imgur.com/mF7Z2eG.png)
+    ![](images/m-f7-z2e-g.png)
 
 13. Change the element name to `<form>`.
 
-    ![](http://i.imgur.com/2qrKjU9.png)
+    ![](images/2qr-kj-u9.png)
 
 14. Select `@normalized` and its value, then delete both.
 
-    ![](http://i.imgur.com/lFxOuUv.png)
+    ![](images/l-fx-ou-uv.png)
 
 15. Add attribute `@type` to `<form>` and check out what options are suggested for values.
 
-    ![](http://i.imgur.com/Mkja90a.png)
+    ![](images/mkja90a.png)
 
 16. Select attribute value lemma for `@type`.
 
-    ![](http://i.imgur.com/Mkja90a.png)
+    ![](images/mkja90a.png)
 
 17. Select the text value of `<form>`.
 
-    ![](http://i.imgur.com/rxDpq2B.png)
+    ![](images/rx-dpq2-b.png)
 
 18. Control-click or right-click the selected word to bring up a contextual menu, then select Refactoring › Surround with Tags.
 
-    ![](http://i.imgur.com/sznObNh.png)
+    ![](images/szn-ob-nh.png)
 
-19. Select orth from the dropdown by scrolling to it, or for a more efficient solution, start typing `o` in the field “Specify the tag”.
+19. Select orth from the dropdown by scrolling to it, or for a more efficient solution, start typing `o` in the field "Specify the tag".
 
-    ![](http://i.imgur.com/OmnlATZ.png)
+    ![](images/omnl-atz.png)
 
 20. Add `@norm` to `<orth>`.
 
-    ![](http://i.imgur.com/G0WXZJt.png)
+    ![](images/g0-wxz-jt.png)
 
-21. Type in ‘lexicographer’ as value of `@norm`.
+21. Type in 'lexicographer' as value of `@norm`.
 
-    ![](http://i.imgur.com/QVLcDwe.png)
+    ![](images/qv-lc-dwe.png)
 
-22. Remember the “Fromat and Indent” icon that we introduced in the last unit? Find it and click on it.
+22. Remember the "Fromat and Indent" icon that we introduced in the last unit? Find it and click on it.
 
-    ![](http://i.imgur.com/U8jiQxe.png)
+    ![](images/u8ji-qxe.png)
 
 23. Finally, replace `<grammar>n.s.</grammar>` with `<gramGrp><pos>n.s.</pos></gramGrp>`.
 
-    ![](http://i.imgur.com/arlT3FD.png)
+    ![](images/arl-t3-fd.png)
 
 24. Make sure you have saved this file on your computer so that you can get back to it later on.
 
-Congratulations! Your dictionary entry is beginning to look like it’s speaking TEI! If you have followed this exercise, you will have noticed several things:
+Congratulations! Your dictionary entry is beginning to look like it's speaking TEI! If you have followed this exercise, you will have noticed several things:
 
 * your `<form>` and `<orth>` elements have been accepted as proper TEI because oXygen has not underlined them in red.
-* we still have quite a bit of work to do on the rest of the entry: every element that’s underlined in red indicates an error
+* we still have quite a bit of work to do on the rest of the entry: every element that's underlined in red indicates an error
 * because you selected a TEI template when you started working on this file, oXygen has been trying to help you as much as it can in suggesting possible elements and even possible attribute values
-* the reason why oXygen can do all these things has nothing to do with magic (unfortunately!), but with the regimented world of XML schemas. We’ve talked briefly about them in Unit 2. A schema is a set of rules that the XML parser uses to validate your document against. The TEI schema tells oXygen: `<lemma>` is not a valid TEI element, but `<form type="lemma">` is.
+* the reason why oXygen can do all these things has nothing to do with magic (unfortunately!), but with the regimented world of XML schemas. We've talked briefly about them in Unit 2. A schema is a set of rules that the XML parser uses to validate your document against. The TEI schema tells oXygen: `<lemma>` is not a valid TEI element, but `<form type="lemma">` is.
 * your TEI document is not both well-formed and valid. Make sure you understand the difference between the two concepts and, if necessary, revisit the corresponding section in Lesson 4 in Unit 2.
 
 This completes your baptism by fire in things TEI. On the next page you will learn more about TEI itself and how to discover all those semi-exotic elements that populate the TEI universe.
 
 ## Fantastic TEI Beasts and Where to Find Them
 
-The TEI Guidelines cover some 500 predefined elements organized in modules. A TEI module groups together associated TEI elements such as the TEI elements recommended for the encoding of drama or dictionaries. There are also more general TEI modules which contain ‘core’ and ‘header’ elements — basic elements most likely to be used in all TEI documents.
+The TEI Guidelines cover some 500 predefined elements organized in modules. A TEI module groups together associated TEI elements such as the TEI elements recommended for the encoding of drama or dictionaries. There are also more general TEI modules which contain 'core' and 'header' elements -- basic elements most likely to be used in all TEI documents.
 
 The following table contains a list of all TEI modules with links to the chapters of the *TEI Guidelines* where they are defined.
 
@@ -190,17 +190,17 @@ The following table contains a list of all TEI modules with links to the chapter
 | transcr       | Transcription of Primary Sources     | [11 Representation of Primary Sources](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/PH.html)           |
 | verse         | Verse                                | [6 Verse](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/VE.html)                                        |
 
-As you can see, *The TEI Guidelines* are themselves quite massive. Finding your way around may be difficult at first. We’ll be focusing on Chapter 9: Print Dictionaries, which will make your job somewhat easier.
+As you can see, *The TEI Guidelines* are themselves quite massive. Finding your way around may be difficult at first. We'll be focusing on Chapter 9: Print Dictionaries, which will make your job somewhat easier.
 
-As you go through this unit, you should also make sure you read through the Chapter 9 of the Guidelines. We’ll be covering it section by section so you won’t have to read the whole Chapter in one go.
+As you go through this unit, you should also make sure you read through the Chapter 9 of the Guidelines. We'll be covering it section by section so you won't have to read the whole Chapter in one go.
 
 Sometimes, however, it will be more useful for you to look up the declarations and examples of particular TEI elements, such as `<entry>`, `<sense>` or `<def>`. In those situations, instead of going through the dictionary chapter, it will be easier for you to consult the *[Appendix C](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/REF-ELEMENTS.html)* of *The Guidelines*, which contains an alphabetic list of all the TEI Elements.
 
-![](http://i.imgur.com/Feuy9gD.png)
+![](images/feuy9g-d.png)
 
 **Tips**
 
-1. Create a bookmark in your browser for [http://www.tei-c.org/release/doc/tei-p5-doc/en/html/REF-ELEMENTS.html](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/REF-ELEMENTS.html) and save it with an easy-to-remember name (“TEI Elements” or “TEI Reference”) so that you can easily retrieve it while you are working on your dictionary.
+1. Create a bookmark in your browser for [http://www.tei-c.org/release/doc/tei-p5-doc/en/html/REF-ELEMENTS.html](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/REF-ELEMENTS.html) and save it with an easy-to-remember name ("TEI Elements" or "TEI Reference") so that you can easily retrieve it while you are working on your dictionary.
 2. Use the alphabetic navigation bar in the element reference list to display only elements starting with a given letter.
 3. Create a different bookmark in your browser for the [Dictionary Chapter](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/DI.html)
 
@@ -209,9 +209,9 @@ Sometimes, however, it will be more useful for you to look up the declarations a
 * Elena Pierazzo, Modelling (Digital) Texts, in Digital Scholarly Editing: Theories, Models and Methods, 2015, [http://hal.univ-grenoble-alpes.fr/hal-01182162](http://hal.univ-grenoble-alpes.fr/hal-01182162)
 * Text Encoding Initiative, The TEI Infrastructure, [http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ST.html](http://www.tei-c.org/release/doc/tei-p5-doc/en/html/ST.html)
 
-## Is \<form type=“lemma”> really better than \<lemma>?
+## Is \<form type="lemma"> really better than \<lemma>?
 
-*TEI Guidelines* better, we’ll see why validating against the TEI schema is an important aspect in the preparation of high-quality digital editions.
+*TEI Guidelines* better, we'll see why validating against the TEI schema is an important aspect in the preparation of high-quality digital editions.
 
 TEI-compliant `<form type="lemma"><orth>...</orth></form>` is not necessarily *better* than `<lemma/>`: it is certainly more verbose and it is probably not as intuitive for you as the first version of the encoding you did on your own in XML. TEI comes with its own baggage. Some elements may sound strange (what is `<mentioned>` doing in my `<etym>`?) and some may drive you crazy (`<cit type="example"><quote>...</quote></cit>` sounds ridiculous if you know that without TEI you could simply call it `<example>...</example>` or `<quote>...</quote>`).
 
