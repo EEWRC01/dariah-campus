@@ -45,7 +45,7 @@ In this tutorial, you will learn how to write XPath expressions in order to navi
 
 To take this course, you should have a sound understanding of XML, its node types and relationships. This is not one of those nice-to-have requirements, but an abolute must. XPATH will make very little sense unless you're well-versed in the basics of XML terminology.
 
-If you're new to XML, make sure you review the basics by (re)visiting the ELEXIS course [Capturing, Modeling and Transforming Lexical Data: An Introduction](/id/3yV0rXgfTgBFa3jXHm1HX) and, in partiuclar, sections on [XML building blocks and basic rules](/id/3yV0rXgfTgBFa3jXHm1HX#xml-building-blocks-and-basic-rules)
+If you're new to XML, make sure you review the basics by (re)visiting the ELEXIS course [Capturing, Modeling and Transforming Lexical Data: An Introduction](/resources/hosted/capturing-modeling-and-transforming-lexical-data-an-introduction) and, in partiuclar, sections on [XML building blocks and basic rules](/resources/hosted/capturing-modeling-and-transforming-lexical-data-an-introduction#xml-building-blocks-and-basic-rules)
 
 ### Another language? Why, oh why?
 
@@ -93,13 +93,13 @@ Before learning the basics of XPath, let's make sure we know how to use oXygen f
 
 Open the dictionaries file you've just created in oXygen and look for the XPath input field in the upper left corner of the window.
 
-![](images/oxygen-input-01.png)
+![](/assets/content/assets/en/resources/hosted/xpath-for-dictionary-nerds/oxygen-input-01.png)
 
 Now, type `//entry` into the XPath input field and press return on your keyboard.
 
 You should be seeing something like this:
 
-![](images/oxygen-input-02.png)
+![](/assets/content/assets/en/resources/hosted/xpath-for-dictionary-nerds/oxygen-input-02.png)
 
 1. In the lower part of the oXygen window, you will see the beginning of a list containing all the results that correspond to your query. Clicking on individual rows will select the corresponding result (in this case a dictionary entry) in the main window. *Try it yourself.*
 2. On the right-hand side of the main window, you will also see a navigation bar containing visual clues (purple rectangles), each of which represents one match of your XPath query. *Try clicking on different rectangles to see what happens.*
@@ -118,15 +118,15 @@ To launch the XPath Builder:
 2. click the Switch to XPath Builder view button which looks like this `//★` and is positioned in the right-hand corner of the XPath input, or
 3. in the newer versions of oXygen, click on the icon next to the XPath input field and select the "Switch to XPath Builder View" from the dropdown menu, like this:
 
-![](images/oxygen-builder-01.png)
+![](/assets/content/assets/en/resources/hosted/xpath-for-dictionary-nerds/oxygen-builder-01.png)
 
 Once you launch the XPath Builder View, you should be seeing something like this:
 
-![](images/oxygen-builder-02.png)
+![](/assets/content/assets/en/resources/hosted/xpath-for-dictionary-nerds/oxygen-builder-02.png)
 
 If your screen doesn't look exactly like this, feel free to close some of the smaller window panes, since you won't be needing them. You should probably leave the Outline pane (on the left-hand side as shown above) so that you can easily study the structure of your XML document.
 
-![](images/oxygen-builder-03.png)
+![](/assets/content/assets/en/resources/hosted/xpath-for-dictionary-nerds/oxygen-builder-03.png)
 
 #### Executing XPath from the Builder
 
@@ -175,20 +175,20 @@ What does that mean concretely when applied to our dictionary file? Try all of t
 
 Double-slash is your friend. `//entry` will select all entry nodes no matter where in the dictionary hierarchy they are. As you can see in the document outline pane, most entries in this document are children of `/body` but some are also children of `superEntry`.
 
-![](images/oxygen-nodes-01.png)
+![](/assets/content/assets/en/resources/hosted/xpath-for-dictionary-nerds/oxygen-nodes-01.png)
 
 | Expression    | Selects                                  |
 | ------------- | ---------------------------------------- |
 | `//form/orth` | all orth nodes that are children of form |
 
-![](images/oxygen-nodes-02.png)
+![](/assets/content/assets/en/resources/hosted/xpath-for-dictionary-nerds/oxygen-nodes-02.png)
 
 | Expression  | Selects                                               |
 | ----------- | ----------------------------------------------------- |
 | `//pron`    | all pron nodes no matter where they area              |
 | `//pron/..` | parents of all pron elements no matter where they are |
 
-![](images/oxygen-nodes-03.png)
+![](/assets/content/assets/en/resources/hosted/xpath-for-dictionary-nerds/oxygen-nodes-03.png)
 
 | Expression | Selects                              |
 | ---------- | ------------------------------------ |
@@ -254,7 +254,7 @@ To select more than one path, we use the or operator (`|`). For instance:
 | `//form/pron`                 | selects all prons                                                    |   |
 | `//form/orths \| //form/pron` | selects all orths and all prons (by selecting either orths or prons) |   |
 
-![](images/oxygen-exercise-01.png)
+![](/assets/content/assets/en/resources/hosted/xpath-for-dictionary-nerds/oxygen-exercise-01.png)
 
 #### XPath Axes
 
@@ -290,7 +290,7 @@ So, what does mean in practice? Let's see one example in three individual steps:
 
 Now, the interesting thing about the last expression is that it will also select this particular case:
 
-![](images/oxygen-axes-01.png)
+![](/assets/content/assets/en/resources/hosted/xpath-for-dictionary-nerds/oxygen-axes-01.png)
 
 As we learned above, `*` selects any element node, and if you look for `//orth/following-sibling::*` you will also match orths that follow orth. If this is not what you want, you could rewrite the expression in such a way to select any element node which follows orth but which is itself *not* orth. That would look like this:
 
@@ -298,7 +298,7 @@ As we learned above, `*` selects any element node, and if you look for `//orth/f
 | ---------------------------------------------- | ---------------------------------- |
 | `//orth/following-sibling::*[not(self::orth)]` | non-orth elements that follow orth |
 
-![](images/oxygen-axes-02.png)
+![](/assets/content/assets/en/resources/hosted/xpath-for-dictionary-nerds/oxygen-axes-02.png)
 
 **Exercise**
 

@@ -32,8 +32,6 @@ draft: false
 uuid: n6QGzjFXm03e0vWt9xDup
 ---
 
-![]()
-
 ## Introduction
 
 Geographical Text Analysis (GTA) is a relatively recent development in the approach to studying, analysing, and extracting the content of textual sources. Combining techniques from Natural Language Processing (NLP), Corpus Linguistics, and Geographic Information Systems (GIS), GTA offers a new methodology for employing these computational tools in Humanities research. The development of this methodology by researchers at Lancaster University builds upon the 'distant reading' approach (coined by Moretti) in the field of Literature. With a focused interest in querying the geographic nature of textual sources, GTA focuses on the identification, manipulation, and analysis of spatial information on a large scale.
@@ -86,15 +84,15 @@ Gazetteers can be particularly useful, if not crucial, for performing this task.
 Google Maps, Google Earth and other online mapping tools also have large gazetteers behind them as part of their search facilities. These are not available to download but can be used to locate places individually if they are not in one of the publicly available gazetteers.
 
 <SideNote type="tip" title="Tools and resources">
-  T﻿o complete this module, you will need to make sure you have the following downloaded and installed, or open on your computer:
+  Two complete this module, you will need to make sure you have the following downloaded and installed, or open on your computer:
 
-  * **Q﻿GIS**\
-    D﻿ownload the latest stable or Long Term Release (LTR) here: [https://www.qgis.org/en/site/forusers/download.html](https://www.qgis.org/en/site/forusers/download.html)
-  * **G﻿eoNames Gazetteer**\
-    G﻿o to[ www.GeoNames.org](https://www.GeoNames.org)
-  * **R﻿ecogito.org**﻿\
-    G﻿o to [https://recogito.pelagios.org/](https://recogito.pelagios.org/) to create an account and access datasets
-  * **D﻿ARIAH-GTA.zip file** - available via [Zenodo ](https://doi.org/10.5281/zenodo.7740854)
+  * **QGIS**\
+    Download the latest stable or Long Term Release (LTR) here: [https://www.qgis.org/en/site/forusers/download.html](https://www.qgis.org/en/site/forusers/download.html)
+  * **GeoNames Gazetteer**\
+    Go to [www.GeoNames.org](https://www.GeoNames.org)
+  * **Recogito.org**\
+    Go to [https://recogito.pelagios.org/](https://recogito.pelagios.org/) to create an account and access datasets
+  * **DARIAH-GTA.zip file** - available via [Zenodo](https://doi.org/10.5281/zenodo.7740854)
 </SideNote>
 
 #### Data Sources
@@ -141,11 +139,11 @@ Next, we will take the **Wordsworth\_Guide.txt** text excerpt and use a series o
 
 #### STEP-BY-STEP INSTRUCTIONS
 
-##### **1.	Georeferencing a table that contains coordinates**
+##### **1. Georeferencing a table that contains coordinates**
 
 The file **Cole\_other.csv** is a Comma Separated Values file that contains places mentioned in Coleridge's text together with some other information and, crucially, the latitude and longitude that the place names refer to. (It doesn't matter whether these files are database tables, or text files such as csv or tab delimited, when you have information that has coordinates, loading it into QGIS, georeferencing it and saving it as a GeoPackage is easy.)
 
-**a.	Check the file in Excel**
+**a. Check the file in Excel**
 
 * Open Excel.
 * Go to *File* > *Open*, and then select *Browse*.
@@ -163,7 +161,7 @@ The file **Cole\_other.csv** is a Comma Separated Values file that contains plac
 * You should now see the contents of **Cole.csv** loaded in Excel. You will notice that the file contains two versions of place name. The first, **pl\_name**, is the spelling from the text, the second, **st\_name**, (meaning standardised name) is the spelling that appears in the gazetteer that was used to georeferenced this. The file also contains latitude and longitude, and a range of other data.
 * When you are happy, close the file (you don't need to save the file as we haven't made any changes).
 
-**b.	Opening files in QGIS**
+**b. Opening files in QGIS**
 
 * Open a new QGIS project and save it as GTA\_Lakes.
 
@@ -211,7 +209,7 @@ The file **Wordsworth\_Guide.txt** is an excerpt taken from Wordsworth's *A Guid
 
 * When you are logged into Recogito, click on *New*, then select *File Upload*. You can then navigate to the DARIAH-GTA folder we have been working in and select **Wordsworth\_Guide.txt**.
 
-* U﻿pload the file into Recogito, and you will see the text in your Document list. Click on it to open.
+* Upload the file into Recogito, and you will see the text in your Document list. Click on it to open.
 
 * You should now see the text we'll be working with, as follows:
 
@@ -289,7 +287,7 @@ We will now explore the process of making manual additions to our data, starting
 * In this case, it is reasonable for us to equate Hardraw Scar with the Hardraw Force waterfall. To retrieve the coordinates, right click on the place-marker for Hardraw Force Waterfall on Google Maps. A sub-menu will appear, with the coordinates shown at the top.
 
   ![](images/picture-23.jpg)
-* L﻿eft click on the coordinates shown. This automatically copies the coordinates to your 'clipboard'. Return to Excel and right-click (or Ctrl V on your keyboard) to paste the latitude and longitude coordinates into the respective LAT and LNG columns in your Wordsworth-Guide .csv.
+* Left click on the coordinates shown. This automatically copies the coordinates to your 'clipboard'. Return to Excel and right-click (or Ctrl V on your keyboard) to paste the latitude and longitude coordinates into the respective LAT and LNG columns in your Wordsworth-Guide .csv.
 
 We could then continue to update the values for all of our unidentified locations, but for the purposes of this tutorial, we will only add Hardraw Scar.
 
@@ -320,7 +318,7 @@ Currently, **Wordsworth-Recogito** it is still just a .csv file, simply visualis
 
 * To avoid any confusion, you can remove the previous Wordsworth-Recogito layer by right-clicking it in your Layers list and selecting Remove Layer.
 
-**c﻿. Editing point data with QGIS**\
+**c. Editing point data with QGIS**\
 Now that we can edit our data within QGIS, we are going to experiment with adding coordinates to one of our locations that currently has no 'geometry' within QGIS: i.e. those places in 'Wordsworth-Recogito-GPKG' that do not have coordinates.
 To do this, we will use the **Advanced Digitizing Toolbar**. We need to open this toolbar by right clicking anywhere in the toolbars located at the top of your QGIS window, then ticking the 'Advanced Digitizing Toolbar' option. This can also be accessed by clicking V**iew > Toolbars > Advanced Digitizing Toolbar**.
 
@@ -358,7 +356,7 @@ To do this, we will use the **Advanced Digitizing Toolbar**. We need to open thi
 
 You now know how to edit coordinate data once it is within QGIS. You can use this same process, by using the Vertex Tool, to make changes to places with existing coordinates. For example, if we made a mistake within Recogito, accidentally georeferencing the wrong place (e.g. if we had confirmed Rokeby, Australia rather than Rokeby, UK in the first example), we could update these coordinates within QGIS using the Vertex Editor.
 
-**d﻿. Cleaning data in QGIS**\
+**d. Cleaning data in QGIS**\
 Now imagine that we have assigned geometries and coordinates to all of our unidentified places (for the purposes of this tutorial, we won't go through all of them). You may have already noticed that the attribute table for **Wordsworth-Recogito-GPKG** contains many duplicate entries for the same place (e.g. there are multiple rows with instances of Lake Windermere). Left-click on the QUOTE\_TRANSRIPTION column header (to sort data alphabetically) to check this. These duplicates represent each individual instance of the annotation within our text. For visualising this data within GIS, however, we need it is more useful to remove these duplicates, cleaning our data. We will walk through this process now.
 
 * To start manipulating our data, we need to open the **Processing Toolbox** in QGIS. To do this, you can select **Processing > Toolbox** from the drop-down menu at the top, or you can click on the 'gear' icon highlighted in red below:
@@ -380,7 +378,7 @@ Now imagine that we have assigned geometries and coordinates to all of our unide
 
 You may have noticed that any of your features that did not have geometries (no attached coordinates) have also now been removed from your dataset and no longer appear in the attribute table. This is fine for the purposes of this tutorial, but think about the consequences of removing all places that you were unable to locate – what implications might this have for any future analysis/users of your data?
 
-##### **4﻿. Understanding Gazetteers**
+##### **4. Understanding Gazetteers**
 
 For our last steps, we are going to take a look at the gazetteer data from GeoNames, one of the largest gazetteers used within Recogito. Most of the places you successfully georeferenced within Recogito back in step 2 were likely matched with data from the GeoNames gazetteer (you can check this by looking at the URI column in your attribute table – this contains the **Uniform Resource Identifier**, which tells us where the coordinates came from when annotating in Recogito).
 
@@ -391,11 +389,11 @@ Within the DARIAH-GTA.zip file you downloaded earlier, you will find the **readm
 ![](images/picture-42.jpg)
 
 Take a quick look through the entire file. The important points are:\
-1﻿. The table contains tab-delimited data:
+1. The table contains tab-delimited data:
 
 ![](images/picture-43.jpg)
 
-2﻿. The field names in the main 'geoname' table are listed:
+2. The field names in the main 'geoname' table are listed:
 
 ![](images/picture-44.jpg)
 
@@ -442,7 +440,7 @@ You now need to add a row containing column headings:
   2. Similarly, QGIS does not like long field names. It may be worth shortening the fields to less than 10 characters. For example, 'alternatenames' might be better truncated to 'altnames'.
 
   * Finally, save the file as a text file by clicking *Save As* and selecting *Text (Tab delimited)*. Call the file **GB\_Gaz.**
-  * C﻿lose the file in Excel.
+  * Close the file in Excel.
 
     ![](images/picture-48.jpg)
 

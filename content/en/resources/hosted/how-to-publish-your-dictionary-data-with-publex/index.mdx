@@ -48,7 +48,7 @@ Publex is a software that allows anyone to publish his/her dictionary data annot
 
 Upload your XML dictionary data and provide the associated metadata.
 
-![Upload](images/upload.svg)
+![Upload](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/upload.svg)
 
 Start [here](#creating-a-new-dictionary-and-importing-data).
 
@@ -56,7 +56,7 @@ Start [here](#creating-a-new-dictionary-and-importing-data).
 
 Specify the layout of your dictionary by defining formatting rules for the XML elements.
 
-![Configuration](images/configuration.svg)
+![Configuration](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/configuration.svg)
 
 Learn about it [here](#define-your-styling-rules).
 
@@ -64,7 +64,7 @@ Learn about it [here](#define-your-styling-rules).
 
 Publish the dictionary on the Elexis server. It will have its own URL.
 
-![Publication](images/publication.svg)
+![Publication](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/publication.svg)
 
 Learn about it [here](#publication).
 
@@ -72,31 +72,31 @@ Learn about it [here](#publication).
 
 ### Creating an account
 
-![Register](images/register.svg)
+![Register](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/register.svg)
 
 To start with Publex directly, you first need to create a profile. For this, click on the register button under the login form on the publex page. A form will open where you can enter your login credentials. Before completing the registration, you have to accept the terms of use and the privacy policy. Click the register button to complete the process.
 
 ### Login
 
-![Login](images/login.svg)
+![Login](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/login.svg)
 
 If you already have a user account, you can log in to the home page with your registered e-mail address and your password.
 
 ### Logout
 
-![Logout](images/logout.svg)
+![Logout](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/logout.svg)
 
 Within Publex, you can log out of your profile at any time using the logout icon in the top menu bar.
 
 ### Forgot your password?
 
-![Forgot password](images/password.svg)
+![Forgot password](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/password.svg)
 
 Click "Forgot Password" in the login form and you will be asked to enter the e-mail address you are registered with. Then you will receive an e-mail with instructions on how to create a new password.
 
 ### Changing your password and e-mail adress
 
-![Profile](images/profile.svg)
+![Profile](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/profile.svg)
 
 Logged in to your account in the upper menu bar, the profile button takes you to the profile management, where you can change your account-related data such as your e-mail address and your password.
 
@@ -120,17 +120,17 @@ If your dictionary contains special characters which are not available in the Un
 
 * Load the file KompLettR.ttf you find [here](https://bitbucket.org/tcdh/publex-allentities/src/master/KompLett_R.ttf) into [Glyphr Studio](http://www.glyphrstudio.com/online) and make sure you choose to import all glyphs:
 
-![Import Komplett Font file](images/glyphr_studio_load_a_file.png)
+![Import Komplett Font file](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/glyphr-studio-load-a-file.png)
 
-![](images/glyphr_studio_import_all.png)
+![](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/glyphr-studio-import-all.png)
 
 * After the file has been loaded, you can view the font characters it contains. The special characters defined in the allEntities file are located in the **Private Use Area** of the font. Therefore, select this area for display:
 
-![](images/glyphr_studio_private_use_area.png)
+![](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/glyphr-studio-private-use-area.png)
 
 2. When you have found your desired character in the overview, **find out its position**. To do this, move the mouse over the character. The position is displayed in a mouseover after the string "Private Use Area". In the following example it is "EA4C".
 
-![](images/glyphr_studio_zeichenansicht.png)
+![](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/glyphr-studio-zeichenansicht.png)
 
 3. Using the position number, **look up the character's name** in the [allEntities file](https://bitbucket.org/tcdh/publex-allentities/src/master/allEntities.xml).
 
@@ -138,15 +138,15 @@ If your dictionary contains special characters which are not available in the Un
 
 Here you can see an example with the special character "u with superscripted plus":
 
-![u with superscripted plus (entity file)](images/uplusabove.png)
+![u with superscripted plus (entity file)](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/uplusabove.png)
 
 4. In the XML file of your dictionary text, replace the corresponding special character with `&entity name;` (entity name = "plusaboveu" in the following example; used as "\&plusaboveu;").
 
-![u with superscripted plus (xml)](images/uplusabove_xml.png)
+![u with superscripted plus (xml)](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/uplusabove-xml.png)
 
 And this is how the character is finally displayed using the KomplettFont:
 
-![u with superscripted plus (displayed)](images/uplusabove_wbnetz.png)
+![u with superscripted plus (displayed)](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/uplusabove-wbnetz.png)
 
 <Callout kind="note">
   The allEntities file must be uploaded with the dictionary files during import.
@@ -173,9 +173,9 @@ The data is imported into Publex from Bitbucket, a Git repository.
 2. **Log in** to your bitbucket account. If you don't have an account yet, **register** [here](https://bitbucket.org/product/).
 3. **Create a new repository**. To do this, click on "create repository" or the plus button next to "Recent repositories" on the welcome page of your account.
 
-![Welcome page Bitbucket](images/home_bitbucket.png)
+![Welcome page Bitbucket](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/home-bitbucket.png)
 
-![Create new repository](images/new_repo.png)
+![Create new repository](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/new-repo.png)
 
 * Select a **project** to which the repo is to be assigned to. If you do not have any projects in your Bitbucket account yet, you can also create a new project at this point.
 * Enter a **name** for the new repository, e.g. you can name it after your dictionary.
@@ -187,13 +187,13 @@ The data is imported into Publex from Bitbucket, a Git repository.
 
 This is how it looks now:
 
-![New repository](images/new_repo.png)
+![New repository](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/new-repo.png)
 
 4. Now you can **upload your dictionary data to the repository**.
 
 * To do this, you first have to **clone the repository** which means that you create a copy of it on your local system. When you click the "clone"-button in the right corner, a window will open, **copy the clone command** that appears.
 
-![Copy clone command](images/clone_command.png)
+![Copy clone command](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/clone-command.png)
 
 If you prefer to use Bitbucket through a user-friendly interface, we recommend to download [Sourcetree](https://www.sourcetreeapp.com/). In the following, we describe how to perform the steps with the command line:
 
@@ -222,11 +222,11 @@ If everything worked fine, you should now see the files in your repository onlin
 
 1. To create a new dictionary, start on the Dictionary Overview page and click on **"New Dictionary"**.
 
-![Dictionary Overview](images/dictionary_overview.png)
+![Dictionary Overview](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/dictionary-overview.png)
 
 2. A new window opens. Type in the **name** of your new dictionary and optionally a description.
 
-![Add new dictionary](images/new_dictionary.png)
+![Add new dictionary](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/new-dictionary.png)
 
 3. Now you have two different options:
 
@@ -238,21 +238,21 @@ If everything worked fine, you should now see the files in your repository onlin
 
 1. There are two possible ways to get to the **import page**: a) You create a new dictionary and immediately go to the XML file import (see [here](#creating-a-new-dictionary)). b) In the Dictionary Overview, select a dictionary that has already been created and click on **"Edit Dictionary"**.
 
-   ![Edit dictionary](images/edit_dictionary.png)
+   ![Edit dictionary](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/edit-dictionary.png)
 
 In the menu bar on the left, under **"Dictionary Management"**, select **"XML File Import"**.
 
-![Left menu bar](images/left_menu.png)
+![Left menu bar](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/left-menu.png)
 
 2. Now you have to provide Publex with the information where to find your dictionary data.
 
-![Define import](images/import_data.png)
+![Define import](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/import-data.png)
 
 a) The **URL of the Bitbucket repository** where you stored the data. You get the URL by clicking on the clone-Button in your Bitbucket repository and choosing "SSH" in the dropdown menu in the right upper corner. The last part of the displayed string is the URL you need.
 
-![Clone Button](images/clone_button_bitbucket.png)
+![Clone Button](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/clone-button-bitbucket.png)
 
-![Repo URL](images/clone_ssh.png)
+![Repo URL](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/clone-ssh.png)
 
 b) The **branch** in which the data is stored. It's the one you chose as default branch name when creating your Bitbucket repository (see [here](#store-the-data-in-a-bitbucket-repository)).
 
@@ -260,17 +260,17 @@ c) Tell Publex, whether your repository is public or private.
 
 1. If your repository is public, no further settings are necessary for the import. If it is a private repository, please mark the checkbox "This is a private Git repository!".
 
-   ![Private Git](images/privategit.png)
+   ![Private Git](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/privategit.png)
 2. By activating the button, a SSH key becomes visible. Please add this key to your Bitbucket account.
 
 * Copy the key.
 * In your Bitbucket account, go to your personal settings (see the settings-icon in the upper right corner).
 
-![Personal settings](images/bitbucket_personal-settings.png)
+![Personal settings](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/bitbucket-personal-settings.png)
 
 * In personal settings, go to "SSH keys" and click on "Add key". A Window opens where you can paste your key you copied from Publex.
 
-  ![Add key](images/add_key.png)
+  ![Add key](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/add-key.png)
 
 d) The **name of the directory** you stored you dictionary files in, e.g. "data" as chosen in our example.
 
@@ -284,19 +284,19 @@ Now you are ready to hit the button **Import Data**. The import starts now. It m
 
 As assistance we offer a small dictionary test data set. Via the button "Use Publex Test-Git" the corresponding data are entered into the form and the test dictionary can be imported.
 
-* ![Test\_Git](images/button_test_git.png)
+* ![Test\_Git](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/button-test-git.png)
 
 ### Deleting and locking a dictionary
 
 A dictionary can be deleted by clicking on the delete button (bin symbol). Make sure that the status of the dictionary is "unpublished".
 
-![Delete dictionary](images/delete_dictionary.png)
+![Delete dictionary](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/delete-dictionary.png)
 
 You have the possibility to lock a dictionary to protect it from unwanted changes. The lock icon changes the status to "not editable". Click the icon again to unlock.
 
-![Lock a dictionary](images/lock_dictionary.png)
+![Lock a dictionary](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/lock-dictionary.png)
 
-![Locked dictionary](images/locked_dictionary.png)
+![Locked dictionary](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/locked-dictionary.png)
 
 ### Metadata Management
 
@@ -304,9 +304,9 @@ The metadata for the dictionaries will appear later on the page of the published
 
 To add and edit the metadata of your dictionary, choose your dictionary in the Dictionary Overview, hit the "Edit Dictionary"-Button and select **"Metadata"** from the left side menu.
 
-![](images/edit_dictionary.png)
+![](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/edit-dictionary.png)
 
-![Metadata Management](images/metadata_management.png)
+![Metadata Management](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/metadata-management.png)
 
 On this page, you are able to change the title and edit the dictionary description. You also can add a project website and classify your dictionary into one of the following categories:
 
@@ -320,7 +320,7 @@ On this page, you are able to change the title and edit the dictionary descripti
 * Authors' dictionary
 * Unspecified
 
-![Dictionary Categories](images/metadata_categories.png)
+![Dictionary Categories](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/metadata-categories.png)
 
 <Callout kind="warning">
   Don't forget to hit the "Save"-Button to make sure Publex records your
@@ -343,7 +343,7 @@ There are a few basic things to keep in mind when defining the styling rules:
 * The order of the rules is relevant: **Subordinate rules override the preceding ones**. For example: I want the font size of my entries to be 12 pt, so I define this feature in a rule for all `<entry>` elements. Thus, all the texts contained in `<entry>` will be formatted accordingly. However, the lemma (e.g. `<form type="lemma">`) should be bolded and displayed in a larger font. If I define this in a subordinate rule, the definition from the first rule is overwritten specifically for these elements. Therefore it is recommended: More general rules should be placed at the beginning of the list.
 * The order can be modified at any time using the arrow buttons.
 
-  ![Change Order](images/arrows.png)
+  ![Change Order](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/arrows.png)
 
 <Callout kind="tip" title="Advice for the choice of font">
   It is recommended to use the [KompLett
@@ -356,7 +356,7 @@ There are a few basic things to keep in mind when defining the styling rules:
 
 A new styling rule is created by using the "Add styling rule" button.
 
-![Add new sytyling rule](images/add_new_rule.svg)
+![Add new sytyling rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/add-new-rule.svg)
 
 A window for defining a new styling rule is displayed.
 
@@ -364,7 +364,7 @@ A window for defining a new styling rule is displayed.
 
 Type in the name for the rule.
 
-![Name rule](images/name_rule.png)
+![Name rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/name-rule.png)
 
 <Callout kind="tip">
   Try to use meaningful names, e.g. "lemma", "definition" or "citation".
@@ -376,32 +376,32 @@ Type in the name for the rule.
 
 The first step is to select the element tag the rule should apply to. When importing the data, Publex captures all the different tags, attributes and associated attribute values your dictionary is annotated with. When creating a styling rule, you are shown all the options to choose in a drop-down menu:
 
-![Dropdown menu tags](images/tag_choice.png)
+![Dropdown menu tags](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/tag-choice.png)
 
 Now you have different options:
 
-1. **You select only one element tag**. The rule then applies to all elements with this tag name, regardless of the attributes: ![Only tag](images/only_tag.png)
+1. **You select only one element tag**. The rule then applies to all elements with this tag name, regardless of the attributes: ![Only tag](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/only-tag.png)
 2. **You specify the selected tag by one or more attributes**, you do not prescribe which attribute values are present. To do this, click on the plus symbol to the right of the selected element and select "Add attribute to tag" here.
 
-![add attribute](images/add_attribute.png)
+![add attribute](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/add-attribute.png)
 
-![attributes](images/attributes.png)
+![attributes](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/attributes.png)
 
 3. **Additionally, you define which values an attribute should have**. To do this, click on the plus symbol on the right of the selected attribute and select "Add value to attribute". Please note: You can only define one value per attribute.
 
-![add value](images/add_value.png)
+![add value](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/add-value.png)
 
-![tag, attribute, value](images/attribute_values.png)
+![tag, attribute, value](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/attribute-values.png)
 
 Attributes and attribute values that have already been selected can be removed with the minus symbol on the right.
 
-![delete attribute](images/delete_attribute.png)
+![delete attribute](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/delete-attribute.png)
 
 ### Search and lemma field
 
 For each rule, there are different options you can select in the settings:
 
-![settings](images/settings.png)
+![settings](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/settings.png)
 
 * **Display text on website** This checkbox is activated by default. You should only deactivate it if you do NOT want the text of the element to be displayed.
 * **Set as searchable field** If you want the selected element to appear as a search field in the dictionary look-up, activate this field.
@@ -411,27 +411,27 @@ For each rule, there are different options you can select in the settings:
 
 Finally, you can define the concrete layout. A wide variety of text formatting functions are available to you for this purpose:
 
-![Styling functions I](images/styling_functions_1.png)
+![Styling functions I](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/styling-functions-1.png)
 
-![Styling functions II](images/styling_functions_2.png)
+![Styling functions II](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/styling-functions-2.png)
 
 Planned additional formatting functions:
 
-![Styling functions II](images/styling_functions_3.png)
+![Styling functions II](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/styling-functions-3.png)
 
 ### Save and discard
 
 When you have defined a new rule or made changes, save them with the save button at the top of the right.
 
-![Save](images/save.png)
+![Save](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/save.png)
 
 Single rules can be deleted via the bin button.
 
-![Delete rule](images/delete_rule.png)
+![Delete rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/delete-rule.png)
 
 If you want to discard all changes since the last save, you can do this with the "Discard changes" button. This is hidden behind the "more" button next to the save button.
 
-![Discard changes](images/discard_changes.png)
+![Discard changes](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/discard-changes.png)
 
 ### Lock a styling rule
 
@@ -439,7 +439,7 @@ As an assistance in creating the styling rules, individual rules can be locked. 
 
 Clicking on the lock symbol locks a rule, clicking again unlocks it for editing.
 
-![Lock rule](images/lock_rule.png)
+![Lock rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/lock-rule.png)
 
 ### Export and import a configuration
 
@@ -447,7 +447,7 @@ You have the option of exporting the styling rules as a JSON file in order to sa
 
 The buttons for the export and the import are hidden under the "more" button next to the save button at the top of the right.
 
-![Export and Import Styling Rules](images/export_import.png)
+![Export and Import Styling Rules](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/export-import.png)
 
 #### Export
 
@@ -457,7 +457,7 @@ To export your styling rules, click on "Export configuration file". A window ope
 
 To import exported styling rules, click on "Import configuration file". A window opens in which you have to copy the contents of the exported JSON file. To do this, you can open the JSON file in any text editor and select and copy the text it contains.
 
-![Import Styling Rules](images/import_config.png)
+![Import Styling Rules](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/import-config.png)
 
 After clicking on "OK", the rules are imported and displayed.
 
@@ -469,17 +469,17 @@ After clicking on "OK", the rules are imported and displayed.
 
 For a concrete demonstration of the different functions and the procedure, we use the dictionary entry *bluome* from the *Mittelhochdeutsches Handwörterbuch* by Matthias Lexer as an example in the following:
 
-![Lexer bluome Foto](images/bluome_categories.png)
+![Lexer bluome Foto](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/bluome-categories.png)
 
 This is how the XML annotated entry looks like:
 
-![Lexer bluome XML](images/bluome_xml.png)
+![Lexer bluome XML](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/bluome-xml.png)
 
 We first examine which information units have a special typographical representation and which XML elements correspond to them. In this example, we follow the print image, but use the additional advantages of the digital publication form: For example, we additionally display the citations in red and the authors in blue, which serves to improve the visual structuring of the document examples.
 
-![information types](images/information_types.png)
+![information types](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/information-types.png)
 
-![typograhocal types](images/typo_types.png)
+![typograhocal types](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/typo-types.png)
 
 After these pre-considerations, the styling rules can now be defined.
 
@@ -489,7 +489,7 @@ Since the rules should be sorted from general to specific, we first define the b
 
 The first rule, therefore, refers to the `entry` element. If not defined more specifically by further rules, the text of the dictionary entries shall be displayed in KomplettFont, font size 12 pt, font colour black and with no other special features:
 
-![entry rule](images/entry_rule.png)
+![entry rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/entry-rule.png)
 
 Now we create more specific rules for individual entry parts that override the `entry` rule:
 
@@ -499,41 +499,41 @@ Each dictionary should have a lemma. The tag for this is `<form type="lemma">`.
 
 In contrast to the regular entry text, the lemma should appear in bold type in our example. To make it more distinctive, we also choose a larger font size of 16 pt. In addition, we have to activate the box "add to lemma list" so that the lemmas appear in the lemma list and are searchable in the dictionary look-up.
 
-![Defining lemma rule](images/lemma_rule.png)
+![Defining lemma rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/lemma-rule.png)
 
 #### Grammatical information
 
 The grammatical information contained in the `gram` tag is to be displayed in italics. We also want to enable a search for the grammatical indication in the dictionary and therefore activate the checkbox "Set as searchable field".
 
-![Defining grammar rule](images/grammar_rule.png)
+![Defining grammar rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/grammar-rule.png)
 
 #### Definition
 
 The text contained in `<def>` should also be set in italics. We additionally activate the checkbox "Set as searchable field".
 
-![Defining definition rule](images/def_rule.png)
+![Defining definition rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/def-rule.png)
 
 #### Citation
 
 Quoted examples are coded with `<cit type="example">` and should be displayed in green.
 
-![Defining citation rule](images/citation_rule.png)
+![Defining citation rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/citation-rule.png)
 
 #### Source authors
 
 The cited examples are followed by the source, which is annotated with `<author>` and which we want to display in blue font colour. The sources should also be a search field in the look-up.
 
-![Defining author rule](images/author_rule.png)
+![Defining author rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/author-rule.png)
 
 #### Italics, recte and superscript
 
 Finally, we define the rules for the elements that mark typographic features. In our example, these are italics, recte (used to mark punctuation marks as recte in a paragraph displayed italics) and superscript.
 
-![Defining italics rule](images/superscript_rule.png)
+![Defining italics rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/superscript-rule.png)
 
-![Defining recte rule](images/recte_rule.png)
+![Defining recte rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/recte-rule.png)
 
-![Defining superscript rule](images/superscript_rule.png)
+![Defining superscript rule](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/superscript-rule.png)
 
 Now the styling for our example entry is defined. We save the rule with the "Save" button and create a backup copy by exporting the configuration as a JSON file.
 
@@ -545,7 +545,7 @@ Now the styling for our example entry is defined. We save the rule with the "Sav
 
 In the dictionary preview, our example entry *bluome* now looks like this:
 
-![Preview entry bluome](images/bluome_preview.png)
+![Preview entry bluome](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/bluome-preview.png)
 
 ## The Dictionary Viewer: Preview your dictionary
 
@@ -553,15 +553,15 @@ In the Dictionary Viewer, the user can see how his/her published dictionary will
 
 You can get there by clicking on "Preview Website" in the left side menu:
 
-![Preview Website Left Menu](images/left_menu_preview.png)
+![Preview Website Left Menu](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/left-menu-preview.png)
 
 Or by going to your dictionary in the Dictionary Overview and click on "Preview Website":
 
-![Preview Website Overview](images/preview_website.png)
+![Preview Website Overview](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/preview-website.png)
 
 A new tab opens in the browser with the preview:
 
-![Dictionary Viewer](images/dictionary_viewer.png)
+![Dictionary Viewer](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/dictionary-viewer.png)
 
 The viewer as well as the later published dictionary are divided into three parts:
 
@@ -577,17 +577,17 @@ Here, the dictionary entries are displayed as defined in the Styling Rules. Only
 
 All fields a lemma rule has been defined in the styling rules for appear in the lemma list (see [here](#search-and-lemma-field)). Clicking on an item in the list displays the corresponding dictionary entry. The entries in the lemma list can be searched by using the search field. A truncated search is possible.
 
-![Search lemma list](images/lemmalist_search.png)
+![Search lemma list](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/lemmalist-search.png)
 
 ### The dictionary look-up
 
 In the dictionary look-up the user has the choice between a general fulltext search
 
-![simple search](images/simple_search.png)
+![simple search](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/simple-search.png)
 
 and an advanced search.
 
-![advanced search](images/advanced_search.png)
+![advanced search](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/advanced-search.png)
 
 The advanced search offers a fulltext search and search options in all information fields the checkbox "set as searchable field" has been activated for in the styling rules (see [here](#search-and-lemma-field)). In our example configuration, these are the lemma, the grammatical information, the definition and the source information.
 
@@ -605,7 +605,7 @@ The search is started by pressing the enter key.
 
 The search result appears as a list below the search mask. From here, the dictionary entries can be called up directly.
 
-![Search result](images/search_result2.png)
+![Search result](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/search-result2.png)
 
 ## Publication
 
@@ -620,15 +620,15 @@ In order to publish a dictionary, the following requirements must be fulfilled:
 
 * To publish your dictionary, go to the Dictionary Overview page, change the button with the label "Publishing status of your dictionary" from "unpublished" to "published".
 
-![Publication](images/publication_button.png)
+![Publication](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/publication-button.png)
 
 * Your dictionary is available online now. It appears on the overview page of all dictionaries published with Publex. You can also access this page via the "Published Dictionaries" button in the top menu bar:
 
-![Publex Button](images/publex_button.png)
+![Publex Button](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/publex-button.png)
 
 The published dictionaries are displayed with basic metadata and can be accessed by clicking on the dictionary name in the blue box.
 
-![Published Dictionaries](images/published_dictionaries.png)
+![Published Dictionaries](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/published-dictionaries.png)
 
 * Each published dictionary is also given its own persistent address it can be accessed through.
 
@@ -636,7 +636,7 @@ The published dictionaries are displayed with basic metadata and can be accessed
 
 You can reverse a publication of your dictionary by changing the toggle button from "published" to "unpublished".
 
-![Reverse a publication](images/unpublish_button.png)
+![Reverse a publication](/assets/content/assets/en/resources/hosted/how-to-publish-your-dictionary-data-with-publex/unpublish-button.png)
 
 ## File Management: Update a dictionary
 

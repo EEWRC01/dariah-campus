@@ -21,9 +21,13 @@ import * as YAML from "yaml";
 
 import { contentTypes, type SocialMediaKind } from "@/lib/keystatic/options";
 
+import _uuid from "../uuid.json";
+
 const publicFolder = join(process.cwd(), "public");
 const sourceFolder = join(process.cwd(), "content-source");
 const contentFolder = join(process.cwd(), "content");
+
+const uuid = new Map<string, string>(_uuid);
 
 function sanitize(input: string) {
 	return slugify(input);
@@ -840,7 +844,10 @@ async function migrateResources(
 								} else {
 									const sourceFilePath = join(folder, src);
 
-									const targetFilePath = join(targetFolder, slugify(basename(sourceFilePath)));
+									const targetFilePath = join(
+										targetFolder,
+										slugify(basename(sourceFilePath), { preserveCharacters: ["."] }),
+									);
 									copyFileSync(sourceFilePath, targetFilePath);
 									src = `/${relative(publicFolder, targetFilePath)}`;
 								}
@@ -1202,17 +1209,40 @@ async function migrateResources(
 					visit(tree, "link", (node) => {
 						const url = node.url;
 
-						if (!url.startsWith("http")) {
-							console.log(node);
+						if (url.startsWith("/id/")) {
+							const u = new URL(url.slice(4), "http://n");
+							const hash = u.hash;
+							const id = u.pathname.slice(1);
+							const { name, type } = uuid.get(id);
+							node.url = `/resources/${type}/${name}${hash}`;
 						}
 					});
 
 					visit(tree, "image", (node) => {
 						const src = node.url;
-						const alt = node.alt;
 
-						if (!src.startsWith("images")) {
-							// console.log(node);
+						if (src.startsWith("images")) {
+							const imageFilePath = join(folder, src);
+							const outputImageFolder = join(
+								publicFolder,
+								"assets",
+								"content",
+								"assets",
+								"en",
+								"resources",
+								resourceType,
+								outputSlug,
+							);
+							mkdirSync(outputImageFolder, { recursive: true });
+
+							const outputImageFilePath = join(
+								outputImageFolder,
+								slugify(basename(src), { preserveCharacters: ["."] }),
+							);
+							copyFileSync(imageFilePath, outputImageFilePath);
+							node.url = `/${relative(publicFolder, outputImageFilePath)}`;
+						} else {
+							throw new Error(`Invalid image src: ${src} ${entry.name}`);
 						}
 					});
 				};

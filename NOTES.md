@@ -19,3 +19,13 @@
 ### events
 
 - drop events from sources
+
+---
+
+### learn markdown
+
+- use inline code for filenames, identifiers, language primitives
+- use actual links instead of "click here", brackets like `go to \[www.example.org]` etc
+- use headings not bold
+- format your code blocks
+- avoid manual line breaks `bla \`
