@@ -15,7 +15,7 @@ import fromMarkdown from "remark-parse";
 import toMarkdown from "remark-stringify";
 import { read } from "to-vfile";
 import { unified } from "unified";
-import { visit } from "unist-util-visit";
+import { SKIP, visit } from "unist-util-visit";
 import { matter } from "vfile-matter";
 import * as YAML from "yaml";
 
@@ -989,6 +989,73 @@ async function migrateResources(
 							}
 
 							case "Quiz": {
+								const quiz: MdxJsxFlowElement = {
+									type: "mdxJsxFlowElement",
+									name: "Quiz",
+									attributes: [],
+									children: [],
+								};
+
+								for (const child of node.children) {
+									assert(child.name === "Quiz.Card");
+									assert(child.children.length === 1);
+
+									const choiceQuiz = child.children.at(0);
+									const questions = choiceQuiz.children.filter((c) => {
+										return c.name === "Quiz.Question";
+									});
+									assert(questions.length === 1);
+									const variant =
+										choiceQuiz.name === "Quiz.SingleChoiceQuiz" ? "single" : "multiple";
+									const answers =
+										variant === "multiple"
+											? choiceQuiz.children.filter((c) => {
+													return c.name === "Quiz.MultipleChoice.Option";
+												})
+											: choiceQuiz.children.filter((c) => {
+													return c.name === "Quiz.SingleChoice.Option";
+												}); // isCorrect attribute
+
+									const children = [];
+
+									children.push({
+										type: "mdxJsxFlowElement",
+										name: "QuizChoiceQuestion",
+										attributes: [],
+										children: questions.at(0).children,
+									});
+
+									for (const answer of answers) {
+										const isCorrect =
+											answer.attributes.find((a) => {
+												return a.name === "isCorrect";
+											}) != null;
+
+										children.push({
+											type: "mdxJsxFlowElement",
+											name: "QuizChoiceAnswer",
+											attributes: [
+												{
+													type: "mdxJsxAttribute",
+													name: "kind",
+													value: isCorrect ? "correct" : "incorrect",
+												},
+											],
+										});
+									}
+
+									// TODO: QuizSuccessMessage
+									// TODO: QuizErrorMessage
+
+									quiz.children.push({
+										type: "mdxJsxFlowElement",
+										name: "QuizChoice",
+										attributes: [{ type: "mdxJsxAttribute", name: "variant", value: variant }],
+										children,
+									});
+								}
+
+								return SKIP;
 								break;
 							}
 
@@ -1628,7 +1695,61 @@ async function migrateEvents(
 			frontmatter["featured-image"] = `/${relative(publicFolder, outputImageFilePath)}`;
 		}
 
-		for (const session of metadata.sessions) {
+		for (const [index, session] of metadata.sessions.entries()) {
+			const sessionFolder = join(outputFolder, "sessions", index);
+			await mkdir(sessionFolder, { recursive: true });
+			const sessionFilePath = join(sessionFolder, "content.mdx");
+
+			//
+
+			const content = session.body;
+			const title = session.title;
+			const speakers = session.speakers.map((id) => {
+				const person = people.get(id);
+				assert(person);
+				return person;
+			});
+			const attachments = [];
+			const links = [];
+			if (session.synthesis) {
+				if (isUrl(session.synthesis)) {
+					links.push({
+						label: "Synthesis",
+						href: session.synthesis,
+					});
+				} else {
+					const inFilePath = join(folder, session.synthesis);
+					const outputImageFolder = join(
+						publicFolder,
+						"assets",
+						"content",
+						"downloads",
+						"en",
+						"resources",
+						"events",
+						outputSlug,
+						"sessions",
+						index,
+					);
+					await mkdir(outputImageFolder, { recursive: true });
+					const outputImageFilePath = join(
+						outputImageFolder,
+						slugify(basename(inFilePath), { preserveCharacters: ["."] }),
+					);
+					await copyFile(inFilePath, outputImageFilePath);
+					attachments.push({
+						label: "Synthesis",
+						file: `/${relative(publicFolder, outputImageFilePath)}`,
+					});
+				}
+			}
+
+			frontmatter.sessions.push({
+				title,
+				attachments,
+				links,
+			});
+
 			// TODO:
 		}
 	}
