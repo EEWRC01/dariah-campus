@@ -18,7 +18,9 @@
 
 ### events
 
-- drop events from sources
+- dropped events from sources
+- dropped events "logo" field
+- clarify "eventType" field
 
 ---
 

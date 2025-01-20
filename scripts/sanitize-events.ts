@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { log } from "@acdh-oeaw/lib";
 
 async function sanitize() {
-	const sourceFolder = join(process.cwd(), "content-source", "events");
+	const sourceFolder = join(process.cwd(), "content-source", "posts");
 
 	for (const entry of await readdir(sourceFolder, { withFileTypes: true })) {
 		const filePath = join(sourceFolder, entry.name, "index.mdx");

@@ -33,6 +33,94 @@ function sanitize(input: string) {
 	return slugify(input);
 }
 
+interface EventSource {
+	title: string;
+	shortTitle?: string;
+	eventType: string;
+	lang: string;
+	date: string;
+	tags: Array<string>;
+	categories: Array<string>;
+	logo?: string;
+	featuredImage?: string;
+	abstract: string;
+	authors?: Array<string>;
+	type: "event";
+	licence: string;
+
+	about: string;
+	prep: string;
+
+	partners?: Array<string>;
+	social: Array<{ discriminant: string; value: string }>;
+
+	synthesis?: string;
+	sessions: Array<{
+		title: string;
+		speakers: Array<string>;
+		synthesis?: string;
+	}>;
+}
+
+interface Event {
+	title: string;
+	locale: string;
+	"publication-date": string;
+	"start-date": string;
+	"end-date"?: string;
+	location: string;
+	type?: string; // FIXME: eventType
+	version: string;
+	authors: Array<string>;
+	organisations: Array<{
+		name: string;
+		url: string;
+		logo: string;
+	}>;
+	tags: Array<string>;
+	sources: Array<string>;
+	"featured-image"?: string;
+	license: string;
+	"table-of-contents": boolean;
+	attachments: Array<{
+		label: string;
+		file: string;
+	}>;
+	links: Array<{
+		label: string;
+		href: string;
+	}>;
+	social: Array<{ discriminant: string; value: string }>;
+	summary: {
+		title?: string;
+		content: string;
+	};
+	sessions: Array<{
+		title: string;
+		speakers: Array<string>;
+		attachments: Array<{
+			label: string;
+			file: string;
+		}>;
+		links: Array<{
+			label: string;
+			href: string;
+		}>;
+		presentations: Array<{
+			title: string;
+			speakers: Array<string>;
+			attachments: Array<{
+				label: string;
+				file: string;
+			}>;
+			links: Array<{
+				label: string;
+				href: string;
+			}>;
+		}>;
+	}>;
+}
+
 interface CurriculumSource {
 	title: string;
 	shortTitle: string;
@@ -1392,11 +1480,172 @@ async function migrateCurricula(
 	return map;
 }
 
+async function migrateEvents(
+	people: Map<string, string>,
+	tags: Map<string, string>,
+	sources: Map<string, string>,
+) {
+	try {
+		const events = new Map<
+			string,
+			{ collection: "hosted" | "external" | "pathfinders"; id: string }
+		>(
+			// @ts-expect-error It's fine.
+
+			(await import("../events.json", { with: { type: "json" } })).default,
+		);
+		return events;
+	} catch {
+		/** noop */
+	}
+
+	const dataFolderPath = join(sourceFolder, "events");
+	const outf = join(contentFolder, "en", "resources", "events");
+
+	/** Map legacy identifiers to new ones. */
+	const map = new Map<string, string>();
+
+	for (const entry of await readdir(dataFolderPath, { withFileTypes: true })) {
+		if (!entry.isDirectory()) continue;
+
+		const slug = entry.name;
+		const folder = join(dataFolderPath, entry.name);
+		const filePath = join(folder, "index.mdx");
+
+		const vfile = await read(filePath);
+		matter(vfile, { strip: true });
+		const metadata = vfile.data.matter as EventSource;
+
+		const outputSlug = sanitize(slug);
+		const outputFolder = join(outf, outputSlug);
+		await mkdir(outputFolder, { recursive: true });
+		const outputFilePath = join(outputFolder, "index.mdx");
+
+		map.set(entry.name, outputSlug);
+
+		//
+
+		const frontmatter: Event = {
+			title: metadata.title,
+			locale: metadata.lang,
+			"publication-date": new Intl.DateTimeFormat("en-ca").format(new Date(metadata.date)), // FIXME:
+			"start-date": new Intl.DateTimeFormat("en-ca").format(new Date(metadata.date)), // FIXME: needs manual curation
+			location: "", // FIXME: needs manual curation
+			// type: metadata.eventType, // FIXME:
+			version: "1.0.0",
+			authors:
+				metadata.authors?.map((id) => {
+					const person = people.get(id);
+					assert(person);
+					return person;
+				}) ?? [],
+			organisations:
+				metadata.partners?.map((o) => {
+					return {
+						name: "",
+						url: "",
+						logo: "",
+					};
+				}) ?? [],
+			tags: metadata.tags.map((id) => {
+				const tag = tags.get(id);
+				assert(tag);
+				return tag;
+			}),
+			sources: metadata.categories
+				.filter((c) => {
+					return c !== "events";
+				})
+				.map((id) => {
+					const source = sources.get(id);
+					assert(source);
+					return source;
+				}),
+			summary: {
+				title: metadata.shortTitle,
+				content: metadata.abstract,
+			},
+			license: "ccby-4.0",
+			social: metadata.social,
+			attachments: [],
+			links: [],
+			"table-of-contents": false,
+
+			// logo: metadata.logo, // FIXME:
+
+			sessions: [],
+		};
+
+		if (metadata.synthesis) {
+			if (isUrl(metadata.synthesis)) {
+				frontmatter.links.push({
+					label: "Synthesis",
+					href: metadata.synthesis,
+				});
+			} else {
+				const inFilePath = join(folder, metadata.synthesis);
+				const outputImageFolder = join(
+					publicFolder,
+					"assets",
+					"content",
+					"downloads",
+					"en",
+					"resources",
+					"events",
+					outputSlug,
+				);
+				await mkdir(outputImageFolder, { recursive: true });
+				const outputImageFilePath = join(
+					outputImageFolder,
+					slugify(basename(inFilePath), { preserveCharacters: ["."] }),
+				);
+				await copyFile(inFilePath, outputImageFilePath);
+				frontmatter.attachments.push({
+					label: "Synthesis",
+					file: `/${relative(publicFolder, outputImageFilePath)}`,
+				});
+			}
+		}
+
+		if (metadata.featuredImage) {
+			const imageFilePath = join(folder, metadata.featuredImage);
+			const outputImageFolder = join(
+				publicFolder,
+				"assets",
+				"content",
+				"assets",
+				"en",
+				"resources",
+				"events",
+				outputSlug,
+			);
+			await mkdir(outputImageFolder, { recursive: true });
+			const outputImageFilePath = join(
+				outputImageFolder,
+				`featured-image${extname(imageFilePath)}`,
+			);
+			await copyFile(imageFilePath, outputImageFilePath);
+			frontmatter["featured-image"] = `/${relative(publicFolder, outputImageFilePath)}`;
+		}
+
+		for (const session of metadata.sessions) {
+			// TODO:
+		}
+	}
+
+	await writeFile("events.json", JSON.stringify(Array.from(map.entries())), {
+		encoding: "utf-8",
+	});
+
+	return map;
+}
+
 async function migrate() {
 	const people = await migratePeople();
 	const tags = await migrateTags();
 	const sources = await migrateSources();
 	const resources = await migrateResources(people, tags, sources);
+	const events = await migrateEvents(people, tags, sources);
 	const curricula = await migrateCurricula(people, tags, sources, resources);
 }
 
