@@ -5,6 +5,7 @@ import type { VideoProvider } from "@/lib/keystatic/options";
 
 interface VideoCardProps {
 	id: string;
+	image: string;
 	provider: VideoProvider;
 	startTime?: number;
 	subtitle?: string;
@@ -12,7 +13,7 @@ interface VideoCardProps {
 }
 
 export function VideoCard(props: VideoCardProps): ReactNode {
-	const { id, provider, startTime, subtitle, title } = props;
+	const { id, image, provider, startTime, subtitle, title } = props;
 
 	const href = String(createVideoUrl(provider, id, startTime));
 

@@ -379,27 +379,64 @@ export const createEvents = createCollection("/resources/events/", (paths, local
 				},
 			),
 			social: fields.array(
-				fields.object(
+				fields.conditional(
+					fields.select({
+						label: "Kind",
+						options: socialMediaKinds,
+						defaultValue: "website",
+					}),
 					{
-						kind: fields.select({
-							label: "Kind",
-							options: socialMediaKinds,
-							defaultValue: "website",
-						}),
-						href: fields.url({
+						bluesky: fields.url({
 							label: "URL",
 							validation: { isRequired: true },
 						}),
-					},
-					{
-						label: "Social",
+						email: fields.text({
+							label: "URL",
+							validation: { isRequired: true, pattern: validation.email },
+						}),
+						flickr: fields.url({
+							label: "URL",
+							validation: { isRequired: true },
+						}),
+						github: fields.url({
+							label: "URL",
+							validation: { isRequired: true },
+						}),
+						linkedin: fields.url({
+							label: "URL",
+							validation: { isRequired: true },
+						}),
+						mastodon: fields.url({
+							label: "URL",
+							validation: { isRequired: true },
+						}),
+						orcid: fields.url({
+							label: "URL",
+							validation: { isRequired: true },
+						}),
+						rss: fields.url({
+							label: "URL",
+							validation: { isRequired: true },
+						}),
+						twitter: fields.url({
+							label: "URL",
+							validation: { isRequired: true },
+						}),
+						website: fields.url({
+							label: "URL",
+							validation: { isRequired: true },
+						}),
+						youtube: fields.url({
+							label: "URL",
+							validation: { isRequired: true },
+						}),
 					},
 				),
 				{
 					label: "Social media",
 					validation: { length: { min: 0 } },
 					itemLabel(props) {
-						return props.fields.kind.value;
+						return props.discriminant;
 					},
 				},
 			),

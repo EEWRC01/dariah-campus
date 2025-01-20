@@ -380,7 +380,7 @@ export const createVideo = createComponent((_paths, _locale) => {
 	};
 });
 
-export const createVideoCard = createComponent((_paths, _locale) => {
+export const createVideoCard = createComponent((paths, _locale) => {
 	return {
 		VideoCard: block({
 			label: "Video card",
@@ -408,6 +408,11 @@ export const createVideoCard = createComponent((_paths, _locale) => {
 					label: "Subtitle",
 					validation: { isRequired: false },
 				}),
+				image: fields.image({
+					label: "Image",
+					validation: { isRequired: true },
+					...createAssetOptions(paths.assetPath),
+				}),
 			},
 			ContentView(props) {
 				const { value } = props;
@@ -415,6 +420,7 @@ export const createVideoCard = createComponent((_paths, _locale) => {
 				return (
 					<VideoCardPreview
 						id={value.id}
+						image={value.image}
 						provider={value.provider}
 						startTime={value.startTime}
 						subtitle={value.subtitle}

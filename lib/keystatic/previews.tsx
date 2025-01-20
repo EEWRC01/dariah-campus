@@ -299,6 +299,7 @@ export function VideoPreview(props: Readonly<VideoPreviewProps>): ReactNode {
 
 interface VideoCardPreviewProps {
 	id: string;
+	image: string;
 	provider: VideoProvider;
 	startTime?: number | null;
 	subtitle?: string;
@@ -306,7 +307,7 @@ interface VideoCardPreviewProps {
 }
 
 export function VideoCardPreview(props: Readonly<VideoCardPreviewProps>): ReactNode {
-	const { id, provider, startTime, subtitle, title } = props;
+	const { id, image, provider, startTime, subtitle, title } = props;
 
 	const href = isNonEmptyString(id) ? String(createVideoUrl(provider, id, startTime)) : null;
 
