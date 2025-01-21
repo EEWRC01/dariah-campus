@@ -1,12 +1,14 @@
 "use client";
 
-import { Children, isValidElement, type ReactElement, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import {
 	Tab as AriaTab,
 	TabList as AriaTabList,
 	TabPanel as AriaTabPanel,
 	Tabs as AriaTabs,
 } from "react-aria-components";
+
+import { getChildrenElements } from "@/components/content/get-children-elements";
 
 interface TabsProps {
 	children: ReactNode;
@@ -59,8 +61,4 @@ interface TabProps {
 
 export function Tab(_props: Readonly<TabProps>): ReactNode {
 	return null;
-}
-
-function getChildrenElements<TProps>(children: ReactNode): Array<ReactElement<TProps>> {
-	return Children.toArray(children).filter(isValidElement<TProps>);
 }

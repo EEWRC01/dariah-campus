@@ -17,5 +17,25 @@ export function getLinkProps(params: LinkSchema) {
 		case "external": {
 			return { href: params.value };
 		}
+
+		case "curricula": {
+			return { href: `/curricula/${params.value}` };
+		}
+
+		case "resources-events": {
+			return { href: `/resources/events/${params.value}` };
+		}
+
+		case "resources-external": {
+			return { href: `/resources/external/${params.value}` };
+		}
+
+		case "resources-hosted": {
+			return { href: `/resources/hosted/${params.value}` };
+		}
+
+		case "resources-pathfinders": {
+			return { href: `/resources/pathfinders/${params.value}` };
+		}
 	}
 }

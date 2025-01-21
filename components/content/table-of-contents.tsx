@@ -41,13 +41,13 @@ function TableOfContentsLevel(props: Readonly<TableOfContentsLevelProps>): React
 	const { depth = 0, headings } = props;
 
 	return (
-		<ol className="grid gap-y-1.5 text-text-weak" style={{ marginLeft: `${String(depth * 8)}px` }}>
+		<ol className="text-text-weak grid gap-y-1.5" style={{ marginLeft: `${String(depth * 8)}px` }}>
 			{headings.map((heading) => {
 				return (
 					<li key={heading.id} className="grid justify-start gap-y-1.5">
 						{heading.id != null ? (
 							<a
-								className="inline-flex underline decoration-dotted transition hover:text-text-strong hover:decoration-solid"
+								className="hover:text-text-strong inline-flex underline decoration-dotted transition hover:decoration-solid"
 								href={`#${heading.id}`}
 							>
 								{heading.value}

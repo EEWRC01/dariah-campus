@@ -1152,6 +1152,7 @@ async function migrateResources(
 									danger: "caution",
 									important: "important",
 									info: "note",
+									note: "note",
 									tip: "tip",
 									warning: "warning",
 								};

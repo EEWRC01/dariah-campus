@@ -11,11 +11,11 @@ export function Disclosure(props: Readonly<DisclosureProps>): ReactNode {
 
 	return (
 		<details className="group my-4 grid border-y open:pb-2">
-			<summary className="my-4 inline-flex cursor-pointer list-none items-center justify-between gap-x-4 font-bold text-text-strong hover:underline">
+			<summary className="text-text-strong my-4 inline-flex cursor-pointer list-none items-center justify-between gap-x-4 font-bold hover:underline">
 				{title}
 				<ChevronDownIcon
 					aria-hidden={true}
-					className="size-6 shrink-0 text-icon-neutral group-open:rotate-180"
+					className="text-icon-neutral size-6 shrink-0 group-open:rotate-180"
 				/>
 			</summary>
 			{children}

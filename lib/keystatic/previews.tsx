@@ -20,12 +20,11 @@ const calloutKindStyles = styles({
 	base: "inline-flex min-h-6 rounded-full px-2 text-sm",
 	variants: {
 		kind: {
-			caution: "border-stroke-error-weak bg-fill-error-weak text-text-error border",
-			important:
-				"border-stroke-information-weak bg-fill-information-weak text-text-information border",
-			note: "bg-fill-weak text-text-weak border border-neutral-200",
-			tip: "border-stroke-success-weak bg-fill-success-weak text-text-success border",
-			warning: "border-stroke-warning-weak bg-fill-warning-weak text-text-warning border",
+			caution: "border border-error-200 bg-error-100 text-error-700",
+			important: "border border-important-200 bg-important-100 text-important-700",
+			note: "border border-neutral-200 bg-neutral-100 text-neutral-700",
+			tip: "border border-success-200 bg-success-100 text-success-700",
+			warning: "border border-warning-200 bg-warning-100 text-warning-700",
 		},
 	},
 	defaults: {
@@ -201,7 +200,7 @@ export function HeadingIdPreview(props: Readonly<HeadingIdPreviewProps>): ReactN
 
 	return (
 		<NotEditable className="inline">
-			<span className="bg-fill-weak text-text-weak border-neutral-200 px-2 opacity-50">
+			<span className="border-neutral-200 bg-neutral-100 px-2 text-neutral-700 opacity-50">
 				{"#"}
 				{children}
 			</span>
@@ -218,7 +217,7 @@ export function LinkButtonPreview(props: Readonly<LinkButtonPreviewProps>): Reac
 	const { children, link: _link } = props;
 
 	return (
-		<div className="border-stroke-brand-strong bg-fill-brand-strong text-text-inverse-strong shadow-raised inline-flex min-h-12 items-center rounded-lg border px-6 py-2.5 text-sm font-bold">
+		<div className="inline-flex min-h-12 items-center rounded-lg border border-primary-600 bg-primary-600 px-6 py-2.5 text-sm font-bold text-white">
 			{children}
 		</div>
 	);

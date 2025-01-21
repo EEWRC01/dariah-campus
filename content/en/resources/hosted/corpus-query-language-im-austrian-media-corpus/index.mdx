@@ -51,7 +51,7 @@ Nach Abschluss dieser Ressource haben Lernende:
 
 Das ACDH-CH ergänzt die Texte, die von der APA zur Verfügung gestellt wurden, mithilfe linguistischer Annotationsverfahren wie Lemmatisierung, Wortartenzuordnung (Part-of-Speech tagging) oder Named Entitiy Recognition. Anschließend werden die Ergebnisse vom ACDH-CH in der Korpussuchmaschine NoSketch Engine online verfügbar gemacht. Dieses Werkzeug erlaubt die Suche und Auswertung der signifikanten Textmengen im amc und macht das Korpus in Kombination mit den verfügbaren Annotationen erst für die effiziente Bearbeitung quantitativer und qualitativer Forschungsfragen tauglich.
 
-<Callout kind title="Zugang zum amc">
+<Callout kind="note" title="Zugang zum amc">
   Um das [amc nutzen](https://amc.acdh.oeaw.ac.at/access-conditions/) zu können, ist eine [Registrierung](https://amc.acdh.oeaw.ac.at/registrierung/) auf der Website notwendig. Sie erhalten wenig später Ihre Zugangsdaten und können auf die [Vollversion](https://noske-amc.acdh.oeaw.ac.at/crystal/) zugreifen.
 
   Sollten Sie an einem geförderten Projekt arbeiten, wird von der APA eine Nutzungsgebühr erhoben. In diesem Fall nehmen Sie bitte mit dem amc Kontakt auf. Ansonsten ist der Zugang nach [Registrierung](https://amc.acdh.oeaw.ac.at/registrierung/) und Akzeptieren der [Nutzungsbedingungen](https://amc.acdh.oeaw.ac.at/nutzungsbedingungen/) kostenfrei.
@@ -61,7 +61,7 @@ Das ACDH-CH ergänzt die Texte, die von der APA zur Verfügung gestellt wurden, 
 
 In der folgenden Lernressource machen Sie sich mit grundlegenden Begrifflichkeiten vertraut und erlernen das Formulieren von Suchanfragen in der **Sketch Engine/NoSketch Engine**. Insbesondere wird Ihnen die in dieser Korpussuchmaschine verwendete Abfragessprache **Corpus Query Language (CQL)** näher gebracht.
 
-<Callout kind title="Sketch Engine und NoSketch Engine?">
+<Callout kind="note" title="Sketch Engine und NoSketch Engine?">
   Die Bereitstellung des amc erfolgt über die webbasierte Korpussuchmaschine [**NoSketch Engine (NoSkE)**](https://nlp.fi.muni.cz/trac/noske). Dabei handelt es sich um eine *open source* Version der [**Sketch Engine (SkE)**](https://www.sketchengine.eu). Der [**Vergleich von Sketch Engine und NoSketch Engine**](https://www.sketchengine.eu/nosketch-engine/) zeigt, wie sich die NoSkE von der kommerziellen SkE durch den Wegfall einiger Funktionalitäten unterscheidet. Von den zahlreichen Dokumentationen und Benutzungshilfen, die online zur Sketch Engine auffindbar sind, sind daher nicht alle für die NoSketch Engine relevant. Für die in dieser Lernunterlage vorgestellten Kernfunktionalitäten bestehen allerdings *keine* Unterschiede zwischen den beiden Varianten. Die verlinkten Informationen und Anleitungen zur Sketch Engine sind daher gleichermaßen für die NoSketch Engine gültig.
 
   Im Kontext dieses Manuals werden daher in der Folge die Bezeichnungen SkE und NoSkE synonym verwendet.
@@ -75,7 +75,7 @@ Bei der Suche mithilfe von SkE/NoSkE gibt es einige Grundbegriffe, mit denen Sie
 
 Token sind das Ergebnis des sogenannten Tokenisierungsprozesses – d.h. der Zerlegung des Eingangstexts in linguistisch sinnvolle Einheiten. In der Regel entspricht ein Token einem orthographischen Wort. Die simpelste Tokenisierungsstrategie wäre: alles was zwischen zwei Leerzeichen steht, ist ein Token.
 
-<Callout kind>
+<Callout kind="note">
   Vereinfacht gefasst: Token sind die einzelnen Wörter, Satzzeichen oder Zahlen im Text.
 </Callout>
 
@@ -163,7 +163,7 @@ Typische Strukturen sind Dokumente, Paragraphen (Absätze) und Sätze, die im am
 
 Typischerweise finden sich in den Attributen des `<doc>`-Elements die Metadaten zum entsprechenden Dokument. Im amc entspricht der Inhalt eines `<doc>`-Elements einem Zeitungsartikel. An Metadaten sehen wir im Beispiel Attribute wie *id*, *datum*, *autor*, *docsrc*, *ressort2*, etc.
 
-<Callout kind title="Dokumentation ALLER Attribute im amc">
+<Callout kind="note" title="Dokumentation ALLER Attribute im amc">
   Die oben angeführte Vertikale sowie die Beispiele in diesem Tutorial verwenden der Einfachheit halber nur einen Auszug der tatsächlich im amc verfügbaren Informationen. Auf der amc-site findet sich die *vollständige* [**Beschreibung aller im amc verwendeten Annotationen**](https://amc.acdh.oeaw.ac.at/dokumentation/korpusinhalt-attribute/).
 </Callout>
 
@@ -275,7 +275,7 @@ Es kann auch eine Abfolge mehrerer Wörter angegeben werden, die SkE sucht dann 
 
 Da bei der **simple search** wie erwähnt auch nach den **Wortformen eines Lemmas** gesucht wird, findet eine Suchanfrage *schön Haus* auch alle Paarungen der Wortformen des Lemmas *schön* und der Wortformen des Lemmas *Haus* und das unabhängig von Groß- oder Kleinschreibung. Somit erscheinen im Ergebnis z.B. *schönes Haus*, *schönsten Hauses*, *Schöneren Häusern* etc.
 
-<Callout kind title="Definite und indefinite Artikel in der simple search">
+<Callout kind="note" title="Definite und indefinite Artikel in der simple search">
   Das Lemma für **definite Artikel** ist übrigens *die*, für **indefinite** ist es *eine*. Das heißt, die Abfrage *die schön Haus* oder *eine schön Haus* liefert die entsprechenden Kombinationen in allen Kasus und Numeri.
 </Callout>
 
@@ -330,7 +330,7 @@ Für die Suche nach Mehrwortausdrücken können die gewünschten Bedingungen fü
   Beispielhaftes Abfrageergebnis zur CQL-Abfrage attributives Adjektiv + Haus. Links oben sehen Sie die Suchabfrage und die Anzahl der gefundenen Ergebnisse. Mittig finden Sie die ersten Suchergebnisse. Sie sehen in rot die gefundenen Formen im Text, in grau darunter das jeweilige Lemma.
 </Embed>
 
-<Callout kind title="Leerzeichen in CQL-Abfragen">
+<Callout kind="note" title="Leerzeichen in CQL-Abfragen">
   Leerzeichen außerhalb von Anführungszeichen werden in CQL-Abfragen völlig ignoriert. Es macht also nur einen Unterschied in der *Lesbarkeit* und nicht im Suchergebnis ob man `[ posTT = "ADJA" ] [ lemma = "Haus" ]` oder `[posTT="ADJA"][lemma="Haus"]` schreibt.
 </Callout>
 
@@ -355,7 +355,7 @@ verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche er
 
 * `[pos="N.Reg.*Pl.*"]` findet alle Nomen im Plural
 
-<Callout kind title="Unterschiedliche Bedeutung des Asterisk in simple search und CQL">
+<Callout kind="note" title="Unterschiedliche Bedeutung des Asterisk in simple search und CQL">
   Beachten Sie den Unterschied zur Wirkungsweise des `*` in der simple search: dort steht ein `*` allein schon als Platzhalter für 0, 1, oder beliebig viele beliebige Zeichen. In einem regulären Ausdruck bezieht sich hingegen ein `*` immer auf den *linken Nachbarn*: die Suchanfrage `Haus*` liefert in der simple query bekanntlich alle Wörter, die mit "Haus" beginnen, in der CQL jedoch "Hau", "Haus", "Hauss", "Haussss" etc., also "Hau" gefolgt von 0, 1, oder beliebig vielen "s", da sich der `*` in der CQL immer auf das vorhergehende Element – hier eben das "s" – bezieht. Will man ein Suchverhalten wie in der simple query erreichen, muss die Abfrage in der CQL also wie folgt lauten: `[word="Haus.*"]`.
 </Callout>
 
@@ -811,7 +811,7 @@ In der ADVANCED Suchmaske befindet sich unter dem Feld CQL ein Auswahlfeld für 
 
 * statt `[ lemma="Paradeiser" ]` kann (bei einem *default attribute* "lemma") vereinfacht `"Paradeiser"` geschrieben werden (die doppelten Anführungszeichen bleiben aber weiterhin verpflichtend!)
 
-<Callout kind>
+<Callout kind="note">
   Bei einfachen Abfragen ist das **Default attribute** eine willkommene Schreiberleichterung. Bei **komplexeren Suchen**, bei denen auf **mehr als nur ein Attribut** getestet werden soll, muss dann aber wieder auf die Langform zurückgegriffen werden.
 </Callout>
 
@@ -866,7 +866,7 @@ werden:
 
 * `mutation=".+Abend.+"`
 
-<Callout kind>
+<Callout kind="note">
   Ein Nebeneffekt dieser automatischen Aufteilung von `MULTIVALUE`-Attributen in ihre Einzelwerte ist allerdings, dass es bei Frequenzauswertungen zu ergebnisverzerrenden Mehrfachzuordnungen kommt.
 
   Eine Frequenzanalyse der Anzahl der `<doc>` pro mutation würde in unserem Beispiel, für ein *einziges* `<doc mutation="Wien,Abend,Morgen" .../>` folgende 4(!) Ergebnisse liefern. Als Treffersumme dieser Abfrage würde ebenfalls 4 ausgegeben.
@@ -905,7 +905,7 @@ Suchergebnisse können mit der Option *Frequency* aus der Werkzeugleiste übersi
 *rechten* *Nachbarn* des Suchworts erstellen zu lassen (Auswahl von *1L* bzw. *1R*). So lassen sich sehr oft "auffällige" Muster gut isolieren. Zum Beispiel liefert eine Suchanfrage nach der informellen Grußform "baba" (`[lc="baba"]`) ca. 10.000 Treffer. Erstellt man eine Frequenzliste der
 linken Nachbarn von "baba", so sticht an erster Stelle das Wort "Ali" mit ca. 1.800 Ergebnissen hervor, weil eben "Ali Baba" eine hochfrequente Wortfolge ist, die so einfach aus dem Gesamtzählergebnis exkludiert werden, oder bei der Verfeinerung der Suchanfrage berücksichtigt werden kann.
 
-<Callout kind>
+<Callout kind="note">
   Die *Frequency* Auswertung ist natürlich auch *das* essentielle Werkzeug für alle quantitativen Untersuchungen. Typischerweise werden damit die Ergebnisse einer CQL-Abfrage nach Metadaten-Faktoren wie `doc.region` (Region) oder `doc.year` (Erscheinungsjahr) ausgezählt. Die Ergebnisse können dann in unterschiedlichen Dateiformaten (`txt xls xml csv`) heruntergeladen und für die Weiterverarbeitung am lokalen Rechner gespeichert werden.
 </Callout>
 
@@ -964,7 +964,7 @@ De-facto wurden alle für das amc verwendeten PoS-Tagger auf dem [TIGER Korpus](
 
 Insbesondere relevant für das amc sind: ["A Brief Introduction to the TIGER Treebank" ](https://www.ims.uni-stuttgart.de/documents/ressourcen/korpora/tiger-corpus/annotation/tiger_introduction.pdf)
 
-<Callout kind title="Adaptionen">
+<Callout kind="note" title="Adaptionen">
   Die minimalen Adaptionen des STTS Tagsets finden sich im Appendix Appendix A2 A.2 Deviation from STTS in the TIGER Treebank
 </Callout>
 

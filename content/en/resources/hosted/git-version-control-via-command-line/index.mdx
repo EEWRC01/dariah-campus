@@ -74,7 +74,7 @@ Let's look at how change tracking with Git works in practice, in a local project
 
 However, if you prefer to work with Git via a **graphical user interface (GUI)**, take a look at the bonus section at the end of this introduction, which lists some popular editor or operating system integrations.
 
-<Callout kind>
+<Callout kind="note">
   The commands you learn for working in a local project also apply for working collaboratively. Working in the terminal helps to understand what is going on behind the scenes.
 </Callout>
 
@@ -104,7 +104,7 @@ However, if you prefer to work with Git via a **graphical user interface (GUI)**
   There are multiple tutorials available that help you to familiarize yourself with the command line.
 </Callout>
 
-<Callout kind title="Git for Windows, Mac, Linux">
+<Callout kind="note" title="Git for Windows, Mac, Linux">
   <Tabs>
     <Tab title="Windows">
       If you haven't yet installed Git on your Windows computer, follow the instructions on [https://git-scm.com/downloads](https://git-scm.com/downloads), or [https://gitforwindows.org/](https://gitforwindows.org/).
@@ -252,7 +252,7 @@ Let's follow the advice and use `git add` to tell Git to keep an eye on changes 
 git add my-document.txt
 ```
 
-<Callout kind title="Adding multiple files">
+<Callout kind="note" title="Adding multiple files">
   To add multiple files, it is possible to list them individually:
 
   ```bash
@@ -282,7 +282,7 @@ git commit -m "Add test document"
 
 Every project snapshot we commit to history should include a semantically meaningful set of changes, and this may involve edits to different documents. `git add` allows to granularly choose which changes to which files should be part of the next snapshot, while `git commit` will label that set of changes, and actually save a new snapshot.
 
-<Callout kind title="Commit messages">
+<Callout kind="note" title="Commit messages">
   Commit messages are usually written in imperative language. For example it is customary to say "Change document title", not "Changed document title". Nevertheless, it's perfectly fine to agree on different project-specific conventions, just try to be consistent.
 
   When in a hurry, it's tempting to write non-descriptive commit messages like "Added changes". Try to come up with something that describes the change, you'll thank yourself later!
@@ -334,7 +334,7 @@ git log --oneline
 git diff 7f733ac ab9b27f
 ```
 
-<Callout kind title="Diffing not-yet-committed work">
+<Callout kind="note" title="Diffing not-yet-committed work">
   To compare working directory to staging area:
 
   ```bash

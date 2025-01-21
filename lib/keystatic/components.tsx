@@ -36,6 +36,13 @@ import {
 	GridPreview,
 	HeadingIdPreview,
 	LinkButtonPreview,
+	QuizChoiceAnswerPreview,
+	QuizChoicePreview,
+	QuizChoiceQuestionPreview,
+	QuizErrorMessagePreview,
+	QuizPreview,
+	QuizSuccessMessagePreview,
+	QuizTextInputPreview,
 	TableOfContentsPreview,
 	TabPreview,
 	TabsPreview,
@@ -301,6 +308,11 @@ export const createQuiz = createComponent((_paths, _locale) => {
 			children: ["QuizChoice", "QuizTextInput"],
 			validation: { children: { min: 1 } },
 			schema: {},
+			ContentView(props) {
+				const { children } = props;
+
+				return <QuizPreview>{children}</QuizPreview>;
+			},
 		}),
 		QuizChoice: repeating({
 			label: "Choice quiz",
@@ -329,6 +341,15 @@ export const createQuiz = createComponent((_paths, _locale) => {
 					validation: { isRequired: false },
 				}),
 			},
+			ContentView(props) {
+				const { children, value } = props;
+
+				return (
+					<QuizChoicePreview buttonLabel={value.buttonLabel} variant={value.variant}>
+						{children}
+					</QuizChoicePreview>
+				);
+			},
 		}),
 		QuizChoiceAnswer: wrapper({
 			label: "Answer",
@@ -348,15 +369,7 @@ export const createQuiz = createComponent((_paths, _locale) => {
 			ContentView(props) {
 				const { children, value } = props;
 
-				return (
-					<div>
-						<NotEditable>
-							{/* eslint-disable-next-line react/jsx-no-literals */}
-							{value.kind === "correct" ? "Correct" : "Incorrect"} answer:
-						</NotEditable>
-						{children}
-					</div>
-				);
+				return <QuizChoiceAnswerPreview kind={value.kind}>{children}</QuizChoiceAnswerPreview>;
 			},
 		}),
 		QuizChoiceQuestion: wrapper({
@@ -365,6 +378,11 @@ export const createQuiz = createComponent((_paths, _locale) => {
 			icon: <MessageCircleQuestionIcon />,
 			forSpecificLocations: true,
 			schema: {},
+			ContentView(props) {
+				const { children } = props;
+
+				return <QuizChoiceQuestionPreview>{children}</QuizChoiceQuestionPreview>;
+			},
 		}),
 		QuizErrorMessage: wrapper({
 			label: "Quiz error message",
@@ -372,6 +390,11 @@ export const createQuiz = createComponent((_paths, _locale) => {
 			icon: <MessageCircleQuestionIcon />,
 			forSpecificLocations: true,
 			schema: {},
+			ContentView(props) {
+				const { children } = props;
+
+				return <QuizErrorMessagePreview>{children}</QuizErrorMessagePreview>;
+			},
 		}),
 		QuizSuccessMessage: wrapper({
 			label: "Quiz success message",
@@ -379,6 +402,11 @@ export const createQuiz = createComponent((_paths, _locale) => {
 			icon: <MessageCircleQuestionIcon />,
 			forSpecificLocations: true,
 			schema: {},
+			ContentView(props) {
+				const { children } = props;
+
+				return <QuizSuccessMessagePreview>{children}</QuizSuccessMessagePreview>;
+			},
 		}),
 		QuizTextInput: wrapper({
 			label: "Text input quiz.",
@@ -386,6 +414,11 @@ export const createQuiz = createComponent((_paths, _locale) => {
 			icon: <MessageCircleQuestionIcon />,
 			forSpecificLocations: true,
 			schema: {},
+			ContentView(props) {
+				const { children } = props;
+
+				return <QuizTextInputPreview>{children}</QuizTextInputPreview>;
+			},
 		}),
 	};
 });

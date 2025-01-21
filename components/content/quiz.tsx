@@ -1,60 +1,87 @@
-import type { ReactNode } from "react";
+"use client";
+
+import { assert } from "@acdh-oeaw/lib";
+import { createContext, type ReactNode, useContext, useState } from "react";
+
+import { getChildrenElements } from "@/components/content/get-children-elements";
+
+interface QuizContextValue {
+	isCurrent: boolean;
+	navigation: {
+		hasNext: boolean;
+		hasPrevious: boolean;
+		next: () => void;
+		previous: () => void;
+	};
+}
+
+const QuizContext = createContext<QuizContextValue | null>(null);
+
+export function useQuizContext(): QuizContextValue {
+	const value = useContext(QuizContext);
+	assert(value != null);
+	return value;
+}
 
 interface QuizProps {
 	children: ReactNode;
 }
 
-export function Quiz(props: QuizProps): ReactNode {
-	return null;
-}
+export function Quiz(props: Readonly<QuizProps>): ReactNode {
+	const { children } = props;
 
-interface QuizChoiceProps {
-	buttonLabel?: string;
-	children: ReactNode;
-	variant: "single" | "multiple";
-}
+	const quizzes = getChildrenElements(children);
 
-export function QuizChoice(props: QuizChoiceProps): ReactNode {
-	return null;
-}
+	const [currentIndex, setCurrentIndex] = useState(0);
 
-interface QuizChoiceAnswerProps {
-	children: ReactNode;
-	kind: "correct" | "incorrect";
-}
+	const value: Omit<QuizContextValue, "isCurrent"> = {
+		navigation: {
+			hasNext: currentIndex < quizzes.length - 1,
+			hasPrevious: currentIndex > 0,
+			next() {
+				setCurrentIndex((currentIndex) => {
+					return currentIndex + 1;
+				});
+			},
+			previous() {
+				setCurrentIndex((currentIndex) => {
+					return currentIndex - 1;
+				});
+			},
+		},
+	};
 
-export function QuizChoiceAnswer(props: QuizChoiceAnswerProps): ReactNode {
-	return null;
-}
+	return (
+		<aside>
+			{quizzes.map((quiz, index) => {
+				const isCurrent = index === currentIndex;
 
-interface QuizChoiceQuestionProps {
-	children: ReactNode;
-}
-
-export function QuizChoiceQuestion(props: QuizChoiceQuestionProps): ReactNode {
-	return null;
+				return (
+					<QuizContext.Provider key={index} value={{ ...value, isCurrent }}>
+						{quiz}
+					</QuizContext.Provider>
+				);
+			})}
+		</aside>
+	);
 }
 
 interface QuizErrorMessageProps {
 	children: ReactNode;
 }
 
-export function QuizErrorMessage(props: QuizErrorMessageProps): ReactNode {
-	return null;
+export function QuizErrorMessage(props: Readonly<QuizErrorMessageProps>): ReactNode {
+	const { children } = props;
+
+	return children;
 }
 
 interface QuizSuccessMessageProps {
 	children: ReactNode;
 }
 
-export function QuizSuccessMessage(props: QuizSuccessMessageProps): ReactNode {
-	return null;
-}
+export function QuizSuccessMessage(props: Readonly<QuizSuccessMessageProps>): ReactNode {
+	const { children } = props;
 
-interface QuizTextInputProps {
-	children: ReactNode;
-}
-
-export function QuizTextInput(props: QuizTextInputProps): ReactNode {
-	return null;
+	return children;
 }

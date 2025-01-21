@@ -9,7 +9,7 @@ const calloutStyles = styles({
 		kind: {
 			caution: "border-stroke-error-weak bg-fill-error-weak text-text-error",
 			important: "border-stroke-information-weak bg-fill-information-weak text-text-information",
-			note: "border-neutral-200 bg-fill-weak text-text-strong",
+			note: "bg-fill-weak text-text-strong border-neutral-200",
 			tip: "border-stroke-success-weak bg-fill-success-weak text-text-success",
 			warning: "border-stroke-warning-weak bg-fill-warning-weak text-text-warning",
 		},
@@ -31,7 +31,7 @@ export function Callout(props: Readonly<CalloutProps>): ReactNode {
 
 	return (
 		<aside className={calloutStyles({ kind })}>
-			{title ? <strong className="my-3 font-bold text-text-strong">{title}</strong> : null}
+			{title ? <strong className="text-text-strong my-3 font-bold">{title}</strong> : null}
 			{children}
 		</aside>
 	);

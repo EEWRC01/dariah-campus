@@ -6,15 +6,9 @@ import { Figure } from "@/components/content/figure";
 import { Grid, GridItem } from "@/components/content/grid";
 import { Link as ContentLink } from "@/components/content/link";
 import { LinkButton } from "@/components/content/link-button";
-import {
-	Quiz,
-	QuizChoice,
-	QuizChoiceAnswer,
-	QuizChoiceQuestion,
-	QuizErrorMessage,
-	QuizSuccessMessage,
-	QuizTextInput,
-} from "@/components/content/quiz";
+import { Quiz, QuizErrorMessage, QuizSuccessMessage } from "@/components/content/quiz";
+import { QuizChoice, QuizChoiceAnswer, QuizChoiceQuestion } from "@/components/content/quiz-choice";
+import { QuizTextInput } from "@/components/content/quiz-text-input";
 import { TableOfContents } from "@/components/content/table-of-contents";
 import { Tab, Tabs } from "@/components/content/tabs";
 import { Video } from "@/components/content/video";

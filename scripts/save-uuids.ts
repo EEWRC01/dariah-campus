@@ -35,6 +35,6 @@ save()
 	.then(() => {
 		log.success("Done.");
 	})
-	.catch((e) => {
+	.catch((e: unknown) => {
 		log.error("Failed.\n", String(e));
 	});

@@ -1,4 +1,14 @@
 {
+	"content": {
+		"QuizControls": {
+			"next-question": "Next question",
+			"previous-question": "Previous question",
+			"validate": "Check answer"
+		},
+		"QuizTextInput": {
+			"label": "Answer"
+		}
+	},
 	"mdx": {
 		"footnote-back-label": "Back to reference {reference}",
 		"footnotes": "Footnotes",

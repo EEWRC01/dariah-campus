@@ -23,6 +23,9 @@ const config = {
 			},
 			colors: {
 				error: colors.red,
+				success: colors.green,
+				warning: colors.orange,
+				important: colors.sky,
 				neutral: {
 					...colors.neutral,
 					150: "#ebecee",

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 
 /**
- * Use css masonry once that has browser support.
+ * TODO: Use css masonry once that has sufficient browser support.
  */
 
 export function useMasonryLayout<T>(items: Array<T>): Array<Array<T>> | null {
@@ -32,11 +32,11 @@ export function useMasonryLayout<T>(items: Array<T>): Array<Array<T>> | null {
 	return useMemo(() => {
 		if (columnCount == null) return null;
 
-		const columns = Array(columnCount).fill([]);
+		const columns = Array(columnCount).fill([]) as Array<Array<T>>;
 
 		items.forEach((item, index) => {
-			const column = index % columnCount;
-			columns[column] = columns[column].concat(item);
+			const column = columns[index % columnCount]!;
+			column.push(item);
 		});
 
 		return columns;
