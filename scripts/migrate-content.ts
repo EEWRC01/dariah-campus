@@ -997,66 +997,121 @@ async function migrateResources(
 								};
 
 								for (const child of node.children) {
-									assert(child.name === "Quiz.Card");
-									assert(child.children.length === 1);
+									assert(child.name === "Quiz.Card", `Unexpected child of Quiz: ${child.name}`);
+									assert(child.children.length === 1, "Quiz.Card must have exactly one child.");
 
-									const choiceQuiz = child.children.at(0);
-									const questions = choiceQuiz.children.filter((c) => {
-										return c.name === "Quiz.Question";
-									});
-									assert(questions.length === 1);
-									const variant =
-										choiceQuiz.name === "Quiz.SingleChoiceQuiz" ? "single" : "multiple";
-									const answers =
-										variant === "multiple"
-											? choiceQuiz.children.filter((c) => {
-													return c.name === "Quiz.MultipleChoice.Option";
-												})
-											: choiceQuiz.children.filter((c) => {
-													return c.name === "Quiz.SingleChoice.Option";
-												}); // isCorrect attribute
+									// TODO:
+									const validateButtonLabel = child.attributes.find((a) => {
+										return a.name === "validateButtonLabel";
+									})?.label;
 
-									const children = [];
+									const isTextInputQuiz = child.children.at(0).name === "Quiz.TextInput";
+									if (isTextInputQuiz) {
+										const questions = child.children.at(0).children.filter((c) => {
+											return c.name === "Quiz.Question";
+										});
+										if (questions.length !== 1) debugger;
+										assert(questions.length === 1, `More than one questions. ${entry.name}`);
+										const question = questions.at(0);
 
-									children.push({
-										type: "mdxJsxFlowElement",
-										name: "QuizChoiceQuestion",
-										attributes: [],
-										children: questions.at(0).children,
-									});
+										quiz.children.push({
+											type: "mdxJsxFlowElement",
+											name: "QuizTextInput",
+											attributes: [],
+											children: question.children,
+										});
+									} else {
+										const choiceQuiz = child.children.at(0);
+										const questions = choiceQuiz.children.filter((c) => {
+											return c.name === "Quiz.Question";
+										});
+										if (questions.length !== 1) debugger;
+										assert(questions.length === 1, `More than one questions. ${entry.name}`);
+										// const variant =
+										// 	choiceQuiz.name === "Quiz.SingleChoice" ? "single" : "multiple";
+										const variant =
+											choiceQuiz.attributes.find((a) => {
+												return a.name === "variant";
+											})?.value === "single"
+												? "single"
+												: "multiple";
+										const answers =
+											variant === "multiple"
+												? choiceQuiz.children.filter((c) => {
+														return c.name === "Quiz.MultipleChoice.Option";
+													})
+												: choiceQuiz.children.filter((c) => {
+														return c.name === "Quiz.SingleChoice.Option";
+													}); // isCorrect attribute
 
-									for (const answer of answers) {
-										const isCorrect =
-											answer.attributes.find((a) => {
-												return a.name === "isCorrect";
-											}) != null;
+										const children = [];
 
 										children.push({
 											type: "mdxJsxFlowElement",
-											name: "QuizChoiceAnswer",
-											attributes: [
-												{
-													type: "mdxJsxAttribute",
-													name: "kind",
-													value: isCorrect ? "correct" : "incorrect",
-												},
-											],
+											name: "QuizChoiceQuestion",
+											attributes: [],
+											children: questions.at(0).children,
+										});
+
+										for (const answer of answers) {
+											const isCorrect =
+												answer.attributes.find((a) => {
+													return a.name === "isCorrect";
+												}) != null;
+
+											children.push({
+												type: "mdxJsxFlowElement",
+												name: "QuizChoiceAnswer",
+												attributes: [
+													{
+														type: "mdxJsxAttribute",
+														name: "kind",
+														value: isCorrect ? "correct" : "incorrect",
+													},
+												],
+												children: answer.children,
+											});
+										}
+
+										const messages = choiceQuiz.children.filter((c) => {
+											return c.name === "Quiz.Message";
+										});
+										for (const message of messages) {
+											const type = message.attributes.find((a) => {
+												return a.name === "type";
+											})?.value;
+											children.push({
+												type: "mdxJsxFlowElement",
+												name: type === "success" ? "QuizSuccessMessage" : "QuizErrorMessage",
+												attributes: [],
+												children: message.children,
+											});
+										}
+
+										const attributes = [
+											{ type: "mdxJsxAttribute", name: "variant", value: variant },
+										];
+
+										if (validateButtonLabel) {
+											attributes.push({
+												type: "mdxJsxAttribute",
+												name: "buttonLabel",
+												value: validateButtonLabel,
+											});
+										}
+
+										quiz.children.push({
+											type: "mdxJsxFlowElement",
+											name: "QuizChoice",
+											attributes,
+											children,
 										});
 									}
-
-									// TODO: QuizSuccessMessage
-									// TODO: QuizErrorMessage
-
-									quiz.children.push({
-										type: "mdxJsxFlowElement",
-										name: "QuizChoice",
-										attributes: [{ type: "mdxJsxAttribute", name: "variant", value: variant }],
-										children,
-									});
 								}
 
+								parent.children.splice(index, 1, quiz);
+
 								return SKIP;
-								break;
 							}
 
 							case "Quiz.Card": {

@@ -337,143 +337,133 @@ ex:europeanWildcatLabel1 skosxl:labelRelation ex:europeanWildcatLabel2.
 Test your knowledge of the SKOS standard with the quiz. The correct answers are at the end of the learning resource.
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        **Select all triples with *correct* RDF syntax.** *Please, assume the following prefixes for all options:*
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      **Select all triples with *correct* RDF syntax.** *Please, assume the following prefixes for all options:*
 
-        ```turtle
-        @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-        @prefix ex: <http://www.example.org/cats#> .
-        @prefix wikidata: <http://www.wikidata.org/entity/> .
-        ```
-      </Quiz.Question>
+      ```turtle
+      @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+      @prefix ex: <http://www.example.org/cats#> .
+      @prefix wikidata: <http://www.wikidata.org/entity/> .
+      ```
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        `ex:europeanWildcat a skos Concept; skos prefLabel "European wildcat"@en.`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `ex:europeanWildcat a skos Concept; skos prefLabel "European wildcat"@en.`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `ex:europeanWildcat rdf:type skos:Concept; skos:preflabel "European wildcat"@en.`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `ex:europeanWildcat rdf:type skos:Concept; skos:preflabel "European wildcat"@en.`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `ex:europeanWildcat a skos:Concept; skos:prefLabel "European wildcat"@en.`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `ex:europeanWildcat a skos:Concept; skos:prefLabel "European wildcat"@en.`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `ex:europeanWildcat rdf:type skos:Concept, skos:preflabel "European wildcat"@en.`
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      `ex:europeanWildcat rdf:type skos:Concept, skos:preflabel "European wildcat"@en.`
+    </QuizChoiceAnswer>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        **Select all *correct* SKOS records.** *Please, assume the following prefixes for all options:*
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      **Select all *correct* SKOS records.** *Please, assume the following prefixes for all options:*
 
-        ```turtle
-        @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-        @prefix ex: <http://www.example.org/cats#> .
-        @prefix wikidata: <http://www.wikidata.org/entity/> .
-        ```
-      </Quiz.Question>
+      ```turtle
+      @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+      @prefix ex: <http://www.example.org/cats#> .
+      @prefix wikidata: <http://www.wikidata.org/entity/> .
+      ```
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        `ex:eurasianLynx a skos:Concept; skos:prefLabel "Eurasian lynx"@en; skos:prefLabel "Lynx"@en.`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `ex:eurasianLynx a skos:Concept; skos:prefLabel "Eurasian lynx"@en; skos:prefLabel "Lynx"@en.`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `ex:eurasianLynx a skos:Concept; skos:prefLabel "Eurasian lynx"@en; skos:prefLabel "Eurasischer Luchs"@de.`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `ex:eurasianLynx a skos:Concept; skos:prefLabel "Eurasian lynx"@en; skos:prefLabel "Eurasischer Luchs"@de.`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `ex:eurasianLynx a skos:Concept; skos:prefLabel "Eurasian lynx"@en; skos:altLabel "Lynx"@en.`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `ex:eurasianLynx a skos:Concept; skos:prefLabel "Eurasian lynx"@en; skos:altLabel "Lynx"@en.`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `ex:eurasianLynx a skos:Concept; skos:prefLabel "Eurasian lynx"@en; skos:prefLabel "Eurasischer Luchs"@en.`
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      `ex:eurasianLynx a skos:Concept; skos:prefLabel "Eurasian lynx"@en; skos:prefLabel "Eurasischer Luchs"@en.`
+    </QuizChoiceAnswer>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        **Select all *incorrect* SKOS records.** *Please, assume the following prefixes for all options:*
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      **Select all *incorrect* SKOS records.** *Please, assume the following prefixes for all options:*
 
-        ```turtle
-        @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-        @prefix ex: <http://www.example.org/cats#> .
-        @prefix wikidata: <http://www.wikidata.org/entity/> .
-        ```
-      </Quiz.Question>
+      ```turtle
+      @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+      @prefix ex: <http://www.example.org/cats#> .
+      @prefix wikidata: <http://www.wikidata.org/entity/> .
+      ```
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `ex:europeanWildcat a skos:Concept; skos:exactMatch ex:eurasianLynx.`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `ex:europeanWildcat a skos:Concept; skos:exactMatch ex:eurasianLynx.`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `ex:europeanWildcat a skos:Concept; skos:exactMatch wikidata:Q148833.`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `ex:europeanWildcat a skos:Concept; skos:exactMatch wikidata:Q148833.`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `ex:europeanWildcat a skos:Concept; skos:broader ex:wildcat; skos:broadMatch ex:wildcat.`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `ex:europeanWildcat a skos:Concept; skos:broader ex:wildcat; skos:broadMatch ex:wildcat.`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `ex:europeanWildcat a skos:Concept; skos:broader ex:wildcat; skos:broadMatch wikidata:Q43576.`
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      `ex:europeanWildcat a skos:Concept; skos:broader ex:wildcat; skos:broadMatch wikidata:Q43576.`
+    </QuizChoiceAnswer>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        **Select all *incorrect* statements.**
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      **Select all *incorrect* statements.**
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Concept can be a top Concept of Concept Scheme and have a broader Concept in this Concept Scheme.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Concept can be a top Concept of Concept Scheme and have a broader Concept in this Concept Scheme.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Concept can have several preferred labels in one language.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Concept can have several preferred labels in one language.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Concept can be broader and narrower of another Concept at the same time.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Concept can be broader and narrower of another Concept at the same time.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        Concept can have several alternative labels in one language.
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      Concept can have several alternative labels in one language.
+    </QuizChoiceAnswer>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        **Select all *correct* statements.**
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      **Select all *correct* statements.**
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Concept can't have more than one preferred label in one language.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Concept can't have more than one preferred label in one language.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        It is recommended to create a new Concept for each synonym of a term.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      It is recommended to create a new Concept for each synonym of a term.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Concept can have a broader matching concept in another Concept Scheme and can be linked to it.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Concept can have a broader matching concept in another Concept Scheme and can be linked to it.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Concept can have many matching Concepts in external Concept Schemas.
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="correct">
+      Concept can have many matching Concepts in external Concept Schemas.
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 ## SKOS vocabulary quality

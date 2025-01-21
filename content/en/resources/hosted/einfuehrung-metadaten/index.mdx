@@ -55,43 +55,41 @@ Diese und ähnliche basale Informationen den potentiellen Nutzer\*innen zur Verf
 * Wie kann ich den Inhalt der Daten lesen und verarbeiten? Und was brauche ich, um ihre Struktur zu verstehen?
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        **Übung**
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      **Übung**
 
-        Schlüpfen Sie in die Rolle der beschriebenen Forscherin: Sie finden bei Ihrer Internetrecherche heraus, dass einer der Texte, die Sie in ihr Corpus aufnehmen möchten, bereits unter [https://latin.packhum.org/loc/899/1/0#0](https://latin.packhum.org/loc/899/1/0#0) im Volltext verfügbar ist. Sie sind sich nicht sicher, ob der Text verlässlich ist und machen sich auf die Suche nach Metadaten: Von welcher Quelle wurde der Volltext übernommen? Wer ist dafür verantwortlich? Unter welchen Bedingungen können Sie den Text weiterverarbeiten und in Ihr Corpus integrieren? Wo auf den Seiten des Corpus lassen sich ev. Hinweise dazu finden?
-      </Quiz.Question>
+      Schlüpfen Sie in die Rolle der beschriebenen Forscherin: Sie finden bei Ihrer Internetrecherche heraus, dass einer der Texte, die Sie in ihr Corpus aufnehmen möchten, bereits unter [https://latin.packhum.org/loc/899/1/0#0](https://latin.packhum.org/loc/899/1/0#0) im Volltext verfügbar ist. Sie sind sich nicht sicher, ob der Text verlässlich ist und machen sich auf die Suche nach Metadaten: Von welcher Quelle wurde der Volltext übernommen? Wer ist dafür verantwortlich? Unter welchen Bedingungen können Sie den Text weiterverarbeiten und in Ihr Corpus integrieren? Wo auf den Seiten des Corpus lassen sich ev. Hinweise dazu finden?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        Der Volltext, auf dem der PHI Latin Texts Corpus basiert, ist nicht mehr vom Urheberrecht geschützt. Daher kann ich den Corpus weiterverarbeiten und in meinen Corpus integrieren.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Der Volltext, auf dem der PHI Latin Texts Corpus basiert, ist nicht mehr vom Urheberrecht geschützt. Daher kann ich den Corpus weiterverarbeiten und in meinen Corpus integrieren.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Ich darf den PHI Latin Texts Corpus nur für persönliche Zwecke verwenden.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Ich darf den PHI Latin Texts Corpus nur für persönliche Zwecke verwenden.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        Eingriffe und Kürzungen der digitalen Edition in den Ursprungstext sind gut nachvollziehbar.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Eingriffe und Kürzungen der digitalen Edition in den Ursprungstext sind gut nachvollziehbar.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Die Quell-Edition des Volltextes lässt sich herausfinden.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Die Quell-Edition des Volltextes lässt sich herausfinden.
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        **Richtig!** Leider gibt es zu diesem Text bzw. zum gesamten PHI Latin Texts Corpus wenig bis gar keine Metadaten. Auf der Startseite des Corpus [https://latin.packhum.org/](https://latin.packhum.org/) findet sich ein sehr allgemeiner Hinweis, dass die Verwendung nur für persönliche Zwecke erlaubt ist.
+    <QuizErrorMessage>
+      **Richtig!** Leider gibt es zu diesem Text bzw. zum gesamten PHI Latin Texts Corpus wenig bis gar keine Metadaten. Auf der Startseite des Corpus [https://latin.packhum.org/](https://latin.packhum.org/) findet sich ein sehr allgemeiner Hinweis, dass die Verwendung nur für persönliche Zwecke erlaubt ist.
 
-        Auf der Übersichtsseite der Texte des Autors ([https://latin.packhum.org/author/899](https://latin.packhum.org/author/899)) findet sich versteckt als "Pop-Up" zumindest die Angabe der Edition, von der der Volltext stammt – das Datum legt nahe, dass die ursprüngliche Edition noch vom Urheberrecht geschützt ist und der Text daher nicht verwendet werden kann. Über etwaige Eingriffe oder Kürzungen, die der digitale Volltext in den Text der Ursprungsedition ausweist, ist auf der Seite nichts zu finden.
-      </Quiz.Message>
+      Auf der Übersichtsseite der Texte des Autors ([https://latin.packhum.org/author/899](https://latin.packhum.org/author/899)) findet sich versteckt als "Pop-Up" zumindest die Angabe der Edition, von der der Volltext stammt – das Datum legt nahe, dass die ursprüngliche Edition noch vom Urheberrecht geschützt ist und der Text daher nicht verwendet werden kann. Über etwaige Eingriffe oder Kürzungen, die der digitale Volltext in den Text der Ursprungsedition ausweist, ist auf der Seite nichts zu finden.
+    </QuizErrorMessage>
 
-      <Quiz.Message type="incorrect">
-        **Knapp daneben!** Diese Informationen sind aber in diesem Beispiel auch nur schwer zu finden, denn leider gibt es zu diesem Text bzw. zum gesamten PHI Latin Texts Corpus wenig bis gar keine Metadaten. Auf der Startseite des Corpus [https://latin.packhum.org/](https://latin.packhum.org/) findet sich ein sehr allgemeiner Hinweis, dass die Verwendung nur für persönliche Zwecke erlaubt ist.
+    <QuizErrorMessage>
+      **Knapp daneben!** Diese Informationen sind aber in diesem Beispiel auch nur schwer zu finden, denn leider gibt es zu diesem Text bzw. zum gesamten PHI Latin Texts Corpus wenig bis gar keine Metadaten. Auf der Startseite des Corpus [https://latin.packhum.org/](https://latin.packhum.org/) findet sich ein sehr allgemeiner Hinweis, dass die Verwendung nur für persönliche Zwecke erlaubt ist.
 
-        Auf der Übersichtsseite der Texte des Autors ([https://latin.packhum.org/author/899](https://latin.packhum.org/author/899)) findet sich versteckt als "Pop-Up" zumindest die Angabe der Edition, von der der Volltext stammt – das Datum legt nahe, dass die ursprüngliche Edition noch vom Urheberrecht geschützt ist und der Text daher nicht verwendet werden kann. Über etwaige Eingriffe oder Kürzungen, die der digitale Volltext in den Text der Ursprungsedition ausweist, ist auf der Seite nichts zu finden.
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+      Auf der Übersichtsseite der Texte des Autors ([https://latin.packhum.org/author/899](https://latin.packhum.org/author/899)) findet sich versteckt als "Pop-Up" zumindest die Angabe der Edition, von der der Volltext stammt – das Datum legt nahe, dass die ursprüngliche Edition noch vom Urheberrecht geschützt ist und der Text daher nicht verwendet werden kann. Über etwaige Eingriffe oder Kürzungen, die der digitale Volltext in den Text der Ursprungsedition ausweist, ist auf der Seite nichts zu finden.
+    </QuizErrorMessage>
+  </QuizChoice>
 </Quiz>
 
 *Unsere Forscherin hat ihren Antrag schließlich abgeschlossen und mit Erfolg bei einem Fördergeber eingereicht: Das Projekt kann starten! Ihr Textcorpus nimmt Gestalt an und rasch finden sich andere Forscher\*innen, die ihre Arbeit wiederverwenden möchten: Nun findet sie sich selbst in der Position, Metadaten zu ihrem Corpus erstellen zu müssen. Außerdem möchte der Fördergeber in einem Data Management Plan Auskunft darüber erhalten, wo die durch seine Mittel finanzierten Ergebnisse archiviert werden: Unsere Forscherin muss sich nun für ein mögliches Forschungsdatenrepositorium entscheiden und darüber informieren, welche Informationen in welchem Format das Respositorium für die Archivierung benötigt.*

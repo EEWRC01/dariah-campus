@@ -119,25 +119,23 @@ First, have a look at the input XML and see if you understand its structure. An 
 Figure: Extract from GLOBAL French Portuguese Dictionary © K Dictionaries Ltd
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        See if you can identify in this extract the name of the XML tag that is used for the entry element.
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      See if you can identify in this extract the name of the XML tag that is used for the entry element.
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        EntryCtn
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      EntryCtn
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Entry
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Entry
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        DictionaryEntry
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      DictionaryEntry
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 ### Transform the Sample Dictionary using Elexifier

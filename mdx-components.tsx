@@ -6,7 +6,15 @@ import { Figure } from "@/components/content/figure";
 import { Grid, GridItem } from "@/components/content/grid";
 import { Link as ContentLink } from "@/components/content/link";
 import { LinkButton } from "@/components/content/link-button";
-import { Quiz } from "@/components/content/quiz";
+import {
+	Quiz,
+	QuizChoice,
+	QuizChoiceAnswer,
+	QuizChoiceQuestion,
+	QuizErrorMessage,
+	QuizSuccessMessage,
+	QuizTextInput,
+} from "@/components/content/quiz";
 import { TableOfContents } from "@/components/content/table-of-contents";
 import { Tab, Tabs } from "@/components/content/tabs";
 import { Video } from "@/components/content/video";
@@ -27,6 +35,12 @@ const components = {
 	Link: ContentLink,
 	LinkButton,
 	Quiz,
+	QuizChoice,
+	QuizChoiceAnswer,
+	QuizChoiceQuestion,
+	QuizErrorMessage,
+	QuizSuccessMessage,
+	QuizTextInput,
 	Tab,
 	TableOfContents,
 	Tabs,

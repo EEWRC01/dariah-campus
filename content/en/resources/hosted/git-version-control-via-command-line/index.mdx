@@ -399,61 +399,57 @@ git commit --amend
 ## Quiz
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which commands move changes to the "waiting area"?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which commands move changes to the "waiting area"?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `git stage`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `git stage`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `git add`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `git add`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `git commit`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `git commit`
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        Correct!
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Correct!
+    </QuizErrorMessage>
 
-      <Quiz.Message type="incorrect">
-        Try again. Officially, the "waiting area" is called "staging area".
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Try again. Officially, the "waiting area" is called "staging area".
+    </QuizErrorMessage>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Select all correct statements.
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Select all correct statements.
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Git commits are snapshots of the status of document or file at a specific point in time.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Git commits are snapshots of the status of document or file at a specific point in time.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `git reset --hard "commit id"` will remove all changes that have been created in a project after the commit which you pass to the command.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `git reset --hard "commit id"` will remove all changes that have been created in a project after the commit which you pass to the command.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        You can add various changes and then bundle them into one meaningful commit.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      You can add various changes and then bundle them into one meaningful commit.
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        Exactly, all of the above are correct.
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Exactly, all of the above are correct.
+    </QuizErrorMessage>
 
-      <Quiz.Message type="incorrect">
-        Try again
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Try again
+    </QuizErrorMessage>
+  </QuizChoice>
 </Quiz>
 
 ## Training Task

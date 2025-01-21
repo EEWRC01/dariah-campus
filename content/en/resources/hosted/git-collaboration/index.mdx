@@ -187,61 +187,57 @@ Similar to GitLab, an access token can be created in GitHub too:
 ### Quiz
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        What are GitHub, GitLab and Bitbucket?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      What are GitHub, GitLab and Bitbucket?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        Version control systems
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Version control systems
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        hosting providers
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      hosting providers
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        code editors
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      code editors
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        Correct!
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Correct!
+    </QuizErrorMessage>
 
-      <Quiz.Message type="incorrect">
-        Try again
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Try again
+    </QuizErrorMessage>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        What is the difference between `git fetch` and `git pull`?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      What is the difference between `git fetch` and `git pull`?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        They are the same.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      They are the same.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `Git fetch` allows to integrate all the changes that have been made to the remote repository into your local repo at the same time.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `Git fetch` allows to integrate all the changes that have been made to the remote repository into your local repo at the same time.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `Git pull` allows to integrate all the changes that have been made to the remote repository into your local repo at the same time.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `Git pull` allows to integrate all the changes that have been made to the remote repository into your local repo at the same time.
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        Correct!
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Correct!
+    </QuizErrorMessage>
 
-      <Quiz.Message type="incorrect">
-        Try again
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Try again
+    </QuizErrorMessage>
+  </QuizChoice>
 </Quiz>
 
 ### Training Task

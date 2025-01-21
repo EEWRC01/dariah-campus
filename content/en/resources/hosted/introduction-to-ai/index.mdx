@@ -87,29 +87,27 @@ When to Use: This method is ideal for decision trees and for the process of filt
 Sample Prompt: "If I give you ingredients, can you provide a recipe using only those ingredients?"
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Conditional Logic?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Conditional Logic?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Describe the Eiffel Tower."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Describe the Eiffel Tower."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "If it's sunny, suggest outdoor activities."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "If it's sunny, suggest outdoor activities."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Write a story about space travel."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Write a story about space travel."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Explain photosynthesis."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Explain photosynthesis."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 2. Prompt Libraries
@@ -121,29 +119,27 @@ When to Use: This approach is best when consistency and control over AI response
 Sample Prompt: "Here's a template: 'Can you \[action] \[object]?' Now fill in the blanks with your specific question."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Prompt Libraries?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Prompt Libraries?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Can you \[suggest] \[a good book]?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Can you \[suggest] \[a good book]?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What is the capital of France?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What is the capital of France?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Give me a summary of the latest news."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Give me a summary of the latest news."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Create a poem about the ocean."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Create a poem about the ocean."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 3. Branching
@@ -155,29 +151,27 @@ When to Use: Useful in complex queries, troubleshooting, or when a step-by-step 
 Sample Prompt: "Let's troubleshoot. First tell me what's not working. Then I'll guide you through the steps."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Branching?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Branching?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "List the benefits of exercise."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the benefits of exercise."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What's your favorite color?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What's your favorite color?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "First, explain what causes rain. Then, discuss its effects on the environment."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "First, explain what causes rain. Then, discuss its effects on the environment."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Translate this sentence into Spanish."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Translate this sentence into Spanish."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 4. Stemming and Lemmatization (Pre-processing)
@@ -189,29 +183,27 @@ When to Use: Ideal for linguistic analysis, enhancing consistency in language pr
 Sample Prompt: "Convert 'running', 'ran', and 'runner' to their root form 'run'."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Stemming and Lemmatization?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Stemming and Lemmatization?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "List synonyms for 'happy'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List synonyms for 'happy'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Change 'better', 'best' to 'good'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Change 'better', 'best' to 'good'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What is the capital of Italy?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What is the capital of Italy?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Describe the process of evaporation."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Describe the process of evaporation."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 5. Domain-Specific Language
@@ -223,29 +215,27 @@ When to Use: Suitable when dealing with topics requiring technical knowledge or 
 Sample Prompt: "Using medical terminology, explain the symptoms of diabetes."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Domain-Specific Language
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Domain-Specific Language
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Tell me a story about a knight and a dragon."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Tell me a story about a knight and a dragon."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Explain quantum entanglement in simple terms."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Explain quantum entanglement in simple terms."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Using legal terms, define 'contract law'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Using legal terms, define 'contract law'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What is the recipe for a chocolate cake?"
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "What is the recipe for a chocolate cake?"
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 6. Syntactic Cues
@@ -257,29 +247,27 @@ When to Use: Effective for structuring responses, teaching language patterns, or
 Sample Prompt: "In a bullet-point format, list the steps in photosynthesis."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Syntactic Cues?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Syntactic Cues?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "List the presidents of the USA in chronological order."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the presidents of the USA in chronological order."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Write a poem about the sea."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Write a poem about the sea."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "In five sentences, summarize World War II."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "In five sentences, summarize World War II."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What are the benefits of yoga?"
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "What are the benefits of yoga?"
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 7. Parallel Prompts
@@ -291,29 +279,27 @@ When to Use: Best suited for comparative studies, thematic analyses, or when eva
 Sample Prompt: "Compare 'night' and 'day' in separate but structurally similar sentences."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Parallel Prompts?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Parallel Prompts?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Describe the climate in Australia and then in Canada."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Describe the climate in Australia and then in Canada."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What are the rules of chess?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What are the rules of chess?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List all the planets in the Solar System."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List all the planets in the Solar System."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Write a story about a lost treasure."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Write a story about a lost treasure."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 8. Identity Assignation
@@ -325,29 +311,27 @@ When to Use: Useful for role-playing scenarios, expert simulations, or when a di
 Sample Prompt: "As a nutritionist, recommend a healthy meal plan for a day."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Identity Assignation?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Identity Assignation?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "What is the history of the Roman Empire?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What is the history of the Roman Empire?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "As a travel guide, suggest a one-week itinerary for Paris."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "As a travel guide, suggest a one-week itinerary for Paris."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Solve this algebra problem."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Solve this algebra problem."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Describe the life cycle of a butterfly."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Describe the life cycle of a butterfly."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 9. Multi-Turn Refinement
@@ -359,29 +343,27 @@ When to Use: Effective in collaborative tasks, refining ideas, or when initial r
 Sample Prompt: "Start by describing a basic concept. Then, I will ask follow-up questions to explore it in depth."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Multi-Turn Refinement?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Multi-Turn Refinement?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Explain the theory of relativity."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Explain the theory of relativity."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What are the main ingredients in a pizza?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What are the main ingredients in a pizza?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "First, give a brief overview of the French Revolution. I'll ask more after."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "First, give a brief overview of the French Revolution. I'll ask more after."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Write a haiku about spring."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Write a haiku about spring."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 10. Emotion and Tone Indicators
@@ -393,29 +375,27 @@ When to Use: Ideal for creative writing, customer service interactions, or when 
 Sample Prompt: "Write a motivational message in an uplifting tone."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Emotion and Tone Indicators?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Emotion and Tone Indicators?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "In a humorous tone, tell me about your day."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "In a humorous tone, tell me about your day."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the capitals of European countries."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the capitals of European countries."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Explain how a computer works."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Explain how a computer works."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What's the latest news in technology?"
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "What's the latest news in technology?"
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 11. Synonym Variation
@@ -427,29 +407,27 @@ When to Use: Effective for language teaching, enhancing vocabulary skills, or wh
 Sample Prompt: "Write about 'happiness', 'joy', and 'contentment', treating each as a unique concept."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Synonym Variation?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Synonym Variation?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Define 'liberty', 'freedom', and 'independence'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Define 'liberty', 'freedom', and 'independence'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Describe the process of photosynthesis."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Describe the process of photosynthesis."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What is the tallest mountain in the world?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What is the tallest mountain in the world?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Translate this sentence into French."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Translate this sentence into French."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 12. Anaphoric References
@@ -461,29 +439,27 @@ When to Use: Suitable for enhancing narrative coherence, practicing language ski
 Sample Prompt: "After explaining a concept, refer to it as 'this theory' in subsequent sentences."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Anaphoric References?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Anaphoric References?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Explain photosynthesis and its importance."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Explain photosynthesis and its importance."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "After discussing a novel, refer to its main character as 'he' or 'she'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "After discussing a novel, refer to its main character as 'he' or 'she'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the planets in our solar system."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the planets in our solar system."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Describe your favorite holiday."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Describe your favorite holiday."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 13. Time Constraints
@@ -495,29 +471,27 @@ When to Use: Particularly useful for historical analysis, discussing trends, or 
 Sample Prompt: "Describe the evolution of smartphones over the last 20 years."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Time Constraints?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Time Constraints?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Describe the evolution of transportation in the 20th century."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Describe the evolution of transportation in the 20th century."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the benefits of regular exercise."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the benefits of regular exercise."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What is the formula for calculating speed?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What is the formula for calculating speed?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Explain how to bake a cake."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Explain how to bake a cake."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 14. Scenario Setting
@@ -529,29 +503,27 @@ When to Use: Ideal for brainstorming, problem-solving, or when requiring creativ
 Sample Prompt: "Imagine you're a detective solving a mystery. How would you proceed?"
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Scenario Setting?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Scenario Setting?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Imagine you're an astronaut on Mars. Describe your day."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Imagine you're an astronaut on Mars. Describe your day."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Who was the first person to climb Mount Everest?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Who was the first person to climb Mount Everest?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the ingredients in a Margherita pizza."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the ingredients in a Margherita pizza."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What are the rules of soccer?"
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "What are the rules of soccer?"
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 15. Comparative and Contrastive Prompts
@@ -563,29 +535,27 @@ When to Use: Useful for analytical thinking, decision-making processes, and unde
 Sample Prompt: "Compare and contrast renewable and non-renewable energy sources."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Comparative and Contrastive Prompts?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Comparative and Contrastive Prompts?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Compare and contrast classical and modern music."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Compare and contrast classical and modern music."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Describe the water cycle."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Describe the water cycle."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What are the health benefits of yoga?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What are the health benefits of yoga?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Explain the process of photosynthesis."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Explain the process of photosynthesis."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 16. Problem-Solution Format
@@ -597,29 +567,27 @@ When to Use: Excellent for brainstorming, educational exercises, and scenarios w
 Sample Prompt: "Identify the main challenges of remote learning and suggest potential solutions."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Problem-Solution Format?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Problem-Solution Format?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "What are the causes of global warming and how can we mitigate them?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "What are the causes of global warming and how can we mitigate them?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Describe the process of photosynthesis."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Describe the process of photosynthesis."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the countries in South America."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the countries in South America."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Explain the rules of basketball."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Explain the rules of basketball."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 17. Explicit Reference
@@ -631,29 +599,27 @@ When to Use: Useful when analyzing specific references or citing sources for edu
 Sample Prompt: "Referring to Orwell's '1984', discuss the theme of surveillance."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Explicit Reference?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Explicit Reference?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        What is the capital of Japan?
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      What is the capital of Japan?
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Describe how a volcano erupts."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Describe how a volcano erupts."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the benefits of a balanced diet."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the benefits of a balanced diet."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Referring to Shakespeare's 'Hamlet', analyze the character of Ophelia."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="correct">
+      "Referring to Shakespeare's 'Hamlet', analyze the character of Ophelia."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 18. Feedback Loop Integration
@@ -665,29 +631,27 @@ When to Use: Ideal for collaborative tasks, refining ideas, or when the initial 
 Sample Prompt: "Provide feedback on each draft of the essay, and I'll revise accordingly."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Feedback Loop Integration?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Feedback Loop Integration?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "What is the theory of evolution?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What is the theory of evolution?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "How do you make scrambled eggs?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "How do you make scrambled eggs?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the planets in the solar system."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the planets in the solar system."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Give me different versions of this story, and I'll tell you what to change each time."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="correct">
+      "Give me different versions of this story, and I'll tell you what to change each time."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 19. User-Generated Examples
@@ -699,29 +663,27 @@ When to Use: Great for personalized learning, enhancing user engagement, and cre
 Sample Prompt: "Give me an example of a time you felt happy, and I'll analyze its emotional components."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of User-Generated Examples?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of User-Generated Examples?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Tell me about a memorable vacation and I'll describe the cultural aspects."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Tell me about a memorable vacation and I'll describe the cultural aspects."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What is the distance between the Earth and the Moon?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What is the distance between the Earth and the Moon?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the functions of the human heart."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the functions of the human heart."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Explain Newton's laws of motion."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Explain Newton's laws of motion."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 20. Conditional and Hypothetical Scenarios
@@ -733,29 +695,27 @@ When to Use: Useful for exploring possibilities, creative writing, and decision-
 Sample Prompt: "If humans could live on Mars, how would society be structured?"
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Conditional and Hypothetical Scenarios?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Conditional and Hypothetical Scenarios?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "If you could travel back in time, where would you go and why?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "If you could travel back in time, where would you go and why?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Describe the process of photosynthesis."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Describe the process of photosynthesis."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What are the benefits of meditation?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What are the benefits of meditation?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the countries in Africa."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the countries in Africa."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 21. Instructional Prompts
@@ -767,29 +727,27 @@ When to Use: Ideal for educational content, DIY guides, or scenarios requiring p
 Sample Prompt: "Explain how to bake a chocolate cake from scratch."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Instructional Prompts?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Instructional Prompts?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "What is the capital of Canada?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What is the capital of Canada?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the works of William Shakespeare."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the works of William Shakespeare."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Describe how to change a tire on a car."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Describe how to change a tire on a car."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Explain the theory of general relativity."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Explain the theory of general relativity."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 22. Metaphorical Language
@@ -801,29 +759,27 @@ When to Use: Excellent for creative writing, making abstract concepts tangible, 
 Sample Prompt: "Describe the internet as if it were a vast ocean."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Metaphorical Language?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Metaphorical Language?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Explain the rules of baseball."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Explain the rules of baseball."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the countries in Europe."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the countries in Europe."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What is the process of evaporation?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "What is the process of evaporation?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Imagine the stock market as a rollercoaster. Describe its ups and downs."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="correct">
+      "Imagine the stock market as a rollercoaster. Describe its ups and downs."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 23. Opinion-Driven Prompts
@@ -835,29 +791,27 @@ When to Use: Useful for generating discussions, exploring subjective topics, or 
 Sample Prompt: "What is your opinion on the impact of social media on communication?"
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Opinion-Driven Prompts?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Opinion-Driven Prompts?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "How does a refrigerator work?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "How does a refrigerator work?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "What are the pros and cons of online education?"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "What are the pros and cons of online education?"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the major rivers in Asia."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the major rivers in Asia."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Who was the first person to walk on the moon?"
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Who was the first person to walk on the moon?"
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 24. Collaborative Storytelling
@@ -869,29 +823,27 @@ When to Use: Great for creative exercises, language learning, and engaging story
 Sample Prompt: "I'll start a story about a mysterious island. You continue from where I leave off."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Collaborative Storytelling?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Collaborative Storytelling?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Describe the life cycle of a frog."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Describe the life cycle of a frog."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "List the elements on the periodic table."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "List the elements on the periodic table."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Continue the story: A young girl discovers a secret garden…"
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Continue the story: A young girl discovers a secret garden…"
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "What is the formula for calculating area?"
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "What is the formula for calculating area?"
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 ### Text to Text AI in Summary
@@ -917,29 +869,27 @@ When to Use: Ideal when specific elements need prominence in the generated image
 Sample Prompt: "Create an image of a 'sunny, crowded beach' emphasizing 'sunny'."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Word Weighting?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Word Weighting?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Generate an image of a 'large, ancient tree' focusing on 'ancient'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Generate an image of a 'large, ancient tree' focusing on 'ancient'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a landscape with mountains and a river."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a landscape with mountains and a river."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate a bustling city street."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate a bustling city street."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a logo for a tech company."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a logo for a tech company."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 2. Dataset-Informed Reference Cues
@@ -951,29 +901,27 @@ When to Use: Useful when the desired image requires specific details or styles k
 Sample Prompt: "Create an image in the style of a 19th-century landscape painting, as found in your dataset."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Dataset-Informed Reference Cues?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Dataset-Informed Reference Cues?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a simple geometric shape."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a simple geometric shape."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a futuristic car."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a futuristic car."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate an abstract concept like happiness."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate an abstract concept like happiness."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Generate an image in a cubist style, similar to Picasso's known works."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="correct">
+      "Generate an image in a cubist style, similar to Picasso's known works."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 3. Sensorial Language
@@ -985,29 +933,27 @@ When to Use: Best used when the goal is to create images that evoke specific sen
 Sample Prompt: "Generate an image of a 'lush, fragrant rose garden at sunrise'."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Sensorial Language?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Sensorial Language?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a circle."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a circle."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Create an image of a 'warm, cozy, candle-lit room'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Create an image of a 'warm, cozy, candle-lit room'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate the concept of speed."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate the concept of speed."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a minimalist poster."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a minimalist poster."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 4. Contextual Anchoring
@@ -1019,29 +965,27 @@ When to Use: Effective when a detailed background or setting is crucial to the i
 Sample Prompt: "Create an image of a 'busy New York street in the 1920s'."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Contextual Anchoring?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Contextual Anchoring?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a red apple."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a red apple."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate a concept of innovation."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate a concept of innovation."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Generate an image of 'a small village in the Swiss Alps'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Generate an image of 'a small village in the Swiss Alps'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a logo with geometric shapes."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a logo with geometric shapes."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 5. Emotional Resonance
@@ -1053,29 +997,27 @@ When to Use: Ideal for artistic projects where conveying a particular emotion or
 Sample Prompt: "Generate an image that evokes a feeling of 'nostalgia and warmth'."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Emotional Resonance?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Emotional Resonance?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Create an image that embodies 'serenity and peace'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Create an image that embodies 'serenity and peace'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a square."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a square."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate the process of photosynthesis."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate the process of photosynthesis."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a corporate logo."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a corporate logo."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 6. Historical Accuracy
@@ -1087,29 +1029,27 @@ When to Use: Useful in educational settings, historical recreations, or when fac
 Sample Prompt: "Create an image depicting 'a typical street scene in Victorian London'."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Historical Accuracy?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Historical Accuracy?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a contemporary fashion outfit."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a contemporary fashion outfit."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Generate an image of 'an ancient Roman marketplace'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Generate an image of 'an ancient Roman marketplace'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a modern city skyline."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a modern city skyline."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate a futuristic space station."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate a futuristic space station."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 7. Symbolic Representation
@@ -1121,29 +1061,27 @@ When to Use: Suitable for conceptual art, thematic illustrations, or when the im
 Sample Prompt: "Generate an image representing 'freedom' using the symbol of a bird in flight."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Symbolic Representation?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Symbolic Representation?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a house."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a house."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate the concept of gravity."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate the concept of gravity."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Create an image symbolizing 'hope' with a rising sun."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Create an image symbolizing 'hope' with a rising sun."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a straightforward street sign."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a straightforward street sign."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 8. Abstract Conceptualization
@@ -1155,29 +1093,27 @@ When to Use: Ideal for generating creative and unconventional images that repres
 Sample Prompt: "Create an image that visualizes the concept of 'time passing'."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Abstract Conceptualization?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Abstract Conceptualization?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Generate an image visualizing 'the feeling of joy'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Generate an image visualizing 'the feeling of joy'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a tree."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a tree."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate a historical event."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate a historical event."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a logo for a sports brand."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a logo for a sports brand."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 9. Composite Imagery
@@ -1189,29 +1125,27 @@ When to Use: Great for storytelling through images, creating rich visual narrati
 Sample Prompt: "Create an image that combines elements of 'a futuristic city' and 'nature thriving'."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Composite Imagery?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Composite Imagery?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a portrait of a person."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a portrait of a person."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate a basic geometric shape."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate a basic geometric shape."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Generate an image that blends 'ancient architecture' and 'modern technology'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Generate an image that blends 'ancient architecture' and 'modern technology'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a business card."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a business card."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 10. Genre-Specific Elements
@@ -1223,29 +1157,27 @@ When to Use: Useful for creating images that align with specific artistic genres
 Sample Prompt: "Create an image in the style of a Gothic horror scene."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Genre-Specific Elements?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Genre-Specific Elements?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a cat."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a cat."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Generate an image in the style of a romantic comedy movie scene."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Generate an image in the style of a romantic comedy movie scene."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate a basic mathematical equation."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate a basic mathematical equation."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a corporate logo."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a corporate logo."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 11. Scale and Proportion
@@ -1257,29 +1189,27 @@ When to Use: Ideal for artistic expressions, highlighting contrasts, or when exa
 Sample Prompt: "Generate an image of a tiny elephant standing next to a giant flower."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Scale and Proportion?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Scale and Proportion?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Create an image of a small human holding a gigantic pencil."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Create an image of a small human holding a gigantic pencil."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a mountain."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a mountain."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate a river flowing through a forest."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate a river flowing through a forest."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a minimalist book cover."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a minimalist book cover."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 12. Mood and Atmosphere
@@ -1291,29 +1221,27 @@ When to Use: Effective for setting the tone of an image, in storytelling, or whe
 Sample Prompt: "Create an image of a mysterious, fog-covered forest at dusk."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Mood and Atmosphere?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Mood and Atmosphere?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a computer."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a computer."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate a busy city intersection."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate a busy city intersection."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a straightforward instructional diagram."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a straightforward instructional diagram."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Generate an image of a serene and peaceful beach at sunrise."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="correct">
+      "Generate an image of a serene and peaceful beach at sunrise."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 13. Color Theory Application
@@ -1325,29 +1253,27 @@ When to Use: Ideal for artistic projects where color plays a key role in the ove
 Sample Prompt: "Create an image with a calming palette of cool blues and greens."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Color Theory Application?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Color Theory Application?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a black and white portrait."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a black and white portrait."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Generate an image with vibrant, contrasting colors to evoke excitement."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Generate an image with vibrant, contrasting colors to evoke excitement."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate a simple landscape."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate a simple landscape."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a monochrome logo."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a monochrome logo."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 14. Intertextual References
@@ -1359,29 +1285,27 @@ When to Use: Suitable for projects where intertextuality adds depth or when enga
 Sample Prompt: "Create an image inspired by Van Gogh's 'Starry Night' and the poetry of Emily Dickinson."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Intertextual References?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Intertextual References?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a modern furniture catalog."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a modern furniture catalog."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate the process of evaporation."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate the process of evaporation."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a simple still life."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a simple still life."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Generate an image blending themes from '1984' by George Orwell and 'Brave New World' by Aldous Huxley."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="correct">
+      "Generate an image blending themes from '1984' by George Orwell and 'Brave New World' by Aldous Huxley."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 #### 15. Narrative Elements
@@ -1393,29 +1317,27 @@ When to Use: Great for illustrative storytelling, creating book covers, or when 
 Sample Prompt: "Create an image of a 'secret door hidden behind a bookshelf, leading to an unknown world'."
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice>
-      <Quiz.Question>
-        Which prompt is an example of Narrative Elements?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Which prompt is an example of Narrative Elements?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        "Draw a circle."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Draw a circle."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "Generate an image showing 'a key mysteriously appearing in an old, forgotten drawer'."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "Generate an image showing 'a key mysteriously appearing in an old, forgotten drawer'."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Illustrate a mathematical formula."
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "Illustrate a mathematical formula."
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "Design a logo for a bakery."
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      "Design a logo for a bakery."
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 ### AI image generation techniques in Summary

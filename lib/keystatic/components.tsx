@@ -12,6 +12,7 @@ import {
 	InfoIcon,
 	LinkIcon,
 	ListIcon,
+	MessageCircleQuestionIcon,
 	SquareIcon,
 	SuperscriptIcon,
 	VideoIcon,
@@ -287,6 +288,104 @@ export const createLinkButton = createComponent((paths, locale) => {
 
 				return <LinkButtonPreview link={value.link}>{children}</LinkButtonPreview>;
 			},
+		}),
+	};
+});
+
+export const createQuiz = createComponent((_paths, _locale) => {
+	return {
+		Quiz: repeating({
+			label: "Quiz",
+			description: "An interactive quiz.",
+			icon: <MessageCircleQuestionIcon />,
+			children: ["QuizChoice", "QuizTextInput"],
+			validation: { children: { min: 1 } },
+			schema: {},
+		}),
+		QuizChoice: repeating({
+			label: "Choice quiz",
+			description: "A single or multiple choice quiz.",
+			icon: <MessageCircleQuestionIcon />,
+			forSpecificLocations: true,
+			children: [
+				"QuizChoiceQuestion",
+				"QuizChoiceAnswer",
+				"QuizSuccessMessage",
+				"QuizErrorMessage",
+			],
+			validation: { children: { min: 1 } },
+			schema: {
+				variant: fields.select({
+					label: "Variant",
+					options: [
+						{ label: "Single choice", value: "single" },
+						{ label: "Multiple choice", value: "multiple" },
+					],
+					defaultValue: "multiple",
+				}),
+				buttonLabel: fields.text({
+					label: "Button label",
+					description: "Custom label for 'Check answer' button.",
+					validation: { isRequired: false },
+				}),
+			},
+		}),
+		QuizChoiceAnswer: wrapper({
+			label: "Answer",
+			description: "An answer in a single/multiple choice quiz.",
+			icon: <MessageCircleQuestionIcon />,
+			forSpecificLocations: true,
+			schema: {
+				kind: fields.select({
+					label: "Kind",
+					options: [
+						{ label: "Correct", value: "correct" },
+						{ label: "Incorrect", value: "incorrect" },
+					],
+					defaultValue: "incorrect",
+				}),
+			},
+			ContentView(props) {
+				const { children, value } = props;
+
+				return (
+					<div>
+						<NotEditable>
+							{/* eslint-disable-next-line react/jsx-no-literals */}
+							{value.kind === "correct" ? "Correct" : "Incorrect"} answer:
+						</NotEditable>
+						{children}
+					</div>
+				);
+			},
+		}),
+		QuizChoiceQuestion: wrapper({
+			label: "Question",
+			description: "A question in a single/multiple choice quiz.",
+			icon: <MessageCircleQuestionIcon />,
+			forSpecificLocations: true,
+			schema: {},
+		}),
+		QuizErrorMessage: wrapper({
+			label: "Quiz error message",
+			description: "Help text for incorrect answers.",
+			icon: <MessageCircleQuestionIcon />,
+			forSpecificLocations: true,
+			schema: {},
+		}),
+		QuizSuccessMessage: wrapper({
+			label: "Quiz success message",
+			description: "Help text for correct answers.",
+			icon: <MessageCircleQuestionIcon />,
+			forSpecificLocations: true,
+			schema: {},
+		}),
+		QuizTextInput: wrapper({
+			label: "Text input quiz.",
+			description: "A text input quiz.",
+			icon: <MessageCircleQuestionIcon />,
+			forSpecificLocations: true,
+			schema: {},
 		}),
 	};
 });

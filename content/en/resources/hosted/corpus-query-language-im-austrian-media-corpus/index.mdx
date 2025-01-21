@@ -170,93 +170,87 @@ Typischerweise finden sich in den Attributen des `<doc>`-Elements die Metadaten 
 ### Quiz
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        Welche der Aussagen treffen auf den Begriff "Token" zu?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Welche der Aussagen treffen auf den Begriff "Token" zu?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Einem Token können zusätzliche Informationen in Form von Attributen zugeordnet werden.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Einem Token können zusätzliche Informationen in Form von Attributen zugeordnet werden.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Ein Token ist eine linguistisch sinnvolle Einheit.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Ein Token ist eine linguistisch sinnvolle Einheit.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Abkürzungen enthalten als Token auch Satzzeichen und dürfen nicht von diesen getrennt werden.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Abkürzungen enthalten als Token auch Satzzeichen und dürfen nicht von diesen getrennt werden.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Satzzeichen bilden eigene Token.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Satzzeichen bilden eigene Token.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        Ein Token ist ein orthographisches Wort.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Ein Token ist ein orthographisches Wort.
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        Richtig! Meistens sind orthographische Worte auch Token, aber auch Satzzeichen und Abkürzungen werden zu Token.
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Richtig! Meistens sind orthographische Worte auch Token, aber auch Satzzeichen und Abkürzungen werden zu Token.
+    </QuizErrorMessage>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        Welche Informationen können aus Token-Attributen nicht erlesen werden?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Welche Informationen können aus Token-Attributen nicht erlesen werden?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Angaben zum Autor/ zur Autorin des Textes
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Angaben zum Autor/ zur Autorin des Textes
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        Angaben zur Morphologie eines Tokens
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Angaben zur Morphologie eines Tokens
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Angaben zu synonymer Verwendung des Tokens
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Angaben zu synonymer Verwendung des Tokens
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        Angaben zum Lemma des Tokens
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Angaben zum Lemma des Tokens
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="incorrect">
-        Token-Attribute beschreiben einzelne Token näher, nicht den gesamten Text, in dem die Token vorkommen.
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Token-Attribute beschreiben einzelne Token näher, nicht den gesamten Text, in dem die Token vorkommen.
+    </QuizErrorMessage>
 
-      <Quiz.Message type="correct">
-        Richtig!
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Richtig!
+    </QuizErrorMessage>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        Wählen Sie bitte die richtige Antwort aus.
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Wählen Sie bitte die richtige Antwort aus.
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        Das amc beinhaltet Zeitungsartikel aus österreichischen Printmedien.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Das amc beinhaltet Zeitungsartikel aus österreichischen Printmedien.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        Das amc ist eine Kooperation des ACDH-CH und der APA, die Texte für sprachwissenschaftliche Fragestellungen zur Verfügung stellt.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Das amc ist eine Kooperation des ACDH-CH und der APA, die Texte für sprachwissenschaftliche Fragestellungen zur Verfügung stellt.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        Das amc ist ein Textcorpus, das aufgrund der linguistischen Annotation mithilfe der NoSketch-Engine und der Corpus Query Language durchsucht werden kann.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Das amc ist ein Textcorpus, das aufgrund der linguistischen Annotation mithilfe der NoSketch-Engine und der Corpus Query Language durchsucht werden kann.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Alle genannten Antworten sind richtig.
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="correct">
+      Alle genannten Antworten sind richtig.
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 ## Schnelleinstieg: Suche mit "simple search"
@@ -368,153 +362,143 @@ verwendet werden, womit die Ausdrucksmächtigkeit und Flexibilität der Suche er
 ### Quiz
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        Mit welcher CQL-Abfrage könnten Sie im amc die Token "Wanze", "ganze", "Lanze", "tanze" finden?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Mit welcher CQL-Abfrage könnten Sie im amc die Token "Wanze", "ganze", "Lanze", "tanze" finden?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        `[lemma="*anze"]`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `[lemma="*anze"]`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `[word=".anze"]`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `[word=".anze"]`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `[word="*anze."]`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `[word="*anze."]`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `[word=".?anze"]`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `[word=".?anze"]`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `[lemma=".*anze"]`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `[lemma=".*anze"]`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `[lemma=".anze"]`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `[lemma=".anze"]`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `[word="*anze"]`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `[word="*anze"]`
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        Sehr gut!
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Sehr gut!
+    </QuizErrorMessage>
 
-      <Quiz.Message type="incorrect">
-        Achtung! Es sollen auch flektierte Formen gefunden werden. Nur das erste Zeichen des Ausdrucks ändert sich.
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Achtung! Es sollen auch flektierte Formen gefunden werden. Nur das erste Zeichen des Ausdrucks ändert sich.
+    </QuizErrorMessage>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        Warum können mit der Suche `[word=".anze"]`die Begriffe "Schanze", "Romanze" oder "Pflanze" nicht gefunden werden?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Warum können mit der Suche `[word=".anze"]`die Begriffe "Schanze", "Romanze" oder "Pflanze" nicht gefunden werden?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "." ersetzt nur 1 Zeichen.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "." ersetzt nur 1 Zeichen.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `[word=".anze"]` sucht nur nach flektierten Verben
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `[word=".anze"]` sucht nur nach flektierten Verben
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        Mit `[word=".anze"]` können nur klein geschriebene Worte in den Texten gefunden werden.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Mit `[word=".anze"]` können nur klein geschriebene Worte in den Texten gefunden werden.
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        Richtig!
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Richtig!
+    </QuizErrorMessage>
 
-      <Quiz.Message type="incorrect">
-        Wenn Sie z.B. die Begriffe "Schanze" und "Pflanze" suchen, müssen Sie den Ausdruck "." für jedes zu findende Zeichen eingeben.
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Wenn Sie z.B. die Begriffe "Schanze" und "Pflanze" suchen, müssen Sie den Ausdruck "." für jedes zu findende Zeichen eingeben.
+    </QuizErrorMessage>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        Wie kann die CQL-Abfrage nach einem Token aussehen, um Ausdrücke wie "sie sind wie Katz und Maus", "die Katze ist aus dem Sack", oder auch Texte zu "eine Katze wartet im Tierheim", oder auch zum "Nobelpreisträger Bernhard Katz" zu finden?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Wie kann die CQL-Abfrage nach einem Token aussehen, um Ausdrücke wie "sie sind wie Katz und Maus", "die Katze ist aus dem Sack", oder auch Texte zu "eine Katze wartet im Tierheim", oder auch zum "Nobelpreisträger Bernhard Katz" zu finden?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `[lemma="Katze*"]`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `[lemma="Katze*"]`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `[word="Katze."]`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `[word="Katze."]`
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        Richtig!
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Richtig!
+    </QuizErrorMessage>
 
-      <Quiz.Message type="incorrect">
-        Achtung, Sie möchten wissen, in welchen Ausdrücken das Token "Katze", "Katz" oder sogar "Katzee" vorkommt, aber nicht "Katzel", "Katzen", o.ä.
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Achtung, Sie möchten wissen, in welchen Ausdrücken das Token "Katze", "Katz" oder sogar "Katzee" vorkommt, aber nicht "Katzel", "Katzen", o.ä.
+    </QuizErrorMessage>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        Warum ist es möglich mit `[word="Hunde.+"]` die Ausdrücke "Hundertschaft" und "Hundezwinger" zu finden?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Warum ist es möglich mit `[word="Hunde.+"]` die Ausdrücke "Hundertschaft" und "Hundezwinger" zu finden?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "+" findet immer das vorangehende Zeichen, zumindest einmal.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "+" findet immer das vorangehende Zeichen, zumindest einmal.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        ".+" findet alle Ausdrücke, in denen sich ein beliebiges Zeichen beliebig oft, aber mindestens einmal wiederholt.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      ".+" findet alle Ausdrücke, in denen sich ein beliebiges Zeichen beliebig oft, aber mindestens einmal wiederholt.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        "+" findet Wiederholungen, die zumindest so lang sind wie der vorangehene Ausdruck.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      "+" findet Wiederholungen, die zumindest so lang sind wie der vorangehene Ausdruck.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        "." findet ein beliebiges Zeichen
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      "." findet ein beliebiges Zeichen
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        Richtig!
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Richtig!
+    </QuizErrorMessage>
 
-      <Quiz.Message type="incorrect">
-        Stellen Sie sicher,dass sie alle richtigen Antworten ausgewählt haben.
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Stellen Sie sicher,dass sie alle richtigen Antworten ausgewählt haben.
+    </QuizErrorMessage>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        Wie kann die CQL-Abfrage lauten, um "Pflanze", "Sprungschanze", "Wanze", "ganze", "Romanze" und "Landpomeranze" zu finden?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Wie kann die CQL-Abfrage lauten, um "Pflanze", "Sprungschanze", "Wanze", "ganze", "Romanze" und "Landpomeranze" zu finden?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `[word=".+anze"]`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `[word=".+anze"]`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `[word=".?anze"]`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `[word=".?anze"]`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `[word=".*anze"]`
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="correct">
+      `[word=".*anze"]`
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 ### Wiederholungen
@@ -607,81 +591,47 @@ Die bisherigen Beispiele lassen sich wie gezeigt auch mit der Verwendung von Gru
 ### Quiz
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="single">
-      <Quiz.Question>
-        Wie nennt man den Operator, mit dem eine Minimal und/ oder Maximalanzahl an Wiederholungen eines Ausdrucks festgelegt werden kann? Welche Zeichen werden genutzt?
-      </Quiz.Question>
+  <QuizChoice variant="single">
+    <QuizChoiceQuestion>
+      Wie nennt man den Operator, mit dem eine Minimal und/ oder Maximalanzahl an Wiederholungen eines Ausdrucks festgelegt werden kann? Welche Zeichen werden genutzt?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        strange Operator, `{ }`
-      </Quiz.MultipleChoice.Option>
+    <QuizErrorMessage>
+      Genau, der ranges Operator ist gesucht. In den Klammern stehen die Minimal-, und Maximalwerte.
+    </QuizErrorMessage>
 
-      <Quiz.MultipleChoice.Option>
-        length Operator, `[ ]`
-      </Quiz.MultipleChoice.Option>
+    <QuizErrorMessage>
+      Überlegen Sie noch einmal!
+    </QuizErrorMessage>
+  </QuizChoice>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        ranges Operator, `{ }`
-      </Quiz.MultipleChoice.Option>
+  <QuizChoice variant="single">
+    <QuizChoiceQuestion>
+      Die folgende Suche `[word="klima.{2,}" & posTT!="NN"]` liefert als Ergebnisse "klimatechnische", "klimatisierte", "klimabegünstigt", "klimabedingt", und "klimatisch". "Klimaschutz", "Klimagerät", "Klimawandelleugner" werden aber nicht gefunden. Warum?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        distance Operator, `[ ]`
-      </Quiz.MultipleChoice.Option>
+    <QuizErrorMessage>
+      Ganz genau! Beide Kriterien müssen vom Suchergebnis erfüllt werden.
+    </QuizErrorMessage>
 
-      <Quiz.Message type="correct">
-        Genau, der ranges Operator ist gesucht. In den Klammern stehen die Minimal-, und Maximalwerte.
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Überlegen Sie nochmal!
+    </QuizErrorMessage>
+  </QuizChoice>
 
-      <Quiz.Message type="incorrect">
-        Überlegen Sie noch einmal!
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Mit `[]` wird eine Auswahl an Zeichen definiert, sodass ein Suchergebnis oft der Verwendung von | gleich ist (zB `[word="h(o|a)se"]` und `[word="h[oa]se"]` liefern dasselbe Ergebnis). Warum muss eine gemeinsame Suche nach "Schlund" oder "Wund" dennoch `[word="(schl|w)und"]` lauten?
+    </QuizChoiceQuestion>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="single">
-      <Quiz.Question>
-        Die folgende Suche `[word="klima.{2,}" & posTT!="NN"]` liefert als Ergebnisse "klimatechnische", "klimatisierte", "klimabegünstigt", "klimabedingt", und "klimatisch". "Klimaschutz", "Klimagerät", "Klimawandelleugner" werden aber nicht gefunden. Warum?
-      </Quiz.Question>
+    <QuizChoiceAnswer kind="correct">
+      Ohne das logische ODER würde nach der gesamten Zeichenfolge gesucht werden.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        Die Worte "Klimaschutz", "Klimagerät", "Klimawandelleugner" überschreiten die Maximalanzahl an Wiederholungen nach dem Ausdruck "klima."
-      </Quiz.MultipleChoice.Option>
-
-      <Quiz.MultipleChoice.Option isCorrect>
-        Aufgrund des logischen UND müssen zwei Kriterien erfüllt sein:  der Ausdruck "klima." muss vorkommen, UND es darf durch TreeTagger nicht als Nomen markiert worden sein.
-      </Quiz.MultipleChoice.Option>
-
-      <Quiz.MultipleChoice.Option>
-        Aufgrund des logischen ODER können nur Treffer gefunden werden, die entweder das Wort "klima" beinhalten ODER aber Nomen sind. Bei zwei ausschließenden Kriterien wird immer nur das erste Kriterium unbedingt erfüllt.
-      </Quiz.MultipleChoice.Option>
-
-      <Quiz.Message type="correct">
-        Ganz genau! Beide Kriterien müssen vom Suchergebnis erfüllt werden.
-      </Quiz.Message>
-
-      <Quiz.Message type="incorrect">
-        Überlegen Sie nochmal!
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
-
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        Mit `[]` wird eine Auswahl an Zeichen definiert, sodass ein Suchergebnis oft der Verwendung von | gleich ist (zB `[word="h(o|a)se"]` und `[word="h[oa]se"]` liefern dasselbe Ergebnis). Warum muss eine gemeinsame Suche nach "Schlund" oder "Wund" dennoch `[word="(schl|w)und"]` lauten?
-      </Quiz.Question>
-
-      <Quiz.MultipleChoice.Option isCorrect>
-        Ohne das logische ODER würde nach der gesamten Zeichenfolge gesucht werden.
-      </Quiz.MultipleChoice.Option>
-
-      <Quiz.MultipleChoice.Option>
-        Im Anlaut eines Wortes muss immer mit logischem ODER gesucht werden.
-      </Quiz.MultipleChoice.Option>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizChoiceAnswer kind="incorrect">
+      Im Anlaut eines Wortes muss immer mit logischem ODER gesucht werden.
+    </QuizChoiceAnswer>
+  </QuizChoice>
 </Quiz>
 
 ## Regex auch auf Token-Ebene
@@ -713,65 +663,61 @@ z.B.: Suche nach dem Lemma "Hund" in dessen linker oder rechter Umgebung im maxi
 </Embed>
 
 <Quiz>
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        Sehen Sie sich das Sucheregbnis im Bild oben an. Wie könnte die Suchanfrage gelautet haben?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Sehen Sie sich das Sucheregbnis im Bild oben an. Wie könnte die Suchanfrage gelautet haben?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        `(meet [lemma="schützen"] [lemma="Klima|Kanzler"] -2 2)`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `(meet [lemma="schützen"] [lemma="Klima|Kanzler"] -2 2)`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        `(meet [lemma="schützen"] [lemma="Klima"] -5 5)`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      `(meet [lemma="schützen"] [lemma="Klima"] -5 5)`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `(meet [lemma="schützen"] [lemma="Klima"])`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `(meet [lemma="schützen"] [lemma="Klima"])`
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        `([lemma="schützen"] [lemma="Klima|Kanzler"] -2 2)`
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      `([lemma="schützen"] [lemma="Klima|Kanzler"] -2 2)`
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        Sehr gut!
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Sehr gut!
+    </QuizErrorMessage>
 
-      <Quiz.Message type="incorrect">
-        Überprüfen Sie , ob der Suchausdruck vollständig ist!
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Überprüfen Sie , ob der Suchausdruck vollständig ist!
+    </QuizErrorMessage>
+  </QuizChoice>
 
-  <Quiz.Card>
-    <Quiz.MultipleChoice variant="multiple">
-      <Quiz.Question>
-        Welche der Aussagen ist falsch?
-      </Quiz.Question>
+  <QuizChoice variant="multiple">
+    <QuizChoiceQuestion>
+      Welche der Aussagen ist falsch?
+    </QuizChoiceQuestion>
 
-      <Quiz.MultipleChoice.Option>
-        Mit meet kann im linken und rechten Kontext eines Ausdrucks gesucht werden.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Mit meet kann im linken und rechten Kontext eines Ausdrucks gesucht werden.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option>
-        Die Nachbarschaft, in der gesucht wird, kann für den linken und rechten Kontext separat festgelegt werden.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="incorrect">
+      Die Nachbarschaft, in der gesucht wird, kann für den linken und rechten Kontext separat festgelegt werden.
+    </QuizChoiceAnswer>
 
-      <Quiz.MultipleChoice.Option isCorrect>
-        Durch das Nutzen von RegEx können auch Suchen auf der Bedeutungsebene im AMC durchgeführt werden.
-      </Quiz.MultipleChoice.Option>
+    <QuizChoiceAnswer kind="correct">
+      Durch das Nutzen von RegEx können auch Suchen auf der Bedeutungsebene im AMC durchgeführt werden.
+    </QuizChoiceAnswer>
 
-      <Quiz.Message type="correct">
-        Richtig, bei RegEx sind keine semantischen Tags hinterlegt.
-      </Quiz.Message>
+    <QuizErrorMessage>
+      Richtig, bei RegEx sind keine semantischen Tags hinterlegt.
+    </QuizErrorMessage>
 
-      <Quiz.Message type="incorrect">
-        Doch, das ist korrekt.
-      </Quiz.Message>
-    </Quiz.MultipleChoice>
-  </Quiz.Card>
+    <QuizErrorMessage>
+      Doch, das ist korrekt.
+    </QuizErrorMessage>
+  </QuizChoice>
 </Quiz>
 
 ## Suche auf Strukturebene in CQL
