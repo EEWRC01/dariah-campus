@@ -239,7 +239,7 @@ export const createEvents = createCollection("/resources/events/", (paths, local
 		format: { contentField: "content" },
 		slugField: "title",
 		columns: ["title"],
-		entryLayout: "content",
+		entryLayout: "form",
 		previewUrl: createPreviewUrl("/resources/events/{slug}"),
 		schema: {
 			title: fields.slug({

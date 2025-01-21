@@ -16,18 +16,23 @@ import toMarkdown from "remark-stringify";
 import { read } from "to-vfile";
 import { unified } from "unified";
 import { SKIP, visit } from "unist-util-visit";
+import { VFile } from "vfile";
 import { matter } from "vfile-matter";
 import * as YAML from "yaml";
 
 import { contentTypes, type SocialMediaKind } from "@/lib/keystatic/options";
 
+import _organisations from "../organisations.json";
 import _uuid from "../uuid.json";
+
+const comps = new Set<string>();
 
 const publicFolder = join(process.cwd(), "public");
 const sourceFolder = join(process.cwd(), "content-source");
 const contentFolder = join(process.cwd(), "content");
 
 const uuid = new Map<string, string>(_uuid);
+const organisations = new Map<string, { name: string; url: string; logo: string }>(_organisations);
 
 function sanitize(input: string) {
 	return slugify(input);
@@ -52,7 +57,7 @@ interface EventSource {
 	prep: string;
 
 	partners?: Array<string>;
-	social: Array<{ discriminant: string; value: string }>;
+	social: Record<string, string>;
 
 	synthesis?: string;
 	sessions: Array<{
@@ -1663,11 +1668,34 @@ async function migrateEvents(
 					return person;
 				}) ?? [],
 			organisations:
-				metadata.partners?.map((o) => {
+				metadata.partners?.map((id) => {
+					const org = organisations.get(`${id}.yml`);
+					assert(org, `Missing org ${id}`);
+
+					const logo = org.logo;
+
+					const outputImageFolder = join(
+						publicFolder,
+						"assets",
+						"content",
+						"assets",
+						"en",
+						"resources",
+						"events",
+						outputSlug,
+					);
+					mkdirSync(outputImageFolder, { recursive: true });
+					const outFilePath = join(
+						outputImageFolder,
+						slugify(basename(logo), { preserveCharacters: ["."] }),
+					);
+
+					copyFileSync(logo, outFilePath);
+
 					return {
-						name: "",
-						url: "",
-						logo: "",
+						name: org.name,
+						url: org.url,
+						logo: `/${relative(publicFolder, outFilePath)}`,
 					};
 				}) ?? [],
 			tags: metadata.tags.map((id) => {
@@ -1689,7 +1717,9 @@ async function migrateEvents(
 				content: metadata.abstract,
 			},
 			license: "ccby-4.0",
-			social: metadata.social,
+			social: Object.entries(metadata.social ?? {}).map(([discriminant, value]) => {
+				return { discriminant, value };
+			}),
 			attachments: [],
 			links: [],
 			"table-of-contents": false,
@@ -1752,7 +1782,7 @@ async function migrateEvents(
 		}
 
 		for (const [index, session] of metadata.sessions.entries()) {
-			const sessionFolder = join(outputFolder, "sessions", index);
+			const sessionFolder = join(outputFolder, "sessions", String(index));
 			await mkdir(sessionFolder, { recursive: true });
 			const sessionFilePath = join(sessionFolder, "content.mdx");
 
@@ -1785,7 +1815,7 @@ async function migrateEvents(
 						"events",
 						outputSlug,
 						"sessions",
-						index,
+						String(index),
 					);
 					await mkdir(outputImageFolder, { recursive: true });
 					const outputImageFilePath = join(
@@ -1802,12 +1832,294 @@ async function migrateEvents(
 
 			frontmatter.sessions.push({
 				title,
+				speakers,
 				attachments,
 				links,
+				presentations: [],
 			});
 
-			// TODO:
+			const processor = unified()
+				.use(fromMarkdown)
+				.use(withGfm)
+				.use(withMdx)
+				.use(() => {
+					return function transform(tree) {
+						visit(tree, "mdxJsxFlowElement", (node, index, parent) => {
+							assert(index != null);
+							assert(parent != null);
+
+							assert(node.name != null);
+
+							switch (node.name) {
+								case "Download": {
+									const url = node.attributes.find((attribute) => {
+										return (attribute as MdxJsxAttribute).name === "url";
+									})?.value as string | undefined;
+
+									const title =
+										(node.attributes.find((attribute) => {
+											return (attribute as MdxJsxAttribute).name === "title";
+										})?.value as string | undefined) ?? "Download";
+
+									assert(url, `Missing url attribute on <Download> (${entry.name}).`);
+
+									const sourceFilePath = join(folder, url);
+									const targetFolderPath = join(
+										publicFolder,
+										"assets",
+										"content",
+										"downloads",
+										"en",
+										"resources",
+										"events",
+										outputSlug,
+										"sessions",
+										String(index),
+									);
+									mkdirSync(targetFolderPath, { recursive: true });
+									const targetFilePath = join(targetFolderPath, slugify(url));
+									copyFileSync(sourceFilePath, targetFilePath);
+
+									const link = {
+										discriminant: "download",
+										value: `/${relative(publicFolder, targetFilePath)}`,
+									};
+
+									const newNode: MdxJsxTextElement = {
+										type: "mdxJsxTextElement",
+										name: "Link",
+										attributes: [
+											{
+												type: "mdxJsxAttribute",
+												name: "link",
+												value: {
+													type: "mdxJsxAttributeValueExpression",
+													value: JSON.stringify(link),
+													data: {
+														estree: {
+															type: "Program",
+															body: [
+																{
+																	type: "ExpressionStatement",
+																	expression: valueToEstree(link),
+																},
+															],
+															sourceType: "module",
+															comments: [],
+														},
+													},
+												},
+											},
+										],
+										children: [{ type: "text", value: title }],
+									};
+
+									parent.children.splice(index, 1, newNode);
+
+									break;
+								}
+
+								case "Link": {
+									const label =
+										node.attributes.find((a) => {
+											return a.name === "label";
+										})?.value ?? "Link";
+									const href = node.attributes.find((a) => {
+										return a.name === "href";
+									})?.value;
+
+									assert(label, "Missing label");
+									assert(href, "Missing href");
+
+									const link = {
+										discriminant: "external",
+										value: href,
+									};
+
+									const newNode: MdxJsxTextElement = {
+										type: "mdxJsxTextElement",
+										name: "Link",
+										attributes: [
+											{
+												type: "mdxJsxAttribute",
+												name: "link",
+												value: {
+													type: "mdxJsxAttributeValueExpression",
+													value: JSON.stringify(link),
+													data: {
+														estree: {
+															type: "Program",
+															body: [
+																{
+																	type: "ExpressionStatement",
+																	expression: valueToEstree(link),
+																},
+															],
+															sourceType: "module",
+															comments: [],
+														},
+													},
+												},
+											},
+										],
+										children: [{ type: "text", value: label }],
+									};
+
+									parent.children.splice(index, 1, newNode);
+
+									break;
+								}
+
+								case "Speaker": {
+									comps.add(node.name);
+
+									break;
+								}
+
+								case "Speakers": {
+									comps.add(node.name);
+
+									break;
+								}
+
+								case "Video": {
+									const provider = node.attributes.find((a) => {
+										return a.name === "provider";
+									})?.value;
+									const id = node.attributes.find((a) => {
+										return a.name === "id";
+									})?.value;
+									const caption = node.attributes.find((a) => {
+										return a.name === "caption";
+									})?.value;
+									const startTime = node.attributes.find((a) => {
+										return a.name === "startTime";
+									})?.value;
+
+									const attributes: Array<MdxJsxAttribute> = [
+										{ type: "mdxJsxAttribute", name: "provider", value: provider ?? "youtube" },
+										{ type: "mdxJsxAttribute", name: "id", value: id },
+									];
+
+									if (startTime) {
+										attributes.push({
+											type: "mdxJsxAttribute",
+											name: "startTime",
+											value: {
+												type: "mdxJsxAttributeValueExpression",
+												value: String(startTime),
+												data: {
+													estree: {
+														type: "Program",
+														sourceType: "module",
+														comments: [],
+														body: [
+															{
+																type: "ExpressionStatement",
+																expression: { type: "Literal", value: Number(startTime) },
+															},
+														],
+													},
+												},
+											},
+										});
+									}
+
+									if (caption && node.children.length) {
+										throw new Error(`Both caption and children: ${entry.name}`);
+									}
+
+									const newNode: MdxJsxFlowElement = {
+										type: "mdxJsxFlowElement",
+										name: "Video",
+										attributes,
+										children: caption ? [{ type: "text", value: caption }] : (node.children ?? []),
+									};
+
+									parent.children.splice(index, 1, newNode);
+
+									break;
+								}
+
+								case "YouTube": {
+									const id = node.attributes.find((a) => {
+										return a.name === "id";
+									})?.value;
+									const caption = node.attributes.find((a) => {
+										return a.name === "caption";
+									})?.value;
+									const startTime = node.attributes.find((a) => {
+										return a.name === "startTime";
+									})?.value;
+
+									const attributes: Array<MdxJsxAttribute> = [
+										{ type: "mdxJsxAttribute", name: "provider", value: "youtube" },
+										{ type: "mdxJsxAttribute", name: "id", value: id },
+									];
+
+									if (startTime) {
+										attributes.push({
+											type: "mdxJsxAttribute",
+											name: "startTime",
+											value: {
+												type: "mdxJsxAttributeValueExpression",
+												value: String(startTime),
+												data: {
+													estree: {
+														type: "Program",
+														sourceType: "module",
+														comments: [],
+														body: [
+															{
+																type: "ExpressionStatement",
+																expression: { type: "Literal", value: Number(startTime) },
+															},
+														],
+													},
+												},
+											},
+										});
+									}
+
+									const newNode: MdxJsxFlowElement = {
+										type: "mdxJsxFlowElement",
+										name: "Video",
+										attributes,
+										children: caption ? [{ type: "text", value: caption }] : [],
+									};
+
+									parent.children.splice(index, 1, newNode);
+
+									break;
+								}
+							}
+						});
+					};
+				})
+				.use(toMarkdown, {
+					bullet: "*",
+					emphasis: "*",
+					rule: "-",
+					strong: "*",
+				});
+
+			const vfile = new VFile({ value: content });
+			const out = await processor.process(vfile);
+			await writeFile(sessionFilePath, String(out), { encoding: "utf-8" });
 		}
+
+		const processor = unified().use(fromMarkdown).use(withGfm).use(withMdx).use(toMarkdown, {
+			bullet: "*",
+			emphasis: "*",
+			rule: "-",
+			strong: "*",
+		});
+
+		const out = await processor.process(vfile);
+		const content = String(out);
+		const output = `---\n${YAML.stringify(frontmatter)}---\n${content}`;
+
+		await writeFile(outputFilePath, output, { encoding: "utf-8" });
 	}
 
 	await writeFile("events.json", JSON.stringify(Array.from(map.entries())), {
@@ -1824,6 +2136,8 @@ async function migrate() {
 	const resources = await migrateResources(people, tags, sources);
 	const events = await migrateEvents(people, tags, sources);
 	const curricula = await migrateCurricula(people, tags, sources, resources);
+
+	console.log(Array.from(comps));
 }
 
 migrate()
@@ -1831,5 +2145,5 @@ migrate()
 		log.success("Successfully migrated content.");
 	})
 	.catch((error: unknown) => {
-		log.error("Failed to migrate content.\n", String(error));
+		log.error("Failed to migrate content.\n", String(error), error);
 	});
