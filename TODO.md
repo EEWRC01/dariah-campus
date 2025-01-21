@@ -32,3 +32,5 @@
 - introduction-to-dictionary-users: get rid of `<ul>` in table
 
 - iframe sandbox
+
+- ensure legacy ids redirect with 308

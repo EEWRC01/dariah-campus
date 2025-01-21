@@ -4,6 +4,7 @@
 
 - dropped pathfinders from sources
 - dropped events from sources
+- dropped host field
 
 ### people
 
@@ -15,12 +16,14 @@
 - moved "domain" and "targetGroup" to shared-metadata
 - dropped draft field
 - drop pathfinders from sources and from content-type
+- dropped uuids
 
 ### events
 
 - dropped events from sources
 - dropped events "logo" field
 - clarify "eventType" field
+- dropped speaker.description
 
 ---
 
