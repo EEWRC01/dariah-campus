@@ -2134,7 +2134,7 @@ async function migrate() {
 	const tags = await migrateTags();
 	const sources = await migrateSources();
 	const resources = await migrateResources(people, tags, sources);
-	const events = await migrateEvents(people, tags, sources);
+	// const events = await migrateEvents(people, tags, sources);
 	const curricula = await migrateCurricula(people, tags, sources, resources);
 
 	console.log(Array.from(comps));
