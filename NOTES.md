@@ -24,6 +24,8 @@
 - dropped events "logo" field
 - clarify "eventType" field
 - dropped speaker.description
+- drop "prep", move "about" to markdown body, move current markdown body to "location" and
+  "start-date"
 
 ---
 
